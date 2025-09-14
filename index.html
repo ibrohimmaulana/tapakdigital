@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
@@ -6,179 +6,68 @@
 <title>Gudang Digital</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-  body { scroll-behavior: smooth; background: #050D0F; color: #fff; }
+  body { background: #111; color: #fff; overflow-x: hidden; }
 
-  h1, h2, h3 { margin-bottom: 20px; font-weight: 600; }
-  p { margin-bottom: 15px; line-height: 1.6; }
+  section { height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; }
 
-  /* BUTTON STYLING */
-  .btn {
-    display: inline-block;
-    padding: 10px 24px;
-    border: none;
-    border-radius: 25px;
-    background: #DD0426;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 95, 95, 0.3);
-  }
-  .btn:hover {
-    background: #fff;
-    color: #000;
-    box-shadow: 0 0 20px 4px rgba(255, 255, 255, 0.7);
-    transform: translateY(-3px);
-  }
-
-  /* GENERAL CONTAINER */
-  .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-
-  /* PAGE 1 */
-  #page1 {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    padding: 0 5%;
-    background: #050D0F;
-  }
-  .page1-content {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .page1-text {
-    flex: 1;
-    min-width: 280px;
-    padding-right: 20px;
-  }
-  .page1-text h1 { font-size: 3rem; margin-bottom: 20px; color: #FAA613; }
-  .page1-text p { font-size: 1.2rem; margin-bottom: 25px; }
-  .page1-img {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  .page1-img img {
-    height: 100vh;
-    width: auto;
-    object-fit: contain;
-  }
-
-  /* PAGE 2 */
-  #page2 {
-    background: #08070D;
-    padding: 80px 5%;
-  }
-  .page2-top {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-bottom: 60px;
-  }
-  .page2-top img {
-    max-width: 200px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  }
-  .page2-text { max-width: 600px; text-align: left; }
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .card {
-    background: rgba(255, 255, 255, 0.07);
-    border-radius: 16px;
-    padding: 25px 20px;
-    text-align: center;
-    font-size: 1.05rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    cursor: default;
-  }
-  .card:hover {
-    transform: translateY(-8px);
-    background: #fff;
-    color: #000;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-  }
-  .card span.icon {
-    display: block;
-    font-size: 2rem;
-    margin-bottom: 12px;
-    color: #ffdf5f;
-  }
-
-  /* PAGE 3 */
-  #page3 {
-    background: #070B0E;
-    padding: 80px 5%;
-  }
-  .slider { position: relative; width: 100%; overflow: hidden; margin: 0 auto; }
-  .slides { display: flex; transition: transform 0.5s ease-in-out; }
+  /* --- PAGE 3 SLIDER --- */
+  .slider-container { position: relative; width: 100%; height: 100%; overflow: hidden; }
+  .slides { display: flex; transition: transform 0.5s ease-in-out; height: 100%; }
   .slide {
-    min-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    padding: 20px 0;
+    min-width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 20px; text-align: center;
   }
   .slide img {
-    width: 40%;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+    max-width: 90%; max-height: 40vh; object-fit: contain; border-radius: 12px;
+    margin-bottom: 20px;
   }
-  .slide-info { flex: 1; }
-  .dots { display: flex; justify-content: center; margin-top: 20px; }
-  .dot { width: 12px; height: 12px; border-radius: 50%; background: #FFFFFF; margin: 0 6px; cursor: pointer; }
-  .dot.active { background: #FAA613; }
+  .slide h2 { font-size: 1.5rem; margin-bottom: 10px; }
+  .slide p { font-size: 1rem; margin-bottom: 15px; color: #ddd; }
+  .slide a {
+    display: inline-block; padding: 10px 20px; border-radius: 8px;
+    background: #22c55e; color: #fff; text-decoration: none; font-weight: bold;
+    transition: background 0.3s;
+  }
+  .slide a:hover { background: #16a34a; }
+
+  /* --- Navigasi --- */
   .arrow {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    user-select: none;
+    bottom: 60px; /* posisikan di atas dots */
+    font-size: 2rem; color: #fff; background: rgba(0,0,0,0.5);
+    padding: 10px; border-radius: 50%; cursor: pointer;
+    user-select: none; z-index: 10;
   }
-  .arrow.left { left: 30px; }
-  .arrow.right { right: 30px; }
+  #prev { left: 20px; }
+  #next { right: 20px; }
 
-  /* NAV DOTS PAGE */
-  .nav-dots { position: fixed; top: 50%; left: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
-  .nav-dots div { width: 12px; height: 12px; border-radius: 50%; background: #FFFFFF; cursor: pointer; }
-  .nav-dots div.active { background: #FAA613; }
+  .dots { position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center; gap: 8px; }
+  .dot {
+    width: 12px; height: 12px; border-radius: 50%; background: #444; cursor: pointer;
+  }
+  .dot.active { background: #22c55e; }
 
-  /* RESPONSIVE */
+  /* Instruksi mobile */
+  .swipe-instruction {
+    display: none; /* default tidak tampil */
+    text-align: center; margin-top: 15px;
+    font-size: 0.9rem; color: #ccc; animation: blink 2s infinite;
+  }
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+  }
+
   @media(max-width: 900px) {
-    .page1-content { flex-direction: column; text-align: center; }
-    .page1-text { padding-right: 0; margin-bottom: 20px; }
-    .page1-text h1 { font-size: 2.5rem; }
-    .page1-text p { font-size: 1rem; }
-    .page1-img img { height: 50vh; }
-    .page2-top { flex-direction: column; }
-    .slide { flex-direction: column; }
-    .slide img { width: 80%; margin-bottom: 20px; }
-    .nav-dots { display: none; }
+    .arrow { display: none; }         /* sembunyikan panah di mobile */
+    .swipe-instruction { display: block; } /* tampilkan instruksi di mobile */
   }
 </style>
 </head>
 <body>
-
-  <!-- NAV DOTS HALAMAN -->
+<!-- NAV DOTS HALAMAN -->
   <div class="nav-dots" id="navDots">
     <div class="active" onclick="scrollToPage(0)"></div>
     <div onclick="scrollToPage(1)"></div>
@@ -195,7 +84,7 @@
         <a href="#page3" class="btn">Lihat Produk</a>
 
       <div class="page1-img">
-        <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
+        <img src="wanita pegang gaget.png" alt="Gambar Page 1">
       </div>
     </div>
   </section>
@@ -203,7 +92,7 @@
   <!-- PAGE 2 -->
   <section id="page2">
     <div class="page2-top container">
-      <img src="img/lynk-base.png" alt="Lynk.id">
+      <img src="lynk-base.png" alt="Lynk.id">
       <div class="page2-text">
         <h2>Terhubung dengan Lynk.id</h2>
         <p>Website ini terintegrasi dengan Lynk.id untuk memudahkan transaksi dan meningkatkan kepercayaan pembeli.</p>
@@ -220,7 +109,7 @@
     </div>
   </section>
 
-<!-- PAGE 3 -->
+  <!-- PAGE 3 -->
 <section id="page3">
   <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
   <div class="slider container">
@@ -228,7 +117,7 @@
 
       <!-- PRODUK 1 -->
       <div class="slide">
-        <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
+        <img src="Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
         <div class="slide-info">
           <h3>Kumpulan Modul Mentoring Copywriting</h3>
           <p><b>Jangan biarkan tulisanmu hanya jadi hiasan timeline.</b></p>
@@ -243,7 +132,7 @@
 
       <!-- PRODUK 2 -->
       <div class="slide">
-        <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
+        <img src="40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
         <div class="slide-info">
           <h3>40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing</h3>
           <p><b>Mau jualan makin laris dan cuan deras?</b></p>
@@ -257,7 +146,7 @@
 
       <!-- PRODUK 3 -->
       <div class="slide">
-        <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
+        <img src="Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
         <div class="slide-info">
           <h3>Mahir WhatsApp Marketing (Video Course)</h3>
           <p><b>Mau jualan laris hanya lewat WhatsApp?</b></p>
@@ -270,7 +159,7 @@
 
       <!-- PRODUK 4 -->
       <div class="slide">
-        <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4">
+        <img src="Panduan Mahir Capcut.jpg" alt="Produk 4">
         <div class="slide-info">
           <h3>CapCut Masterclass Bundle</h3>
           <p><b>Mau bikin video keren yang bikin orang betah nonton?</b></p>
@@ -283,7 +172,7 @@
 
       <!-- PRODUK 5 -->
       <div class="slide">
-        <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5">
+        <img src="1000+ Social Media Template Canva.jpg" alt="Produk 5">
         <div class="slide-info">
           <h3>1000+ Social Media Template Canva</h3>
           <p><b>Mau feed medsos langsung terlihat profesional tanpa ribet desain?</b></p>
@@ -296,7 +185,7 @@
 
       <!-- PRODUK 6 -->
       <div class="slide">
-        <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6">
+        <img src="Ebook Panduan Konten Viral.png" alt="Produk 6">
         <div class="slide-info">
           <h3>E-book Panduan Konten Viral</h3>
           <p><b>Capek bikin konten tapi view sepi?</b></p>
@@ -309,7 +198,7 @@
 
       <!-- PRODUK 7 -->
       <div class="slide">
-        <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
+        <img src="Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
         <div class="slide-info">
           <h3>Bikin Desain Keren dengan Canva, Mulai dari Sini</h3>
           <p><b>Mau desain kece tapi nggak jago Photoshop?</b></p>
@@ -321,7 +210,7 @@
 
       <!-- PRODUK 8 -->
       <div class="slide">
-        <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
+        <img src="Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
         <div class="slide-info">
           <h3>Cara Membuat E-Book Dengan ChatGPT</h3>
           <p><b>Pengen punya e-book sendiri tapi bingung mulai dari mana?</b></p>
@@ -333,7 +222,7 @@
 
       <!-- PRODUK 9 -->
       <div class="slide">
-        <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
+        <img src="Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
         <div class="slide-info">
           <h3>E-book Humor Para Pemikir Besar – Ketawa Bareng Otak Jenius</h3>
           <p><b>Siapa bilang pemikir besar selalu serius?</b></p>
@@ -345,7 +234,7 @@
 
       <!-- PRODUK 10 -->
       <div class="slide">
-        <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
+        <img src="Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
         <div class="slide-info">
           <h3>E-book Bikin Produk Digital Sendiri Modal Canva</h3>
           <p><b>Pengen punya produk digital tapi nggak ngerti desain?</b></p>
@@ -357,7 +246,7 @@
 
       <!-- PRODUK 11 -->
       <div class="slide">
-        <img src="img/Ebook Ide Konten Anti Stuck.png" alt="Produk 11">
+        <img src="Ebook Ide Konten Anti Stuck.png" alt="Produk 11">
         <div class="slide-info">
           <h3>E-book Ide Konten Anti Stuck</h3>
           <p><b>Sering bingung mau bikin konten apa?</b></p>
@@ -369,7 +258,7 @@
 
       <!-- PRODUK 12 -->
       <div class="slide">
-        <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 12">
+        <img src="1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 12">
         <div class="slide-info">
           <h3>1200 Template Eksklusif Khusus Bisnis Makanan & Minuman</h3>
           <p><b>Mau jualan makanan & minuman terlihat lebih menggoda?</b></p>
@@ -380,6 +269,7 @@
       </div>
 
     </div>
+
     <!-- Navigasi -->
     <div id="prev" class="arrow">&#10094;</div>
     <div id="next" class="arrow">&#10095;</div>
@@ -432,4 +322,3 @@
 
 </body>
 </html>
-
