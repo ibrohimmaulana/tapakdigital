@@ -6,11 +6,25 @@
 <title>Gudang Digital</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-  body { background: #111; color: #fff; overflow-x: hidden; }
+  body { background: #111; color: #fff; overflow-x: hidden; scroll-behavior: smooth; }
+  section { height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px; text-align: center; }
 
-  section { height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+  /* PAGE 1 */
+  #page1 { background: #1e293b; }
+  #page1 h1 { font-size: 2.5rem; margin-bottom: 20px; }
+  #page1 p { font-size: 1.2rem; color: #ddd; margin-bottom: 30px; }
+  #page1 a {
+    padding: 12px 25px; border-radius: 8px;
+    background: #22c55e; color: #fff; text-decoration: none; font-weight: bold;
+  }
 
-  /* --- PAGE 3 SLIDER --- */
+  /* PAGE 2 */
+  #page2 { background: #0f172a; }
+  #page2 h2 { font-size: 2rem; margin-bottom: 20px; }
+  #page2 p { max-width: 600px; color: #ccc; line-height: 1.6; }
+
+  /* PAGE 3 SLIDER */
+  #page3 { background: #111; position: relative; }
   .slider-container { position: relative; width: 100%; height: 100%; overflow: hidden; }
   .slides { display: flex; transition: transform 0.5s ease-in-out; height: 100%; }
   .slide {
@@ -31,17 +45,16 @@
   }
   .slide a:hover { background: #16a34a; }
 
-  /* --- Navigasi --- */
+  /* Navigasi */
   .arrow {
     position: absolute;
-    bottom: 60px; /* posisikan di atas dots */
+    bottom: 60px;
     font-size: 2rem; color: #fff; background: rgba(0,0,0,0.5);
     padding: 10px; border-radius: 50%; cursor: pointer;
     user-select: none; z-index: 10;
   }
   #prev { left: 20px; }
   #next { right: 20px; }
-
   .dots { position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center; gap: 8px; }
   .dot {
     width: 12px; height: 12px; border-radius: 50%; background: #444; cursor: pointer;
@@ -50,7 +63,7 @@
 
   /* Instruksi mobile */
   .swipe-instruction {
-    display: none; /* default tidak tampil */
+    display: none;
     text-align: center; margin-top: 15px;
     font-size: 0.9rem; color: #ccc; animation: blink 2s infinite;
   }
@@ -59,22 +72,15 @@
     50% { opacity: 0.3; }
     100% { opacity: 1; }
   }
-
   @media(max-width: 900px) {
-    .arrow { display: none; }         /* sembunyikan panah di mobile */
-    .swipe-instruction { display: block; } /* tampilkan instruksi di mobile */
+    .arrow { display: none; }
+    .swipe-instruction { display: block; }
   }
 </style>
 </head>
 <body>
-<!-- NAV DOTS HALAMAN -->
-  <div class="nav-dots" id="navDots">
-    <div class="active" onclick="scrollToPage(0)"></div>
-    <div onclick="scrollToPage(1)"></div>
-    <div onclick="scrollToPage(2)"></div>
-  </div>
 
-  <!-- PAGE 1 -->
+<!-- PAGE 1 -->
   <section id="page1">
     <div class="page1-content container">
       <div class="page1-text">
@@ -84,7 +90,7 @@
         <a href="#page3" class="btn">Lihat Produk</a>
 
       <div class="page1-img">
-        <img src="wanita pegang gaget.png" alt="Gambar Page 1">
+        <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
       </div>
     </div>
   </section>
@@ -92,7 +98,7 @@
   <!-- PAGE 2 -->
   <section id="page2">
     <div class="page2-top container">
-      <img src="lynk-base.png" alt="Lynk.id">
+      <img src="img/lynk-base.png" alt="Lynk.id">
       <div class="page2-text">
         <h2>Terhubung dengan Lynk.id</h2>
         <p>Website ini terintegrasi dengan Lynk.id untuk memudahkan transaksi dan meningkatkan kepercayaan pembeli.</p>
@@ -109,7 +115,7 @@
     </div>
   </section>
 
-  <!-- PAGE 3 -->
+<!-- PAGE 3 -->
 <section id="page3">
   <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
   <div class="slider container">
@@ -117,7 +123,7 @@
 
       <!-- PRODUK 1 -->
       <div class="slide">
-        <img src="Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
+        <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
         <div class="slide-info">
           <h3>Kumpulan Modul Mentoring Copywriting</h3>
           <p><b>Jangan biarkan tulisanmu hanya jadi hiasan timeline.</b></p>
@@ -132,7 +138,7 @@
 
       <!-- PRODUK 2 -->
       <div class="slide">
-        <img src="40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
+        <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
         <div class="slide-info">
           <h3>40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing</h3>
           <p><b>Mau jualan makin laris dan cuan deras?</b></p>
@@ -146,7 +152,7 @@
 
       <!-- PRODUK 3 -->
       <div class="slide">
-        <img src="Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
+        <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
         <div class="slide-info">
           <h3>Mahir WhatsApp Marketing (Video Course)</h3>
           <p><b>Mau jualan laris hanya lewat WhatsApp?</b></p>
@@ -159,7 +165,7 @@
 
       <!-- PRODUK 4 -->
       <div class="slide">
-        <img src="Panduan Mahir Capcut.jpg" alt="Produk 4">
+        <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4">
         <div class="slide-info">
           <h3>CapCut Masterclass Bundle</h3>
           <p><b>Mau bikin video keren yang bikin orang betah nonton?</b></p>
@@ -172,7 +178,7 @@
 
       <!-- PRODUK 5 -->
       <div class="slide">
-        <img src="1000+ Social Media Template Canva.jpg" alt="Produk 5">
+        <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5">
         <div class="slide-info">
           <h3>1000+ Social Media Template Canva</h3>
           <p><b>Mau feed medsos langsung terlihat profesional tanpa ribet desain?</b></p>
@@ -185,7 +191,7 @@
 
       <!-- PRODUK 6 -->
       <div class="slide">
-        <img src="Ebook Panduan Konten Viral.png" alt="Produk 6">
+        <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6">
         <div class="slide-info">
           <h3>E-book Panduan Konten Viral</h3>
           <p><b>Capek bikin konten tapi view sepi?</b></p>
@@ -198,7 +204,7 @@
 
       <!-- PRODUK 7 -->
       <div class="slide">
-        <img src="Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
+        <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
         <div class="slide-info">
           <h3>Bikin Desain Keren dengan Canva, Mulai dari Sini</h3>
           <p><b>Mau desain kece tapi nggak jago Photoshop?</b></p>
@@ -210,7 +216,7 @@
 
       <!-- PRODUK 8 -->
       <div class="slide">
-        <img src="Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
+        <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
         <div class="slide-info">
           <h3>Cara Membuat E-Book Dengan ChatGPT</h3>
           <p><b>Pengen punya e-book sendiri tapi bingung mulai dari mana?</b></p>
@@ -222,7 +228,7 @@
 
       <!-- PRODUK 9 -->
       <div class="slide">
-        <img src="Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
+        <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
         <div class="slide-info">
           <h3>E-book Humor Para Pemikir Besar – Ketawa Bareng Otak Jenius</h3>
           <p><b>Siapa bilang pemikir besar selalu serius?</b></p>
@@ -234,7 +240,7 @@
 
       <!-- PRODUK 10 -->
       <div class="slide">
-        <img src="Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
+        <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
         <div class="slide-info">
           <h3>E-book Bikin Produk Digital Sendiri Modal Canva</h3>
           <p><b>Pengen punya produk digital tapi nggak ngerti desain?</b></p>
@@ -246,7 +252,7 @@
 
       <!-- PRODUK 11 -->
       <div class="slide">
-        <img src="Ebook Ide Konten Anti Stuck.png" alt="Produk 11">
+        <img src="img/Ebook Ide Konten Anti Stuck.png" alt="Produk 11">
         <div class="slide-info">
           <h3>E-book Ide Konten Anti Stuck</h3>
           <p><b>Sering bingung mau bikin konten apa?</b></p>
@@ -258,7 +264,7 @@
 
       <!-- PRODUK 12 -->
       <div class="slide">
-        <img src="1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 12">
+        <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 12">
         <div class="slide-info">
           <h3>1200 Template Eksklusif Khusus Bisnis Makanan & Minuman</h3>
           <p><b>Mau jualan makanan & minuman terlihat lebih menggoda?</b></p>
