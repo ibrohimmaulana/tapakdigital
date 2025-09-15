@@ -36,14 +36,15 @@
   /* PAGE 3 */
   #page3 { padding:80px 20px; background:#111; text-align:center; }
   .slider { max-width:900px; margin:0 auto; overflow:hidden; position:relative; }
-  .slides { display:flex; transition:0.5s ease; flex-wrap:wrap; justify-content:center; gap:20px; }
-  .slide { width:250px; box-sizing:border-box; padding:20px; text-align:center; background:#222; border-radius:10px; flex-shrink:0; }
-  .slide img { width:100%; border-radius:10px; margin-bottom:10px; }
-  .slide-info h3 { font-size:18px; margin-bottom:8px; color:#fff; }
-  .slide-info p { font-size:14px; margin-bottom:8px; color:#ccc; }
+  .slides { display:flex; transition:0.5s ease; flex-direction:column; gap:20px; }
+  .slide { display:flex; background:#222; border-radius:10px; padding:20px; gap:20px; align-items:center; flex-wrap:wrap; }
+  .slide img { width:250px; border-radius:10px; flex-shrink:0; }
+  .slide-info { text-align:left; flex:1; }
+  .slide-info h3 { font-size:20px; margin-bottom:10px; color:#fff; }
+  .slide-info p { font-size:14px; margin-bottom:10px; color:#ccc; }
 
   /* Dot navigasi */
-  .dots { text-align:center; margin-top:20px; }
+  .dots { text-align:center; margin-top:15px; }
   .dot { height:12px; width:12px; margin:0 5px; display:inline-block; background-color:#555; border-radius:50%; cursor:pointer; transition:0.3s; }
   .dot.active { background-color:#4CAF50; }
 
@@ -62,8 +63,10 @@
     .dots { display:none; }
     .arrow-container { display:none; }
     #toTop { display:block; }
-    .slides { flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch; }
-    .slide { scroll-snap-align:start; flex:0 0 auto; margin-right:15px; }
+    .slides { flex-direction:row; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch; gap:15px; }
+    .slide { flex:0 0 80%; scroll-snap-align:start; flex-direction:column; text-align:center; margin-right:15px; }
+    .slide img { width:100%; margin-bottom:10px; }
+    .slide-info { text-align:center; }
   }
 
   /* Panah naik ke Page 1 mobile */
@@ -110,16 +113,18 @@
   <h2 style="text-align:center; margin-bottom:40px; color:#fff;">Produk Kami</h2>
   <div class="slider container">
     <div class="slides" id="slides">
-      <!-- Produk 1 -->
+
+      <!-- 12 Produk -->
       <div class="slide">
         <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
         <div class="slide-info">
           <h3>Kumpulan Modul Mentoring Copywriting</h3>
           <p><b>Jangan biarkan tulisanmu hanya jadi hiasan timeline.</b></p>
+          <p>Belajar teknik kata yang menarik perhatian dan mendorong orang untuk bertindak.</p>
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Produk 2 -->
+
       <div class="slide">
         <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
         <div class="slide-info">
@@ -128,7 +133,7 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Produk 3 -->
+
       <div class="slide">
         <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
         <div class="slide-info">
@@ -137,7 +142,7 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Produk 4 -->
+
       <div class="slide">
         <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4">
         <div class="slide-info">
@@ -146,7 +151,7 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Produk 5 -->
+
       <div class="slide">
         <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5">
         <div class="slide-info">
@@ -155,7 +160,7 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Produk 6 -->
+
       <div class="slide">
         <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6">
         <div class="slide-info">
@@ -164,7 +169,7 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Produk 7 -->
+
       <div class="slide">
         <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
         <div class="slide-info">
@@ -173,7 +178,7 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Produk 8 -->
+
       <div class="slide">
         <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
         <div class="slide-info">
@@ -182,7 +187,7 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Produk 9 -->
+
       <div class="slide">
         <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
         <div class="slide-info">
@@ -191,7 +196,7 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Produk 10 -->
+
       <div class="slide">
         <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
         <div class="slide-info">
@@ -200,7 +205,7 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Produk 11 -->
+
       <div class="slide">
         <img src="img/Ebook Panduan Jualan di Instagram.png" alt="Produk 11">
         <div class="slide-info">
@@ -209,7 +214,7 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Produk 12 -->
+
       <div class="slide">
         <img src="img/Ebook Strategi Copywriting untuk Pemula.png" alt="Produk 12">
         <div class="slide-info">
@@ -218,6 +223,7 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
+
     </div>
 
     <!-- Dot navigasi desktop -->
@@ -235,7 +241,6 @@
 const slides = document.querySelectorAll(".slide");
 const dotsContainer = document.querySelector(".dots");
 const arrowContainer = document.querySelector(".arrow-container");
-
 let currentIndex = 0;
 
 // Buat dot otomatis
@@ -249,7 +254,7 @@ slides.forEach((slide, idx)=>{
 const dots = document.querySelectorAll(".dot");
 
 function showSlide(index){
-  slides.forEach((slide,i)=>slide.style.display=(i===index?"block":"none"));
+  slides.forEach((slide,i)=>slide.style.display=(i===index?"flex":"none"));
   dots.forEach((dot,i)=>dot.classList.toggle("active",i===index));
 }
 
