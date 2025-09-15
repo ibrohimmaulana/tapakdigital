@@ -5,99 +5,125 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gudang Digital</title>
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
-  body { scroll-behavior:smooth; background:#121212; color:#fff; }
-  a { text-decoration:none; }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+  body { scroll-behavior: smooth; background: #050D0F; color: #fff; }
 
-  .container { display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto; flex-wrap:wrap; }
-  .btn { display:inline-block; padding:12px 25px; background:#4CAF50; color:#fff; border-radius:6px; margin-top:15px; transition:0.3s; }
-  .btn:hover { background:#45a049; }
+  h1, h2, h3 { margin-bottom: 20px; font-weight: 600; }
+  p { margin-bottom: 15px; line-height: 1.6; }
 
-  /* PAGE 1 */
-  #page1 { padding:80px 20px; background:#1e1e1e; display:flex; flex-wrap:wrap; }
-  .page1-text { flex:1; min-width:300px; padding-right:20px; }
-  .page1-text h1 { font-size:48px; margin-bottom:20px; color:#fff; }
-  .page1-text p { font-size:18px; line-height:1.6; margin-bottom:10px; color:#ccc; }
-  .page1-img { flex:1; min-width:300px; text-align:center; }
-  .page1-img img { width:100%; border-radius:10px; }
-
-  /* PAGE 2 */
-  #page2 { padding:80px 20px; background:#1a1a1a; }
-  .page2-top { display:flex; align-items:center; justify-content:flex-start; gap:30px; flex-wrap:wrap; margin-bottom:40px; }
-  .page2-top img { width:100%; max-width:400px; border-radius:10px; }
-  .page2-text { flex:1; min-width:280px; }
-  .page2-text h2 { font-size:32px; margin-bottom:15px; color:#fff; }
-  .page2-text p { font-size:16px; line-height:1.6; color:#ccc; }
-
-  .cards { display:flex; flex-wrap:wrap; gap:15px; justify-content:center; }
-  .card { flex:1 1 200px; background:#222; padding:20px; border-radius:10px; font-size:16px; display:flex; align-items:center; gap:10px; color:#fff; box-shadow:0 4px 10px rgba(0,0,0,0.5); }
-  .icon { font-size:20px; }
-
-  /* PAGE 3 */
-  #page3 { padding:80px 20px; background:#111; text-align:center; }
-  .slider { max-width:900px; margin:0 auto; overflow:hidden; position:relative; }
-  .slides { display:flex; transition:0.5s ease; flex-direction:column; gap:20px; }
-  .slide { display:flex; background:#222; border-radius:10px; padding:20px; gap:20px; align-items:center; flex-wrap:wrap; }
-  .slide img { width:250px; border-radius:10px; flex-shrink:0; }
-  .slide-info { text-align:left; flex:1; }
-  .slide-info h3 { font-size:20px; margin-bottom:10px; color:#fff; }
-  .slide-info p { font-size:14px; margin-bottom:10px; color:#ccc; }
-
-  /* Dot navigasi */
-  .dots { text-align:center; margin-top:15px; }
-  .dot { height:12px; width:12px; margin:0 5px; display:inline-block; background-color:#555; border-radius:50%; cursor:pointer; transition:0.3s; }
-  .dot.active { background-color:#4CAF50; }
-
-  /* Panah navigasi desktop */
-  .arrow-container { display:flex; justify-content:center; align-items:center; gap:40px; margin-top:10px; }
-  .arrow-container span { cursor:pointer; font-size:30px; user-select:none; color:#fff; transition:0.3s; }
-  .arrow-container span:hover { color:#4CAF50; }
-
-  /* Responsive */
-  @media(max-width:768px){
-    .container { flex-direction:column; }
-    .page1-img { order:2; margin-top:20px; }
-    .page1-text { order:1; }
-    .page2-top .page2-text { order:1; }
-    .page2-top img { order:2; margin-top:20px; }
-    .dots { display:none; }
-    .arrow-container { display:none; }
-    #toTop { display:block; }
-    .slides { flex-direction:row; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch; gap:15px; }
-    .slide { flex:0 0 80%; scroll-snap-align:start; flex-direction:column; text-align:center; margin-right:15px; }
-    .slide img { width:100%; margin-bottom:10px; }
-    .slide-info { text-align:center; }
+  .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 25px;
+    background: #DD0426;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 95, 95, 0.3);
+  }
+  .btn:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 20px 4px rgba(255, 255, 255, 0.7);
+    transform: translateY(-3px);
   }
 
-  /* Panah naik ke Page 1 mobile */
-  #toTop { position:fixed; bottom:30px; right:20px; font-size:30px; background:#4CAF50; color:#fff; padding:10px 12px; border-radius:50%; cursor:pointer; display:none; z-index:1000; }
+  .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+  /* PAGE 1 */
+  #page1 {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding: 0 5%;
+    background: #050D0F;
+    overflow: hidden;
+  }
+  .page1-content { display: flex; width: 100%; align-items: center; justify-content: space-between; }
+  .page1-text { flex: 1; min-width: 280px; padding-right: 20px; margin-top: 150px; }
+  .page1-text h1 { font-size: 3rem; margin-bottom: 20px; color: #FAA613; }
+  .page1-text p { font-size: 1.2rem; margin-bottom: 25px; }
+  .page1-img { flex: 1; display: flex; justify-content: flex-end; align-items: center; }
+  .page1-img img { height: 100vh; width: auto; object-fit: contain; }
+
+  /* PAGE 2 */
+  #page2 { background: #08070D; padding: 80px 5%; }
+  .page2-top { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; margin-bottom: 60px; }
+  .page2-top img { max-width: 200px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
+  .page2-text { max-width: 600px; text-align: left; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; width: 100%; max-width: 1000px; margin: 0 auto; }
+  .card { background: rgba(255, 255, 255, 0.07); border-radius: 16px; padding: 25px 20px; text-align: center; font-size: 1.05rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: default; }
+  .card:hover { transform: translateY(-8px); background: #fff; color: #000; box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+  .card span.icon { display: block; font-size: 2rem; margin-bottom: 12px; color: #ffdf5f; }
+
+  /* PAGE 3 */
+  #page3 { background: #070B0E; padding: 80px 5%; }
+  .slider { position: relative; width: 100%; overflow: hidden; margin: 0 auto; }
+  .slides { display: flex; transition: transform 0.5s ease-in-out; touch-action: pan-x; }
+  .slide { min-width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 20px 0; }
+  .slide img { width: 40%; border-radius: 12px; transition: all 0.3s ease; }
+  .slide-info { flex: 1; }
+  .dots { display: flex; justify-content: center; margin-top: 20px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; background: #FFFFFF; margin: 0 6px; cursor: pointer; }
+  .dot.active { background: #FAA613; }
+  .arrow { position: absolute; bottom: -20px; font-size: 2rem; color: #fff; background: rgba(0, 0, 0, 0.4); border-radius: 50%; padding: 10px; cursor: pointer; user-select: none; }
+  .arrow.left { left: 45%; transform: translateX(-120%); }
+  .arrow.right { right: 45%; transform: translateX(120%); }
+
+  .nav-dots { position: fixed; top: 50%; left: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+  .nav-dots div { width: 12px; height: 12px; border-radius: 50%; background: #FFFFFF; cursor: pointer; }
+  .nav-dots div.active { background: #FAA613; }
+
+  @media(max-width: 900px) {
+    .page1-content { flex-direction: column; text-align: center; }
+    .page1-text { padding-right: 0; margin-bottom: 20px; margin-top: 150px; }
+    .page1-text h1 { font-size: 2.5rem; }
+    .page1-text p { font-size: 1rem; }
+    .page1-img img { height: 50vh; }
+    .page2-top { flex-direction: column; }
+    .slide { flex-direction: column; }
+    .slide img { width: 80%; margin-bottom: 20px; }
+    .nav-dots { display: none; }
+  }
 </style>
 </head>
 <body>
 
+<!-- NAV DOTS -->
+<div class="nav-dots" id="navDots">
+  <div class="active" onclick="scrollToPage(0)"></div>
+  <div onclick="scrollToPage(1)"></div>
+  <div onclick="scrollToPage(2)"></div>
+</div>
+
 <!-- PAGE 1 -->
 <section id="page1">
-  <div class="page1-text">
-    <h1>GUDANG DIGITAL</h1>
-    <p>Jangan tunda lagi. Jadikan hari ini hari Anda memulai perjalanan transformatif. Di Gudang Digital, kami menyediakan semua yang Anda butuhkan untuk memulai, belajar, dan tumbuh lebih cepat dari sebelumnya.</p>
-    <p>Temukan inspirasi, alat, dan sumber daya yang dirancang untuk mempercepat pencapaian tujuan Anda. Ini adalah kesempatan Anda untuk mengubah potensi menjadi prestasi nyata.</p>
-    <a href="#page3" class="btn">Lihat Produk</a>
-  </div>
-  <div class="page1-img">
-    <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
+  <div class="page1-content container">
+    <div class="page1-text">
+      <h1>GUDANG DIGITAL</h1>
+      <p>Jangan tunda lagi. Jadikan hari ini hari Anda memulai perjalanan transformatif. Di Gudang Digital, kami menyediakan semua yang Anda butuhkan untuk memulai, belajar, dan tumbuh lebih cepat dari sebelumnya.</p>
+      <p>Temukan inspirasi, alat, dan sumber daya yang dirancang untuk mempercepat pencapaian tujuan Anda. Ini adalah kesempatan Anda untuk mengubah potensi menjadi prestasi nyata.</p>
+      <a href="#page3" class="btn">Lihat Produk</a>
+    </div>
+    <div class="page1-img">
+      <img src="wanita pegang gaget.png" alt="Gambar Page 1">
+    </div>
   </div>
 </section>
 
 <!-- PAGE 2 -->
 <section id="page2">
   <div class="page2-top container">
-    <img src="img/lynk-base.png" alt="Lynk.id">
+    <img src="lynk-base.png" alt="Lynk.id">
     <div class="page2-text">
       <h2>Terhubung dengan Lynk.id</h2>
       <p>Website ini terintegrasi dengan Lynk.id untuk memudahkan transaksi dan meningkatkan kepercayaan pembeli.</p>
     </div>
   </div>
-  <h2 style="text-align:center; margin-bottom:40px; color:#fff;">Kenapa Harus Produk Digital?</h2>
+  <h2 style="text-align:center; margin-bottom:40px;">Kenapa Harus Produk Digital?</h2>
   <div class="cards container">
     <div class="card"><span class="icon">⚡</span>Akses instan, langsung dipakai tanpa tunggu.</div>
     <div class="card"><span class="icon">💰</span>Harga lebih terjangkau karena tanpa ongkir & cetak.</div>
@@ -110,175 +136,91 @@
 
 <!-- PAGE 3 -->
 <section id="page3">
-  <h2 style="text-align:center; margin-bottom:40px; color:#fff;">Produk Kami</h2>
+  <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
   <div class="slider container">
     <div class="slides" id="slides">
-
-      <!-- 12 Produk -->
-      <div class="slide">
-        <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
-        <div class="slide-info">
-          <h3>Kumpulan Modul Mentoring Copywriting</h3>
-          <p><b>Jangan biarkan tulisanmu hanya jadi hiasan timeline.</b></p>
-          <p>Belajar teknik kata yang menarik perhatian dan mendorong orang untuk bertindak.</p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
-        <div class="slide-info">
-          <h3>40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing</h3>
-          <p><b>Mau jualan makin laris dan cuan deras?</b></p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
-        <div class="slide-info">
-          <h3>Mahir WhatsApp Marketing (Video Course)</h3>
-          <p><b>Mau jualan laris hanya lewat WhatsApp?</b></p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4">
-        <div class="slide-info">
-          <h3>CapCut Masterclass Bundle</h3>
-          <p><b>Mau bikin video keren yang bikin orang betah nonton?</b></p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5">
-        <div class="slide-info">
-          <h3>1000+ Social Media Template Canva</h3>
-          <p><b>Mau feed medsos langsung terlihat profesional tanpa ribet desain?</b></p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6">
-        <div class="slide-info">
-          <h3>E-book Panduan Konten Viral</h3>
-          <p><b>Capek bikin konten tapi view sepi?</b></p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
-        <div class="slide-info">
-          <h3>Bikin Desain Keren dengan Canva, Mulai dari Sini</h3>
-          <p><b>Mau desain kece tapi nggak jago Photoshop?</b></p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
-        <div class="slide-info">
-          <h3>Cara Membuat E-Book Dengan ChatGPT</h3>
-          <p><b>Pengen punya e-book sendiri tapi bingung mulai dari mana?</b></p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
-        <div class="slide-info">
-          <h3>E-book Humor Para Pemikir Besar</h3>
-          <p><b>Siapa bilang pemikir besar selalu serius?</b></p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
-        <div class="slide-info">
-          <h3>E-book Bikin Produk Digital Sendiri Modal Canva</h3>
-          <p><b>Pengen punya produk digital tapi nggak ngerti desain?</b></p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="img/Ebook Panduan Jualan di Instagram.png" alt="Produk 11">
-        <div class="slide-info">
-          <h3>E-book Panduan Jualan di Instagram</h3>
-          <p><b>Mau jualan di Instagram tapi sepi order?</b></p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <div class="slide">
-        <img src="img/Ebook Strategi Copywriting untuk Pemula.png" alt="Produk 12">
-        <div class="slide-info">
-          <h3>E-book Strategi Copywriting untuk Pemula</h3>
-          <p><b>Belajar menulis kata yang menjual untuk pemula.</b></p>
-          <a href="#" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
+      <!-- Produk 1 s/d 12 (contoh disederhanakan, tinggal ganti src, judul, deskripsi, link) -->
+      <div class="slide"><img src="produk1.png" alt="Produk 1"><div class="slide-info"><h3>Produk 1</h3><p>Deskripsi singkat produk 1</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
+      <div class="slide"><img src="produk2.png" alt="Produk 2"><div class="slide-info"><h3>Produk 2</h3><p>Deskripsi singkat produk 2</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
+      <div class="slide"><img src="produk3.png" alt="Produk 3"><div class="slide-info"><h3>Produk 3</h3><p>Deskripsi singkat produk 3</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
+      <div class="slide"><img src="produk4.png" alt="Produk 4"><div class="slide-info"><h3>Produk 4</h3><p>Deskripsi singkat produk 4</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
+      <div class="slide"><img src="produk5.png" alt="Produk 5"><div class="slide-info"><h3>Produk 5</h3><p>Deskripsi singkat produk 5</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
+      <div class="slide"><img src="produk6.png" alt="Produk 6"><div class="slide-info"><h3>Produk 6</h3><p>Deskripsi singkat produk 6</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
+      <div class="slide"><img src="produk7.png" alt="Produk 7"><div class="slide-info"><h3>Produk 7</h3><p>Deskripsi singkat produk 7</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
+      <div class="slide"><img src="produk8.png" alt="Produk 8"><div class="slide-info"><h3>Produk 8</h3><p>Deskripsi singkat produk 8</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
+      <div class="slide"><img src="produk9.png" alt="Produk 9"><div class="slide-info"><h3>Produk 9</h3><p>Deskripsi singkat produk 9</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
+      <div class="slide"><img src="produk10.png" alt="Produk 10"><div class="slide-info"><h3>Produk 10</h3><p>Deskripsi singkat produk 10</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
+      <div class="slide"><img src="produk11.png" alt="Produk 11"><div class="slide-info"><h3>Produk 11</h3><p>Deskripsi singkat produk 11</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
+      <div class="slide"><img src="produk12.png" alt="Produk 12"><div class="slide-info"><h3>Produk 12</h3><p>Deskripsi singkat produk 12</p><a href="#" class="btn">Miliki Sekarang!</a></div></div>
     </div>
 
-    <!-- Dot navigasi desktop -->
-    <div class="dots"></div>
-
-    <!-- Panah navigasi desktop -->
-    <div class="arrow-container"></div>
+    <!-- Navigasi slider -->
+    <div class="arrow left" id="prev">&#10094;</div>
+    <div class="arrow right" id="next">&#10095;</div>
+    <div class="dots" id="dots"></div>
   </div>
 </section>
 
-<!-- Panah naik ke Page 1 (mobile) -->
-<div id="toTop">&#8679;</div>
-
 <script>
-const slides = document.querySelectorAll(".slide");
-const dotsContainer = document.querySelector(".dots");
-const arrowContainer = document.querySelector(".arrow-container");
-let currentIndex = 0;
+  // Slider
+  const slides = document.getElementById("slides");
+  const dotsContainer = document.getElementById("dots");
+  const totalSlides = slides.children.length;
+  let currentIndex = 0;
 
-// Buat dot otomatis
-slides.forEach((slide, idx)=>{
-  const dot = document.createElement("span");
-  dot.classList.add("dot");
-  if(idx===0) dot.classList.add("active");
-  dot.addEventListener("click", ()=> goToSlide(idx));
-  dotsContainer.appendChild(dot);
-});
-const dots = document.querySelectorAll(".dot");
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  }
 
-function showSlide(index){
-  slides.forEach((slide,i)=>slide.style.display=(i===index?"flex":"none"));
-  dots.forEach((dot,i)=>dot.classList.toggle("active",i===index));
-}
+  function goToSlide(index) {
+    currentIndex = (index + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${100 * currentIndex}%)`;
+    updateDots();
+  }
 
-function nextSlide(){ currentIndex=(currentIndex+1)%slides.length; showSlide(currentIndex);}
-function prevSlide(){ currentIndex=(currentIndex-1+slides.length)%slides.length; showSlide(currentIndex);}
-function goToSlide(index){ currentIndex=index; showSlide(currentIndex);}
+  function updateDots() {
+    const dots = dotsContainer.children;
+    for (let i = 0; i < dots.length; i++) dots[i].classList.remove("active");
+    dots[currentIndex].classList.add("active");
+  }
 
-// Panah navigasi desktop
-if(window.innerWidth > 768){
-  arrowContainer.innerHTML=`<span id="prev">&#10094;</span><span id="next">&#10095;</span>`;
-  document.getElementById("prev").addEventListener("click", prevSlide);
-  document.getElementById("next").addEventListener("click", nextSlide);
-}
+  document.getElementById("prev").addEventListener("click", () => goToSlide(currentIndex - 1));
+  document.getElementById("next").addEventListener("click", () => goToSlide(currentIndex + 1));
 
-// Panah naik ke Page 1 mobile
-const toTop = document.getElementById("toTop");
-window.addEventListener("scroll", ()=> {
-  if(window.innerWidth <= 768 && window.scrollY > 400) toTop.style.display="block";
-  else toTop.style.display="none";
-});
-toTop.addEventListener("click", ()=>{ window.scrollTo({top:0, behavior:"smooth"}); });
+  // Mobile swipe
+  let startX = 0;
+  slides.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+  slides.addEventListener('touchend', (e) => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if(diff > 50) goToSlide(currentIndex - 1);
+    else if(diff < -50) goToSlide(currentIndex + 1);
+  });
 
-// Init
-showSlide(currentIndex);
+  // Scroll nav dots
+  function scrollToPage(index){
+    const pages = [document.getElementById("page1"), document.getElementById("page2"), document.getElementById("page3")];
+    pages[index].scrollIntoView({behavior: "smooth"});
+    const navDots = document.querySelectorAll(".nav-dots div");
+    navDots.forEach(dot => dot.classList.remove("active"));
+    navDots[index].classList.add("active");
+  }
+
+  window.addEventListener('scroll', () => {
+    const pages = [document.getElementById("page1"), document.getElementById("page2"), document.getElementById("page3")];
+    const navDots = document.querySelectorAll(".nav-dots div");
+    pages.forEach((p, i) => {
+      const rect = p.getBoundingClientRect();
+      if(rect.top <= window.innerHeight/2 && rect.bottom >= window.innerHeight/2){
+        navDots.forEach(dot => dot.classList.remove("active"));
+        navDots[i].classList.add("active");
+      }
+    });
+  });
 </script>
+
 </body>
 </html>
