@@ -35,10 +35,10 @@
 
   /* PAGE 3 */
   #page3 { padding:80px 20px; background:#111; text-align:center; }
-  .slider { max-width:700px; margin:0 auto; overflow:hidden; position:relative; }
-  .slides { display:flex; transition:0.5s ease; }
-  .slide { min-width:100%; box-sizing:border-box; padding:20px; text-align:center; }
-  .slide img { width:100%; max-width:250px; border-radius:10px; margin-bottom:10px; }
+  .slider { max-width:900px; margin:0 auto; overflow:hidden; position:relative; }
+  .slides { display:flex; transition:0.5s ease; flex-wrap:wrap; justify-content:center; gap:20px; }
+  .slide { width:250px; box-sizing:border-box; padding:20px; text-align:center; background:#222; border-radius:10px; flex-shrink:0; }
+  .slide img { width:100%; border-radius:10px; margin-bottom:10px; }
   .slide-info h3 { font-size:18px; margin-bottom:8px; color:#fff; }
   .slide-info p { font-size:14px; margin-bottom:8px; color:#ccc; }
 
@@ -63,7 +63,7 @@
     .arrow-container { display:none; }
     #toTop { display:block; }
     .slides { flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch; }
-    .slide { flex:0 0 auto; scroll-snap-align:start; margin-right:15px; min-width:250px; }
+    .slide { scroll-snap-align:start; flex:0 0 auto; margin-right:15px; }
   }
 
   /* Panah naik ke Page 1 mobile */
@@ -110,8 +110,7 @@
   <h2 style="text-align:center; margin-bottom:40px; color:#fff;">Produk Kami</h2>
   <div class="slider container">
     <div class="slides" id="slides">
-      <!-- Tambahkan semua 12 produk di sini (sama seperti sebelumnya) -->
-      <!-- Contoh Produk 1 -->
+      <!-- Produk 1 -->
       <div class="slide">
         <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
         <div class="slide-info">
@@ -120,7 +119,105 @@
           <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-      <!-- Tambahkan Produk 2 - 12 sama seperti sebelumnya -->
+      <!-- Produk 2 -->
+      <div class="slide">
+        <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
+        <div class="slide-info">
+          <h3>40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing</h3>
+          <p><b>Mau jualan makin laris dan cuan deras?</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
+      <!-- Produk 3 -->
+      <div class="slide">
+        <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
+        <div class="slide-info">
+          <h3>Mahir WhatsApp Marketing (Video Course)</h3>
+          <p><b>Mau jualan laris hanya lewat WhatsApp?</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
+      <!-- Produk 4 -->
+      <div class="slide">
+        <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4">
+        <div class="slide-info">
+          <h3>CapCut Masterclass Bundle</h3>
+          <p><b>Mau bikin video keren yang bikin orang betah nonton?</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
+      <!-- Produk 5 -->
+      <div class="slide">
+        <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5">
+        <div class="slide-info">
+          <h3>1000+ Social Media Template Canva</h3>
+          <p><b>Mau feed medsos langsung terlihat profesional tanpa ribet desain?</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
+      <!-- Produk 6 -->
+      <div class="slide">
+        <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6">
+        <div class="slide-info">
+          <h3>E-book Panduan Konten Viral</h3>
+          <p><b>Capek bikin konten tapi view sepi?</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
+      <!-- Produk 7 -->
+      <div class="slide">
+        <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
+        <div class="slide-info">
+          <h3>Bikin Desain Keren dengan Canva, Mulai dari Sini</h3>
+          <p><b>Mau desain kece tapi nggak jago Photoshop?</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
+      <!-- Produk 8 -->
+      <div class="slide">
+        <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
+        <div class="slide-info">
+          <h3>Cara Membuat E-Book Dengan ChatGPT</h3>
+          <p><b>Pengen punya e-book sendiri tapi bingung mulai dari mana?</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
+      <!-- Produk 9 -->
+      <div class="slide">
+        <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
+        <div class="slide-info">
+          <h3>E-book Humor Para Pemikir Besar</h3>
+          <p><b>Siapa bilang pemikir besar selalu serius?</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
+      <!-- Produk 10 -->
+      <div class="slide">
+        <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
+        <div class="slide-info">
+          <h3>E-book Bikin Produk Digital Sendiri Modal Canva</h3>
+          <p><b>Pengen punya produk digital tapi nggak ngerti desain?</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
+      <!-- Produk 11 -->
+      <div class="slide">
+        <img src="img/Ebook Panduan Jualan di Instagram.png" alt="Produk 11">
+        <div class="slide-info">
+          <h3>E-book Panduan Jualan di Instagram</h3>
+          <p><b>Mau jualan di Instagram tapi sepi order?</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
+      <!-- Produk 12 -->
+      <div class="slide">
+        <img src="img/Ebook Strategi Copywriting untuk Pemula.png" alt="Produk 12">
+        <div class="slide-info">
+          <h3>E-book Strategi Copywriting untuk Pemula</h3>
+          <p><b>Belajar menulis kata yang menjual untuk pemula.</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
     </div>
 
     <!-- Dot navigasi desktop -->
@@ -135,10 +232,11 @@
 <div id="toTop">&#8679;</div>
 
 <script>
-// Slides & dots
 const slides = document.querySelectorAll(".slide");
 const dotsContainer = document.querySelector(".dots");
 const arrowContainer = document.querySelector(".arrow-container");
+
+let currentIndex = 0;
 
 // Buat dot otomatis
 slides.forEach((slide, idx)=>{
@@ -150,11 +248,11 @@ slides.forEach((slide, idx)=>{
 });
 const dots = document.querySelectorAll(".dot");
 
-let currentIndex = 0;
 function showSlide(index){
   slides.forEach((slide,i)=>slide.style.display=(i===index?"block":"none"));
   dots.forEach((dot,i)=>dot.classList.toggle("active",i===index));
 }
+
 function nextSlide(){ currentIndex=(currentIndex+1)%slides.length; showSlide(currentIndex);}
 function prevSlide(){ currentIndex=(currentIndex-1+slides.length)%slides.length; showSlide(currentIndex);}
 function goToSlide(index){ currentIndex=index; showSlide(currentIndex);}
@@ -166,35 +264,7 @@ if(window.innerWidth > 768){
   document.getElementById("next").addEventListener("click", nextSlide);
 }
 
-// Swipe mobile horizontal
-const slider = document.getElementById("slides");
-let isDown = false;
-let startX, scrollLeft;
-slider.addEventListener('mousedown', e => {
-  isDown = true; slider.classList.add('active');
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-});
-slider.addEventListener('mouseleave', () => isDown=false);
-slider.addEventListener('mouseup', () => isDown=false);
-slider.addEventListener('mousemove', e => {
-  if(!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 1.5;
-  slider.scrollLeft = scrollLeft - walk;
-});
-
-// Swipe touch mobile
-let startTouch=0,endTouch=0;
-slider.addEventListener("touchstart", e=>{ startTouch=e.touches[0].clientX; });
-slider.addEventListener("touchend", e=>{
-  endTouch=e.changedTouches[0].clientX;
-  if(startTouch-endTouch>50) nextSlide();
-  else if(endTouch-startTouch>50) prevSlide();
-});
-
-// Panah naik ke Page 1 (mobile)
+// Panah naik ke Page 1 mobile
 const toTop = document.getElementById("toTop");
 window.addEventListener("scroll", ()=> {
   if(window.innerWidth <= 768 && window.scrollY > 400) toTop.style.display="block";
@@ -202,7 +272,7 @@ window.addEventListener("scroll", ()=> {
 });
 toTop.addEventListener("click", ()=>{ window.scrollTo({top:0, behavior:"smooth"}); });
 
-// Init slide pertama
+// Init
 showSlide(currentIndex);
 </script>
 </body>
