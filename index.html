@@ -14,12 +14,12 @@
   .btn:hover { background:#45a049; }
 
   /* PAGE 1 */
-  #page1 { padding:80px 20px; background:#1e1e1e; }
+  #page1 { padding:80px 20px; background:#1e1e1e; display:flex; flex-wrap:wrap; }
   .page1-text { flex:1; min-width:300px; padding-right:20px; }
   .page1-text h1 { font-size:48px; margin-bottom:20px; color:#fff; }
   .page1-text p { font-size:18px; line-height:1.6; margin-bottom:10px; color:#ccc; }
   .page1-img { flex:1; min-width:300px; text-align:center; }
-  .page1-img img { width:100%; max-width:450px; border-radius:10px; }
+  .page1-img img { width:100%; border-radius:10px; }
 
   /* PAGE 2 */
   #page2 { padding:80px 20px; background:#1a1a1a; }
@@ -37,11 +37,10 @@
   #page3 { padding:80px 20px; background:#111; text-align:center; }
   .slider { max-width:700px; margin:0 auto; overflow:hidden; position:relative; }
   .slides { display:flex; transition:0.5s ease; }
-  .slide { min-width:100%; box-sizing:border-box; padding:20px; text-align:center; display:none; }
-  .slide.active { display:block; }
-  .slide img { width:100%; max-width:400px; border-radius:10px; margin-bottom:15px; }
-  .slide-info h3 { font-size:20px; margin-bottom:10px; color:#fff; }
-  .slide-info p { font-size:16px; margin-bottom:10px; color:#ccc; }
+  .slide { min-width:100%; box-sizing:border-box; padding:20px; text-align:center; }
+  .slide img { width:100%; max-width:250px; border-radius:10px; margin-bottom:10px; }
+  .slide-info h3 { font-size:18px; margin-bottom:8px; color:#fff; }
+  .slide-info p { font-size:14px; margin-bottom:8px; color:#ccc; }
 
   /* Dot navigasi */
   .dots { text-align:center; margin-top:20px; }
@@ -49,19 +48,25 @@
   .dot.active { background-color:#4CAF50; }
 
   /* Panah navigasi desktop */
-  .arrow-container { display:flex; justify-content:center; gap:60px; margin-top:10px; }
+  .arrow-container { display:flex; justify-content:center; align-items:center; gap:40px; margin-top:10px; }
   .arrow-container span { cursor:pointer; font-size:30px; user-select:none; color:#fff; transition:0.3s; }
   .arrow-container span:hover { color:#4CAF50; }
 
   /* Responsive */
   @media(max-width:768px){
     .container { flex-direction:column; }
-    .page1-img, .page2-top img { order:2; margin-top:20px; }
+    .page1-img { order:2; margin-top:20px; }
+    .page1-text { order:1; }
     .page2-top .page2-text { order:1; }
-    .dots { display:none; } /* sembunyikan dot di mobile */
+    .page2-top img { order:2; margin-top:20px; }
+    .dots { display:none; }
+    .arrow-container { display:none; }
+    #toTop { display:block; }
+    .slides { flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch; }
+    .slide { flex:0 0 auto; scroll-snap-align:start; margin-right:15px; min-width:250px; }
   }
 
-  /* Panah naik ke Page 1 */
+  /* Panah naik ke Page 1 mobile */
   #toTop { position:fixed; bottom:30px; right:20px; font-size:30px; background:#4CAF50; color:#fff; padding:10px 12px; border-radius:50%; cursor:pointer; display:none; z-index:1000; }
 </style>
 </head>
@@ -69,16 +74,14 @@
 
 <!-- PAGE 1 -->
 <section id="page1">
-  <div class="container">
-    <div class="page1-text">
-      <h1>GUDANG DIGITAL</h1>
-      <p>Jangan tunda lagi. Jadikan hari ini hari Anda memulai perjalanan transformatif. Di Gudang Digital, kami menyediakan semua yang Anda butuhkan untuk memulai, belajar, dan tumbuh lebih cepat dari sebelumnya.</p>
-      <p>Temukan inspirasi, alat, dan sumber daya yang dirancang untuk mempercepat pencapaian tujuan Anda. Ini adalah kesempatan Anda untuk mengubah potensi menjadi prestasi nyata.</p>
-      <a href="#page3" class="btn">Lihat Produk</a>
-    </div>
-    <div class="page1-img">
-      <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
-    </div>
+  <div class="page1-text">
+    <h1>GUDANG DIGITAL</h1>
+    <p>Jangan tunda lagi. Jadikan hari ini hari Anda memulai perjalanan transformatif. Di Gudang Digital, kami menyediakan semua yang Anda butuhkan untuk memulai, belajar, dan tumbuh lebih cepat dari sebelumnya.</p>
+    <p>Temukan inspirasi, alat, dan sumber daya yang dirancang untuk mempercepat pencapaian tujuan Anda. Ini adalah kesempatan Anda untuk mengubah potensi menjadi prestasi nyata.</p>
+    <a href="#page3" class="btn">Lihat Produk</a>
+  </div>
+  <div class="page1-img">
+    <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
   </div>
 </section>
 
@@ -107,16 +110,23 @@
   <h2 style="text-align:center; margin-bottom:40px; color:#fff;">Produk Kami</h2>
   <div class="slider container">
     <div class="slides" id="slides">
-
-      <!-- Slide produk sama seperti sebelumnya (12 produk) -->
-      <!-- ... gunakan konten slide yang Anda punya ... -->
-
+      <!-- Tambahkan semua 12 produk di sini (sama seperti sebelumnya) -->
+      <!-- Contoh Produk 1 -->
+      <div class="slide">
+        <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
+        <div class="slide-info">
+          <h3>Kumpulan Modul Mentoring Copywriting</h3>
+          <p><b>Jangan biarkan tulisanmu hanya jadi hiasan timeline.</b></p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
+        </div>
+      </div>
+      <!-- Tambahkan Produk 2 - 12 sama seperti sebelumnya -->
     </div>
 
     <!-- Dot navigasi desktop -->
     <div class="dots"></div>
 
-    <!-- Panah navigasi (sejajar dengan dot) -->
+    <!-- Panah navigasi desktop -->
     <div class="arrow-container"></div>
   </div>
 </section>
@@ -142,7 +152,7 @@ const dots = document.querySelectorAll(".dot");
 
 let currentIndex = 0;
 function showSlide(index){
-  slides.forEach((slide,i)=>slide.classList.toggle("active",i===index));
+  slides.forEach((slide,i)=>slide.style.display=(i===index?"block":"none"));
   dots.forEach((dot,i)=>dot.classList.toggle("active",i===index));
 }
 function nextSlide(){ currentIndex=(currentIndex+1)%slides.length; showSlide(currentIndex);}
@@ -152,26 +162,42 @@ function goToSlide(index){ currentIndex=index; showSlide(currentIndex);}
 // Panah navigasi desktop
 if(window.innerWidth > 768){
   arrowContainer.innerHTML=`<span id="prev">&#10094;</span><span id="next">&#10095;</span>`;
-} else {
-  arrowContainer.innerHTML=`<span id="prev">&#10094;</span><span id="next">&#10095;</span>`; // tetap ada untuk swipe mobile
+  document.getElementById("prev").addEventListener("click", prevSlide);
+  document.getElementById("next").addEventListener("click", nextSlide);
 }
-document.getElementById("prev").addEventListener("click", prevSlide);
-document.getElementById("next").addEventListener("click", nextSlide);
 
-// Swipe mobile
-let startX=0,endX=0;
+// Swipe mobile horizontal
 const slider = document.getElementById("slides");
-slider.addEventListener("touchstart", e=>{ startX=e.touches[0].clientX; });
+let isDown = false;
+let startX, scrollLeft;
+slider.addEventListener('mousedown', e => {
+  isDown = true; slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+slider.addEventListener('mouseleave', () => isDown=false);
+slider.addEventListener('mouseup', () => isDown=false);
+slider.addEventListener('mousemove', e => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 1.5;
+  slider.scrollLeft = scrollLeft - walk;
+});
+
+// Swipe touch mobile
+let startTouch=0,endTouch=0;
+slider.addEventListener("touchstart", e=>{ startTouch=e.touches[0].clientX; });
 slider.addEventListener("touchend", e=>{
-  endX=e.changedTouches[0].clientX;
-  if(startX-endX>50) nextSlide();
-  else if(endX-startX>50) prevSlide();
+  endTouch=e.changedTouches[0].clientX;
+  if(startTouch-endTouch>50) nextSlide();
+  else if(endTouch-startTouch>50) prevSlide();
 });
 
 // Panah naik ke Page 1 (mobile)
 const toTop = document.getElementById("toTop");
 window.addEventListener("scroll", ()=> {
-  if(window.scrollY > 400) toTop.style.display="block";
+  if(window.innerWidth <= 768 && window.scrollY > 400) toTop.style.display="block";
   else toTop.style.display="none";
 });
 toTop.addEventListener("click", ()=>{ window.scrollTo({top:0, behavior:"smooth"}); });
