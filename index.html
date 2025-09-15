@@ -313,14 +313,25 @@
   document.getElementById("prev").addEventListener("click", () => goToSlide(currentIndex - 1));
   document.getElementById("next").addEventListener("click", () => goToSlide(currentIndex + 1));
 
-  // Mobile swipe
-  let startX = 0;
-  slides.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
-  slides.addEventListener('touchend', (e) => {
-    const diff = e.changedTouches[0].clientX - startX;
-    if(diff > 50) goToSlide(currentIndex - 1);
-    else if(diff < -50) goToSlide(currentIndex + 1);
-  });
+ // Mobile swipe (dibedakan horizontal vs vertical)
+let startX = 0, startY = 0;
+slides.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+});
+
+slides.addEventListener('touchend', (e) => {
+  let diffX = e.changedTouches[0].clientX - startX;
+  let diffY = e.changedTouches[0].clientY - startY;
+
+  // Kalau geser lebih dominan horizontal → slider
+  if(Math.abs(diffX) > Math.abs(diffY)){
+    if(diffX > 50) goToSlide(currentIndex - 1);  // geser kanan
+    else if(diffX < -50) goToSlide(currentIndex + 1); // geser kiri
+  }
+  // Kalau lebih dominan vertical → biarkan scroll normal
+});
+
 
   // Scroll nav dots
   function scrollToPage(index){
@@ -346,3 +357,4 @@
 
 </body>
 </html>
+
