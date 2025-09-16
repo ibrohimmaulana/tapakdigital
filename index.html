@@ -3,403 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gudang Digital</title>
+  <title>Gudang Digital - Page 3</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0d1b2a;
-      color: #fff;
-    }
-    section {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
-      flex-direction: column;
-    }
-    h1, h2, h3 {
-      margin-bottom: 20px;
-    }
-    p {
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-    .btn {
-      background: #1e90ff;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      text-decoration: none;
-    }
-    .btn:hover {
-      background: #0f5fc1;
-    }
+    * {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif;}
+    body {background:#fff; color:#333; overflow-x:hidden;}
 
-    /* === PAGE 1 & 2 === */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      width: 100%;
-      max-width: 1100px;
-    }
-    .grid img {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-
-    /* === PAGE 2 Cards === */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 40px;
-      width: 100%;
-      max-width: 1000px;
-    }
-    .card {
-      background: #1b263b;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    /* === PAGE 3 SLIDER === */
     .slider {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .slides {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
+      display:flex;
+      transition:transform 0.5s ease-in-out;
+      width:100%;
     }
     .slide {
-      min-width: 100%;
-      display: grid;
+      min-width:100%;
+      display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      align-items: center;
-      padding: 20px;
+      align-items:center;
+      gap:30px;
+      padding:40px;
     }
     .slide img {
-      width: 100%;
-      border-radius: 10px;
+      width:100%;
+      max-width:400px;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
     }
-    .slide-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
+    .text {
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      height:100%;
     }
-    .btn-buy {
-      background: #1e90ff;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      align-self: flex-start;
-      text-decoration: none;
-      color: #fff;
+    .text h2 {margin-bottom:15px;}
+    .btn {
+      margin-top:auto;
+      padding:12px 24px;
+      background:#ff5722;
+      color:#fff;
+      text-decoration:none;
+      border-radius:8px;
+      text-align:center;
+      width:fit-content;
+    }
+    .btn:hover {background:#e64a19;}
+
+    /* Navigasi wrapper */
+    .navigation-wrapper {
+      position:fixed;
+      bottom:20px;
+      left:50%;
+      transform:translateX(-50%);
+      text-align:center;
+      z-index:999;
     }
 
-    /* Navigasi */
-    .arrows {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
+    .navigation {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
     }
-    .arrows img {
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-    }
-    .dots {
-      text-align: center;
-      margin-top: 15px;
-    }
+
     .dot {
-      height: 12px;
-      width: 12px;
-      margin: 0 4px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      cursor: pointer;
+      height:12px;
+      width:12px;
+      border-radius:50%;
+      background:#bbb;
+      cursor:pointer;
     }
-    .dot.active {
-      background-color: #1e90ff;
+    .dot.active {background:#ff5722;}
+
+    .arrow {
+      font-size:1.5rem;
+      color:#fff;
+      background:rgba(0,0,0,0.5);
+      padding:6px;
+      border-radius:50%;
+      cursor:pointer;
+    }
+
+    .mobile-info {
+      margin-top:6px;
+      font-size:14px;
+      background:rgba(0,0,0,0.7);
+      color:#fff;
+      padding:4px 12px;
+      border-radius:20px;
+      display:none; /* default sembunyi di PC */
     }
 
     /* Mobile */
-@media(max-width: 768px){
-  .slide {flex-direction: column; text-align: center;}
-  .slide img {width: 100%;}
-  .navigation {display: none;} /* panah + dot hilang */
-}
-
-/* Info Geser Selalu Tampil (PC & Mobile) */
-.mobile-info {
-  display: block;
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.7);
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-}
-
+    @media(max-width:768px){
+      .slide {grid-template-columns:1fr; text-align:center;}
+      .slide img {margin:auto;}
+      .navigation {display:none;} /* sembunyikan panah + dot */
+      .mobile-info {display:inline-block;}
+    }
   </style>
 </head>
 <body>
 
-<!-- PAGE 1 -->
-<section id="page1">
-  <div class="grid">
-    <div>
-      <h1>Selamat Datang di Gudang Digital</h1>
-      <p>Koleksi produk digital terbaik untuk belajar, berbisnis, dan berkembang. Semua dalam satu tempat.</p>
-      <a href="#page3" class="btn">Lihat Produk</a>
+  <div class="slider" id="slider">
+    <!-- 12 Produk -->
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 1">
+      <div class="text">
+        <h2>Produk 1</h2>
+        <p>Deskripsi singkat produk 1 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk1" class="btn">Beli Sekarang</a>
+      </div>
     </div>
-    <img src="https://via.placeholder.com/500x300" alt="Gudang Digital">
-  </div>
-</section>
-  
-<!-- PAGE 2 -->
-<section id="page2">
-  <div class="grid">
-    <img src="https://via.placeholder.com/500x300" alt="Lynk.id">
-    <div>
-      <h2>Tentang Lynk.id</h2>
-      <p>Lynk.id adalah platform yang membantu Anda menghubungkan audiens dengan semua produk digital Anda dalam satu tautan.</p>
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 2">
+      <div class="text">
+        <h2>Produk 2</h2>
+        <p>Deskripsi singkat produk 2 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk2" class="btn">Beli Sekarang</a>
+      </div>
     </div>
-  </div>
-  <div>
-    <h2 style="text-align:center; margin-top:60px;">Kenapa Harus Produk Digital?</h2>
-    <div class="cards">
-      <div class="card">📈 Bisa dijual berulang tanpa stok.</div>
-      <div class="card">⏱️ Hemat waktu & praktis.</div>
-      <div class="card">💡 Cocok untuk pemula hingga expert.</div>
-      <div class="card">🌍 Akses mudah dari mana saja.</div>
-      <div class="card">💰 Margin keuntungan tinggi.</div>
-      <div class="card">🔄 Bisa diupdate kapan saja.</div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 3">
+      <div class="text">
+        <h2>Produk 3</h2>
+        <p>Deskripsi singkat produk 3 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk3" class="btn">Beli Sekarang</a>
+      </div>
     </div>
-  </div>
-</section>
-
-  <!-- PAGE 3 -->
-<section id="page3">
-  <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
-  <div class="slider">
-    <div class="slides">
-
-      <!-- Produk 1 -->
-      <div class="slide">
-        <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
-        <div class="slide-content">
-          <div>
-            <h3>Kumpulan Modul Mentoring Copywriting</h3>
-            <p>Belajar teknik kata yang menarik perhatian dan mendorong orang untuk bertindak.</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/zjgnpnv1p45g/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 4">
+      <div class="text">
+        <h2>Produk 4</h2>
+        <p>Deskripsi singkat produk 4 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk4" class="btn">Beli Sekarang</a>
       </div>
-
-      <!-- Produk 2 -->
-      <div class="slide">
-        <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
-        <div class="slide-content">
-          <div>
-            <h3>40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing</h3>
-            <p>Mau jualan makin laris dan cuan deras?</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/4ewoz5dk2e37/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
-      </div>
-
-      <!-- Produk 3 -->
-      <div class="slide">
-        <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
-        <div class="slide-content">
-          <div>
-            <h3>Mahir WhatsApp Marketing (Video Course)</h3>
-            <p>Mau jualan laris hanya lewat WhatsApp?</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/j1k517q13evm/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
-      </div>
-
-      <!-- Produk 4 -->
-      <div class="slide">
-        <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4">
-        <div class="slide-content">
-          <div>
-            <h3>CapCut Masterclass Bundle</h3>
-            <p>Mau bikin video keren yang bikin orang betah nonton?</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/9w5jd3l5p3d2/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
-      </div>
-
-      <!-- Produk 5 -->
-      <div class="slide">
-        <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5">
-        <div class="slide-content">
-          <div>
-            <h3>1000+ Social Media Template Canva</h3>
-            <p>Mau feed medsos langsung terlihat profesional tanpa ribet desain?</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/4158j0onv78p/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
-      </div>
-
-      <!-- Produk 6 -->
-      <div class="slide">
-        <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6">
-        <div class="slide-content">
-          <div>
-            <h3>E-book Panduan Konten Viral</h3>
-            <p>Capek bikin konten tapi view sepi?</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/k15o04qo8rog/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
-      </div>
-
-      <!-- Produk 7 -->
-      <div class="slide">
-        <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
-        <div class="slide-content">
-          <div>
-            <h3>Bikin Desain Keren dengan Canva, Mulai dari Sini</h3>
-            <p>Mau desain kece tapi nggak jago Photoshop?</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/o360m6xgpn29/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
-      </div>
-
-      <!-- Produk 8 -->
-      <div class="slide">
-        <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
-        <div class="slide-content">
-          <div>
-            <h3>Cara Membuat E-Book Dengan ChatGPT</h3>
-            <p>Pengen punya e-book sendiri tapi bingung mulai dari mana?</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/kqwkgpgxl872/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
-      </div>
-
-      <!-- Produk 9 -->
-      <div class="slide">
-        <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
-        <div class="slide-content">
-          <div>
-            <h3>E-book Humor Para Pemikir Besar</h3>
-            <p>Siapa bilang pemikir besar selalu serius?</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/2589lgedq0rd/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
-      </div>
-
-      <!-- Produk 10 -->
-      <div class="slide">
-        <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
-        <div class="slide-content">
-          <div>
-            <h3>E-book Bikin Produk Digital Sendiri Modal Canva</h3>
-            <p>Pengen punya produk digital tapi nggak ngerti desain?</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/qje70d70gmql/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
-      </div>
-
-      <!-- Produk 11 -->
-      <div class="slide">
-        <img src="img/Ebook Panduan Jualan di Instagram.png" alt="Produk 11">
-        <div class="slide-content">
-          <div>
-            <h3>E-book Panduan Jualan di Instagram</h3>
-            <p>Mau jualan di Instagram tapi sepi order?</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/3n3n1a2n6q3r/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
-      </div>
-
-      <!-- Produk 12 -->
-      <div class="slide">
-        <img src="img/Ebook Strategi Copywriting untuk Pemula.png" alt="Produk 12">
-        <div class="slide-content">
-          <div>
-            <h3>E-book Strategi Copywriting untuk Pemula</h3>
-            <p>Belajar menulis kata yang menjual untuk pemula.</p>
-          </div>
-          <a href="http://lynk.id/gudangdigital_ibra/p9d8g9q0r7jl/checkout" class="btn-buy">Beli Sekarang</a>
-        </div>
-      </div>
-
     </div>
-
-     <!-- Navigasi (PC) -->
-  <div class="navigation">
-    <div class="arrow" onclick="prevSlide()">&#10094;</div>
-    <div id="dots"></div>
-    <div class="arrow" onclick="nextSlide()">&#10095;</div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 5">
+      <div class="text">
+        <h2>Produk 5</h2>
+        <p>Deskripsi singkat produk 5 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk5" class="btn">Beli Sekarang</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 6">
+      <div class="text">
+        <h2>Produk 6</h2>
+        <p>Deskripsi singkat produk 6 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk6" class="btn">Beli Sekarang</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 7">
+      <div class="text">
+        <h2>Produk 7</h2>
+        <p>Deskripsi singkat produk 7 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk7" class="btn">Beli Sekarang</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 8">
+      <div class="text">
+        <h2>Produk 8</h2>
+        <p>Deskripsi singkat produk 8 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk8" class="btn">Beli Sekarang</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 9">
+      <div class="text">
+        <h2>Produk 9</h2>
+        <p>Deskripsi singkat produk 9 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk9" class="btn">Beli Sekarang</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 10">
+      <div class="text">
+        <h2>Produk 10</h2>
+        <p>Deskripsi singkat produk 10 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk10" class="btn">Beli Sekarang</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 11">
+      <div class="text">
+        <h2>Produk 11</h2>
+        <p>Deskripsi singkat produk 11 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk11" class="btn">Beli Sekarang</a>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/400x250" alt="Produk 12">
+      <div class="text">
+        <h2>Produk 12</h2>
+        <p>Deskripsi singkat produk 12 yang bermanfaat.</p>
+        <a href="https://lynk.id/produk12" class="btn">Beli Sekarang</a>
+      </div>
+    </div>
   </div>
 
-  <!-- Info Mobile -->
-  <div class="mobile-info">⬅️ Geser untuk lihat produk ➡️</div>
+  <!-- Navigasi + Info -->
+  <div class="navigation-wrapper">
+    <div class="navigation">
+      <span class="arrow prev">&#10094;</span>
+      <div class="dots"></div>
+      <span class="arrow next">&#10095;</span>
+    </div>
+    <div class="mobile-info">⬅️ Geser untuk lihat produk ➡️</div>
+  </div>
 
   <script>
-    const slides = document.getElementById("slides");
-    const slideCount = slides.children.length;
-    let currentIndex = 0;
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const dotsContainer = document.querySelector('.dots');
+    let index = 0;
 
-    const dotsContainer = document.getElementById("dots");
-    for (let i=0; i<slideCount; i++) {
-      const dot = document.createElement("div");
-      dot.classList.add("dot");
-      if (i===0) dot.classList.add("active");
-      dot.addEventListener("click", ()=>goToSlide(i));
+    // buat dot sesuai jumlah slide
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if(i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
       dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function updateSlide() {
+      slider.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(d => d.classList.remove('active'));
+      dots[index].classList.add('active');
     }
 
-    function updateDots(){
-      document.querySelectorAll(".dot").forEach((d,i)=>{
-        d.classList.toggle("active", i===currentIndex);
-      });
+    function goToSlide(i) {
+      index = i;
+      updateSlide();
     }
 
-    function goToSlide(index){
-      currentIndex = index;
-      slides.style.transform = `translateX(-${100*index}%)`;
-      updateDots();
-    }
+    prev.addEventListener('click', () => {
+      index = (index > 0) ? index - 1 : slides.length - 1;
+      updateSlide();
+    });
 
-    function nextSlide(){
-      if (currentIndex < slideCount-1) currentIndex++;
-      else currentIndex=0;
-      goToSlide(currentIndex);
-    }
-
-    function prevSlide(){
-      if (currentIndex > 0) currentIndex--;
-      else currentIndex=slideCount-1;
-      goToSlide(currentIndex);
-    }
+    next.addEventListener('click', () => {
+      index = (index < slides.length - 1) ? index + 1 : 0;
+      updateSlide();
+    });
   </script>
 </body>
 </html>
-
