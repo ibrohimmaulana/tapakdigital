@@ -46,23 +46,19 @@
   .dot.active{background:#FAA613;}
 
   /* Arrow modern */
-  .arrow{
-    font-size:2rem;
-    color:#fff;
-    background:linear-gradient(145deg,#DD0426,#FF416C);
-    border-radius:50%;
-    width:55px;
-    height:55px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    user-select:none;
-    box-shadow:0 6px 15px rgba(0,0,0,0.4);
-    transition:all 0.3s ease;
-  }
-  .arrow:hover{background:linear-gradient(145deg,#FF416C,#DD0426);transform:scale(1.1);}
-  .arrow-container{display:flex;justify-content:center;gap:25px;margin-top:15px;}
+  .arrow img {
+  width: 40px;  /* atur sesuai ukuran panah yang diinginkan */
+  height: 40px;
+  object-fit: contain;
+}
+.arrow {
+  background: none; /* hilangkan background gradien */
+  box-shadow: none; /* hilangkan shadow jika tidak ingin */
+}
+.arrow:hover {
+  transform: scale(1.1); /* tetap ada efek hover */
+}
+
 
   /* NAV DOTS LEFT SIDE */
   .nav-dots{position:fixed;top:50%;left:20px;display:flex;flex-direction:column;gap:10px;z-index:1000;}
@@ -271,9 +267,14 @@
 
     <!-- Arrow -->
     <div class="arrow-container">
-      <div class="arrow" id="prev">&#10094;</div>
-      <div class="arrow" id="next">&#10095;</div>
-    </div>
+  <div class="arrow" id="prev">
+    <img src="img/panah-kanan.png" alt="Prev" />
+  </div>
+  <div class="arrow" id="next">
+    <img src="img/panah-kiri.png" alt="Next" />
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -340,3 +341,4 @@
 
 </body>
 </html>
+
