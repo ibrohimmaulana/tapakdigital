@@ -6,8 +6,25 @@
   <title>Gudang Digital</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-    body{overflow-x:hidden;}
-    section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;}
+    body{overflow-x:hidden;scroll-behavior:smooth;}
+    section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;position:relative;}
+
+    /* ===== DOT NAVIGASI PAGE ===== */
+    .page-dots{
+      position:fixed;
+      right:20px;
+      top:50%;
+      transform:translateY(-50%);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      z-index:1000;
+    }
+    .page-dot{
+      width:14px;height:14px;border-radius:50%;
+      background:#bbb;cursor:pointer;
+    }
+    .page-dot.active{background:#ff5722;}
 
     /* ===== PAGE 1 ===== */
     .page1{background:#fff;}
@@ -43,12 +60,11 @@
     .slide h3{margin-bottom:10px;}
     .slide p{margin-bottom:20px;}
     .slide .btn{align-self:flex-start;}
-    .dots{display:flex;justify-content:center;gap:8px;margin-top:20px;}
+    .dots{display:flex;justify-content:center;gap:8px;margin-top:10px;}
     .dot{width:12px;height:12px;border-radius:50%;background:#bbb;cursor:pointer;}
     .dot.active{background:#ff5722;}
-    .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:#fff;border:none;padding:10px 15px;cursor:pointer;border-radius:50%;}
-    .arrow.left{left:10px;}
-    .arrow.right{right:10px;}
+    .arrow{display:block;background:rgba(0,0,0,0.5);color:#fff;border:none;padding:8px 12px;cursor:pointer;border-radius:50%;margin-top:6px;}
+    .arrow-wrap{text-align:center;margin-top:6px;}
 
     /* Teks geser hanya di mobile */
     .swipe-hint{text-align:center;margin-top:15px;font-size:14px;color:#666;display:none;}
@@ -56,12 +72,19 @@
       .slide{flex-direction:column;text-align:center;}
       .slide img{width:80%;}
       .slide .btn{align-self:center;}
-      .arrow,.dots{display:none;}
+      .arrow-wrap,.dots{display:none;}
       .swipe-hint{display:block;}
     }
   </style>
 </head>
 <body>
+
+  <!-- Dot Navigasi Page -->
+  <div class="page-dots">
+    <div class="page-dot" data-target="page1"></div>
+    <div class="page-dot" data-target="page2"></div>
+    <div class="page-dot" data-target="page3"></div>
+  </div>
 
   <!-- PAGE 1 -->
   <section class="page1" id="page1">
@@ -69,7 +92,7 @@
       <div class="text">
         <h1>Selamat Datang di Gudang Digital</h1>
         <p>Koleksi produk digital terbaik untuk belajar, berbisnis, dan berkembang. Semua dalam satu tempat.</p>
-        <a href="#page2" class="btn">Lanjut ke Page 2</a>
+        <a href="#page3" class="btn">Langsung ke Produk</a>
       </div>
       <div class="image">
         <img src="https://via.placeholder.com/500x300" alt="Landing Page">
@@ -98,10 +121,6 @@
       <div class="card">💰 Modal kecil potensi besar.</div>
       <div class="card">📚 Ilmu bermanfaat jangka panjang.</div>
     </div>
-
-    <div style="text-align:center;margin-top:40px;">
-      <a href="#page3" class="btn">Lanjut ke Page 3</a>
-    </div>
   </section>
 
   <!-- PAGE 3 -->
@@ -109,125 +128,50 @@
     <div class="slider">
       <div class="slides">
         <!-- 12 Produk -->
-        <!-- Produk 1 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 1">
-          <div class="info">
-            <h3>Produk 1</h3>
-            <p>Deskripsi singkat produk 1.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
-        <!-- Produk 2 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 2">
-          <div class="info">
-            <h3>Produk 2</h3>
-            <p>Deskripsi singkat produk 2.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
-        <!-- Produk 3 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 3">
-          <div class="info">
-            <h3>Produk 3</h3>
-            <p>Deskripsi singkat produk 3.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
-        <!-- Produk 4 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 4">
-          <div class="info">
-            <h3>Produk 4</h3>
-            <p>Deskripsi singkat produk 4.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
-        <!-- Produk 5 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 5">
-          <div class="info">
-            <h3>Produk 5</h3>
-            <p>Deskripsi singkat produk 5.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
-        <!-- Produk 6 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 6">
-          <div class="info">
-            <h3>Produk 6</h3>
-            <p>Deskripsi singkat produk 6.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
-        <!-- Produk 7 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 7">
-          <div class="info">
-            <h3>Produk 7</h3>
-            <p>Deskripsi singkat produk 7.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
-        <!-- Produk 8 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 8">
-          <div class="info">
-            <h3>Produk 8</h3>
-            <p>Deskripsi singkat produk 8.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
-        <!-- Produk 9 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 9">
-          <div class="info">
-            <h3>Produk 9</h3>
-            <p>Deskripsi singkat produk 9.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
-        <!-- Produk 10 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 10">
-          <div class="info">
-            <h3>Produk 10</h3>
-            <p>Deskripsi singkat produk 10.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
-        <!-- Produk 11 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 11">
-          <div class="info">
-            <h3>Produk 11</h3>
-            <p>Deskripsi singkat produk 11.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
-        <!-- Produk 12 -->
-        <div class="slide">
-          <img src="https://via.placeholder.com/400x250" alt="Produk 12">
-          <div class="info">
-            <h3>Produk 12</h3>
-            <p>Deskripsi singkat produk 12.</p>
-            <a href="https://lynk.id/" class="btn">Beli Sekarang</a>
-          </div>
-        </div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 1</h3><p>Deskripsi produk 1.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 2</h3><p>Deskripsi produk 2.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 3</h3><p>Deskripsi produk 3.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 4</h3><p>Deskripsi produk 4.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 5</h3><p>Deskripsi produk 5.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 6</h3><p>Deskripsi produk 6.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 7</h3><p>Deskripsi produk 7.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 8</h3><p>Deskripsi produk 8.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 9</h3><p>Deskripsi produk 9.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 10</h3><p>Deskripsi produk 10.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 11</h3><p>Deskripsi produk 11.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
+        <div class="slide"><img src="https://via.placeholder.com/400x250"><div class="info"><h3>Produk 12</h3><p>Deskripsi produk 12.</p><a href="https://lynk.id/" class="btn">Beli Sekarang</a></div></div>
       </div>
 
-      <!-- Navigasi -->
-      <button class="arrow left">&#10094;</button>
-      <button class="arrow right">&#10095;</button>
+      <!-- Navigasi produk -->
       <div class="dots"></div>
+      <div class="arrow-wrap">
+        <button class="arrow left">&#10094;</button>
+        <button class="arrow right">&#10095;</button>
+      </div>
       <div class="swipe-hint">⬅️ Geser untuk lihat produk ➡️</div>
     </div>
   </section>
 
   <script>
+    // Page dot navigator
+    const pageDots=document.querySelectorAll('.page-dot');
+    const sections=document.querySelectorAll('section');
+    window.addEventListener('scroll',()=>{
+      let current="";
+      sections.forEach(sec=>{
+        const secTop=sec.offsetTop-100;
+        if(pageYOffset>=secTop){current=sec.getAttribute('id');}
+      });
+      pageDots.forEach(dot=>{
+        dot.classList.remove('active');
+        if(dot.dataset.target===current) dot.classList.add('active');
+      });
+    });
+    pageDots.forEach(dot=>{
+      dot.addEventListener('click',()=>document.getElementById(dot.dataset.target).scrollIntoView({behavior:"smooth"}));
+    });
+
+    // Slider produk
     const slides=document.querySelector('.slides');
     const slide=document.querySelectorAll('.slide');
     const dotsContainer=document.querySelector('.dots');
@@ -235,7 +179,7 @@
     const nextBtn=document.querySelector('.arrow.right');
     let index=0;
 
-    // Generate dots
+    // Generate dots produk
     slide.forEach((_,i)=>{
       const dot=document.createElement('div');
       dot.classList.add('dot');
