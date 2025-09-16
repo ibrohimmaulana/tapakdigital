@@ -29,36 +29,71 @@
   .card{background:rgba(255,255,255,0.07);border-radius:16px;padding:25px 20px;text-align:center;font-size:1.05rem;transition:all 0.3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.3);cursor:default;}
   .card:hover{transform:translateY(-8px);background:#fff;color:#000;box-shadow:0 8px 25px rgba(0,0,0,0.5);}
   .card span.icon{display:block;font-size:2rem;margin-bottom:12px;color:#ffdf5f;}
-  /* PAGE 3 */
-  #page3{background:#070B0E;padding:80px 5%;}
-  .slider{position:relative;width:100%;overflow:hidden;margin:0 auto;}
-  .slides{display:flex;transition:transform 0.5s ease-in-out;touch-action:pan-x;}
-  .slide{min-width:100%;display:flex;align-items:center;justify-content:space-between;gap:30px;padding:20px 0;}
-  .slide img{width:40%;border-radius:12px;transition:all 0.3s ease;}
-  .slide-info{flex:1;}
-  .dots{display:flex;justify-content:center;margin-top:20px;}
-  .dot{width:12px;height:12px;border-radius:50%;background:#FFFFFF;margin:0 6px;cursor:pointer;}
-  .dot.active{background:#FAA613;}
-  .arrow{font-size:2rem;color:#fff;background:rgba(0,0,0,0.4);border-radius:50%;padding:10px;cursor:pointer;user-select:none;margin:10px;}
-  .arrow.left{float:left;}
-  .arrow.right{float:right;}
-  /* Scroll nav dots left side */
-  .nav-dots{position:fixed;top:50%;left:20px;display:flex;flex-direction:column;gap:10px;z-index:1000;}
-  .nav-dots div{width:12px;height:12px;border-radius:50%;background:#FFFFFF;cursor:pointer;}
-  .nav-dots div.active{background:#FAA613;}
-  @media(max-width:900px){
-    .page1-content{flex-direction:column;text-align:center;}
-    .page1-text{padding-right:0;margin-bottom:20px;margin-top:150px;}
-    .page1-text h1{font-size:2.5rem;}
-    .page1-text p{font-size:1rem;}
-    .page1-img img{height:50vh;}
-    .page2-top{flex-direction:column;}
-    .slide{flex-direction:column;}
-    .slide img{width:80%;margin-bottom:20px;}
-    .nav-dots{display:none;}
-    .dots,.arrow{display:none;}
-    #page3::after{content:"Geser ke kiri atau kanan untuk melihat produk";display:block;text-align:center;color:#FAA613;font-weight:bold;margin-top:20px;}
+  /* PAGE 3 - Slider Panah Rapi PC */
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  touch-action: pan-x;
+}
+
+.slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.slide img { width:40%; border-radius:12px; transition:all 0.3s ease; }
+.slide-info { flex:1; }
+
+/* Dot Slider */
+.dots { display:flex; justify-content:center; margin-top:20px; }
+.dot { width:12px; height:12px; border-radius:50%; background:#FFFFFF; margin:0 6px; cursor:pointer; }
+.dot.active { background:#FAA613; }
+
+/* Arrow Slider PC - Sejajar di sisi kiri/kanan */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+
+#prev { left: 10px; }
+#next { right: 10px; }
+
+/* Responsive */
+@media(max-width:900px){
+  .slide { flex-direction: column; }
+  .slide img { width:80%; margin-bottom:20px; }
+  .dots { display:none; }
+  .arrow { display:none; }
+  #page3::after {
+    content:"Geser ke kiri atau kanan untuk melihat produk";
+    display:block;
+    text-align:center;
+    color:#FAA613;
+    font-weight:bold;
+    margin-top:20px;
   }
+}
+
 </style>
 </head>
 <body>
@@ -301,3 +336,4 @@
 </script>
 </body>
 </html>
+
