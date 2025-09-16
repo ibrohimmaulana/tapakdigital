@@ -6,7 +6,8 @@
   <title>Gudang Digital</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-    body{overflow-x:hidden;scroll-behavior:smooth;}
+    body{overflow-x:hidden;scroll-behavior:smooth;background:#121212;color:#f5f5f5;}
+
     section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;position:relative;}
 
     /* ===== DOT NAVIGASI PAGE ===== */
@@ -22,16 +23,16 @@
     }
     .page-dot{
       width:14px;height:14px;border-radius:50%;
-      background:#bbb;cursor:pointer;
+      background:#555;cursor:pointer;
     }
     .page-dot.active{background:#ff5722;}
 
     /* ===== PAGE 1 ===== */
-    .page1{background:#fff;}
+    .page1{background:#1e1e1e;}
     .page1 .container{display:flex;align-items:center;gap:40px;max-width:1100px;margin:auto;}
     .page1 .text{flex:1;}
     .page1 .image{flex:1;}
-    .page1 img{width:100%;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);}
+    .page1 img{width:100%;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.5);}
     .btn{display:inline-block;padding:12px 24px;margin-top:20px;background:#ff5722;color:#fff;border-radius:8px;text-decoration:none;font-weight:bold;}
     .btn:hover{background:#e64a19;}
     @media(max-width:768px){
@@ -39,35 +40,37 @@
     }
 
     /* ===== PAGE 2 ===== */
-    .page2{background:#fafafa;}
+    .page2{background:#1a1a1a;}
     .page2 .flex{display:flex;align-items:center;gap:40px;max-width:1100px;margin:auto;}
     .page2 .image{flex:1;}
     .page2 .text{flex:1;}
-    .page2 img{width:100%;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);}
+    .page2 img{width:100%;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.5);}
     .card-grid{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1100px;margin:auto;}
-    .card{background:#f5f5f5;padding:20px;border-radius:12px;text-align:center;box-shadow:0 4px 6px rgba(0,0,0,0.1);}
+    .card{background:#2a2a2a;padding:20px;border-radius:12px;text-align:center;box-shadow:0 4px 6px rgba(0,0,0,0.5);}
     @media(max-width:768px){
       .page2 .flex{flex-direction:column;text-align:center;}
     }
 
     /* ===== PAGE 3 ===== */
-    .page3{background:#fff;}
+    .page3{background:#1c1c1c;}
     .slider{position:relative;overflow:hidden;width:100%;max-width:1100px;margin:auto;}
     .slides{display:flex;transition:transform 0.5s ease;width:100%;}
     .slide{min-width:100%;display:flex;align-items:center;gap:30px;padding:20px;}
-    .slide img{width:45%;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.2);}
+    .slide img{width:45%;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.5);}
     .slide .info{flex:1;display:flex;flex-direction:column;justify-content:space-between;}
     .slide h3{margin-bottom:10px;}
     .slide p{margin-bottom:20px;}
     .slide .btn{align-self:flex-start;}
+
+    /* Dot & Arrow */
     .dots{display:flex;justify-content:center;gap:8px;margin-top:10px;}
-    .dot{width:12px;height:12px;border-radius:50%;background:#bbb;cursor:pointer;}
+    .dot{width:12px;height:12px;border-radius:50%;background:#555;cursor:pointer;}
     .dot.active{background:#ff5722;}
-    .arrow{display:block;background:rgba(0,0,0,0.5);color:#fff;border:none;padding:8px 12px;cursor:pointer;border-radius:50%;margin-top:6px;}
-    .arrow-wrap{text-align:center;margin-top:6px;}
+    .arrow-wrap{display:flex;justify-content:space-between;max-width:300px;margin:10px auto 0;}
+    .arrow{background:rgba(255,87,34,0.8);color:#fff;border:none;padding:8px 16px;cursor:pointer;border-radius:50%;font-size:18px;}
 
     /* Teks geser hanya di mobile */
-    .swipe-hint{text-align:center;margin-top:15px;font-size:14px;color:#666;display:none;}
+    .swipe-hint{text-align:center;margin-top:15px;font-size:14px;color:#aaa;display:none;}
     @media(max-width:768px){
       .slide{flex-direction:column;text-align:center;}
       .slide img{width:80%;}
@@ -108,10 +111,9 @@
       </div>
       <div class="text">
         <h2>Tentang Lynk.id</h2>
-        <p>Lynk.id adalah platform yang membantu Anda menghubungkan audiens dengan semua produk digital Anda dalam satu tautan.</p>
+        <p>Lynk.id membantu Anda menghubungkan audiens dengan semua produk digital dalam satu tautan.</p>
       </div>
     </div>
-
     <h2 style="text-align:center;margin:40px 0 20px;">Kenapa Harus Produk Digital?</h2>
     <div class="card-grid">
       <div class="card">📈 Bisa dijual berulang tanpa stok.</div>
