@@ -142,26 +142,26 @@
     }
 
     /* Mobile */
-    @media (max-width: 768px) {
-      .grid, .slide {
-        grid-template-columns: 1fr;
-      }
-      .arrows, .dots {
-        display: none;
-      }
-      .mobile-instruction {
-        display: block;
-        text-align: center;
-        margin-top: 10px;
-        font-size: 14px;
-        color: #1e90ff;
-      }
-    }
-    @media (min-width: 769px) {
-      .mobile-instruction {
-        display: none;
-      }
-    }
+@media(max-width: 768px){
+  .slide {flex-direction: column; text-align: center;}
+  .slide img {width: 100%;}
+  .navigation {display: none;} /* panah + dot hilang */
+}
+
+/* Info Geser Selalu Tampil (PC & Mobile) */
+.mobile-info {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
   </style>
 </head>
 <body>
@@ -402,3 +402,4 @@
   </script>
 </body>
 </html>
+
