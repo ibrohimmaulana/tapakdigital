@@ -150,7 +150,6 @@
           <a href="http://lynk.id/gudangdigital_ibra/zjgnpnv1p45g/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
       <!-- Produk 2 -->
       <div class="slide">
         <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
@@ -160,7 +159,6 @@
           <a href="http://lynk.id/gudangdigital_ibra/4ewoz5dk2e37/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
       <!-- Produk 3 -->
       <div class="slide">
         <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
@@ -170,7 +168,6 @@
           <a href="http://lynk.id/gudangdigital_ibra/j1k517q13evm/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
       <!-- Produk 4 -->
       <div class="slide">
         <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4">
@@ -180,7 +177,6 @@
           <a href="http://lynk.id/gudangdigital_ibra/9w5jd3l5p3d2/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
       <!-- Produk 5 -->
       <div class="slide">
         <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5">
@@ -190,7 +186,6 @@
           <a href="http://lynk.id/gudangdigital_ibra/4158j0onv78p/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
       <!-- Produk 6 -->
       <div class="slide">
         <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6">
@@ -200,7 +195,6 @@
           <a href="http://lynk.id/gudangdigital_ibra/k15o04qo8rog/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
       <!-- Produk 7 -->
       <div class="slide">
         <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
@@ -210,7 +204,6 @@
           <a href="http://lynk.id/gudangdigital_ibra/o360m6xgpn29/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
       <!-- Produk 8 -->
       <div class="slide">
         <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
@@ -220,7 +213,6 @@
           <a href="http://lynk.id/gudangdigital_ibra/kqwkgpgxl872/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
       <!-- Produk 9 -->
       <div class="slide">
         <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
@@ -230,7 +222,6 @@
           <a href="http://lynk.id/gudangdigital_ibra/2589lgedq0rd/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
       <!-- Produk 10 -->
       <div class="slide">
         <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
@@ -240,7 +231,6 @@
           <a href="http://lynk.id/gudangdigital_ibra/qje70d70gmql/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
       <!-- Produk 11 -->
       <div class="slide">
         <img src="img/Ebook Panduan Jualan di Instagram.png" alt="Produk 11">
@@ -250,7 +240,6 @@
           <a href="http://lynk.id/gudangdigital_ibra/3n3n1a2n6q3r/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
       <!-- Produk 12 -->
       <div class="slide">
         <img src="img/Ebook Strategi Copywriting untuk Pemula.png" alt="Produk 12">
@@ -262,21 +251,69 @@
       </div>
     </div>
 
-    <!-- Dots -->
+    <!-- Dot slider -->
     <div class="dots" id="dots"></div>
 
-    <!-- Arrow -->
+    <!-- Arrow container sejajar di bawah dot -->
     <div class="arrow-container">
-  <div class="arrow" id="prev">
-    <img src="img/panah-kanan.png" alt="Prev" />
-  </div>
-  <div class="arrow" id="next">
-    <img src="img/panah-kiri.png" alt="Next" />
-  </div>
-</div>
-
+      <div class="arrow" id="prev"><img src="img/panah-kanan.png" alt="Prev" /></div>
+      <div class="arrow" id="next"><img src="img/panah-kiri.png" alt="Next" /></div>
+    </div>
   </div>
 </section>
+
+<style>
+  .slider {position: relative;}
+  .slides {display: flex; transition: transform 0.5s ease-in-out;}
+  .slide {min-width:100%; display:flex; gap:30px; align-items:center; justify-content:flex-start;}
+  .slide img {width:40%; border-radius:12px;}
+  .slide-info {flex:1; color:#fff;}
+  .dots {display:flex; justify-content:center; margin-top:20px; gap:8px;}
+  .dot {width:12px; height:12px; border-radius:50%; background:#fff; cursor:pointer;}
+  .dot.active {background:#FAA613;}
+  .arrow-container {display:flex; justify-content:center; gap:30px; margin-top:15px;}
+  .arrow img {width:50px; height:50px; cursor:pointer; object-fit:contain;}
+</style>
+
+<script>
+  const slides = document.getElementById("slides");
+  const dotsContainer = document.getElementById("dots");
+  const totalSlides = slides.children.length;
+  let currentIndex = 0;
+
+  // Buat dots
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  function goToSlide(index) {
+    currentIndex = (index + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${100 * currentIndex}%)`;
+    updateDots();
+  }
+
+  function updateDots() {
+    const dots = dotsContainer.children;
+    for (let i = 0; i < dots.length; i++) dots[i].classList.remove("active");
+    dots[currentIndex]?.classList.add("active");
+  }
+
+  document.getElementById("prev").addEventListener("click", () => goToSlide(currentIndex - 1));
+  document.getElementById("next").addEventListener("click", () => goToSlide(currentIndex + 1));
+
+  // Swipe mobile
+  let startX = 0;
+  slides.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  slides.addEventListener('touchend', e => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if (diff > 50) goToSlide(currentIndex - 1);
+    else if (diff < -50) goToSlide(currentIndex + 1);
+  });
+</script>
 
 <script>
   // Scroll dan nav dots
