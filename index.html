@@ -36,9 +36,9 @@
   #page3{background:#070B0E;padding:80px 5%;position:relative;}
   .slider{position:relative;width:100%;overflow:hidden;margin:0 auto;}
   .slides{display:flex;transition:transform 0.5s ease-in-out;}
-  .slide{min-width:100%;display:flex;justify-content:center;align-items:center;}
-  .product{text-align:center;max-width:400px;}
-  .product img{width:100%;max-width:300px;border-radius:12px;margin-bottom:15px;}
+  .slide{min-width:100%; display:flex; align-items:center; gap:40px; flex-wrap:wrap; padding:20px 0;}
+  .slide img{width:40%; max-width:300px; border-radius:12px;}
+  .slide-info{flex:1; min-width:250px;}
 
   /* Dot Slider */
   .dots{display:flex;justify-content:center;margin-top:20px;}
@@ -89,6 +89,9 @@
       transform:translateY(-50%);
     }
     .arrow{width:50px;height:50px;font-size:1.8rem;}
+    .slide{flex-direction:column; text-align:center;}
+    .slide img{width:80%; max-width:300px; margin:0 auto;}
+    .slide-info{width:100%; text-align:center;}
   }
 </style>
 </head>
@@ -261,11 +264,21 @@
           <a href="http://lynk.id/gudangdigital_ibra/p9d8g9q0r7jl/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
     </div>
+
+    <!-- Dots -->
+    <div class="dots" id="dots"></div>
+
+    <!-- Arrow -->
+    <div class="arrow-container">
+      <div class="arrow" id="prev">&#10094;</div>
+      <div class="arrow" id="next">&#10095;</div>
+    </div>
+  </div>
 </section>
 
 <script>
+  // Scroll dan nav dots
   function scrollToPage(index){
     const pages=[document.getElementById("page1"),document.getElementById("page2"),document.getElementById("page3")];
     pages[index].scrollIntoView({behavior:"smooth"});
@@ -327,4 +340,3 @@
 
 </body>
 </html>
-
