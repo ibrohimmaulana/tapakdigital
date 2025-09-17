@@ -17,7 +17,7 @@ p { margin-bottom:15px; line-height:1.6;}
 .container { width:90%; max-width:1200px; margin:0 auto; }
 
 /* ===========================
-   NAV DOTS (PC)
+   NAV DOTS (HANYA PC)
 =========================== */
 .nav-dots { position:fixed; top:50%; left:20px; display:flex; flex-direction:column; gap:10px; z-index:1000; }
 .nav-dots div { width:12px; height:12px; border-radius:50%; background:#FFFFFF; cursor:pointer; }
@@ -66,34 +66,29 @@ p { margin-bottom:15px; line-height:1.6;}
    RESPONSIVE MOBILE
 =========================== */
 @media(max-width:900px){
-  /* PAGE 1 */
+  /* Page 1 */
   .page1-content { flex-direction:column; text-align:center;}
   .page1-text { padding-right:0; margin-bottom:20px; margin-top:50px;}
   .page1-text h1 { font-size:2.5rem;}
   .page1-text p { font-size:1rem;}
   .page1-img img { height:50vh; margin-top:20px; }
 
-  /* PAGE 2 */
+  /* Page 2 */
   .page2-top { flex-direction:column; }
   .page2-top img { order:2; margin-top:20px;} /* gambar bawah teks */
   .page2-text { order:1; text-align:center;}
 
- 
-/* ===========================
-   PAGE 3 MOBILE
-=========================== */
-@media(max-width:900px){
+  /* Page 3 - Mobile */
   .slides { 
+    display:flex; 
     flex-direction:row; 
-    overflow-x:scroll; 
+    overflow-x:auto; 
     scroll-snap-type:x mandatory; 
-    -webkit-overflow-scrolling:touch; 
-    gap:20px;
+    -webkit-overflow-scrolling: touch; 
+    gap:20px; 
   }
-
   .slide { 
-    min-width:100%; 
-    flex-shrink:0; 
+    flex:0 0 100%; 
     scroll-snap-align:start; 
     display:flex; 
     flex-direction:column; 
@@ -101,31 +96,11 @@ p { margin-bottom:15px; line-height:1.6;}
     text-align:center; 
     padding:20px 10px; 
   }
-
-  .slide img { 
-    width:40%;      /* bisa diubah sesuai kebutuhan */
-    height:auto; 
-    margin-bottom:15px; 
-  }
-
-  .slide-info { 
-    width:90%; 
-  }
-
-  .dots, .arrow-container, .nav-dots { 
-    display:none;    /* hilangkan dot & panah */
-  }
-
-  .hint-swipe { 
-    display:block; 
-    margin-bottom:10px; 
-    font-size:0.95rem; 
-    color:#fff;
-    text-align:left;
-  }
+  .slide img { width:90%; height:auto; margin-bottom:15px; }
+  .slide-info { width:95%; }
+  .dots, .arrow-container, .nav-dots { display:none; }
+  .hint-swipe { display:block; }
 }
-
-
 </style>
 </head>
 <body>
@@ -137,7 +112,9 @@ p { margin-bottom:15px; line-height:1.6;}
   <div onclick="scrollToPage(2)"></div>
 </div>
 
-<!-- PAGE 1 -->
+<!-- ===========================
+     PAGE 1
+=========================== -->
 <section id="page1">
   <div class="page1-content container">
     <div class="page1-text">
@@ -152,7 +129,9 @@ p { margin-bottom:15px; line-height:1.6;}
   </div>
 </section>
 
-<!-- PAGE 2 -->
+<!-- ===========================
+     PAGE 2
+=========================== -->
 <section id="page2">
   <div class="page2-top container">
     <img src="img/lynk-base.png" alt="Lynk.id">
@@ -172,8 +151,9 @@ p { margin-bottom:15px; line-height:1.6;}
   </div>
 </section>
 
-
-<!-- PAGE 3 -->
+<!-- ===========================
+     PAGE 3
+=========================== -->
 <section id="page3">
   <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
   <div class="slider container">
@@ -300,8 +280,10 @@ p { margin-bottom:15px; line-height:1.6;}
       </div>
 
     </div>
+
     <!-- Dot navigasi PC -->
     <div class="dots" id="dots"></div>
+
     <!-- Panah navigasi PC -->
     <div class="arrow-container">
       <div class="arrow left" id="prev">&#10094;</div>
@@ -312,11 +294,11 @@ p { margin-bottom:15px; line-height:1.6;}
 
 <script>
 /* ===========================
-   SLIDER PC & MOBILE
+     SLIDER FUNCTION
 =========================== */
-const slidesEl = document.getElementById("slides");
+const slides = document.getElementById("slides");
 const dotsContainer = document.getElementById("dots");
-const totalSlides = slidesEl.children.length;
+const totalSlides = slides.children.length;
 let currentIndex = 0;
 
 // Buat dot hanya untuk PC
@@ -330,7 +312,7 @@ for(let i=0;i<totalSlides;i++){
 
 function goToSlide(index){
   currentIndex=(index+totalSlides)%totalSlides;
-  slidesEl.style.transform = `translateX(-${100*currentIndex}%)`;
+  slides.style.transform = `translateX(-${100*currentIndex}%)`;
   updateDots();
 }
 
@@ -346,11 +328,11 @@ document.getElementById("next").addEventListener("click", ()=>goToSlide(currentI
 
 // Swipe untuk mobile
 let startX=0;
-slidesEl.addEventListener('touchstart',(e)=>{startX=e.touches[0].clientX;});
-slidesEl.addEventListener('touchend',(e)=>{
+slides.addEventListener('touchstart',(e)=>{startX=e.touches[0].clientX;});
+slides.addEventListener('touchend',(e)=>{
   const diff = e.changedTouches[0].clientX - startX;
-  if(diff>50) slidesEl.scrollBy({ left: -window.innerWidth, behavior:'smooth' });
-  else if(diff<-50) slidesEl.scrollBy({ left: window.innerWidth, behavior:'smooth' });
+  if(diff>50) slides.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+  else if(diff<-50) slides.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
 });
 
 // Scroll page PC dengan nav dots
@@ -374,10 +356,5 @@ window.addEventListener('scroll', ()=>{
   });
 });
 </script>
-
 </body>
 </html>
-
-
-
-
