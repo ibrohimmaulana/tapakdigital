@@ -76,23 +76,45 @@ p{ margin-bottom:15px; line-height:1.6; }
 .nav-dots div{ width:12px; height:12px; border-radius:50%; background:#FFFFFF; cursor:pointer; }
 .nav-dots div.active{ background:#FAA613; }
 
-/* RESPONSIVE MOBILE */
+<style>
+/* Mobile responsive adjustments */
 @media(max-width:900px){
-  .page1-content{ flex-direction:column-reverse; text-align:center; }
-  .page1-text{ padding-right:0; margin-top:20px; }
-  .page1-text h1{ font-size:2.5rem; }
-  .page1-text p{ font-size:1rem; }
-  .page1-img img{ width:80%; margin-top:20px; }
 
-  .page2-top{ flex-direction:column; }
+  /* PAGE 1 */
+  .page1-content{ flex-direction:column-reverse; text-align:center; padding-top:50px; padding-bottom:50px; }
+  .page1-text{ padding:0 10px; margin-top:20px; }
+  .page1-text h1{ font-size:2rem; }
+  .page1-text p{ font-size:1rem; margin-bottom:15px; }
+  .page1-img img{ width:80%; margin:20px auto 0; }
 
-  /* Page 3 slider mobile */
+  /* PAGE 2 */
+  .page2-top{ flex-direction:column; gap:20px; text-align:center; }
+  .page2-top img{ width:60%; margin:0 auto; }
+  .cards{ grid-template-columns:1fr; gap:20px; }
+
+  /* PAGE 3 */
+  <div class="slide-hint">Geser ke kiri atau kanan untuk melihat produk</div>
+<div class="slider container">
+  <div class="slides" id="slides">
+    <!-- slides produk seperti sebelumnya -->
+  </div>
+</div>
+
   .slides{ display:flex; flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; }
-  .slide{ flex:0 0 100%; scroll-snap-align:start; flex-direction:column; text-align:center; margin-bottom:30px; }
-  .slide img{ width:80%; margin-bottom:20px; }
-  .dots, .nav-dots, .arrow-container{ display:none; } /* dots & arrows hilang di mobile */
+  .slide{ flex:0 0 90%; scroll-snap-align:start; flex-direction:column; text-align:center; margin:0 auto 30px; }
+  .slide img{ width:100%; max-width:300px; margin:0 auto 15px; }
+  .dots, .arrow-container, .nav-dots{ display:none; }
+
+  /* Hint Geser Produk */
+  .slide-hint{
+    text-align:center;
+    font-size:0.9rem;
+    color:#FAA613;
+    margin-bottom:20px;
+  }
 }
 </style>
+
 </head>
 <body>
 
@@ -339,3 +361,4 @@ window.addEventListener('scroll',()=>{
 
 </body>
 </html>
+
