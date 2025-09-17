@@ -101,15 +101,30 @@
 
 
     /* ===== PAGE 3 ===== */
-    .page3{background:#1c1c1c;}
-    .slider{position:relative;overflow:hidden;width:100%;max-width:1100px;margin:auto;}
-    .slides{display:flex;transition:transform 0.5s ease;width:100%;}
-    .slide{min-width:100%;display:flex;align-items:center;gap:30px;padding:20px;}
-    .slide img{width:45%;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.5);}
-    .slide .info{flex:1;display:flex;flex-direction:column;justify-content:space-between;}
-    .slide h3{margin-bottom:10px;}
-    .slide p{margin-bottom:20px;}
-    .slide .btn{align-self:flex-start;}
+    .page3 {
+  background:#1c1c1c;
+  position: relative;  /* Penting agar judul absolute berada relatif terhadap section */
+  padding-top: 100px;  /* Memberi ruang bawah judul agar slider tidak menempel */
+}
+
+.page3-title {
+  text-align: center;               /* Tengah horizontal */
+  position: absolute;               /* Posisi tetap di atas */
+  top: 20px;                        /* Jarak dari atas section */
+  left: 50%;                        /* Tengah horizontal */
+  transform: translateX(-50%);      /* Koreksi posisi agar benar-benar di tengah */
+  font-size: 2em;
+  color: #ff5722;
+  z-index: 10;
+}
+
+@media(max-width:768px){
+  .page3-title {
+    font-size: 1.6em;
+    top: 15px;
+  }
+}
+
 
     /* Dot & Arrow */
     .dots{display:flex;justify-content:center;gap:8px;margin-top:10px;}
@@ -364,5 +379,6 @@
   </script>
 </body>
 </html>
+
 
 
