@@ -79,13 +79,41 @@ p { margin-bottom:15px; line-height:1.6;}
   .page2-text { order:1; text-align:center;}
 
   /* PAGE 3 MOBILE */
-  .slides { flex-direction:row; overflow-x:scroll; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; gap:10px;}
-  .slide { min-width:100%; flex-shrink:0; scroll-snap-align:start; display:flex; flex-direction:column; align-items:center; text-align:center; padding:20px 0; background:rgba(255,255,255,0.05); border-radius:12px; margin-bottom:20px;}
-  .slide img { width:80%; margin-bottom:15px; }
+  /* ===========================
+   PAGE 3 MOBILE
+=========================== */
+@media(max-width:900px){
+  .slides { 
+    flex-direction:row; 
+    overflow-x:scroll; 
+    scroll-snap-type:x mandatory; 
+    -webkit-overflow-scrolling:touch; 
+    gap:10px;
+  }
+  .slide { 
+    min-width:100%; 
+    flex-shrink:0; 
+    scroll-snap-align:start; 
+    display:flex; 
+    flex-direction:column; 
+    align-items:center; 
+    text-align:center; 
+    padding:20px 0; 
+    background:rgba(255,255,255,0.05); 
+    border-radius:12px; 
+    margin-bottom:20px;
+  }
+  /* Ubah ukuran gambar lebih kecil */
+  .slide img { 
+    width:60%;  /* sebelumnya 80% */
+    height:auto;
+    margin-bottom:15px; 
+  }
   .slide-info { width:90%; }
   .dots, .arrow-container, .nav-dots { display:none; }
   .hint-swipe { display:block; }
 }
+
 </style>
 </head>
 <body>
@@ -337,3 +365,4 @@ window.addEventListener('scroll', ()=>{
 
 </body>
 </html>
+
