@@ -140,8 +140,13 @@ p { margin-bottom:15px; line-height:1.6;}
 <!-- ===========================
      PAGE 3
 =========================== -->
+<<!-- PAGE 3 -->
 <section id="page3">
-  <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
+  <h2 style="text-align:center; margin-bottom:20px;">Produk Kami</h2>
+
+  <!-- Dot navigasi PC -->
+  <div class="dots" id="dots"></div>
+
   <div class="slider container">
     <div class="slides" id="slides">
       <!-- Produk 1 -->
@@ -264,18 +269,17 @@ p { margin-bottom:15px; line-height:1.6;}
           <a href="http://lynk.id/gudangdigital_ibra/p9d8g9q0r7jl/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
+    </div>
 
-    </div>>
-
-    <!-- Dot navigasi PC -->
-    <div class="dots" id="dots"></div>
-
-    <!-- Panah navigasi -->
+    <!-- Panah navigasi PC & Mobile -->
     <div class="arrow-container">
       <div class="arrow left" id="prev">&#10094;</div>
       <div class="arrow right" id="next">&#10095;</div>
     </div>
   </div>
+
+  <!-- Teks instruksi geser untuk Mobile -->
+  <p class="mobile-swipe-text" style="text-align:center; margin-top:15px; display:none;">Geser ke kiri atau kanan untuk melihat produk lainnya</p>
 </section>
 
 <script>
@@ -345,3 +349,4 @@ window.addEventListener('scroll', ()=>{
 
 </body>
 </html>
+
