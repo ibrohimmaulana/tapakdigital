@@ -105,6 +105,7 @@
   }
 
  
+ 
   /* PAGE 3 */
   #page3 { background: #070B0E; padding: 80px 5%; }
   .slider { position: relative; width: 100%; overflow: hidden; margin: 0 auto; }
@@ -112,24 +113,27 @@
   .slide { min-width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 20px 0; }
   .slide img { width: 40%; border-radius: 12px; transition: all 0.3s ease; }
   .slide-info { flex: 1; }
-  /* Dot & Arrow */
-  .dots{display:flex;justify-content:center;gap:8px;margin-top:20px;}
-  .dot{width:12px;height:12px;border-radius:50%;background:#555;cursor:pointer;}
-  .dot.active{background:#ff5722;}
-  .arrow-wrap{
-    display:flex;
-    justify-content:space-between;
-    max-width:200px;
-    margin:15px auto 0;
-  }
-  .arrow{background:rgba(255,87,34,0.8);color:#fff;border:none;padding:8px 16px;cursor:pointer;border-radius:50%;font-size:18px;}
-  .swipe-hint{text-align:center;margin-top:15px;font-size:14px;color:#aaa;display:none;}
-  @media(max-width:768px){
-    .slide{flex-direction:column;text-align:center;}
-    .slide img{width:80%;}
-    .slide .btn{align-self:center;}
-    .arrow-wrap,.dots{display:none;}
-    .swipe-hint{display:block;}
+  .dots { display: flex; justify-content: center; margin-top: 20px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; background: #FFFFFF; margin: 0 6px; cursor: pointer; }
+  .dot.active { background: #FAA613; }
+  .arrow { position: absolute; bottom: -20px; font-size: 2rem; color: #fff; background: rgba(0, 0, 0, 0.4); border-radius: 50%; padding: 10px; cursor: pointer; user-select: none; }
+  .arrow.left { left: 45%; transform: translateX(-120%); }
+  .arrow.right { right: 45%; transform: translateX(120%); }
+
+  .nav-dots { position: fixed; top: 50%; left: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
+  .nav-dots div { width: 12px; height: 12px; border-radius: 50%; background: #FFFFFF; cursor: pointer; }
+  .nav-dots div.active { background: #FAA613; }
+
+  @media(max-width: 900px) {
+    .page1-content { flex-direction: column; text-align: center; }
+    .page1-text { padding-right: 0; margin-bottom: 20px; margin-top: 150px; }
+    .page1-text h1 { font-size: 2.5rem; }
+    .page1-text p { font-size: 1rem; }
+    .page1-img img { height: 50vh; }
+    .page2-top { flex-direction: column; }
+    .slide { flex-direction: column; }
+    .slide img { width: 80%; margin-bottom: 20px; }
+    .nav-dots { display: none; }
   }
 </style>
 </head>
@@ -340,5 +344,6 @@
 
 </body>
 </html>
+
 
 
