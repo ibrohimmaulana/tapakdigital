@@ -5,147 +5,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gudang Digital</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
-body { scroll-behavior:smooth; background:#0A0B0B; color:#fff; }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+  body { scroll-behavior: smooth; background: #050404; color: #fff; }
 
-h1,h2,h3{ margin-bottom:20px; font-weight:600; }
-p{ margin-bottom:15px; line-height:1.6; }
+  h1,h2,h3{margin-bottom:20px; font-weight:600;}
+  p{margin-bottom:15px; line-height:1.6;}
 
-.btn{
-  display:inline-block;
-  padding:10px 24px;
-  border:none;
-  border-radius:25px;
-  background:#DD0426;
-  color:#fff;
-  font-weight:700;
-  cursor:pointer;
-  text-decoration:none;
-  transition:all 0.3s ease;
-  box-shadow:0 4px 15px rgba(255,95,95,0.3);
-}
-.btn:hover{
-  background:#fff;
-  color:#000;
-  box-shadow:0 0 20px 4px rgba(255,255,255,0.7);
-  transform:translateY(-3px);
-}
-
-.container { width:90%; max-width:1200px; margin:0 auto; }
-
-/* PAGE 1 */
-#page1 {
-  display:flex;
-  align-items:center;
-  height:100vh;
-  padding:0 5%;
-  background:#0A0A0B;
-}
-.page1-content { display:flex; width:100%; align-items:center; justify-content:space-between; }
-.page1-text { flex:1; min-width:280px; padding-right:20px; margin-top:150px; }
-.page1-text h1{ font-size:3rem; margin-bottom:20px; color:#FAA613; }
-.page1-text p{ font-size:1.2rem; margin-bottom:25px; }
-.page1-img{ flex:1; display:flex; justify-content:flex-end; align-items:center; }
-.page1-img img{ height:100vh; width:auto; object-fit:contain; }
-
-/* PAGE 2 */
-#page2{ background:#131315; padding:80px 5%; }
-.page2-top{ display:flex; align-items:center; gap:40px; flex-wrap:wrap; margin-bottom:60px; }
-.page2-top img{ max-width:200px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.5); }
-.page2-text{ max-width:600px; text-align:left; }
-.cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; width:100%; max-width:1000px; margin:0 auto; }
-.card{ background:rgba(255,255,255,0.07); border-radius:16px; padding:25px 20px; text-align:center; font-size:1.05rem; transition:all 0.3s ease; box-shadow:0 4px 15px rgba(0,0,0,0.3); cursor:default; }
-.card:hover{ transform:translateY(-8px); background:#fff; color:#000; box-shadow:0 8px 25px rgba(0,0,0,0.5); }
-.card span.icon{ display:block; font-size:2rem; margin-bottom:12px; color:#ffdf5f; }
-
-/* PAGE 3 */
-#page3{ background:#050404; padding:80px 5%; }
-.slider{ position:relative; width:100%; overflow:hidden; margin:0 auto; }
-.slides{ display:flex; transition:transform 0.5s ease-in-out; touch-action:pan-x; }
-.slide{ min-width:100%; display:flex; align-items:center; justify-content:space-between; gap:30px; padding:20px 0; }
-.slide img{ width:40%; border-radius:12px; transition:all 0.3s ease; }
-.slide-info{ flex:1; }
-.dots{ display:flex; justify-content:center; margin-top:20px; }
-.dot{ width:12px; height:12px; border-radius:50%; background:#fff; margin:0 6px; cursor:pointer; }
-.dot.active{ background:#FAA613; }
-
-.arrow-container{ display:flex; justify-content:center; gap:20px; margin-top:10px; }
-.arrow{ font-size:2rem; color:#fff; background:rgba(0,0,0,0.4); border-radius:50%; padding:10px; cursor:pointer; user-select:none; display:flex; align-items:center; justify-content:center; }
-
-.nav-dots{ position:fixed; top:50%; left:20px; display:flex; flex-direction:column; gap:10px; z-index:1000; }
-.nav-dots div{ width:12px; height:12px; border-radius:50%; background:#FFFFFF; cursor:pointer; }
-.nav-dots div.active{ background:#FAA613; }
-
-<style>
-/* Mobile responsive adjustments */
-@media(max-width:900px){
-
-  /* PAGE 2 */
-  #page2{
-    padding: 60px 10px 40px; /* atas, kiri/kanan, bawah */
+  .btn{
+    display:inline-block;
+    padding:10px 24px;
+    border:none;
+    border-radius:25px;
+    background:#DD0426;
+    color:#fff;
+    font-weight:700;
+    cursor:pointer;
+    text-decoration:none;
+    transition:all 0.3s ease;
+    box-shadow:0 4px 15px rgba(255,95,95,0.3);
+  }
+  .btn:hover{
+    background:#fff;
+    color:#000;
+    box-shadow:0 0 20px 4px rgba(255,255,255,0.7);
+    transform:translateY(-3px);
   }
 
-  .page2-top{
-    flex-direction:column;
-    text-align:center;
-    gap:30px; /* jarak antara gambar dan teks */
-  }
-
-  .page2-top img{
-    width:70%; /* ukuran lebih kecil */
-    max-width:250px;
-    margin:0 auto 20px; /* beri jarak bawah supaya teks tidak tertutup */
-  }
-
-  .page2-text{
-    width:100%;
-    max-width:400px;
-    margin:0 auto; /* teks berada di tengah bawah gambar */
-  }
-
-  .cards{
-    grid-template-columns:1fr; /* satu kolom */
-    gap:20px; /* jarak antar card */
-    margin-top:30px; /* jarak dari teks ke cards */
-  }
-
-}
+  .container{width:90%; max-width:1200px; margin:0 auto;}
 
   /* PAGE 1 */
-  .page1-content{ flex-direction:column-reverse; text-align:center; padding-top:50px; padding-bottom:50px; }
-  .page1-text{ padding:0 10px; margin-top:20px; }
-  .page1-text h1{ font-size:2rem; }
-  .page1-text p{ font-size:1rem; margin-bottom:15px; }
-  .page1-img img{ width:80%; margin:20px auto 0; }
+  #page1{display:flex; align-items:center; height:100vh; padding:0 5%; background:#0A0A0B; overflow:hidden;}
+  .page1-content{display:flex; width:100%; align-items:center; justify-content:space-between;}
+  .page1-text{flex:1; min-width:280px; padding-right:20px; margin-top:150px;}
+  .page1-text h1{font-size:3rem; margin-bottom:20px; color:#FAA613;}
+  .page1-text p{font-size:1.2rem; margin-bottom:25px;}
+  .page1-img{flex:1; display:flex; justify-content:flex-end; align-items:center;}
+  .page1-img img{height:100vh; width:auto; object-fit:contain;}
 
   /* PAGE 2 */
-  .page2-top{ flex-direction:column; gap:20px; text-align:center; }
-  .page2-top img{ width:60%; margin:0 auto; }
-  .cards{ grid-template-columns:1fr; gap:20px; }
+  #page2{background:#131315; padding:80px 5%;}
+  .page2-top{display:flex; align-items:center; gap:40px; flex-wrap:wrap; margin-bottom:60px;}
+  .page2-top img{max-width:200px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.5);}
+  .page2-text{max-width:600px; text-align:left;}
+  .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:30px; width:100%; max-width:1000px; margin:0 auto;}
+  .card{background:rgba(255,255,255,0.07); border-radius:16px; padding:25px 20px; text-align:center; font-size:1.05rem; transition:all 0.3s ease; box-shadow:0 4px 15px rgba(0,0,0,0.3);}
+  .card:hover{transform:translateY(-8px); background:#fff; color:#000; box-shadow:0 8px 25px rgba(0,0,0,0.5);}
+  .card span.icon{display:block; font-size:2rem; margin-bottom:12px; color:#ffdf5f;}
 
   /* PAGE 3 */
-  <div class="slide-hint">Geser ke kiri atau kanan untuk melihat produk</div>
-<div class="slider container">
-  <div class="slides" id="slides">
-    <!-- slides produk seperti sebelumnya -->
-  </div>
-</div>
+  #page3{background:#050404; padding:80px 5%;}
+  .slider{position:relative; width:100%; overflow:hidden; margin:0 auto;}
+  .slides{display:flex; transition:transform 0.5s ease-in-out; touch-action:pan-x;}
+  .slide{min-width:100%; display:flex; align-items:center; justify-content:space-between; gap:30px; padding:20px 0;}
+  .slide img{width:40%; border-radius:12px; transition:all 0.3s ease;}
+  .slide-info{flex:1;}
+  
+  .arrow-container{display:flex; justify-content:center; gap:20px; margin-top:10px;}
+  .arrow{font-size:2rem; color:#fff; background:rgba(0,0,0,0.4); border-radius:50%; padding:10px; cursor:pointer; user-select:none; display:flex; align-items:center; justify-content:center;}
+  
+  .hint-swipe{text-align:center; margin-bottom:10px; font-size:1rem; color:#FAA613;}
 
-  .slides{ display:flex; flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; }
-  .slide{ flex:0 0 90%; scroll-snap-align:start; flex-direction:column; text-align:center; margin:0 auto 30px; }
-  .slide img{ width:100%; max-width:300px; margin:0 auto 15px; }
-  .dots, .arrow-container, .nav-dots{ display:none; }
+  .nav-dots{position:fixed; top:50%; left:20px; display:flex; flex-direction:column; gap:10px; z-index:1000;}
+  .nav-dots div{width:12px; height:12px; border-radius:50%; background:#FFFFFF; cursor:pointer;}
+  .nav-dots div.active{background:#FAA613;}
 
-  /* Hint Geser Produk */
-  .slide-hint{
-    text-align:center;
-    font-size:0.9rem;
-    color:#FAA613;
-    margin-bottom:20px;
+  @media(max-width:900px){
+    /* PAGE 1 */
+    .page1-content{flex-direction:column; text-align:center;}
+    .page1-text{padding-right:0; margin-top:40px;}
+    .page1-text h1{font-size:2.5rem;}
+    .page1-text p{font-size:1rem;}
+    .page1-img{order:2; margin-top:20px;} /* gambar dibawah teks */
+    .page1-img img{height:auto; width:80%; max-width:300px;}
+
+    /* PAGE 2 */
+    #page2{padding:60px 10px 40px;}
+    .page2-top{flex-direction:column; text-align:center; gap:30px;}
+    .page2-top img{width:70%; max-width:250px; margin:0 auto 20px;}
+    .page2-text{width:100%; max-width:400px; margin:0 auto;}
+    .cards{grid-template-columns:1fr; gap:20px; margin-top:30px;}
+
+    /* PAGE 3 */
+    .slide{flex-direction:column;}
+    .slide img{width:80%; margin-bottom:15px;}
+    .dots{display:none;} /* hilangkan dot di mobile */
+    .hint-swipe{display:block;}
   }
-}
 </style>
-
 </head>
 <body>
 
@@ -319,78 +265,57 @@ p{ margin-bottom:15px; line-height:1.6; }
       </div>
 
     </div>
-    <!-- DOTS & PANAH PC -->
-    <div class="dots" id="dots"></div>
+
+    <!-- Panah navigasi -->
     <div class="arrow-container">
       <div class="arrow left" id="prev">&#10094;</div>
       <div class="arrow right" id="next">&#10095;</div>
     </div>
-
   </div>
 </section>
 
 <script>
-const slides = document.getElementById("slides");
-const dotsContainer = document.getElementById("dots");
-const totalSlides = slides.children.length;
-let currentIndex = 0;
+  const slides=document.getElementById("slides");
+  const totalSlides=slides.children.length;
+  let currentIndex=0;
 
-/* DOTS PC */
-for (let i=0;i<totalSlides;i++){
-  const dot=document.createElement("div");
-  dot.classList.add("dot");
-  if(i===0) dot.classList.add("active");
-  dot.addEventListener("click",()=>goToSlide(i));
-  dotsContainer.appendChild(dot);
-}
+  function goToSlide(index){
+    currentIndex=(index+totalSlides)%totalSlides;
+    slides.style.transform=`translateX(-${100*currentIndex}%)`;
+  }
 
-function goToSlide(index){
-  currentIndex=(index+totalSlides)%totalSlides;
-  slides.style.transform=`translateX(-${100*currentIndex}%)`;
-  updateDots();
-}
+  document.getElementById("prev").addEventListener("click",()=>goToSlide(currentIndex-1));
+  document.getElementById("next").addEventListener("click",()=>goToSlide(currentIndex+1));
 
-function updateDots(){
-  const dots=dotsContainer.children;
-  for(let i=0;i<dots.length;i++) dots[i].classList.remove("active");
-  dots[currentIndex].classList.add("active");
-}
-
-document.getElementById("prev").addEventListener("click",()=>goToSlide(currentIndex-1));
-document.getElementById("next").addEventListener("click",()=>goToSlide(currentIndex+1));
-
-/* Mobile swipe */
-let startX=0;
-slides.addEventListener('touchstart',(e)=>{startX=e.touches[0].clientX;});
-slides.addEventListener('touchend',(e)=>{
-  const diff=e.changedTouches[0].clientX-startX;
-  if(diff>50) goToSlide(currentIndex-1);
-  else if(diff<-50) goToSlide(currentIndex+1);
-});
-
-/* SCROLL NAV DOTS PC */
-function scrollToPage(index){
-  const pages=[document.getElementById("page1"),document.getElementById("page2"),document.getElementById("page3")];
-  pages[index].scrollIntoView({behavior:"smooth"});
-  const navDots=document.querySelectorAll(".nav-dots div");
-  navDots.forEach(dot=>dot.classList.remove("active"));
-  navDots[index].classList.add("active");
-}
-
-window.addEventListener('scroll',()=>{
-  const pages=[document.getElementById("page1"),document.getElementById("page2"),document.getElementById("page3")];
-  const navDots=document.querySelectorAll(".nav-dots div");
-  pages.forEach((p,i)=>{
-    const rect=p.getBoundingClientRect();
-    if(rect.top<=window.innerHeight/2 && rect.bottom>=window.innerHeight/2){
-      navDots.forEach(dot=>dot.classList.remove("active"));
-      navDots[i].classList.add("active");
-    }
+  // Mobile swipe
+  let startX=0;
+  slides.addEventListener('touchstart',(e)=>{startX=e.touches[0].clientX;});
+  slides.addEventListener('touchend',(e)=>{
+    const diff=e.changedTouches[0].clientX-startX;
+    if(diff>50) goToSlide(currentIndex-1);
+    else if(diff<-50) goToSlide(currentIndex+1);
   });
-});
-</script>
 
+  // Scroll nav dots PC
+  function scrollToPage(index){
+    const pages=[document.getElementById("page1"),document.getElementById("page2"),document.getElementById("page3")];
+    pages[index].scrollIntoView({behavior:"smooth"});
+    const navDots=document.querySelectorAll(".nav-dots div");
+    navDots.forEach(dot=>dot.classList.remove("active"));
+    navDots[index].classList.add("active");
+  }
+
+  window.addEventListener('scroll',()=>{
+    const pages=[document.getElementById("page1"),document.getElementById("page2"),document.getElementById("page3")];
+    const navDots=document.querySelectorAll(".nav-dots div");
+    pages.forEach((p,i)=>{
+      const rect=p.getBoundingClientRect();
+      if(rect.top<=window.innerHeight/2 && rect.bottom>=window.innerHeight/2){
+        navDots.forEach(dot=>dot.classList.remove("active"));
+        navDots[i].classList.add("active");
+      }
+    });
+  });
+</script>
 </body>
 </html>
-
-
