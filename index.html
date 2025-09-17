@@ -80,6 +80,37 @@ p{ margin-bottom:15px; line-height:1.6; }
 /* Mobile responsive adjustments */
 @media(max-width:900px){
 
+  /* PAGE 2 */
+  #page2{
+    padding: 60px 10px 40px; /* atas, kiri/kanan, bawah */
+  }
+
+  .page2-top{
+    flex-direction:column;
+    text-align:center;
+    gap:30px; /* jarak antara gambar dan teks */
+  }
+
+  .page2-top img{
+    width:70%; /* ukuran lebih kecil */
+    max-width:250px;
+    margin:0 auto 20px; /* beri jarak bawah supaya teks tidak tertutup */
+  }
+
+  .page2-text{
+    width:100%;
+    max-width:400px;
+    margin:0 auto; /* teks berada di tengah bawah gambar */
+  }
+
+  .cards{
+    grid-template-columns:1fr; /* satu kolom */
+    gap:20px; /* jarak antar card */
+    margin-top:30px; /* jarak dari teks ke cards */
+  }
+
+}
+
   /* PAGE 1 */
   .page1-content{ flex-direction:column-reverse; text-align:center; padding-top:50px; padding-bottom:50px; }
   .page1-text{ padding:0 10px; margin-top:20px; }
@@ -361,4 +392,5 @@ window.addEventListener('scroll',()=>{
 
 </body>
 </html>
+
 
