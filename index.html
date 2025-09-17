@@ -78,14 +78,13 @@ p { margin-bottom:15px; line-height:1.6;}
   .page2-top img { order:2; margin-top:20px;} /* gambar bawah teks */
   .page2-text { order:1; text-align:center;}
 
-  /* Page 3 */
-  .slides { flex-direction:column; }
+  /* Page 3 mobile */
+  .slides { flex-direction:row; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch;}
+  .slide { min-width:80%; flex-direction:column; scroll-snap-align:center; padding:20px 10px; }
   .slide img { width:100%; margin-bottom:15px; }
   .slide-info { text-align:center; }
-  .dots { display:none; } /* Hilangkan dot di mobile */
-  .hint-swipe { display:block; } /* Tampilkan hint geser */
-  .arrow-container { display:none;} /* Panah tidak tampil di mobile */
-  .nav-dots { display:none;} /* dot halaman PC disembunyikan */
+  .dots, .arrow-container, .nav-dots { display:none; }
+  .hint-swipe { display:block; text-align:center; margin-bottom:15px; color:#fff; font-size:0.95rem;}
 }
 </style>
 </head>
@@ -141,7 +140,8 @@ p { margin-bottom:15px; line-height:1.6;}
      PAGE 3
 =========================== -->
 <section id="page3">
-  <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
+  <h2 style="text-align:center; margin-bottom:20px;">Produk Kami</h2>
+  <div class="hint-swipe">Geser untuk melihat produk lainnya</div>
   <div class="slider container">
     <div class="slides" id="slides">
       <!-- Produk 1 -->
@@ -264,30 +264,28 @@ p { margin-bottom:15px; line-height:1.6;}
           <a href="http://lynk.id/gudangdigital_ibra/p9d8g9q0r7jl/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
     </div>
 
     <!-- Dot navigasi PC -->
     <div class="dots" id="dots"></div>
 
-    <!-- Panah navigasi -->
+    <!-- Panah navigasi PC -->
     <div class="arrow-container">
       <div class="arrow left" id="prev">&#10094;</div>
       <div class="arrow right" id="next">&#10095;</div>
     </div>
   </div>
 </section>
-
 <script>
 /* ===========================
-     SLIDER FUNCTION
+   SLIDER + DOT PC + SWIPE MOBILE
 =========================== */
 const slides = document.getElementById("slides");
 const dotsContainer = document.getElementById("dots");
 const totalSlides = slides.children.length;
 let currentIndex = 0;
 
-// Buat dot hanya untuk PC
+// Dot PC
 for(let i=0;i<totalSlides;i++){
   const dot=document.createElement("div");
   dot.classList.add("dot");
@@ -308,11 +306,11 @@ function updateDots(){
   if(window.innerWidth>900) dots[currentIndex].classList.add("active");
 }
 
-// Panah navigasi
+// Panah PC
 document.getElementById("prev").addEventListener("click", ()=>goToSlide(currentIndex-1));
 document.getElementById("next").addEventListener("click", ()=>goToSlide(currentIndex+1));
 
-// Swipe untuk mobile
+// Swipe mobile
 let startX=0;
 slides.addEventListener('touchstart',(e)=>{startX=e.touches[0].clientX;});
 slides.addEventListener('touchend',(e)=>{
