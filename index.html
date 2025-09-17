@@ -39,17 +39,66 @@
       .page1 .container{flex-direction:column;text-align:center;}
     }
 
-    /* ===== PAGE 2 ===== */
-    .page2{background:#1a1a1a;}
-    .page2 .flex{display:flex;align-items:center;gap:40px;max-width:1100px;margin:auto;}
-    .page2 .image{flex:1;}
-    .page2 .text{flex:1;}
-    .page2 img{width:100%;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.5);}
-    .card-grid{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1100px;margin:auto;}
-    .card{background:#2a2a2a;padding:20px;border-radius:12px;text-align:center;box-shadow:0 4px 6px rgba(0,0,0,0.5);}
-    @media(max-width:768px){
-      .page2 .flex{flex-direction:column;text-align:center;}
-    }
+    .page2 {
+  background:#1a1a1a;
+  padding:60px 20px;
+}
+
+.about-lynk {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+  max-width:1100px;
+  margin:auto;
+  margin-bottom:40px; /* Jarak ke judul kenapa produk digital */
+}
+
+.about-lynk .image {
+  flex:1;
+}
+
+.about-lynk .text {
+  flex:1;
+}
+
+.about-lynk img {
+  width:100%;
+  border-radius:12px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.5);
+}
+
+.why-digital {
+  text-align:center;
+  margin-bottom:30px;
+  font-size:1.8em;
+  color:#ff5722;
+}
+
+.card-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.card {
+  background:#2a2a2a;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 4px 6px rgba(0,0,0,0.5);
+}
+
+@media(max-width:768px){
+  .about-lynk {
+    flex-direction:column;
+    text-align:center;
+  }
+  .why-digital { font-size:1.5em; }
+}
+
 
     /* ===== PAGE 3 ===== */
     .page3{background:#1c1c1c;}
@@ -103,9 +152,9 @@
     </div>
   </section>
 
-  <!-- PAGE 2 -->
+ <!-- PAGE 2 -->
 <section class="page2" id="page2">
-  <div class="flex" style="margin-bottom:60px;">
+  <div class="about-lynk">
     <div class="image">
       <img src="https://via.placeholder.com/500x300" alt="Tentang Lynk.id">
     </div>
@@ -115,7 +164,7 @@
     </div>
   </div>
 
-  <h2 style="text-align:center;margin-bottom:30px;">Kenapa Harus Produk Digital?</h2>
+  <h2 class="why-digital">Kenapa Harus Produk Digital?</h2>
 
   <div class="card-grid">
     <div class="card">📈 Bisa dijual berulang tanpa stok.</div>
@@ -126,6 +175,7 @@
     <div class="card">📚 Ilmu bermanfaat jangka panjang.</div>
   </div>
 </section>
+
 
 
  <!-- PAGE 3 -->
@@ -315,4 +365,5 @@
   </script>
 </body>
 </html>
+
 
