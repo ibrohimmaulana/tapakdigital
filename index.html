@@ -40,7 +40,10 @@
   }
 
   /* ===== PAGE 2 ===== */
-  .page2 {background:#1a1a1a; padding:60px 20px;}
+  .page2 {
+    background:#1a1a1a;
+    padding:60px 20px;
+  }
   .about-lynk {
     display:flex;
     align-items:center;
@@ -48,11 +51,15 @@
     gap:40px;
     max-width:1100px;
     margin:auto;
-    margin-bottom:40px;
+    margin-bottom:60px;
   }
   .about-lynk .image {flex:1;}
   .about-lynk .text {flex:1;}
-  .about-lynk img{width:100%;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.5);}
+  .about-lynk img{
+    width:100%;
+    border-radius:12px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.5);
+  }
   .why-digital {
     text-align:center;
     margin-bottom:30px;
@@ -61,7 +68,7 @@
   }
   .card-grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(3,1fr);
     gap:20px;
     max-width:1100px;
     margin:auto;
@@ -75,7 +82,8 @@
   }
   @media(max-width:768px){
     .about-lynk {flex-direction:column;text-align:center;}
-    .why-digital { font-size:1.5em;}
+    .card-grid {grid-template-columns:1fr;}
+    .why-digital { font-size:1.5em; }
   }
 
   /* ===== PAGE 3 ===== */
@@ -133,6 +141,7 @@
 
 <!-- PAGE 2 -->
 <section class="page2" id="page2">
+  <!-- Tentang Lynk.id -->
   <div class="about-lynk">
     <div class="image">
       <img src="https://via.placeholder.com/500x300" alt="Tentang Lynk.id">
@@ -143,8 +152,8 @@
     </div>
   </div>
 
+  <!-- Kenapa Produk Digital -->
   <h2 class="why-digital">Kenapa Harus Produk Digital?</h2>
-
   <div class="card-grid">
     <div class="card">📈 Bisa dijual berulang tanpa stok.</div>
     <div class="card">⏱️ Hemat waktu & praktis.</div>
