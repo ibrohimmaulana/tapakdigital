@@ -101,30 +101,13 @@
 
 
     /* ===== PAGE 3 ===== */
-    .page3 {
-  background:#1c1c1c;
-  position: relative;  /* Penting agar judul absolute berada relatif terhadap section */
-  padding-top: 100px;  /* Memberi ruang bawah judul agar slider tidak menempel */
-}
-
-.page3-title {
-  text-align: center;               /* Tengah horizontal */
-  position: absolute;               /* Posisi tetap di atas */
-  top: 20px;                        /* Jarak dari atas section */
-  left: 50%;                        /* Tengah horizontal */
-  transform: translateX(-50%);      /* Koreksi posisi agar benar-benar di tengah */
-  font-size: 2em;
-  color: #ff5722;
-  z-index: 10;
-}
-
-@media(max-width:768px){
-  .page3-title {
-    font-size: 1.6em;
-    top: 15px;
-  }
-}
-
+    <!-- PAGE 3 -->
+<section id="page3">
+  <h2 class="page3-title">Produk Kami</h2>
+  <div class="slider container">
+    ...
+  </div>
+</section>
 
     /* Dot & Arrow */
     .dots{display:flex;justify-content:center;gap:8px;margin-top:10px;}
@@ -379,6 +362,7 @@
   </script>
 </body>
 </html>
+
 
 
 
