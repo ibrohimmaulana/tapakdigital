@@ -94,34 +94,36 @@ p {
 =========================== */
 #page1 { 
   display:flex; 
-  align-items:center;               /* vertikal center */
-  height:100vh;                     /* tinggi penuh layar */
-  padding:0 5%;                      /* jarak kiri-kanan 5% */
-  background:#0A0A0B;               /* background gelap */
-  overflow:hidden;                  /* hilangkan overflow */
+  align-items:center;               
+  height:100vh;                     
+  padding:0 5%;                      
+  background:#0A0A0B;               
+  overflow:hidden;                  
 }
 
 .page1-content { 
   display:flex; 
   width:100%; 
   align-items:center; 
-  justify-content:space-between;    /* posisi teks & gambar di kiri & kanan */
+  justify-content:space-between;    
 }
 
 .page1-text { 
-  flex:1;                           /* mengambil ruang seimbang */
-  min-width:280px;                  /* lebar minimum */
-  padding-right:20px;               /* jarak kanan */
-  margin-top:150px;                 /* jarak dari atas */
+  flex:1;                           
+  min-width:280px;                  
+  padding-right:20px;               
+  margin-top:80px;       /* dikurangi dari 150px menjadi 80px supaya teks lebih naik */
+  padding-bottom:20px;   /* menambahkan jarak bawah agar tidak menempel tombol */
 }
 
 .page1-text h1 { 
-  font-size:3rem;                   /* ukuran font besar */
-  color:#FAA613;                    /* warna kuning emas */
+  font-size:3rem;                   
+  color:#FAA613;                    
 }
 
 .page1-text p { 
-  font-size:1.2rem;                 /* ukuran teks sedang */
+  font-size:1.2rem;                 
+  margin-bottom:15px;  /* jarak antar paragraf */
 }
 
 .page1-img { 
@@ -134,7 +136,7 @@ p {
 .page1-img img { 
   height:100vh; 
   width:auto; 
-  object-fit:contain;               /* agar gambar proporsional */
+  object-fit:contain;               
 }
 
 /* ===========================
@@ -649,6 +651,7 @@ window.addEventListener('scroll', ()=>{
 </script>
 </body>
 </html>
+
 
 
 
