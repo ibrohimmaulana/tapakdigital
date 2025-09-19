@@ -8,43 +8,134 @@
 /* ===========================
    GENERAL STYLE (UMUM)
 =========================== */
+/* * = selector universal, berlaku untuk semua elemen */
 * { 
-  margin:0; 
-  padding:0; 
-  box-sizing:border-box; 
-  font-family:'Poppins',sans-serif; 
+  margin:0;                 /* hapus margin default browser */
+  padding:0;                /* hapus padding default browser */
+  box-sizing:border-box;     /* memastikan padding & border masuk ke ukuran elemen */
+  font-family:'Poppins',sans-serif; /* font default seluruh website */
 }
-body { 
-  scroll-behavior:smooth; 
-  background:#050404; 
-  color:#fff; 
-}
-h1,h2,h3 { margin-bottom:15px; font-weight:600; }
-p { margin-bottom:12px; line-height:1.6; }
-.container { width:90%; max-width:1200px; margin:0 auto; }
 
+/* BODY */
+body { 
+  scroll-behavior:smooth;  /* animasi scroll halus ketika pindah halaman */
+  background:#050404;       /* warna latar belakang hitam pekat */
+  color:#fff;               /* warna teks default putih */
+}
+
+/* HEADINGS */
+h1,h2,h3 { 
+  margin-bottom:20px;      /* jarak bawah antar heading dengan elemen berikutnya */
+  font-weight:600;         /* ketebalan font semi-bold */
+}
+
+/* PARAGRAPH */
+p { 
+  margin-bottom:15px;      /* jarak bawah antar paragraf */
+  line-height:1.6;         /* jarak antar baris */
+}
 /* ===========================
    BUTTON UTAMA
 =========================== */
 .btn { 
-  display:inline-block; padding:10px 18px; border:none; border-radius:25px;
-  background:#DD0426; color:#fff; font-weight:700; cursor:pointer;
-  text-decoration:none; text-align:center; transition:all 0.3s ease;
-  box-shadow:0 4px 15px rgba(255,95,95,0.3);
+  display:inline-block;             /* tampil seperti inline tapi bisa diberi padding & margin */
+  padding:10px 18px;                /* jarak dalam tombol (atas-bawah 10px, kiri-kanan 18px) */
+  max-width:200px;                  /* lebar maksimum tombol agar tidak terlalu panjang */
+  text-align:center;                /* teks rata tengah */
+  border:none;                       /* hilangkan border default */
+  border-radius:25px;               /* sudut tombol membulat */
+  background:#DD0426;               /* warna tombol merah */
+  color:#fff;                        /* warna teks putih */
+  font-weight:700;                   /* teks tebal */
+  cursor:pointer;                    /* ikon pointer saat hover */
+  text-decoration:none;              /* hilangkan garis bawah (untuk link) */
+  transition:all 0.3s ease;          /* animasi halus saat hover */
+  box-shadow:0 4px 15px rgba(255,95,95,0.3); /* bayangan tombol */
 }
-.btn:hover { background:#fff; color:#000; box-shadow:0 0 20px 4px rgba(255,255,255,0.7); transform:translateY(-3px); }
+.btn:hover { 
+  background:#fff;                   /* ganti background putih saat hover */
+  color:#000;                        /* teks jadi hitam */
+  box-shadow:0 0 20px 4px rgba(255,255,255,0.7); /* bayangan lebih terang */
+  transform:translateY(-3px);        /* tombol sedikit naik saat hover */
+}
+
+/* CONTAINER */
+.container { 
+  width:90%;                         /* lebar isi 90% dari layar */
+  max-width:1200px;                  /* maksimum 1200px */
+  margin:0 auto;                     /* center container */
+}
 
 /* ===========================
-   PAGE 1 HERO
+   NAV DOTS (HANYA PC)
 =========================== */
-#page1 { display:flex; align-items:center; height:100vh; padding:0 5%; background:#0A0A0B; overflow:hidden; }
-.page1-content { display:flex; width:100%; align-items:center; justify-content:space-between; }
-.page1-text { flex:1; min-width:280px; padding-right:20px; margin-top:80px; }
-.page1-text h1 { font-size:3rem; color:#FAA613; }
-.page1-text p { font-size:1.2rem; }
-.page1-img { flex:1; display:flex; justify-content:flex-end; align-items:center; }
-.page1-img img { width:100%; max-width:500px; height:auto; object-fit:contain; }
+.nav-dots { 
+  position:fixed;                    /* tetap di posisi saat scroll */
+  top:50%;                            /* posisi vertikal di tengah layar */
+  left:20px;                          /* posisi horizontal dari kiri */
+  display:flex; 
+  flex-direction:column;             /* susunan vertikal */
+  gap:10px;                           /* jarak antar dot */
+  z-index:1000;                       /* memastikan tampil di atas konten lain */
+}
+.nav-dots div { 
+  width:12px; height:12px; 
+  border-radius:50%;                 /* bentuk bulat */
+  background:#FFFFFF;                /* warna putih */
+  cursor:pointer;                     /* pointer saat hover */
+}
+.nav-dots div.active { 
+  background:#FAA613;                /* warna dot aktif kuning */
+}
 
+* ===========================
+   PAGE 1 (HERO)
+=========================== */
+#page1 { 
+  display:flex; 
+  align-items:center;               
+  height:100vh;                     
+  padding:0 5%;                      
+  background:#0A0A0B;               
+  overflow:hidden;                  
+}
+
+.page1-content { 
+  display:flex; 
+  width:100%; 
+  align-items:center; 
+  justify-content:space-between;    
+}
+
+.page1-text { 
+  flex:1;                           
+  min-width:280px;                  
+  padding-right:20px;               
+  margin-top:80px;       /* dikurangi dari 150px menjadi 80px supaya teks lebih naik */
+  padding-bottom:20px;   /* menambahkan jarak bawah agar tidak menempel tombol */
+}
+
+.page1-text h1 { 
+  font-size:3rem;                   
+  color:#FAA613;                    
+}
+
+.page1-text p { 
+  font-size:1.2rem;                 
+  margin-bottom:15px;  /* jarak antar paragraf */
+}
+
+.page1-img { 
+  flex:1; 
+  display:flex; 
+  justify-content:flex-end; 
+  align-items:center; 
+}
+
+.page1-img img { 
+  height:100vh; 
+  width:auto; 
+  object-fit:contain;               
 /* ===========================
    PAGE 2
 =========================== */
@@ -504,6 +595,7 @@ viewBtns.forEach(btn=>{
 
 </body>
 </html>
+
 
 
 
