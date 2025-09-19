@@ -367,7 +367,7 @@ p {
 </section>
 
 <!-- ===========================
-   PAGE 3 (SLIDER)
+   PAGE 3
 =========================== -->
 <section id="page3">
   <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
@@ -533,105 +533,69 @@ p {
           <a href="http://lynk.id/gudangdigital_ibra/zko92le268p7/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-    
+    </div>
     <div class="dots" id="dots"></div>
     <div class="arrow-container">
       <div class="arrow left" id="prev">&#10094;</div>
       <div class="arrow right" id="next">&#10095;</div>
     </div>
-    <div class="hint-swipe">Geser untuk melihat produk lainnya →</div>
   </div>
 </section>
 
 <script>
 /* ===========================
-   Slider Gabungan PC + Mobile
+   Toggle deskripsi mobile
 =========================== */
-const slider = document.getElementById("slides");
-const totalSlides = slider.children.length;
-let currentIndex = 0;
-let startX = 0;
-let isDragging = false;
-let animationID = 0;
-let currentTranslate = 0;
-let prevTranslate = 0;
+document.querySelectorAll('.view-desc').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const desc = btn.nextElementSibling;
+    if(desc.style.display==='none'){
+      desc.style.display='block';
+      btn.textContent='Sembunyikan Deskripsi';
+    } else{
+      desc.style.display='none';
+      btn.textContent='Lihat Deskripsi';
+    }
+  });
+});
 
-// Buat dot (hanya PC)
+/* ===========================
+   Slider PC
+=========================== */
+const slides = document.getElementById("slides");
 const dotsContainer = document.getElementById("dots");
+const totalSlides = slides.children.length;
+let currentIndex = 0;
+
+// Buat dot untuk PC
 for(let i=0;i<totalSlides;i++){
-  const dot = document.createElement("div");
+  const dot=document.createElement("div");
   dot.classList.add("dot");
   if(i===0) dot.classList.add("active");
-  dot.addEventListener("click", ()=> goToSlide(i));
+  dot.addEventListener("click", ()=>goToSlide(i));
   dotsContainer.appendChild(dot);
 }
 
-// Fungsi pindah slide
 function goToSlide(index){
-  currentIndex = (index + totalSlides) % totalSlides;
-  setPositionByIndex();
+  currentIndex=(index+totalSlides)%totalSlides;
+  slides.style.transform = `translateX(-${100*currentIndex}%)`;
   updateDots();
 }
 
-// Update dot aktif
 function updateDots(){
-  const dots = dotsContainer.children;
+  const dots=dotsContainer.children;
   for(let i=0;i<dots.length;i++) dots[i].classList.remove("active");
   if(window.innerWidth>900) dots[currentIndex].classList.add("active");
 }
 
-// Fungsi transisi slide
-function setPositionByIndex(){
-  currentTranslate = -currentIndex * slider.clientWidth;
-  prevTranslate = currentTranslate;
-  slider.style.transition = "transform 0.3s ease-out";
-  slider.style.transform = `translateX(${currentTranslate}px)`;
-  setTimeout(()=> slider.style.transition = "none", 300);
-}
-
-// Panah navigasi (PC)
-document.getElementById("prev").addEventListener("click", ()=> goToSlide(currentIndex-1));
-document.getElementById("next").addEventListener("click", ()=> goToSlide(currentIndex+1));
-
-// Swipe mobile
-slider.addEventListener("touchstart", touchStart);
-slider.addEventListener("touchmove", touchMove);
-slider.addEventListener("touchend", touchEnd);
-
-function touchStart(e){
-  startX = e.touches[0].clientX;
-  isDragging = true;
-  animationID = requestAnimationFrame(animation);
-}
-
-function touchMove(e){
-  if(!isDragging) return;
-  const currentX = e.touches[0].clientX;
-  const deltaX = currentX - startX;
-  currentTranslate = prevTranslate + deltaX;
-}
-
-function touchEnd(){
-  isDragging = false;
-  cancelAnimationFrame(animationID);
-  const movedBy = currentTranslate - prevTranslate;
-
-  if(movedBy < -slider.clientWidth/4 && currentIndex < totalSlides-1) currentIndex +=1;
-  if(movedBy > slider.clientWidth/4 && currentIndex > 0) currentIndex -=1;
-
-  setPositionByIndex();
-  updateDots();
-}
-
-function animation(){
-  slider.style.transform = `translateX(${currentTranslate}px)`;
-  if(isDragging) requestAnimationFrame(animation);
-}
+// Panah navigasi PC
+document.getElementById("prev").addEventListener("click", ()=>goToSlide(currentIndex-1));
+document.getElementById("next").addEventListener("click", ()=>goToSlide(currentIndex+1));
 
 /* ===========================
-   Swipe antar page mobile
+   Swipe mobile untuk page
 =========================== */
-let touchStartPageX=0,touchEndPageX=0;
+let touchStartX=0,touchEndX=0;
 const pages=[document.getElementById("page1"),document.getElementById("page2"),document.getElementById("page3")];
 let currentPage=0;
 
@@ -642,10 +606,10 @@ function detectCurrentPage() {
   });
 }
 
-document.body.addEventListener("touchstart", (e)=>{ touchStartPageX = e.changedTouches[0].screenX; });
+document.body.addEventListener("touchstart", (e)=>{ touchStartX = e.changedTouches[0].screenX; });
 document.body.addEventListener("touchend", (e)=>{
-  touchEndPageX = e.changedTouches[0].screenX;
-  const diff = touchEndPageX - touchStartPageX;
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchEndX - touchStartX;
   if(Math.abs(diff) > 60){
     detectCurrentPage();
     if(diff < 0 && currentPage < pages.length-1) pages[currentPage+1].scrollIntoView({behavior:"smooth"});
@@ -674,6 +638,15 @@ window.addEventListener('scroll', ()=>{
   });
 });
 </script>
-
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
