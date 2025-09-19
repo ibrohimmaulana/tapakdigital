@@ -510,7 +510,7 @@ a.btn:hover, button.btn:hover {
   </div>
 
     <!-- Dots indikator mobile -->
-    <div class="mobile-dots" style="text-align:center; margin-top:10px;"></div>
+       <div class="mobile-dots" style="text-align:center; margin-top:10px;"></div>
   </div>
 </section>
 
@@ -561,7 +561,8 @@ a.btn:hover, button.btn:hover {
 }
 </style>
 
-<script>
+
+<<script>
 document.querySelectorAll('.view-desc').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     const desc = btn.nextElementSibling;
@@ -577,7 +578,6 @@ document.querySelectorAll('.back-btn').forEach(btn=>{
     desc.parentElement.querySelector('.view-desc').style.display='inline-block';
   });
 });
-
 // Slider Mobile
 const mobileSlides = document.querySelector('.mobile-slides');
 const mobileCards = document.querySelectorAll('.mobile-card');
@@ -611,7 +611,6 @@ mobileSlides.addEventListener('touchend',(e)=>{
   }
 });
 </script>
-<script>
 /* ===========================
    Slider PC
 =========================== */
@@ -730,6 +729,7 @@ window.addEventListener('scroll', ()=>{
 </script>
 </body>
 </html>
+
 
 
 
