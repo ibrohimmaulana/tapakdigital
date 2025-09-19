@@ -1,82 +1,56 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gudang Digital - Full</title>
-<style>
-/* ===========================
-   GENERAL STYLE
-=========================== */
-body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8f9fa; }
-.container { max-width:480px; margin:auto; padding:10px; position:relative; text-align:center; }
-h1,h2,h3 { margin-bottom:15px; }
-p { margin-bottom:15px; line-height:1.4; }
-a.btn { display:inline-block; padding:10px 20px; background:#007BFF; color:#fff; text-decoration:none; border-radius:8px; margin-bottom:10px; }
-a.btn:hover { background:#0056b3; }
-a.back-btn { display:inline-block; padding:8px 16px; background:#6c757d; color:white; text-decoration:none; border-radius:8px; margin-top:10px; }
-a.back-btn:hover { background:#495057; }
-
-/* ===========================
-   PAGE PC
-=========================== */
-#page1-pc, #page2-pc, #page3-pc { display:block; padding:20px; text-align:center; }
-.products-grid { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-.product { width:200px; text-align:center; }
-.product img { width:100%; height:auto; margin-bottom:10px; }
-
-/* ===========================
-   MOBILE SLIDER
-=========================== */
-#mobile-slider-container { display:none; }
-.slider { display:flex; transition: transform 0.4s ease-in-out; }
-.page { min-width:100%; box-sizing:border-box; padding:10px 0; text-align:center; }
-.page img { width:100%; height:auto; margin-bottom:10px; }
-.description-page { text-align:center; display:none; }
-.description-page img { width:100%; height:auto; margin-bottom:10px; }
-.dots-container { text-align:center; margin-top:10px; }
-.dot { height:10px; width:10px; margin:0 5px; display:inline-block; background:#bbb; border-radius:50%; cursor:pointer; }
-.dot.active { background:#007BFF; }
-
-/* MEDIA QUERY MOBILE */
-@media screen and (max-width:768px) {
-    #page1-pc, #page2-pc, #page3-pc { display:none; }
-    #mobile-slider-container { display:block; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gudang Digital</title>
+  <style>
+    /* ===========================
+       GLOBAL STYLE
+    ============================ */
+    * {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
+    body {background:#111; color:#fff; line-height:1.6;}
+    h1,h2,h3 {color:#FFD700;}  /* judul warna kuning */
+    a {text-decoration:none;}
+    .container {width:90%; max-width:1200px; margin:auto;}
+    .btn {
+      display:inline-block;
+      padding:10px 20px;
+      background:#E50914;
+      color:#fff;
+      border-radius:5px;
+      margin-top:10px;
+      transition:0.3s;
+    }
+    .btn:hover {background:#b0060f;}
+    
+    /* PC only */
+    @media screen and (max-width: 768px) {
+      .pc-only {display:none;}
+    }
+    /* Mobile only */
+    @media screen and (min-width: 769px) {
+      .mobile-only {display:none;}
+    }
+  </style>
 </head>
 <body>
-
+    /* ===========================
+       Page 1 (PC & Mobile)
+    ============================ */
 <!-- ===========================
-     PAGE 1 PC
+     PAGE 1
 =========================== -->
-<section id="page1-pc">
-    < <h1>GUDANG DIGITAL</h1>
-      <p><b>Selamat Datang di Gudang Digital</b></p>
-      <p><b>Ubah Ide Menjadi Aksi Nyata</b></p>
-
-      <p>
-        Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
-        <b>produk digital eksklusif</b> yang siap pakai: e-book, template, modul mentoring, dan banyak lagi.
-        Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b>
-      </p>
-
-      <a href="#page3" class="btn">Lihat Produk</a>
-    </div>
-
-    <!-- GAMBAR HERO -->
-    <div class="page1-img">
-      <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
-    </div>
+<section id="page1" class="container">
+  <div style="text-align:center; padding:60px 20px;">
+    <h1>GUDANG DIGITAL</h1>
+    <p>Tempatnya produk digital terbaik untuk belajar dan cuan online 🚀</p>
   </div>
 </section>
-
-
-
 <!-- ===========================
-     PAGE 2 PC
+     PAGE 2
 =========================== -->
-<section id="page2-pc">
+ction id="page2-pc">
      <div class="page2-top container">
     <img src="img/lynk-base.png" alt="Lynk.id">
     <div class="page2-text">
@@ -95,11 +69,10 @@ a.back-btn:hover { background:#495057; }
     <div class="card"><span class="icon">🚀</span>Potensi pasar luas, bisa dijual ke seluruh dunia.</div>
   </div>
 </section>
-
-<!-- ===========================
+   !-- ===========================
      PAGE 3 PC
 =========================== -->
-<section id="page3-pc">
+ection id="page3-pc">
     <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
       <div class="slider container">
     <div class="slides" id="slides">
@@ -262,135 +235,109 @@ a.back-btn:hover { background:#495057; }
            <br><b>Dapatkan sekarang dan mulai ubah tampilan bisnis makanan & minumanmu jadi magnet penjualan!</b></br>
           <a href="http://lynk.id/gudangdigital_ibra/zko92le268p7/checkout" class="btn">Miliki Sekarang!</a>
         </div>
+        </div>
     </div>
 </section>
-
 <!-- ===========================
-     MOBILE SLIDER
+     PAGE 3 MOBILE
 =========================== -->
 <div id="mobile-slider-container">
     <div class="container">
         <div class="slider" id="slider">
-            <!-- Page 1 -->
+            <!-- Halaman 1-12 -->
             <div class="page" data-index="1">
-                <h1>GUDANG DIGITAL</h1>
-                <p>Selamat datang di gudang digital kami! Temukan produk terbaik untuk meningkatkan skill dan bisnis Anda.</p>
+                <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
+                <h3>Kumpulan Modul Mentoring Copywriting</h3>
+                <a href="#" class="btn" onclick="showDescription(1)">Lihat Deskripsi</a>
             </div>
-            <!-- Page 2 -->
             <div class="page" data-index="2">
-                <h2>Produk Unggulan</h2>
-                <p>Kami menyediakan modul, e-book, template, dan video course untuk mempermudah proses belajar dan penjualan digital Anda.</p>
+                <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
+                <h3>40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing</h3>
+                <a href="#" class="btn" onclick="showDescription(2)">Lihat Deskripsi</a>
+            </div>
+            <div class="page" data-index="3">
+                <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
+                <h3>Mahir WhatsApp Marketing (Video Course)</h3>
+                <a href="#" class="btn" onclick="showDescription(3)">Lihat Deskripsi</a>
+            </div>
+            <div class="page" data-index="4">
+                <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4">
+                <h3>CapCut Masterclass Bundle</h3>
+                <a href="#" class="btn" onclick="showDescription(4)">Lihat Deskripsi</a>
+            </div>
+            <div class="page" data-index="5">
+                <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5">
+                <h3>1000+ Social Media Template Canva</h3>
+                <a href="#" class="btn" onclick="showDescription(5)">Lihat Deskripsi</a>
+            </div>
+            <div class="page" data-index="6">
+                <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6">
+                <h3>E-book Panduan Konten Viral</h3>
+                <a href="#" class="btn" onclick="showDescription(6)">Lihat Deskripsi</a>
+            </div>
+            <div class="page" data-index="7">
+                <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
+                <h3>Bikin Desain Keren dengan Canva, Mulai dari Sini</h3>
+                <a href="#" class="btn" onclick="showDescription(7)">Lihat Deskripsi</a>
+            </div>
+            <div class="page" data-index="8">
+                <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
+                <h3>Cara Membuat E-Book Dengan ChatGPT</h3>
+                <a href="#" class="btn" onclick="showDescription(8)">Lihat Deskripsi</a>
+            </div>
+            <div class="page" data-index="9">
+                <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
+                <h3>E-book Humor Para Pemikir Besar</h3>
+                <a href="#" class="btn" onclick="showDescription(9)">Lihat Deskripsi</a>
+            </div>
+            <div class="page" data-index="10">
+                <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
+                <h3>E-book Bikin Produk Digital Sendiri Modal Canva</h3>
+                <a href="#" class="btn" onclick="showDescription(10)">Lihat Deskripsi</a>
+            </div>
+            <div class="page" data-index="11">
+                <img src="img/Ebook Ide Konten Anti Stuck.png" alt="Produk 11">
+                <h3>Ebook Ide Konten Anti Stuck</h3>
+                <a href="#" class="btn" onclick="showDescription(11)">Lihat Deskripsi</a>
+            </div>
+            <div class="page" data-index="12">
+                <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 12">
+                <h3>1200 Template Eksklusif Khusus Bisnis Makanan & Minuman</h3>
+                <a href="#" class="btn" onclick="showDescription(12)">Lihat Deskripsi</a>
             </div>
         </div>
-        <!-- DOT -->
-        <div id="dots" class="dots-container"></div>
-
-        <!-- HALAMAN DESKRIPSI BERDIRI SENDIRI -->
-        <div class="description-page" id="descriptionPage">
-            <img id="desc-img" src="" alt="Deskripsi Produk">
-            <h3 id="desc-title"></h3>
-            <p id="desc-text"></p>
-            <a id="buy-btn" href="#" class="btn" target="_blank">Miliki Sekarang!</a><br>
-            <a href="#" class="back-btn" onclick="backToSlider()">Kembali</a>
-        </div>
-    </div>
-</div>
+  <!-- Dots -->
+  <div id="dots" style="text-align:center; margin-top:10px;"></div>
+</section>
 
 <script>
-// ===========================
-// DATA PRODUK
-// ===========================
-const products = [
-    { img:"img/Kumpulan Modul Mentoring Copywriting.png", title:"Kumpulan Modul Mentoring Copywriting", desc:"Belajar meramu kata untuk menarik perhatian & mendorong orang bertindak.", link:"http://lynk.id/gudangdigital_ibra/zjgnpnv1p45g/checkout" },
-    { img:"img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png", title:"40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing", desc:"Paket lengkap ilmu jualan & marketing, teknik closing & branding.", link:"http://lynk.id/gudangdigital_ibra/4ewoz5dk2e37/checkout" },
-    { img:"img/Mahir WhatsApp Marketing (Video Course).png", title:"Mahir WhatsApp Marketing (Video Course)", desc:"Belajar mengubah WhatsApp menjadi senjata jualan paling efektif.", link:"http://lynk.id/gudangdigital_ibra/j1k517q13evm/checkout" },
-    { img:"img/Panduan Mahir Capcut.jpg", title:"CapCut Masterclass Bundle", desc:"Trik edit video profesional, kreatif, dan penuh daya tarik.", link:"http://lynk.id/gudangdigital_ibra/9w5jd3l5p3d2/checkout" },
-    { img:"img/1000+ Social Media Template Canva.jpg", title:"1000+ Social Media Template Canva", desc:"Koleksi desain siap pakai profesional, estetik, dan mudah disesuaikan.", link:"http://lynk.id/gudangdigital_ibra/4158j0onv78p/checkout" },
-    { img:"img/Ebook Panduan Konten Viral.png", title:"E-book Panduan Konten Viral", desc:"Strategi menciptakan ide, format, dan eksekusi konten yang viral.", link:"http://lynk.id/gudangdigital_ibra/k15o04qo8rog/checkout" },
-    { img:"img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg", title:"Bikin Desain Keren dengan Canva, Mulai dari Sini", desc:"Belajar membuat desain profesional dengan langkah mudah.", link:"http://lynk.id/gudangdigital_ibra/o360m6xgpn29/checkout" },
-    { img:"img/Cara Membuat E-Book Dengan ChatGPT.png", title:"Cara Membuat E-Book Dengan ChatGPT", desc:"Panduan membuat e-book dari ide hingga siap dipasarkan.", link:"http://lynk.id/gudangdigital_ibra/kqwkgpgxl872/checkout" },
-    { img:"img/Ebook Humor Para Pemikir Besar.png", title:"E-book Humor Para Pemikir Besar", desc:"Kumpulan humor cerdas & jenaka dari tokoh hebat dunia.", link:"http://lynk.id/gudangdigital_ibra/2589lgedq0rd/checkout" },
-    { img:"img/Ebook Bikin Produk Digital Sendiri Modal Canva.png", title:"E-book Bikin Produk Digital Sendiri Modal Canva", desc:"Belajar langkah demi langkah membuat produk digital profesional.", link:"http://lynk.id/gudangdigital_ibra/qje70d70gmql/checkout" },
-    { img:"img/Ebook Ide Konten Anti Stuck.png", title:"Ebook Ide Konten Anti Stuck", desc:"Ratusan ide kreatif agar kontenmu tidak mandek.", link:"http://lynk.id/gudangdigital_ibra/zevl8ne8kxxo/checkout" },
-    { img:"img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png", title:"1200 Template Eksklusif Khusus Bisnis Makanan & Minuman", desc:"Template siap pakai untuk media sosial, banner promo, dan menu digital.", link:"http://lynk.id/gudangdigital_ibra/zko92le268p7/checkout" }
-];
+  /* Script slider mobile */
+  const slides = document.getElementById("slides");
+  const dotsContainer = document.getElementById("dots");
+  const totalSlides = slides.children.length;
+  let index = 0;
 
-// ===========================
-// GENERATE PAGE 3 MOBILE OTOMATIS
-// ===========================
-const slider = document.getElementById('slider');
+  // buat dots
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("span");
+    dot.style.height = "10px";
+    dot.style.width = "10px";
+    dot.style.margin = "0 5px";
+    dot.style.display = "inline-block";
+    dot.style.borderRadius = "50%";
+    dot.style.background = i === 0 ? "#FFD700" : "#555";
+    dot.style.cursor = "pointer";
+    dot.addEventListener("click", () => showSlide(i));
+    dotsContainer.appendChild(dot);
+  }
 
-// Loop untuk membuat halaman Page3 produk (index dimulai dari 1 untuk Page3)
-for(let i=0; i<products.length; i++){
-    const page = document.createElement('div');
-    page.classList.add('page');
-    page.dataset.index = (i+3); // karena Page1=1, Page2=2
-    page.innerHTML = `
-        <img src="${products[i].img}" alt="${products[i].title}">
-        <h3>${products[i].title}</h3>
-        <a href="#" class="btn" onclick="showDescription(${i+1})">Lihat Deskripsi</a>
-    `;
-    slider.appendChild(page);
-}
-
-// ===========================
-// DOT INDICATOR
-// ===========================
-const pages = document.querySelectorAll('.page');
-const dotsContainer = document.getElementById('dots');
-let currentIndex = 0;
-
-function showSlide(index){
-    slider.style.transform = `translateX(-${index*100}%)`;
-    document.querySelectorAll('.dot').forEach(dot=>dot.classList.remove('active'));
-    document.querySelectorAll('.dot')[index].classList.add('active');
-}
-function createDots(){
-    for(let i=0;i<pages.length;i++){
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        if(i===0) dot.classList.add('active');
-        dot.addEventListener('click', ()=>{ currentIndex=i; showSlide(currentIndex); });
-        dotsContainer.appendChild(dot);
-    }
-}
-createDots();
-
-// ===========================
-// SWIPE GESTURE
-// ===========================
-let startX=0;
-slider.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; });
-slider.addEventListener('touchend', e=>{
-    let endX=e.changedTouches[0].clientX;
-    if(endX-startX>50){ currentIndex--; if(currentIndex<0) currentIndex=0; showSlide(currentIndex);}
-    if(startX-endX>50){ currentIndex++; if(currentIndex>pages.length-1) currentIndex=pages.length-1; showSlide(currentIndex);}
-});
-
-// ===========================
-// HALAMAN DESKRIPSI BERDIRI SENDIRI
-// ===========================
-const descriptionPage = document.getElementById('descriptionPage');
-const descImg = document.getElementById('desc-img');
-const descTitle = document.getElementById('desc-title');
-const descText = document.getElementById('desc-text');
-const buyBtn = document.getElementById('buy-btn');
-
-function showDescription(index){
-    const prod = products[index-1];
-    descImg.src = prod.img;
-    descTitle.textContent = prod.title;
-    descText.textContent = prod.desc;
-    buyBtn.href = prod.link;
-    slider.style.display='none';
-    descriptionPage.style.display='block';
-}
-
-function backToSlider(){
-    descriptionPage.style.display='none';
-    slider.style.display='flex';
-}
+  function showSlide(i) {
+    index = i;
+    slides.style.transform = `translateX(-${i * 100}%)`;
+    Array.from(dotsContainer.children).forEach((dot, idx) => {
+      dot.style.background = idx === i ? "#FFD700" : "#555";
+    });
+  }
 </script>
-
 </body>
 </html>
