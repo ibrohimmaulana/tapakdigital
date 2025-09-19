@@ -8,30 +8,30 @@
 /* ===========================
    GENERAL STYLE (UMUM)
 =========================== */
-/* * = selector universal, berlaku untuk semua elemen */
+/* * selector universal: berlaku untuk semua elemen */
 * { 
   margin:0;                 /* hapus margin default browser */
   padding:0;                /* hapus padding default browser */
-  box-sizing:border-box;     /* memastikan padding & border masuk ke ukuran elemen */
-  font-family:'Poppins',sans-serif; /* font default seluruh website */
+  box-sizing:border-box;    /* padding & border masuk ke ukuran elemen */
+  font-family:'Poppins',sans-serif; /* font default */
 }
 
 /* BODY */
 body { 
-  scroll-behavior:smooth;  /* animasi scroll halus ketika pindah halaman */
-  background:#050404;       /* warna latar belakang hitam pekat */
-  color:#fff;               /* warna teks default putih */
+  scroll-behavior:smooth;  /* scroll halus */
+  background:#050404;       /* latar hitam */
+  color:#fff;               /* teks putih */
 }
 
 /* HEADINGS */
 h1,h2,h3 { 
-  margin-bottom:20px;      /* jarak bawah antar heading dengan elemen berikutnya */
-  font-weight:600;         /* ketebalan font semi-bold */
+  margin-bottom:20px;      /* jarak bawah */
+  font-weight:600;         /* semi-bold */
 }
 
 /* PARAGRAPH */
 p { 
-  margin-bottom:15px;      /* jarak bawah antar paragraf */
+  margin-bottom:15px;      /* jarak antar paragraf */
   line-height:1.6;         /* jarak antar baris */
 }
 
@@ -39,54 +39,56 @@ p {
    BUTTON UTAMA
 =========================== */
 .btn { 
-  display:inline-block;             /* tampil seperti inline tapi bisa diberi padding & margin */
-  padding:10px 18px;                /* jarak dalam tombol (atas-bawah 10px, kiri-kanan 18px) */
-  max-width:200px;                  /* lebar maksimum tombol agar tidak terlalu panjang */
-  text-align:center;                /* teks rata tengah */
-  border:none;                       /* hilangkan border default */
-  border-radius:25px;               /* sudut tombol membulat */
-  background:#DD0426;               /* warna tombol merah */
-  color:#fff;                        /* warna teks putih */
-  font-weight:700;                   /* teks tebal */
-  cursor:pointer;                    /* ikon pointer saat hover */
-  text-decoration:none;              /* hilangkan garis bawah (untuk link) */
-  transition:all 0.3s ease;          /* animasi halus saat hover */
-  box-shadow:0 4px 15px rgba(255,95,95,0.3); /* bayangan tombol */
+  display:inline-block;             
+  padding:10px 18px;                
+  max-width:200px;                  
+  text-align:center;                
+  border:none;                      
+  border-radius:25px;               
+  background:#DD0426;               
+  color:#fff;                        
+  font-weight:700;                   
+  cursor:pointer;                    
+  text-decoration:none;              
+  transition:all 0.3s ease;         
+  box-shadow:0 4px 15px rgba(255,95,95,0.3); 
 }
 .btn:hover { 
-  background:#fff;                   /* ganti background putih saat hover */
-  color:#000;                        /* teks jadi hitam */
-  box-shadow:0 0 20px 4px rgba(255,255,255,0.7); /* bayangan lebih terang */
-  transform:translateY(-3px);        /* tombol sedikit naik saat hover */
-}
-
-/* CONTAINER */
-.container { 
-  width:90%;                         /* lebar isi 90% dari layar */
-  max-width:1200px;                  /* maksimum 1200px */
-  margin:0 auto;                     /* center container */
+  background:#fff;                   
+  color:#000;                        
+  box-shadow:0 0 20px 4px rgba(255,255,255,0.7); 
+  transform:translateY(-3px);        
 }
 
 /* ===========================
-   NAV DOTS (HANYA PC)
+   CONTAINER
+=========================== */
+.container { 
+  width:90%;                         
+  max-width:1200px;                  
+  margin:0 auto;                     
+}
+
+/* ===========================
+   NAV DOTS (PC)
 =========================== */
 .nav-dots { 
-  position:fixed;                    /* tetap di posisi saat scroll */
-  top:50%;                            /* posisi vertikal di tengah layar */
-  left:20px;                          /* posisi horizontal dari kiri */
+  position:fixed;                    
+  top:50%;                            
+  left:20px;                          
   display:flex; 
-  flex-direction:column;             /* susunan vertikal */
-  gap:10px;                           /* jarak antar dot */
-  z-index:1000;                       /* memastikan tampil di atas konten lain */
+  flex-direction:column;             
+  gap:10px;                           
+  z-index:1000;                       
 }
 .nav-dots div { 
   width:12px; height:12px; 
-  border-radius:50%;                 /* bentuk bulat */
-  background:#FFFFFF;                /* warna putih */
-  cursor:pointer;                     /* pointer saat hover */
+  border-radius:50%;                 
+  background:#FFFFFF;                
+  cursor:pointer;                     
 }
 .nav-dots div.active { 
-  background:#FAA613;                /* warna dot aktif kuning */
+  background:#FAA613;                
 }
 
 /* ===========================
@@ -112,8 +114,8 @@ p {
   flex:1;                           
   min-width:280px;                  
   padding-right:20px;               
-  margin-top:80px;       /* dikurangi dari 150px menjadi 80px supaya teks lebih naik */
-  padding-bottom:20px;   /* menambahkan jarak bawah agar tidak menempel tombol */
+  margin-top:80px;       /* posisi lebih naik */
+  padding-bottom:20px;              
 }
 
 .page1-text h1 { 
@@ -123,7 +125,7 @@ p {
 
 .page1-text p { 
   font-size:1.2rem;                 
-  margin-bottom:15px;  /* jarak antar paragraf */
+  margin-bottom:15px;  
 }
 
 .page1-img { 
@@ -157,8 +159,8 @@ p {
 
 .page2-top img { 
   max-width:200px; 
-  border-radius:12px;                /* sudut membulat */
-  box-shadow:0 8px 20px rgba(0,0,0,0.5); /* bayangan lembut */
+  border-radius:12px;               
+  box-shadow:0 8px 20px rgba(0,0,0,0.5); 
 }
 
 .page2-text { 
@@ -170,7 +172,7 @@ p {
 /* CARD */
 .cards { 
   display:grid; 
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); /* responsive grid */
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
   gap:30px; 
   width:100%; 
   max-width:1000px; 
@@ -178,7 +180,7 @@ p {
 }
 
 .card { 
-  background:rgba(255,255,255,0.07);   /* warna semi-transparan */
+  background:rgba(255,255,255,0.07);  
   border-radius:16px; 
   padding:25px 20px; 
   text-align:center; 
@@ -187,14 +189,12 @@ p {
   box-shadow:0 4px 15px rgba(0,0,0,0.3); 
   cursor:default; 
 }
-
 .card:hover { 
   transform:translateY(-8px); 
   background:#fff; 
   color:#000; 
   box-shadow:0 8px 25px rgba(0,0,0,0.5); 
 }
-
 .card span.icon { 
   display:block; 
   font-size:2rem; 
@@ -220,7 +220,7 @@ p {
 .slides { 
   display:flex; 
   transition:transform 0.5s ease-in-out; 
-  touch-action:pan-x;              /* untuk swipe mobile */
+  touch-action:pan-x;             
 }
 
 .slide { 
@@ -304,15 +304,13 @@ p {
   .page2-top img { order:2; margin-top:20px;} 
   .page2-text { order:1; text-align:center;}
 
-  .slides { display:flex; flex-direction:row; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch; gap:20px; }
-  .slide { flex:0 0 100%; scroll-snap-align:start; display:flex; flex-direction:column; align-items:center; text-align:center; padding:20px 10px; }
-  .slide img { width:90%; height:auto; margin-bottom:15px; }
+  .slide { flex-direction:column; text-align:center; }
+  .slide img { width:90%; margin-bottom:15px; }
   .slide-info { width:95%; }
   .dots, .arrow-container, .nav-dots { display:none; }
   .hint-swipe { display:block; }
 }
 </style>
-
 </head>
 <body>
 
@@ -326,31 +324,24 @@ p {
 <!-- ===========================
    PAGE 1
 =========================== -->
-
 <section id="page1">
   <div class="page1-content container">
-    <!-- TEKS HERO -->
     <div class="page1-text">
       <h1>GUDANG DIGITAL</h1>
       <p><b>Selamat Datang di Gudang Digital</b></p>
       <p><b>Ubah Ide Menjadi Aksi Nyata</b></p>
-
       <p>
         Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
         <b>produk digital eksklusif</b> yang siap pakai: e-book, template, modul mentoring, dan banyak lagi.
         Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b>
       </p>
-
       <a href="#page3" class="btn">Lihat Produk</a>
     </div>
-
-    <!-- GAMBAR HERO -->
     <div class="page1-img">
       <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
     </div>
   </div>
 </section>
-
 
 <!-- ===========================
    PAGE 2
@@ -376,7 +367,7 @@ p {
 </section>
 
 <!-- ===========================
-   PAGE 3
+   PAGE 3 (SLIDER)
 =========================== -->
 <section id="page3">
   <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
@@ -542,69 +533,105 @@ p {
           <a href="http://lynk.id/gudangdigital_ibra/zko92le268p7/checkout" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-    </div>
+    
     <div class="dots" id="dots"></div>
     <div class="arrow-container">
       <div class="arrow left" id="prev">&#10094;</div>
       <div class="arrow right" id="next">&#10095;</div>
     </div>
+    <div class="hint-swipe">Geser untuk melihat produk lainnya →</div>
   </div>
 </section>
 
 <script>
 /* ===========================
-   Toggle deskripsi mobile
+   Slider Gabungan PC + Mobile
 =========================== */
-document.querySelectorAll('.view-desc').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const desc = btn.nextElementSibling;
-    if(desc.style.display==='none'){
-      desc.style.display='block';
-      btn.textContent='Sembunyikan Deskripsi';
-    } else{
-      desc.style.display='none';
-      btn.textContent='Lihat Deskripsi';
-    }
-  });
-});
-
-/* ===========================
-   Slider PC
-=========================== */
-const slides = document.getElementById("slides");
-const dotsContainer = document.getElementById("dots");
-const totalSlides = slides.children.length;
+const slider = document.getElementById("slides");
+const totalSlides = slider.children.length;
 let currentIndex = 0;
+let startX = 0;
+let isDragging = false;
+let animationID = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
 
-// Buat dot untuk PC
+// Buat dot (hanya PC)
+const dotsContainer = document.getElementById("dots");
 for(let i=0;i<totalSlides;i++){
-  const dot=document.createElement("div");
+  const dot = document.createElement("div");
   dot.classList.add("dot");
   if(i===0) dot.classList.add("active");
-  dot.addEventListener("click", ()=>goToSlide(i));
+  dot.addEventListener("click", ()=> goToSlide(i));
   dotsContainer.appendChild(dot);
 }
 
+// Fungsi pindah slide
 function goToSlide(index){
-  currentIndex=(index+totalSlides)%totalSlides;
-  slides.style.transform = `translateX(-${100*currentIndex}%)`;
+  currentIndex = (index + totalSlides) % totalSlides;
+  setPositionByIndex();
   updateDots();
 }
 
+// Update dot aktif
 function updateDots(){
-  const dots=dotsContainer.children;
+  const dots = dotsContainer.children;
   for(let i=0;i<dots.length;i++) dots[i].classList.remove("active");
   if(window.innerWidth>900) dots[currentIndex].classList.add("active");
 }
 
-// Panah navigasi PC
-document.getElementById("prev").addEventListener("click", ()=>goToSlide(currentIndex-1));
-document.getElementById("next").addEventListener("click", ()=>goToSlide(currentIndex+1));
+// Fungsi transisi slide
+function setPositionByIndex(){
+  currentTranslate = -currentIndex * slider.clientWidth;
+  prevTranslate = currentTranslate;
+  slider.style.transition = "transform 0.3s ease-out";
+  slider.style.transform = `translateX(${currentTranslate}px)`;
+  setTimeout(()=> slider.style.transition = "none", 300);
+}
+
+// Panah navigasi (PC)
+document.getElementById("prev").addEventListener("click", ()=> goToSlide(currentIndex-1));
+document.getElementById("next").addEventListener("click", ()=> goToSlide(currentIndex+1));
+
+// Swipe mobile
+slider.addEventListener("touchstart", touchStart);
+slider.addEventListener("touchmove", touchMove);
+slider.addEventListener("touchend", touchEnd);
+
+function touchStart(e){
+  startX = e.touches[0].clientX;
+  isDragging = true;
+  animationID = requestAnimationFrame(animation);
+}
+
+function touchMove(e){
+  if(!isDragging) return;
+  const currentX = e.touches[0].clientX;
+  const deltaX = currentX - startX;
+  currentTranslate = prevTranslate + deltaX;
+}
+
+function touchEnd(){
+  isDragging = false;
+  cancelAnimationFrame(animationID);
+  const movedBy = currentTranslate - prevTranslate;
+
+  if(movedBy < -slider.clientWidth/4 && currentIndex < totalSlides-1) currentIndex +=1;
+  if(movedBy > slider.clientWidth/4 && currentIndex > 0) currentIndex -=1;
+
+  setPositionByIndex();
+  updateDots();
+}
+
+function animation(){
+  slider.style.transform = `translateX(${currentTranslate}px)`;
+  if(isDragging) requestAnimationFrame(animation);
+}
 
 /* ===========================
-   Swipe mobile untuk page
+   Swipe antar page mobile
 =========================== */
-let touchStartX=0,touchEndX=0;
+let touchStartPageX=0,touchEndPageX=0;
 const pages=[document.getElementById("page1"),document.getElementById("page2"),document.getElementById("page3")];
 let currentPage=0;
 
@@ -615,10 +642,10 @@ function detectCurrentPage() {
   });
 }
 
-document.body.addEventListener("touchstart", (e)=>{ touchStartX = e.changedTouches[0].screenX; });
+document.body.addEventListener("touchstart", (e)=>{ touchStartPageX = e.changedTouches[0].screenX; });
 document.body.addEventListener("touchend", (e)=>{
-  touchEndX = e.changedTouches[0].screenX;
-  const diff = touchEndX - touchStartX;
+  touchEndPageX = e.changedTouches[0].screenX;
+  const diff = touchEndPageX - touchStartPageX;
   if(Math.abs(diff) > 60){
     detectCurrentPage();
     if(diff < 0 && currentPage < pages.length-1) pages[currentPage+1].scrollIntoView({behavior:"smooth"});
@@ -647,15 +674,6 @@ window.addEventListener('scroll', ()=>{
   });
 });
 </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
