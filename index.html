@@ -160,22 +160,49 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
      PAGE 1 - HERO
    =========================== -->
 <section class="page" id="page1">
-  <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; gap:20px;">
-    <!-- Gambar -->
-    <div style="flex:1 1 300px;">
-      <img src="img/wanita pegang gaget.png" alt="Page 1 Image" style="width:100%; border-radius:8px;">
-    </div>
+  <div class="container page1-container">
     <!-- Teks -->
-    <div style="flex:1 1 300px;">
+    <div class="page1-text">
       <h2>Page 1</h2>
-      <p> Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
-        <b>produk digital eksklusif</b> yang siap pakai: e-book, template, modul mentoring, dan banyak lagi.
-        Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b>
-      </p>
+      <p>Konten Page 1 lengkap dengan teks dan gambar. Bisa diisi deskripsi singkat atau informasi penting yang ingin ditonjolkan.</p>
+    </div>
+    <!-- Gambar -->
+    <div class="page1-image">
+   <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">>
     </div>
   </div>
 </section>
 
+<style>
+.page1-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.page1-image, .page1-text {
+  flex: 1 1 300px;
+}
+
+.page1-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* MOBILE: gambar di atas teks */
+@media (max-width:767px) {
+  .page1-container {
+    flex-direction: column;
+  }
+  .page1-text {
+    order: 2;
+  }
+  .page1-image {
+    order: 1;
+  }
+}
+</style>
 
 
 
@@ -685,4 +712,5 @@ window.gotoPage = gotoPage; window.openDetail = openDetail; window.closeDetail =
 </script>
 </body>
 </html>
+
 
