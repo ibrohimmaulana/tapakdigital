@@ -179,55 +179,51 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 <!-- ===========================
      PAGE 1 - HERO
    =========================== -->
-<section id="page1">
-  <div class="page1-inner container">
-    <div class="hero-left">
-      <h1>Gudang Digital</h1>
-      <p class="lead">Puluhan produk digital berkualitas — modul, template, kursus, dan asset kreatif yang siap meningkatkan penjualan dan produktivitas Anda. Mudah dijual lewat Lynk.id.</p>
-      <div style="margin-top:18px">
-        <button class="btn" onclick="gotoPage(3)">Lihat Produk</button> <!-- page1 hanya tombol ke page3 -->
-      </div>
-      <div class="hero-caption">Integrasi Lynk.id & proses pembayaran sederhana — siap jual cepat.</div>
+<section id="page1-pc">
+    < <h1>GUDANG DIGITAL</h1>
+      <p><b>Selamat Datang di Gudang Digital</b></p>
+      <p><b>Ubah Ide Menjadi Aksi Nyata</b></p>
+
+      <p>
+        Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
+        <b>produk digital eksklusif</b> yang siap pakai: e-book, template, modul mentoring, dan banyak lagi.
+        Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b>
+      </p>
+
+      <a href="#page3" class="btn">Lihat Produk</a>
     </div>
 
-    <div class="hero-right">
-      <!-- Hero image; ganti file jika perlu -->
-      <img src="img/hero.png" alt="Ilustrasi Gudang Digital">
+    <!-- GAMBAR HERO -->
+    <div class="page1-img">
+      <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
     </div>
   </div>
 </section>
+
+
 
 <!-- ===========================
      PAGE 2 - ABOUT LYNK.ID + CARDS CENTERED
    =========================== -->
-<section id="page2">
-  <div class="page2-top container">
-    <div class="img-side">
-      <img src="img/produk2.png" alt="Tentang Lynk.id">
-    </div>
-    <div class="txt-side">
-      <h2>Tentang Lynk.id</h2>
-      <p>Lynk.id membantu mengumpulkan semua tautan penting pada satu halaman — mempermudah pembeli menjangkau produk dan membayar. Sambungkan produk Gudang Digital ke Lynk.id Anda.</p>
-      <p><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Kunjungi Lynk.id</button></p>
+<section id="page2-pc">
+     <div class="page2-top container">
+    <img src="img/lynk-base.png" alt="Lynk.id">
+    <div class="page2-text">
+      <h2><strong>Terhubung dengan Lynk.id</strong></h2>
+      <p>Website ini terintegrasi dengan Lynk.id untuk memudahkan transaksi dan meningkatkan kepercayaan pembeli.</p>
+      <a href="https://lynk.id/gudangdigital_ibra" class="btn">Kunjungi Lynk.id</a>
     </div>
   </div>
-
-  <!-- Mengapa Produk Digital: di bawah tengah (pusat) -->
-  <div style="text-align:center;margin-top:18px">
-    <h2 style="margin-bottom:6px;color:#bdf8d1">Kenapa Produk Digital?</h2>
-    <div class="cards-wrap container">
-      <div class="cards">
-        <div class="card">Akses Instan setelah pembelian</div>
-        <div class="card">Tanpa biaya stok & pengiriman</div>
-        <div class="card">Margin keuntungan tinggi</div>
-        <div class="card">Skalabilitas tanpa batas</div>
-        <div class="card">Cocok untuk Lynk.id & IG bio</div>
-        <div class="card">Ramah lingkungan</div>
-      </div>
-    </div>
+  <h2 style="text-align:center; margin-bottom:40px;"><strong>Kenapa Harus Produk Digital?</strong></h2>
+  <div class="cards container">
+    <div class="card"><span class="icon">⚡</span>Akses instan, langsung dipakai tanpa tunggu.</div>
+    <div class="card"><span class="icon">💰</span>Harga lebih terjangkau karena tanpa ongkir & cetak.</div>
+    <div class="card"><span class="icon">🔄</span>Selalu up-to-date, bisa diperbarui kapan saja.</div>
+    <div class="card"><span class="icon">🌍</span>Bisa digunakan kapan saja & di mana saja.</div>
+    <div class="card"><span class="icon">♻️</span>Ramah lingkungan, tanpa limbah kertas & plastik.</div>
+    <div class="card"><span class="icon">🚀</span>Potensi pasar luas, bisa dijual ke seluruh dunia.</div>
   </div>
 </section>
-
 <!-- ===========================
      PAGE 3 - PC Slider (1 produk per page)
    =========================== -->
@@ -576,3 +572,4 @@ window.gotoPage = gotoPage; window.openDetail = openDetail; window.closeDetail =
 </script>
 </body>
 </html>
+
