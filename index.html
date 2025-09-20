@@ -159,22 +159,25 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 <!-- ===========================
      PAGE 1 - PC HERO
 =========================== -->
-<section id="page1-pc" style="width:100%; min-height:100vh; display:flex; background:#0b0b0b; color:#fff;">
-  
+<section id="page1-pc" style="display:flex; min-height:100vh; background:#0b0b0b; color:#fff; align-items:center; padding:0 60px;">
+
   <!-- TEKS HERO KIRI -->
-  <div class="hero-text" style="flex:1; display:flex; flex-direction:column; justify-content:center; padding:60px;">
-    <h1 style="font-size:56px; line-height:1.2; margin-bottom:20px; color:#14e06b;">Selamat Datang di Gudang Digital</h1>
-    <p style="font-size:20px; margin-bottom:30px; color:#c7f3d0;">
-     Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:20px;">
+    <h1 style="font-size:56px; color:#14e06b; line-height:1.2;">Selamat Datang di Gudang Digital</h1>
+    <p style="font-size:20px; color:#c7f3d0; max-width:600px;">
+      Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
         <b>produk digital eksklusif</b> yang siap pakai: e-book, template, modul mentoring, dan banyak lagi.
-        Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b> </p>
+        Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b>
+    </p>
     <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <a href="#page3" style="padding:14px 32px; background:#14e06b; color:#0b0b0b; font-weight:bold; border-radius:10px; text-decoration:none; transition:0.3s;">Lihat Produk</a>
+      <a href="#page3" style="padding:14px 32px; background:#14e06b; color:#0b0b0b; font-weight:bold; border-radius:10px; text-decoration:none;">Lihat Produk</a>
+   
+    </div>
   </div>
 
   <!-- GAMBAR HERO KANAN -->
-  <div class="hero-image" style="flex:1; height:100vh; display:flex; align-items:center; justify-content:center;">
-    <img src="img/wanita pegang gaget.png" alt="Gambar Hero" style="height:100%; width:auto; object-fit:cover; border-radius:0 0 0 0; box-shadow:0 0 40px rgba(0,0,0,0.6);">
+  <div style="flex:1; display:flex; align-items:center; justify-content:center; height:100vh;">
+    <img src="img/wanita pegang gaget.png" alt="Gambar Hero" style="height:100%; width:auto; object-fit:cover;">
   </div>
 
 </section>
@@ -685,6 +688,7 @@ window.gotoPage = gotoPage; window.openDetail = openDetail; window.closeDetail =
 </script>
 </body>
 </html>
+
 
 
 
