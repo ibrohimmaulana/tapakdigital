@@ -170,45 +170,29 @@ p { color:#bfeed0; margin-bottom:16px; text-align:center; max-width:900px; }
 <section id="page2">
   <!-- Bagian Atas: link.id -->
   <div class="page2-top container">
-    <div class="page2-text">
-      <h2>Kenali <span class="highlight">link.id</span></h2>
-      <p><b>link.id</b> adalah solusi URL singkat profesional yang memudahkan promosi digital dan tracking kampanye marketing Anda.</p>
-      <p>Buat link lebih menarik, mudah diingat, dan terukur performanya.</p>
-      <a href="#" class="btn">Gunakan link.id</a>
-    </div>
+    <!-- Gambar -->
     <div class="page2-img">
-      <img src="img/linkid.png" alt="Gambar link.id">
+      <img src="img/lynk-base.png" alt="Gambar link.id">
+    </div>
+    <!-- Teks tentang link.id -->
+    <div class="page2-text">
+      <h2>Kenali link.id</h2>
+      <p><b>link.id adalah solusi URL singkat profesional</b> untuk mempermudah promosi digital dan tracking kampanye marketing Anda.</p>
+      <p>Dengan link.id, Anda bisa membuat link lebih menarik, mudah diingat, dan terukur performanya.</p>
+      <a href="#" class="btn">Gunakan link.id</a>
     </div>
   </div>
 
-  <!-- Bagian Bawah: Keunggulan Produk Digital -->
+  <!-- Keunggulan Produk Digital -->
   <div class="keunggulan">
     <h2>Keunggulan Produk Digital Kami</h2>
     <div class="cards-container">
-      <div class="card">
-        <h3>E-book Premium</h3>
-        <p>E-book lengkap siap pakai untuk meningkatkan skill Anda.</p>
-      </div>
-      <div class="card">
-        <h3>Template Profesional</h3>
-        <p>Template desain dan dokumen siap edit sesuai kebutuhan bisnis.</p>
-      </div>
-      <div class="card">
-        <h3>Modul Mentoring</h3>
-        <p>Materi mentoring yang terstruktur untuk mempercepat pembelajaran.</p>
-      </div>
-      <div class="card">
-        <h3>Video Tutorial</h3>
-        <p>Video panduan praktis untuk mempermudah penggunaan produk digital.</p>
-      </div>
-      <div class="card">
-        <h3>Checklist & Tools</h3>
-        <p>Checklist siap pakai dan tools digital untuk efisiensi kerja.</p>
-      </div>
-      <div class="card">
-        <h3>Support Premium</h3>
-        <p>Dukungan penuh dari tim profesional untuk semua produk Anda.</p>
-      </div>
+      <div class="card"><h3>E-book Premium</h3><p>E-book lengkap siap pakai untuk meningkatkan skill Anda.</p></div>
+      <div class="card"><h3>Template Profesional</h3><p>Template desain dan dokumen siap edit sesuai kebutuhan bisnis.</p></div>
+      <div class="card"><h3>Modul Mentoring</h3><p>Materi mentoring yang terstruktur untuk mempercepat pembelajaran.</p></div>
+      <div class="card"><h3>Video Tutorial</h3><p>Video panduan praktis untuk mempermudah penggunaan produk digital.</p></div>
+      <div class="card"><h3>Checklist & Tools</h3><p>Checklist siap pakai dan tools digital untuk efisiensi kerja.</p></div>
+      <div class="card"><h3>Support Premium</h3><p>Dukungan penuh dari tim profesional untuk semua produk Anda.</p></div>
     </div>
   </div>
 </section>
@@ -217,28 +201,29 @@ p { color:#bfeed0; margin-bottom:16px; text-align:center; max-width:900px; }
 /* ===========================
    PAGE 2 STYLING
 =========================== */
-#page2 { padding:80px 20px; background:#0b0f0d; color:#dfffe8; font-family:Arial, sans-serif; }
+#page2 { padding:60px 20px; background:#0b0f0d; color:#dfffe8; }
 
 .page2-top {
   display:flex;
   justify-content:space-between;
   align-items:center;
   max-width:1200px;
-  margin:0 auto 60px auto;
+  margin:0 auto 40px auto;
   gap:40px;
 }
-.page2-text { flex:1; }
-.page2-text h2 { font-size:32px; margin-bottom:16px; color:#14e06b; }
-.page2-text .highlight { color:#00ffe0; }
-.page2-text p { font-size:16px; line-height:1.6; margin-bottom:14px; }
 .page2-img { flex:1; text-align:center; }
-.page2-img img { max-width:220px; border-radius:12px; }
+.page2-img img { max-width:250px; border-radius:12px; }
+
+.page2-text { flex:1; text-align:right; }
+.page2-text h2 { font-size:32px; margin-bottom:16px; color:#14e06b; }
+.page2-text p { margin-bottom:12px; }
+.page2-text .btn { margin-top:10px; }
 
 /* ===========================
    KEUNGGULAN CARDS
 =========================== */
 .keunggulan { max-width:1200px; margin:0 auto; }
-.keunggulan h2 { font-size:28px; margin-bottom:30px; text-align:center; color:#14e06b; }
+.keunggulan h2 { font-size:28px; margin-bottom:24px; text-align:center; color:#14e06b; }
 .cards-container {
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -249,31 +234,27 @@ p { color:#bfeed0; margin-bottom:16px; text-align:center; max-width:900px; }
   border-radius:14px;
   padding:20px;
   text-align:center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
-.card:hover { 
-  transform: translateY(-6px); 
-  box-shadow: 0 10px 20px rgba(0,255,200,0.3);
-}
-.card h3 { font-size:20px; margin-bottom:12px; color:#00ffe0; }
-.card p { font-size:16px; color:#bfeed0; line-height:1.5; }
+.card:hover { transform: translateY(-6px); }
+.card h3 { font-size:20px; margin-bottom:12px; }
+.card p { font-size:16px; color:#bfeed0; }
 
 /* ===========================
    RESPONSIVE
 =========================== */
 @media(max-width:1024px){
   .page2-top { flex-direction:column; text-align:center; }
-  .page2-img img { max-width:180px; margin-top:20px; }
+  .page2-img img { max-width:180px; margin-bottom:20px; }
   .cards-container { grid-template-columns: repeat(2,1fr); }
+  .page2-text { text-align:center; }
 }
 @media(max-width:600px){
   .cards-container { grid-template-columns: 1fr; }
   .page2-text h2 { font-size:24px; }
   .card h3 { font-size:18px; }
-  #page2 { padding:60px 15px; }
 }
 </style>
-
 
 <!-- ===========================
      PAGE 3 PC
@@ -569,5 +550,6 @@ function closeDesc(){ document.getElementById('descPanel').style.display='none';
 
 </body>
 </html>
+
 
 
