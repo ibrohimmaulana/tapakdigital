@@ -4,124 +4,104 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gudang Digital</title>
-
 <style>
 /* ===========================
    RESET & GLOBAL
 =========================== */
 * {
-  margin:0;               /* Hapus margin default browser */
-  padding:0;              /* Hapus padding default browser */
-  box-sizing:border-box;   /* Menghitung padding & border di width/height */
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-
 body {
-  font-family: Arial, sans-serif; /* Font utama */
-  background: #050606;           /* Background gelap */
-  color:#dfffe8;                 /* Warna teks utama */
-  line-height:1.6;               /* Jarak antar baris */
+  font-family: Arial, sans-serif;
+  background:#050606;
+  color:#dfffe8;
+  line-height:1.6;
 }
-
-/* ===========================
-   CONTAINER UMUM
-=========================== */
-.container {
-  max-width:1200px; /* Lebar maksimum konten */
-  margin:0 auto;    /* Center di layar */
-  padding:20px;     /* Padding di sisi kiri & kanan */
-}
-
-/* ===========================
-   HEADINGS
-=========================== */
-h1 { font-size:44px; color:#14e06b; text-align:center; margin-bottom:18px; }
-h2 { font-size:28px; color:#bdf8d1; text-align:center; margin-bottom:20px; }
-p { color:#bfeed0; margin-bottom:16px; text-align:center; }
+a { text-decoration:none; }
 
 /* ===========================
    BUTTON
 =========================== */
 .btn {
-  padding:12px 24px;            /* Ruang di dalam tombol (atas-bawah, kiri-kanan) */
-  border-radius:12px;            /* Sudut membulat */
+  padding:12px 24px;
+  border-radius:12px;
   border:none;
   background:#14e06b;
   color:#050606;
   font-weight:700;
   cursor:pointer;
   margin-top:12px;
+  display:inline-block;
   transition:0.25s ease;
 }
 .btn:hover {
-  transform: translateY(-2px);   /* Efek naik sedikit saat hover */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25); /* Shadow */
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
 /* ===========================
-   PAGE SECTIONS
+   SECTIONS
 =========================== */
 section {
-  min-height:100vh;           /* Minimal tinggi layar */
+  padding:60px 20px;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:60px 20px;          /* Jarak dalam section */
-  gap:24px;                    /* Jarak antar elemen di section */
+  gap:20px;
 }
+h1 { font-size:44px; color:#14e06b; margin-bottom:18px; text-align:center; }
+h2 { font-size:28px; color:#bdf8d1; margin-bottom:20px; text-align:center; }
+p { color:#bfeed0; margin-bottom:16px; text-align:center; max-width:900px; }
 
 /* ===========================
-   SLIDER PC
+   PAGE 1 HERO PC
 =========================== */
-.pc-slider {
-  display:flex;                /* Menyusun slide horizontal */
-  overflow-x:auto;             /* Bisa scroll horizontal */
-  scroll-behavior:smooth;      /* Scroll smooth */
-  gap:20px;                    /* Jarak antar slide */
-  padding-bottom:10px;         /* Ruang bawah slider */
+#page1-pc .page1-container {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  max-width:1200px;
+  width:100%;
+  gap:40px;
 }
+.page1-text { flex:1; }
+.page1-text p { text-align:left; margin-bottom:12px; }
+.page1-img { flex:1; text-align:center; }
+.page1-img img { max-width:100%; border-radius:14px; }
 
-.pc-slide {
-  min-width:250px;             /* Lebar setiap slide */
-  background:rgba(6,10,8,0.55); /* Background semi-transparent */
+/* ===========================
+   PAGE 2 INFO
+=========================== */
+#page2 { text-align:center; }
+#page2 p { max-width:800px; margin:0 auto; }
+
+/* ===========================
+   PAGE 3 PRODUK
+=========================== */
+#page3 { text-align:center; }
+.pc-slider, .mobile-slider {
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding-bottom:10px;
+}
+.pc-slider .slide, .mobile-slider .slide {
+  flex-shrink:0;
+  background:rgba(6,10,8,0.55);
   border-radius:14px;
   padding:20px;
   text-align:center;
-  flex-shrink:0;               /* Jangan mengecil */
+  min-width:250px;
   transition:transform 0.3s ease;
 }
-
-.pc-slide:hover { transform:translateY(-6px); } /* Efek hover */
-
-.pc-slide img { width:80%; border-radius:8px; margin-bottom:12px; }
-.pc-slide h3 { font-size:20px; margin-bottom:12px; }
-
-/* ===========================
-   SLIDER MOBILE
-=========================== */
-.mobile-slider {
-  display:none;                /* Default hidden di PC */
-  overflow-x:auto;
-  scroll-snap-type:x mandatory; /* Scroll snap untuk mobile */
-  gap:16px;
-  padding-bottom:10px;
-}
-
-.mobile-slide {
-  min-width:80%;               /* Setiap slide mengisi sebagian layar */
-  flex-shrink:0;
-  scroll-snap-align:start;
-  background:rgba(6,10,8,0.55);
-  border-radius:14px;
-  padding:24px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:16px;
-}
-
-.mobile-slide img { width:65%; border-radius:8px; }
-.mobile-slide h3 { font-size:20px; }
+.pc-slider .slide:hover { transform:translateY(-6px); }
+.slide img { width:80%; border-radius:8px; margin-bottom:12px; }
+.slide h3 { font-size:20px; margin-bottom:12px; }
 
 /* ===========================
    DESKRIPSI OVERLAY
@@ -139,24 +119,23 @@ section {
   z-index:999;
   overflow-y:auto;
 }
-
 .desc-panel img { width:70%; border-radius:10px; margin-bottom:16px; }
 .desc-panel h3 { font-size:24px; margin-bottom:12px; }
 .desc-panel p { font-size:18px; margin-bottom:24px; text-align:center; color:#bfeed0; }
-
 .desc-panel .btn { width:140px; }
 
 /* ===========================
    RESPONSIVE
 =========================== */
 @media(max-width:1024px){
-  .pc-slider { display:none; }   /* Sembunyikan slider PC */
-  .mobile-slider { display:flex; } /* Tampilkan mobile slider */
+  #page1-pc .page1-container { flex-direction:column; }
+  .pc-slider { display:none; }
+  .mobile-slider { display:flex; scroll-snap-type:x mandatory; gap:16px; }
+  .mobile-slider .slide { min-width:80%; scroll-snap-align:start; }
 }
-
 @media(max-width:480px){
-  h1{ font-size:24px; }
-  h2{ font-size:20px; }
+  h1{ font-size:28px; }
+  h2{ font-size:22px; }
   .btn{ padding:10px 18px; font-size:14px; }
 }
 </style>
@@ -167,25 +146,49 @@ section {
    PAGE 1 HERO
 =========================== -->
 <section id="page1-pc">
-    < <h1>GUDANG DIGITAL</h1>
+  <div class="page1-container">
+    <div class="page1-text">
+      <h1>GUDANG DIGITAL</h1>
       <p><b>Selamat Datang di Gudang Digital</b></p>
       <p><b>Ubah Ide Menjadi Aksi Nyata</b></p>
-
-      <p>Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
+      <p>
+        Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
         <b>produk digital eksklusif</b> yang siap pakai: e-book, template, modul mentoring, dan banyak lagi.
-        Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b></p>
-
+        Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b>
+      </p>
       <a href="#page3" class="btn">Lihat Produk</a>
     </div>
-
-    <!-- GAMBAR HERO -->
     <div class="page1-img">
       <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
     </div>
   </div>
 </section>
+
 <!-- ===========================
    PAGE 2 INFO
+=========================== -->
+section id="page2-pc">
+     <div class="page2-top container">
+    <img src="img/lynk-base.png" alt="Lynk.id">
+    <div class="page2-text">
+      <h2><strong>Terhubung dengan Lynk.id</strong></h2>
+      <p>Website ini terintegrasi dengan Lynk.id untuk memudahkan transaksi dan meningkatkan kepercayaan pembeli.</p>
+      <a href="https://lynk.id/gudangdigital_ibra" class="btn">Kunjungi Lynk.id</a>
+    </div>
+  </div>
+  <h2 style="text-align:center; margin-bottom:40px;"><strong>Kenapa Harus Produk Digital?</strong></h2>
+  <div class="cards container">
+    <div class="card"><span class="icon">⚡</span>Akses instan, langsung dipakai tanpa tunggu.</div>
+    <div class="card"><span class="icon">💰</span>Harga lebih terjangkau karena tanpa ongkir & cetak.</div>
+    <div class="card"><span class="icon">🔄</span>Selalu up-to-date, bisa diperbarui kapan saja.</div>
+    <div class="card"><span class="icon">🌍</span>Bisa digunakan kapan saja & di mana saja.</div>
+    <div class="card"><span class="icon">♻️</span>Ramah lingkungan, tanpa limbah kertas & plastik.</div>
+    <div class="card"><span class="icon">🚀</span>Potensi pasar luas, bisa dijual ke seluruh dunia.</div>
+  </div>
+</section>
+
+<!-- ===========================
+   PAGE 3 PRODUK
 =========================== -->
 <section id="page2-pc">
      <div class="page2-top container">
@@ -207,9 +210,8 @@ section {
   </div>
 </section>
 
-
 <!-- ===========================
-   PAGE 3 PRODUK
+     PAGE 3 PC
 =========================== -->
 <section id="page3-pc">
     <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
@@ -377,9 +379,9 @@ section {
         </div>
     </div>
 </section>
-   
+
   <!-- MOBILE SLIDER -->
-  <div id="mobile-slider-container">
+  <<div id="mobile-slider-container">
     <div class="container">
         <div class="slider" id="slider">
             <!-- Halaman 1-12 -->
@@ -443,10 +445,24 @@ section {
                 <h3>1200 Template Eksklusif Khusus Bisnis Makanan & Minuman</h3>
                 <a href="#" class="btn" onclick="showDescription(12)">Lihat Deskripsi</a>
             </div>
-  </div>
+        </div>
+       
 
-  <p style="text-align:center; color:#aaa; margin-top:12px;">Geser untuk melihat produk lainnya →</p>
-</section>
+        <!-- Dot indikator -->
+        <div id="dots" class="dots-container"></div>
+
+        <!-- HALAMAN DESKRIPSI MOBILE -->
+        <div class="description-page" id="descriptionPage">
+            <img id="desc-img" src="" alt="Deskripsi Produk">
+            <h3 id="desc-title"></h3>
+            <p id="desc-text"></p>
+            <a id="buy-btn" href="#" class="btn" target="_blank">Miliki Sekarang!</a><br>
+            <a href="#" class="back-btn" onclick="backToSlider()">Kembali</a>
+        </div>
+    </div>
+</div>
+
+<script>
 
 <!-- ===========================
    DESKRIPSI OVERLAY
@@ -483,9 +499,8 @@ function showDesc(id){
   panel.style.display='flex';
 }
 
-function closeDesc(){
-  document.getElementById('descPanel').style.display='none';
-}
+function closeDesc(){ document.getElementById('descPanel').style.display='none'; }
 </script>
+
 </body>
 </html>
