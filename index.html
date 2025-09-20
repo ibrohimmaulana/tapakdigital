@@ -185,25 +185,37 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 <!-- ===========================
      PAGE 2 - ABOUT LYNK.ID + CARDS CENTERED
    =========================== -->
-<section id="page2">
-  <div class="page2-top container">
-    <div class="img-side">
-      <img src="img/lynk-base.png" alt="Lynk.id">
+<!-- ===========================
+     PAGE 2 - ABOUT LYNK.ID + CARDS
+=========================== -->
+<section id="page2" style="background:#060a08; padding-top:60px; padding-bottom:80px;">
+  <div class="page2-top container" style="display:flex; gap:30px; align-items:center; justify-content:center; max-width:1200px; margin:0 auto;">
+    <div class="img-side" style="flex:1;">
+      <img src="img/lynk-base.png" alt="Lynk.id" style="width:100%; max-width:520px; border-radius:12px; box-shadow:0 20px 60px rgba(6,14,8,0.6);">
     </div>
-    <div class="txt-side">
+    <div class="txt-side" style="flex:1; color:#d9fae4;">
       <h2><strong>Terhubung dengan Lynk.id</strong></h2>
       <p>Website ini terintegrasi dengan Lynk.id untuk memudahkan transaksi dan meningkatkan kepercayaan pembeli.</p>
-      <p><button class="btn" onclick="window.open('https://lynk.id/gudangdigital_ibra','_blank')">Kunjungi Lynk.id</button></p>
+      <p>
+        <button class="btn" onclick="window.open('https://lynk.id/gudangdigital_ibra','_blank')">Kunjungi Lynk.id</button>
+      </p>
     </div>
   </div>
 
-  <div style="text-align:center;margin-top:18px">
-    <h2 style="margin-bottom:6px;color:#bdf8d1">Kenapa Harus Produk Digital?</h2>
+  <!-- Jarak 5cm dari konten Lynk.id -->
+  <div style="margin-top:5cm; text-align:center;">
+    <h2 style="margin-bottom:20px; color:#bdf8d1;">Kenapa Harus Produk Digital?</h2>
     <div class="cards-wrap container">
-      <div class="cards">
-        <div class="card">⚡ Akses instan, langsung dipakai tanpa tunggu.</div>
-        <div class="card">💰 Harga lebih terjangkau karena tanpa ongkir & cetak.</div>
-        <div class="card">🔄 Selalu up-to-date, bisa diperbarui kapan saja.</div>
+      <div class="cards" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:980px; margin:0 auto;">
+        <div class="card" style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(20,224,107,0.06); padding:18px; border-radius:10px; color:#bfeed0; text-align:center; box-shadow:0 8px 30px rgba(8,16,10,0.45);">
+          ⚡ Akses instan, langsung dipakai tanpa tunggu.
+        </div>
+        <div class="card" style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(20,224,107,0.06); padding:18px; border-radius:10px; color:#bfeed0; text-align:center; box-shadow:0 8px 30px rgba(8,16,10,0.45);">
+          💰 Harga lebih terjangkau karena tanpa ongkir & cetak.
+        </div>
+        <div class="card" style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(20,224,107,0.06); padding:18px; border-radius:10px; color:#bfeed0; text-align:center; box-shadow:0 8px 30px rgba(8,16,10,0.45);">
+          🔄 Selalu up-to-date, bisa diperbarui kapan saja.
+        </div>
         <div class="card">🌍 Bisa digunakan kapan saja & di mana saja.</div>
         <div class="card">♻️ Ramah lingkungan, tanpa limbah kertas & plastik.</div>
         <div class="card">🚀 Potensi pasar luas, bisa dijual ke seluruh dunia.</div>
@@ -211,6 +223,7 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
     </div>
   </div>
 </section>
+
 
 <!-- ===========================
      PAGE 3 - PC Slider (1 produk per page)
@@ -688,6 +701,7 @@ window.gotoPage = gotoPage; window.openDetail = openDetail; window.closeDetail =
 </script>
 </body>
 </html>
+
 
 
 
