@@ -157,28 +157,33 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 </div>
 
 <!-- ===========================
-     PAGE 1 - HERO
-   =========================== -->
-<section id="page1-pc">
-    < <h1>GUDANG DIGITAL</h1>
-      <p><b>Selamat Datang di Gudang Digital</b></p>
-      <p><b>Ubah Ide Menjadi Aksi Nyata</b></p>
-
-      <p>
-        Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
+     PAGE 1 - PC
+=========================== -->
+<section id="page1-pc" style="width:100%; min-height:100vh; display:flex; align-items:center; justify-content:center; background:#0b0b0b; color:#fff; padding:0 20px;">
+  <div class="page1-container" style="max-width:1200px; text-align:center;">
+    
+    <!-- Judul Hero -->
+    <h1 style="font-size:56px; font-weight:bold; line-height:1.2; margin-bottom:24px; color:#14e06b;">GUDANG DIGITAL</h1>
+    
+    <!-- Subjudul / Deskripsi -->
+    <p style="font-size:20px; margin-bottom:32px; color:#c7f3d0;">
+      Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
         <b>produk digital eksklusif</b> yang siap pakai: e-book, template, modul mentoring, dan banyak lagi.
-        Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b>
-      </p>
-
-      <a href="#page3" class="btn">Lihat Produk</a>
+        Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</p>
+    
+    <!-- Tombol Aksi -->
+    <div class="page1-buttons" style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+      <a href="#page3" style="padding:14px 32px; background:#14e06b; color:#0b0b0b; font-weight:bold; border-radius:10px; text-decoration:none; transition:0.3s;">Lihat Produk</a>
+      <a href="#page2" style="padding:14px 32px; border:2px solid #14e06b; color:#14e06b; font-weight:bold; border-radius:10px; text-decoration:none; transition:0.3s;">Pelajari Lebih Lanjut</a>
     </div>
-
-    <!-- GAMBAR HERO -->
-    <div class="page1-img">
-      <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
+    
+    <!-- Gambar Hero (opsional) -->
+    <div class="page1-image" style="margin-top:40px;">
+      <img src="img/hero.png" alt="Hero Image" style="max-width:100%; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.6);">
     </div>
   </div>
 </section>
+
 
 <!-- ===========================
      PAGE 2 - ABOUT LYNK.ID + CARDS CENTERED
@@ -686,6 +691,7 @@ window.gotoPage = gotoPage; window.openDetail = openDetail; window.closeDetail =
 </script>
 </body>
 </html>
+
 
 
 
