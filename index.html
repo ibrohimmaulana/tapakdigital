@@ -8,13 +8,12 @@
 /* ============================
    RESET & GLOBAL
    ============================ */
-/* Reset dasar untuk layout konsisten */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
   font-family: Inter, Arial, sans-serif;
-  background:#050606;          /* very dark background */
-  color:#dfffe8;               /* soft green-white text */
+  background:#050606;
+  color:#dfffe8;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.5;
@@ -31,7 +30,7 @@ body{
 /* helper container */
 .container{max-width:1200px;margin:0 auto;padding:24px}
 
-/* common headings */
+/* headings & text */
 h1{font-size:42px;color:var(--neon); text-shadow:0 6px 22px rgba(20,224,107,0.06)}
 h2{font-size:22px;color:#bdf8d1}
 .lead{color:#bfeed0; max-width:680px}
@@ -46,7 +45,7 @@ h2{font-size:22px;color:#bdf8d1}
   background:transparent;color:var(--neon);border:1px solid rgba(20,224,107,0.12);box-shadow:none;
 }
 
-/* subtle global glow (decoration) */
+/* subtle global glow */
 .page-glow{
   position:fixed; right:-8%; bottom:-8%;
   width:50vh;height:50vh;
@@ -54,10 +53,7 @@ h2{font-size:22px;color:#bdf8d1}
   filter:blur(42px);pointer-events:none;z-index:0;
 }
 
-/* ============================
-   NAV DOT (KANAN) - page nav
-   ============================ */
-/* Vertical dot nav on right for jumping pages */
+/* NAV DOTS (KANAN) */
 .nav-dots{
   position:fixed; right:18px; top:50%; transform:translateY(-50%);
   display:flex; flex-direction:column; gap:14px; z-index:1200;
@@ -73,11 +69,10 @@ h2{font-size:22px;color:#bdf8d1}
   transform:scale(1.2);
 }
 
-/* ============================
-   PAGE 1 - HERO
-   layout: left text, right image (full height)
-   ============================ */
+/* SECTION BASE */
 section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:60px 18px;position:relative}
+
+/* ============= PAGE 1 (HERO) ============= */
 #page1{background:linear-gradient(180deg,#06120d 0%, #071612 60%);overflow:hidden}
 .page1-inner{display:flex;gap:30px;align-items:center;width:100%;max-width:1200px;padding:40px 24px;z-index:2}
 .hero-left{flex:1;padding:12px}
@@ -85,9 +80,7 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 .hero-right img{width:100%;height:100%;object-fit:cover;border-radius:14px;box-shadow:0 30px 90px rgba(4,6,4,0.7)}
 .hero-caption{margin-top:14px;color:rgba(200,255,220,0.14);font-size:13px}
 
-/* ============================
-   PAGE 2 - LYNK.ID (image left, text right) + center cards
-   ============================ */
+/* ============= PAGE 2 (LYNK.ID + CARDS CENTERED) ============= */
 #page2{background:#060a08;padding-top:40px;padding-bottom:80px}
 .page2-top{display:flex;gap:30px;align-items:center;justify-content:center;max-width:1200px;padding:12px 24px;margin:0 auto}
 .page2-top .img-side{flex:1}
@@ -101,13 +94,10 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
   padding:18px;border-radius:10px;color:#bfeed0;text-align:center;box-shadow:0 8px 30px rgba(8,16,10,0.45)
 }
 
-/* ============================
-   PAGE 3 (PC) - PRODUCT SLIDER
-   One product per slide. Dots center bottom and nav below dots.
-   ============================ */
+/* ============= PAGE 3 PC (SLIDER) ============= */
 #page3-pc{background:linear-gradient(180deg,#050606 10%, #04110b 100%);padding-top:70px;padding-bottom:90px}
 .slider-wrap{max-width:1100px;margin:0 auto;position:relative;padding:28px;border-radius:12px;background:linear-gradient(180deg, rgba(10,10,10,0.45), rgba(5,8,6,0.35));box-shadow:0 40px 80px rgba(0,0,0,0.6)}
-.slides{display:flex;transition:transform .55s cubic-bezier(.2,.9,.2,1);will-change:transform}
+.pcSlides{display:flex;transition:transform .55s cubic-bezier(.2,.9,.2,1);will-change:transform}
 .slide{min-width:100%;display:flex;gap:32px;align-items:center;padding:18px}
 .slide-left{flex:1}
 .slide-left img{width:100%;max-width:460px;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
@@ -120,45 +110,35 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 .slider-nav{display:flex;justify-content:center;margin-top:12px;gap:12px}
 .slider-nav button{padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#dfffe8}
 
-/* small desktop note hidden on PC (we'll hide on desktop) */
+/* small note (hidden on desktop) */
 .slider-note{color:#98d9b4;text-align:center;margin-top:12px;display:none}
 
-/* ============================
-   PAGE 3 (MOBILE) - separate container
-   mobile slider: full-screen swipe per product
-   ============================ */
+/* ============= PAGE 3 MOBILE ============= */
 #page3-mobile{display:none;padding:30px;background:linear-gradient(180deg,#020904,#06120a)}
 .mobile-carousel{overflow:hidden;position:relative;margin:0 auto;border-radius:12px;background:rgba(0,0,0,0.18);padding:12px}
 .mobile-track{display:flex;transition:transform .35s ease}
 .mobile-item{min-width:100%;padding:30px;display:flex;flex-direction:column;align-items:center;gap:12px}
 .mobile-item img{width:62%;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,0.6)}
 .mobile-title{color:var(--neon);font-size:20px}
-.swipe-hint{color:#9edfb4;margin-top:10px;text-align:center}
+.swipe-hint{color:#9edfb4;margin-top:10px;text-align:center;display:none}
 
-/* ============================
-   PRODUCT DETAIL PAGES (MOBILE)
-   ============================ */
+/* ============= DETAIL PAGE MOBILE ============= */
 .detail-page{display:none;padding:30px;text-align:center}
 .detail-page.active{display:block}
 .detail-page img{width:80%;border-radius:10px;margin-bottom:12px}
 .detail-title{color:var(--neon);font-size:22px;margin-bottom:10px}
 
-/* ============================
-   RESPONSIVE: hide / show PC vs Mobile
-   ============================ */
-@media (max-width: 820px){
-  /* mobile: hide pc slider & pc layout. show mobile variants */
+/* RESPONSIVE rules */
+@media (max-width:820px){
   .page1-inner{flex-direction:column}
   .hero-right{height:340px}
   .page2-top{flex-direction:column; text-align:center}
   .cards{grid-template-columns:1fr}
   #page3-pc{display:none}
   #page3-mobile{display:block}
-  /* show mobile swipe hint on mobile only */
   .swipe-hint{display:block}
 }
-@media (min-width: 821px){
-  /* desktop: hide mobile-only notes/details */
+@media (min-width:821px){
   .swipe-hint{display:none}
   .detail-page{display:none !important}
 }
@@ -179,220 +159,205 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 <!-- ===========================
      PAGE 1 - HERO
    =========================== -->
-<section id="page1-pc">
-    < <h1>GUDANG DIGITAL</h1>
-      <p><b>Selamat Datang di Gudang Digital</b></p>
-      <p><b>Ubah Ide Menjadi Aksi Nyata</b></p>
+<section id="page1">
+  <div class="page1-inner container">
+    <div class="hero-left">
+      <h1>GUDANG DIGITAL</h1>
+      <p class="lead"><b>Selamat Datang di Gudang Digital</b></p>
+      <p class="lead"><b>Ubah Ide Menjadi Aksi Nyata</b></p>
 
-      <p>
+      <p style="margin-top:18px;">
         Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
         <b>produk digital eksklusif</b> yang siap pakai: e-book, template, modul mentoring, dan banyak lagi.
         Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b>
       </p>
 
-      <a href="#page3" class="btn">Lihat Produk</a>
+      <div style="margin-top:18px">
+        <button class="btn" onclick="gotoPage(3)">Lihat Produk</button>
+      </div>
+
+      <div class="hero-caption">Integrasi Lynk.id & proses pembayaran sederhana — siap jual cepat.</div>
     </div>
 
-    <!-- GAMBAR HERO -->
-    <div class="page1-img">
-      <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
+    <!-- GAMBAR HERO (ganti src sesuai file Anda) -->
+    <div class="hero-right">
+      <img src="img/hero.png" alt="Gambar Hero">
     </div>
   </div>
 </section>
-
-
 
 <!-- ===========================
      PAGE 2 - ABOUT LYNK.ID + CARDS CENTERED
    =========================== -->
-<section id="page2-pc">
-     <div class="page2-top container">
-    <img src="img/lynk-base.png" alt="Lynk.id">
-    <div class="page2-text">
+<section id="page2">
+  <div class="page2-top container">
+    <div class="img-side">
+      <img src="img/lynk-base.png" alt="Lynk.id">
+    </div>
+    <div class="txt-side">
       <h2><strong>Terhubung dengan Lynk.id</strong></h2>
       <p>Website ini terintegrasi dengan Lynk.id untuk memudahkan transaksi dan meningkatkan kepercayaan pembeli.</p>
-      <a href="https://lynk.id/gudangdigital_ibra" class="btn">Kunjungi Lynk.id</a>
+      <p><button class="btn" onclick="window.open('https://lynk.id/gudangdigital_ibra','_blank')">Kunjungi Lynk.id</button></p>
     </div>
   </div>
-  <h2 style="text-align:center; margin-bottom:40px;"><strong>Kenapa Harus Produk Digital?</strong></h2>
-  <div class="cards container">
-    <div class="card"><span class="icon">⚡</span>Akses instan, langsung dipakai tanpa tunggu.</div>
-    <div class="card"><span class="icon">💰</span>Harga lebih terjangkau karena tanpa ongkir & cetak.</div>
-    <div class="card"><span class="icon">🔄</span>Selalu up-to-date, bisa diperbarui kapan saja.</div>
-    <div class="card"><span class="icon">🌍</span>Bisa digunakan kapan saja & di mana saja.</div>
-    <div class="card"><span class="icon">♻️</span>Ramah lingkungan, tanpa limbah kertas & plastik.</div>
-    <div class="card"><span class="icon">🚀</span>Potensi pasar luas, bisa dijual ke seluruh dunia.</div>
+
+  <div style="text-align:center;margin-top:18px">
+    <h2 style="margin-bottom:6px;color:#bdf8d1">Kenapa Harus Produk Digital?</h2>
+    <div class="cards-wrap container">
+      <div class="cards">
+        <div class="card">⚡ Akses instan, langsung dipakai tanpa tunggu.</div>
+        <div class="card">💰 Harga lebih terjangkau karena tanpa ongkir & cetak.</div>
+        <div class="card">🔄 Selalu up-to-date, bisa diperbarui kapan saja.</div>
+        <div class="card">🌍 Bisa digunakan kapan saja & di mana saja.</div>
+        <div class="card">♻️ Ramah lingkungan, tanpa limbah kertas & plastik.</div>
+        <div class="card">🚀 Potensi pasar luas, bisa dijual ke seluruh dunia.</div>
+      </div>
+    </div>
   </div>
 </section>
+
 <!-- ===========================
      PAGE 3 - PC Slider (1 produk per page)
    =========================== -->
-<section id="page3-pc">
-    <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
-      <div class="slider container">
-    <div class="slides" id="slides">
+<section id="page3-pc" aria-label="Produk PC">
+  <div class="slider-wrap">
+    <div id="pcSlides" class="pcSlides">
       <!-- Produk 1 -->
       <div class="slide">
-        <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1"></div>
+        <div class="slide-right">
           <h3>Kumpulan Modul Mentoring Copywriting</h3>
           <p><b>Jangan biarkan tulisanmu hanya jadi hiasan timeline.</b></p>
-          <p>Dengan Kumpulan Modul Mentoring Copywriting, kamu akan belajar bagaimana meramu kata yang mampu menggugah emosi, menarik perhatian, dan mendorong orang untuk segera bertindak..</p>
-           <br>Bukan teori bertele-tele, tapi strategi praktis yang bisa langsung dipakai untuk meningkatkan penjualan maupun personal branding.</br>
-           <br>Amankan aksesmu sekarang, ubah tulisan jadi sumber profit!<b></b></br>
-           
-          <a href="http://lynk.id/gudangdigital_ibra/zjgnpnv1p45g/checkout" class="btn">Miliki Sekarang!</a>
+          <p>Dengan Kumpulan Modul Mentoring Copywriting, kamu akan belajar bagaimana meramu kata yang mampu menggugah emosi, menarik perhatian, dan mendorong orang untuk segera bertindak.</p>
+          <p>Bukan teori bertele-tele, tapi strategi praktis yang bisa langsung dipakai untuk meningkatkan penjualan maupun personal branding. Amankan aksesmu sekarang, ubah tulisan jadi sumber profit!</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/zjgnpnv1p45g/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
       <!-- Produk 2 -->
       <div class="slide">
-        <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2"></div>
+        <div class="slide-right">
           <h3>40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing</h3>
           <p><b>Jangan biarkan bisnismu jalan di tempat hanya karena minim strategi.</b></p>
-           <p>40 E-Book Bisnis ini adalah paket lengkap ilmu jualan & marketing yang akan membekali kamu dengan teknik closing, trik branding, hingga strategi digital marketing yang terbukti efektif.</p>
-           <br>Bukan teori kosong, tapi panduan praktis yang bisa langsung diterapkan untuk melipatgandakan omzet dan mengembangkan bisnis lebih cepat.</br>
-           <br><b>Investasi kecil, hasil besar. Miliki paket lengkap ini dan buktikan sendiri!</b></br>
-          <a href="http://lynk.id/gudangdigital_ibra/4ewoz5dk2e37/checkout" class="btn">Miliki Sekarang!</a>
+          <p>40 E-Book Bisnis ini adalah paket lengkap ilmu jualan & marketing yang akan membekali kamu dengan teknik closing, trik branding, hingga strategi digital marketing yang terbukti efektif.</p>
+          <p>Investasi kecil, hasil besar. Miliki paket lengkap ini dan buktikan sendiri!</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/4ewoz5dk2e37/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
       <!-- Produk 3 -->
       <div class="slide">
-        <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3"></div>
+        <div class="slide-right">
           <h3>Mahir WhatsApp Marketing (Video Course)</h3>
           <p><b>Jangan biarkan WhatsApp-mu hanya jadi aplikasi chat biasa.</b></p>
-           <p>Dengan Video Course Mahir WhatsApp Marketing, kamu akan belajar bagaimana mengubah WhatsApp menjadi senjata jualan paling efektif: mulai dari cara membangun database, teknik komunikasi
-              yang bikin pelanggan betah, hingga strategi closing yang terbukti berhasil.</p>
-           <br>Materi disajikan dalam bentuk video praktis, mudah dipahami, dan langsung bisa diterapkan untuk meningkatkan penjualan harianmu.</br>
-           <br><b>Amankan aksesnya sekarang, kuasai WhatsApp-mu dan ubah jadi mesin penjualan pribadi!</b></br>
-          <a href="http://lynk.id/gudangdigital_ibra/j1k517q13evm/checkout" class="btn">Miliki Sekarang!</a>
+          <p>Dengan Video Course Mahir WhatsApp Marketing, kamu akan belajar bagaimana mengubah WhatsApp menjadi senjata jualan paling efektif: mulai dari cara membangun database, teknik komunikasi yang bikin pelanggan betah, hingga strategi closing yang terbukti berhasil.</p>
+          <p>Materi disajikan dalam bentuk video praktis, mudah dipahami, dan langsung bisa diterapkan untuk meningkatkan penjualan harianmu.</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/j1k517q13evm/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
       <!-- Produk 4 -->
       <div class="slide">
-        <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4"></div>
+        <div class="slide-right">
           <h3>CapCut Masterclass Bundle</h3>
           <p><b>Jangan biarkan kontenmu tenggelam di tengah lautan video biasa.</b></p>
-           <p>Dengan <b>CapCut Masterclass Bundle</b>, kamu akan belajar trik mengedit video yang profesional, kreatif, dan penuh daya tarik. Mulai dari teknik dasar, efek transisi, hingga rahasia editing ala
-              content creator sukses — semuanya terangkum lengkap dalam satu paket.</p>
-           <br>Materi praktis, mudah diikuti, dan bisa langsung kamu terapkan untuk membuat video yang memikat penonton sekaligus menaikkan engagement.</br>
-           <br><b>Miliki bundlenya sekarang, jadikan setiap videomu karya yang viral!</b></br>
-          <a href="http://lynk.id/gudangdigital_ibra/9w5jd3l5p3d2/checkout" class="btn">Miliki Sekarang!</a>
+          <p>Dengan CapCut Masterclass Bundle, kamu akan belajar trik mengedit video yang profesional, kreatif, dan penuh daya tarik. Mulai dari teknik dasar, efek transisi, hingga rahasia editing ala content creator sukses — semuanya terangkum lengkap dalam satu paket.</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/9w5jd3l5p3d2/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
       <!-- Produk 5 -->
       <div class="slide">
-        <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5"></div>
+        <div class="slide-right">
           <h3>1000+ Social Media Template Canva</h3>
           <p><b>Jangan biarkan postinganmu lewat begitu saja tanpa dilirik audiens.</b></p>
-           <p>Dengan <b>1000+ Social Media Template Canva</b>, kamu punya koleksi desain siap pakai yang profesional, estetik, dan bisa langsung disesuaikan dengan brand-mu.</p>
-           <br>Tak perlu ribet desain dari nol, cukup edit, posting, dan biarkan kontenmu tampil lebih menarik serta mudah membangun engagement.</br>
-           <br><b>Miliki sekarang, ubah setiap postingan jadi magnet perhatian dan engagement!</b></br>
-          <a href="http://lynk.id/gudangdigital_ibra/4158j0onv78p/checkout" class="btn">Miliki Sekarang!</a>
+          <p>Dengan 1000+ Social Media Template Canva, kamu punya koleksi desain siap pakai yang profesional, estetik, dan bisa langsung disesuaikan dengan brand-mu.</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/4158j0onv78p/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
       <!-- Produk 6 -->
       <div class="slide">
-        <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6"></div>
+        <div class="slide-right">
           <h3>E-book Panduan Konten Viral</h3>
           <p><b>Jangan biarkan kontenmu cuma lewat tanpa jejak.</b></p>
-           <p>Dengan <b>E-Book Panduan Konten Viral</b>, kamu akan dibekali strategi menciptakan ide, format, dan eksekusi konten yang mampu menarik perhatian, memicu interaksi, dan berpotensi viral di berbagai platform.</p>
-           <br>Bukan sekadar teori, tapi panduan praktis yang bisa langsung dipakai untuk mempercepat pertumbuhan audiens dan menaikkan branding-mu.</br>
-           <br><b>Dapatkan sekarang, jadikan kontenmu bahan perbincangan dan mesin pertumbuhan yang tak terbendung!</b></br>
-          <a href="http://lynk.id/gudangdigital_ibra/k15o04qo8rog/checkout" class="btn">Miliki Sekarang!</a>
+          <p>Dengan E-Book Panduan Konten Viral, kamu akan dibekali strategi menciptakan ide, format, dan eksekusi konten yang mampu menarik perhatian, memicu interaksi, dan berpotensi viral di berbagai platform.</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/k15o04qo8rog/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
       <!-- Produk 7 -->
       <div class="slide">
-        <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7"></div>
+        <div class="slide-right">
           <h3>Bikin Desain Keren dengan Canva, Mulai dari Sini</h3>
           <p><b>Jangan biarkan ide kreatifmu terjebak hanya di kepala.</b></p>
-           <p>Dengan panduan <b>Bikin Desain Keren dengan Canva</b>, kamu akan belajar cara membuat desain profesional dengan langkah mudah, cepat, dan tanpa ribet.</p>
-           <br>Mulai dari desain sosial media, presentasi, hingga materi promosi, semua bisa kamu buat sendiri tanpa harus jadi desainer.</br>
-           <br><b>Mulai dari sini, ubah kreativitasmu jadi desain keren yang siap bikin orang terpukau!</b></br>
-          <a href="http://lynk.id/gudangdigital_ibra/o360m6xgpn29/checkout" class="btn">Miliki Sekarang!</a>
+          <p>Dengan panduan ini, kamu akan belajar cara membuat desain profesional dengan langkah mudah, cepat, dan tanpa ribet.</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/o360m6xgpn29/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
       <!-- Produk 8 -->
       <div class="slide">
-        <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8"></div>
+        <div class="slide-right">
           <h3>Cara Membuat E-Book Dengan ChatGPT</h3>
-          <p><b>PJangan biarkan ide berhenti di kepala tanpa pernah jadi karya.</b></p>
-           <p>Dengan Panduan <b>Cara Membuat E-Book dengan ChatGPT</b>, kamu akan belajar bagaimana mengubah ide mentah jadi e-book profesional: mulai dari merancang struktur, menulis konten yang menarik, 
-              hingga mendesain layout yang siap dipasarkan.</p>
-           <br>Praktis, cepat, dan bisa dilakukan siapa saja tanpa harus jadi penulis ahli.<br>
-           <br><b>Dapatkan panduannya sekarang, wujudkan ide jadi e-book pertama yang bisa menghasilkan!</b></br>
-          <a href="http://lynk.id/gudangdigital_ibra/kqwkgpgxl872/checkout" class="btn">Miliki Sekarang!</a>
+          <p><b>Jangan biarkan ide berhenti di kepala tanpa pernah jadi karya.</b></p>
+          <p>Dengan Panduan ini, kamu akan belajar bagaimana mengubah ide mentah jadi e-book profesional: merancang struktur, menulis konten yang menarik, hingga mendesain layout yang siap dipasarkan.</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/kqwkgpgxl872/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
       <!-- Produk 9 -->
       <div class="slide">
-        <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9"></div>
+        <div class="slide-right">
           <h3>E-book Humor Para Pemikir Besar</h3>
           <p><b>Jangan biarkan hidupmu terlalu serius sampai lupa tertawa.</b></p>
-           <p>Dengan <b> E-book Humor Para Pemikir Besar</b>, kamu akan menemukan kumpulan humor cerdas, satir, dan jenaka dari para tokoh hebat dunia.</p>
-           <br>Bukan sekadar lucu, tapi juga menyegarkan pikiran, membuka perspektif baru, sekaligus memberi inspirasi lewat tawa yang berkelas.</br>
-           <br><b>Miliki e-book ini sekarang, nikmati tawa cerdas yang sekaligus menginspirasi!</b></br>
-          <a href="http://lynk.id/gudangdigital_ibra/2589lgedq0rd/checkout" class="btn">Miliki Sekarang!</a>
+          <p>Dengan E-book Humor Para Pemikir Besar, kamu akan menemukan kumpulan humor cerdas, satir, dan jenaka dari para tokoh hebat dunia.</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/2589lgedq0rd/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
       <!-- Produk 10 -->
       <div class="slide">
-        <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10"></div>
+        <div class="slide-right">
           <h3>E-book Bikin Produk Digital Sendiri Modal Canva</h3>
           <p><b>Jangan biarkan idemu berhenti jadi wacana tanpa pernah jadi karya nyata.</b></p>
-           <p>Dengan <b>E-Book Bikin Produk Digital Sendiri Modal Canva</b>, kamu akan belajar langkah demi langkah membuat produk digital profesional hanya dengan alat sederhana, tanpa perlu skill desain tingkat tinggi.</p>
-           <br>Praktis, mudah, dan bisa langsung dipakai untuk mulai membangun brand maupun menghasilkan income dari produk digitalmu sendiri.</br>
-           <br><b>apatkan panduan ini sekarang, mulai ciptakan produk digital pertamamu dan ubah kreativitas jadi sumber income!</b></br>
-          <a href="http://lynk.id/gudangdigital_ibra/qje70d70gmql/checkout" class="btn">Miliki Sekarang!</a>
+          <p>Dengan e-book ini, kamu akan belajar langkah demi langkah membuat produk digital profesional hanya dengan alat sederhana.</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/qje70d70gmql/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
       <!-- Produk 11 -->
       <div class="slide">
-        <img src="img/Ebook Ide Konten Anti Stuck.png" alt="Produk 11">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/Ebook Ide Konten Anti Stuck.png" alt="Produk 11"></div>
+        <div class="slide-right">
           <h3>Ebook Ide Konten Anti Stuck</h3>
           <p><b>Jangan biarkan ide-kontenmu mandek dan akunmu berhenti di tempat.</b></p>
-             <p>Dengan <b>E-book Ide Konten Anti Stuck</b>, kamu akan mendapatkan ratusan ide kreatif yang siap dipakai supaya postinganmu nggak pernah kehabisan bahan. 
-                Panduan ini dirancang untuk <b>mengembangkan akunmu dalam 30 hari</b> lewat konten yang konsisten, menarik, dan relevan.</p>
-            <br>Siap untuk keluar dari kebuntuan, menarik followers baru, dan punya feed yang selalu ditunggu-tunggu orang?</br>
-         <br><b>Miliki E-book ini sekarang, mulai kembangkan akunmu dan dominasi media sosial dalam 30 hari!</b></br>
-          <a href="hhttp://lynk.id/gudangdigital_ibra/zevl8ne8kxxo/checkout" class="btn">Miliki Sekarang!</a>
+          <p>Dengan e-book ini, kamu akan mendapatkan ratusan ide kreatif yang siap dipakai supaya postinganmu nggak pernah kehabisan bahan.</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/zevl8ne8kxxo/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
       <!-- Produk 12 -->
       <div class="slide">
-        <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 12">
-        <div class="slide-info">
+        <div class="slide-left"><img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 12"></div>
+        <div class="slide-right">
           <h3>1200 Template Eksklusif Khusus Bisnis Makanan & Minuman</h3>
-          <p><b>Jangan biarkan promosi makanan dan minumanmu tenggelam di antara pesaing!.</b></p>
-           <p>Dengan <b>1200 Template Eksklusif</b>, kamu mendapatkan ribuan desain siap pakai untuk media sosial, banner promo, menu digital, dan kampanye yang langsung menarik perhatian. Praktis, mudah diedit, dan terlihat profesional.</p>
-           <br><b>Bukan sekadar template! </b> Ini adalah kunci cepat untuk membuat brand-mu menonjol, meningkatkan engagement, dan menarik lebih banyak pelanggan.</br>
-           <br><b>Dapatkan sekarang dan mulai ubah tampilan bisnis makanan & minumanmu jadi magnet penjualan!</b></br>
-          <a href="http://lynk.id/gudangdigital_ibra/zko92le268p7/checkout" class="btn">Miliki Sekarang!</a>
+          <p><b>Jangan biarkan promosi makanan dan minumanmu tenggelam di antara pesaing!</b></p>
+          <p>Dengan 1200 Template Eksklusif, kamu mendapatkan ribuan desain siap pakai untuk media sosial, banner promo, menu digital, dan kampanye yang langsung menarik perhatian.</p>
+          <button class="btn" onclick="window.open('http://lynk.id/gudangdigital_ibra/zko92le268p7/checkout','_blank')">Miliki Sekarang!</button>
         </div>
       </div>
 
-    </div> <!-- /.slides -->
+    </div> <!-- /.pcSlides -->
 
     <!-- dots centered below slides -->
     <div class="product-dots" id="productDots" aria-hidden="false"></div>
@@ -415,7 +380,6 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
     <h2 style="text-align:center;color:#bff7cf;margin-bottom:12px">Produk Kami</h2>
     <div class="mobile-carousel">
       <div class="mobile-track" id="mobileTrack">
-        <!-- 12 mobile items -->
         <div class="mobile-item"><img src="img/produk1.png" alt=""><div class="mobile-title">Produk 1</div><button class="btn" onclick="openDetail(1)">Lihat Deskripsi</button></div>
         <div class="mobile-item"><img src="img/produk2.png" alt=""><div class="mobile-title">Produk 2</div><button class="btn" onclick="openDetail(2)">Lihat Deskripsi</button></div>
         <div class="mobile-item"><img src="img/produk3.png" alt=""><div class="mobile-title">Produk 3</div><button class="btn" onclick="openDetail(3)">Lihat Deskripsi</button></div>
@@ -435,32 +399,127 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 </section>
 
 <!-- ===========================
-   MOBILE DETAIL PAGES (1..12)
+     MOBILE DETAIL PAGES (1..12)
    =========================== -->
-<!-- Each detail includes image, title, description, buy (lynk.id) & back -->
-<div id="detail1" class="detail-page"><img src="img/produk1.png"><div class="detail-title">Produk 1 — Panduan Copywriting</div><p class="desc">Panduan lengkap copywriting untuk meningkatkan konversi halaman penjualan dan iklan Anda.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(1)">Kembali</button></div></div>
+<div id="detail1" class="detail-page">
+  <img src="img/produk1.png" alt="">
+  <div class="detail-title">Produk 1 — Panduan Copywriting</div>
+  <p class="desc">Panduan lengkap copywriting untuk meningkatkan konversi halaman penjualan dan iklan Anda.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(1)">Kembali</button>
+  </div>
+</div>
 
-<div id="detail2" class="detail-page"><img src="img/produk2.png"><div class="detail-title">Produk 2 — Template Landing Page</div><p class="desc">Template landing page responsif & dioptimalkan untuk konversi.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(2)">Kembali</button></div></div>
+<div id="detail2" class="detail-page">
+  <img src="img/produk2.png" alt="">
+  <div class="detail-title">Produk 2 — Template Landing Page</div>
+  <p class="desc">Template landing page responsif & dioptimalkan untuk konversi.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(2)">Kembali</button>
+  </div>
+</div>
 
-<div id="detail3" class="detail-page"><img src="img/produk3.png"><div class="detail-title">Produk 3 — Modul SEO Praktis</div><p class="desc">Langkah demi langkah SEO praktis untuk meningkatkan traffic organik.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(3)">Kembali</button></div></div>
+<div id="detail3" class="detail-page">
+  <img src="img/produk3.png" alt="">
+  <div class="detail-title">Produk 3 — Modul SEO Praktis</div>
+  <p class="desc">Langkah demi langkah SEO praktis untuk meningkatkan traffic organik.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(3)">Kembali</button>
+  </div>
+</div>
 
-<div id="detail4" class="detail-page"><img src="img/produk4.png"><div class="detail-title">Produk 4 — Paket Desain Social Media</div><p class="desc">Ratusan template post & story siap edit.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(4)">Kembali</button></div></div>
+<div id="detail4" class="detail-page">
+  <img src="img/produk4.png" alt="">
+  <div class="detail-title">Produk 4 — Paket Desain Social Media</div>
+  <p class="desc">Ratusan template post & story siap edit.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(4)">Kembali</button>
+  </div>
+</div>
 
-<div id="detail5" class="detail-page"><img src="img/produk5.png"><div class="detail-title">Produk 5 — Kursus Email Marketing</div><p class="desc">Kursus praktis membangun list email & automasi.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(5)">Kembali</button></div></div>
+<div id="detail5" class="detail-page">
+  <img src="img/produk5.png" alt="">
+  <div class="detail-title">Produk 5 — Kursus Email Marketing</div>
+  <p class="desc">Kursus praktis membangun list email & automasi.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(5)">Kembali</button>
+  </div>
+</div>
 
-<div id="detail6" class="detail-page"><img src="img/produk6.png"><div class="detail-title">Produk 6 — Audio & Musik</div><p class="desc">Koleksi audio bebas royalti untuk konten Anda.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(6)">Kembali</button></div></div>
+<div id="detail6" class="detail-page">
+  <img src="img/produk6.png" alt="">
+  <div class="detail-title">Produk 6 — Audio & Musik</div>
+  <p class="desc">Koleksi audio bebas royalti untuk konten Anda.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(6)">Kembali</button>
+  </div>
+</div>
 
-<div id="detail7" class="detail-page"><img src="img/produk7.png"><div class="detail-title">Produk 7 — Paket Video Promosi</div><p class="desc">Template video promosi mudah edit untuk ads & social.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(7)">Kembali</button></div></div>
+<div id="detail7" class="detail-page">
+  <img src="img/produk7.png" alt="">
+  <div class="detail-title">Produk 7 — Paket Video Promosi</div>
+  <p class="desc">Template video promosi mudah edit untuk ads & social.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(7)">Kembali</button>
+  </div>
+</div>
 
-<div id="detail8" class="detail-page"><img src="img/produk8.png"><div class="detail-title">Produk 8 — Template Presentasi</div><p class="desc">Slide deck profesional untuk pitch atau webinar.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(8)">Kembali</button></div></div>
+<div id="detail8" class="detail-page">
+  <img src="img/produk8.png" alt="">
+  <div class="detail-title">Produk 8 — Template Presentasi</div>
+  <p class="desc">Slide deck profesional untuk pitch atau webinar.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(8)">Kembali</button>
+  </div>
+</div>
 
-<div id="detail9" class="detail-page"><img src="img/produk9.png"><div class="detail-title">Produk 9 — E-book Bisnis Online</div><p class="desc">Panduan lengkap membangun toko online yang profitable.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(9)">Kembali</button></div></div>
+<div id="detail9" class="detail-page">
+  <img src="img/produk9.png" alt="">
+  <div class="detail-title">Produk 9 — E-book Bisnis Online</div>
+  <p class="desc">Panduan lengkap membangun toko online yang profitable.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(9)">Kembali</button>
+  </div>
+</div>
 
-<div id="detail10" class="detail-page"><img src="img/produk10.png"><div class="detail-title">Produk 10 — Checklist Launch</div><p class="desc">Checklist & template untuk launching yang tertata.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(10)">Kembali</button></div></div>
+<div id="detail10" class="detail-page">
+  <img src="img/produk10.png" alt="">
+  <div class="detail-title">Produk 10 — Checklist Launch</div>
+  <p class="desc">Checklist & template untuk launching yang tertata.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(10)">Kembali</button>
+  </div>
+</div>
 
-<div id="detail11" class="detail-page"><img src="img/produk11.png"><div class="detail-title">Produk 11 — Plugin/Script</div><p class="desc">Script siap pakai untuk otomatisasi tugas website/toko.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(11)">Kembali</button></div></div>
+<div id="detail11" class="detail-page">
+  <img src="img/produk11.png" alt="">
+  <div class="detail-title">Produk 11 — Plugin/Script</div>
+  <p class="desc">Script siap pakai untuk otomatisasi tugas website/toko.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(11)">Kembali</button>
+  </div>
+</div>
 
-<div id="detail12" class="detail-page"><img src="img/produk12.png"><div class="detail-title">Produk 12 — Workshop Rekaman</div><p class="desc">Rekaman workshop strategi pemasaran digital & studi kasus.</p><div style="display:flex;gap:8px;justify-content:center"><button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button><button class="btn ghost" onclick="closeDetail(12)">Kembali</button></div></div>
+<div id="detail12" class="detail-page">
+  <img src="img/produk12.png" alt="">
+  <div class="detail-title">Produk 12 — Workshop Rekaman</div>
+  <p class="desc">Rekaman workshop strategi pemasaran digital & studi kasus.</p>
+  <div style="display:flex;gap:8px;justify-content:center">
+    <button class="btn" onclick="window.open('https://lynk.id/gudangdigital','_blank')">Beli Sekarang</button>
+    <button class="btn ghost" onclick="closeDetail(12)">Kembali</button>
+  </div>
+</div>
 
 <!-- ============================
    SCRIPT: page nav, pc slider, mobile swipe & details
@@ -481,24 +540,32 @@ function gotoPage(n){
 
 /* ===== PC SLIDER (dots center bottom + nav) ===== */
 const pcSlidesEl = document.getElementById('pcSlides');
-const pcSlides = pcSlidesEl.querySelectorAll('.slide');
+const pcSlides = pcSlidesEl ? pcSlidesEl.querySelectorAll('.slide') : [];
 const productDots = document.getElementById('productDots');
 let pcIndex = 0;
 
 /* create dots for PC slides */
-pcSlides.forEach((_,i)=>{
-  const btn = document.createElement('button');
-  btn.addEventListener('click', ()=> pcGoTo(i));
-  productDots.appendChild(btn);
-});
+function createPcDots(){
+  if(!productDots) return;
+  productDots.innerHTML = '';
+  pcSlides.forEach((_,i)=>{
+    const btn = document.createElement('button');
+    btn.addEventListener('click', ()=> pcGoTo(i));
+    productDots.appendChild(btn);
+  });
+}
 function pcUpdate(){
+  if(!pcSlidesEl) return;
   pcSlidesEl.style.transform = `translateX(-${pcIndex * 100}%)`;
-  const dots = productDots.querySelectorAll('button');
+  const dots = productDots ? productDots.querySelectorAll('button') : [];
   dots.forEach((d, i) => d.classList.toggle('active', i === pcIndex));
 }
-function pcNext(){ pcIndex = (pcIndex + 1) % pcSlides.length; pcUpdate(); }
-function pcPrev(){ pcIndex = (pcIndex - 1 + pcSlides.length) % pcSlides.length; pcUpdate(); }
+function pcNext(){ if(pcSlides.length===0) return; pcIndex = (pcIndex + 1) % pcSlides.length; pcUpdate(); }
+function pcPrev(){ if(pcSlides.length===0) return; pcIndex = (pcIndex - 1 + pcSlides.length) % pcSlides.length; pcUpdate(); }
 function pcGoTo(i){ pcIndex = i; pcUpdate(); }
+
+/* init PC slider */
+createPcDots();
 pcUpdate();
 
 /* keyboard nav for desktop slider */
@@ -512,25 +579,28 @@ document.addEventListener('keydown', e=>{
 /* ===== MOBILE CAROUSEL (swipe) ===== */
 const mobileTrack = document.getElementById('mobileTrack');
 let mobileIndex = 0;
-function mobileUpdate(){ mobileTrack.style.transform = `translateX(-${mobileIndex * 100}%)`; }
-function mobileNext(){ if(mobileIndex < mobileTrack.children.length - 1){ mobileIndex++; mobileUpdate(); } }
-function mobilePrev(){ if(mobileIndex > 0){ mobileIndex--; mobileUpdate(); } }
+function mobileUpdate(){ if(!mobileTrack) return; mobileTrack.style.transform = `translateX(-${mobileIndex * 100}%)`; }
+function mobileNext(){ if(!mobileTrack) return; if(mobileIndex < mobileTrack.children.length - 1){ mobileIndex++; mobileUpdate(); } }
+function mobilePrev(){ if(!mobileTrack) return; if(mobileIndex > 0){ mobileIndex--; mobileUpdate(); } }
 
-/* touch gestures */
+/* touch gestures for mobile carousel */
 let startX = 0;
-mobileTrack.addEventListener('touchstart', (e)=> { startX = e.touches[0].clientX; });
-mobileTrack.addEventListener('touchend', (e)=> {
-  const endX = e.changedTouches[0].clientX;
-  const delta = startX - endX;
-  if(delta > 50) mobileNext();
-  if(delta < -50) mobilePrev();
-});
+if(mobileTrack){
+  mobileTrack.addEventListener('touchstart', (e)=> { startX = e.touches[0].clientX; });
+  mobileTrack.addEventListener('touchend', (e)=> {
+    const endX = e.changedTouches[0].clientX;
+    const delta = startX - endX;
+    if(delta > 50) mobileNext();
+    if(delta < -50) mobilePrev();
+  });
+}
 mobileUpdate();
 
 /* ===== Mobile detail pages open/close ===== */
 function openDetail(id){
-  // hide mobile carousel section and show detail
-  document.getElementById('page3-mobile').style.display = 'none';
+  // hide mobile carousel section and show detail page
+  const mobileSection = document.getElementById('page3-mobile');
+  if(mobileSection) mobileSection.style.display = 'none';
   const d = document.getElementById('detail' + id);
   if(d) d.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
@@ -538,7 +608,8 @@ function openDetail(id){
 function closeDetail(id){
   const d = document.getElementById('detail' + id);
   if(d) d.classList.remove('active');
-  document.getElementById('page3-mobile').style.display = 'block';
+  const mobileSection = document.getElementById('page3-mobile');
+  if(mobileSection) mobileSection.style.display = 'block';
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
@@ -563,7 +634,11 @@ function highlightNavOnScroll(){
   document.querySelectorAll('.nav-dots button').forEach((b,i)=> b.classList.toggle('active', i===activeIdx));
 }
 window.addEventListener('scroll', highlightNavOnScroll);
-window.addEventListener('resize', ()=> { mobileUpdate(); pcUpdate(); highlightNavOnScroll(); });
+
+/* on resize adapt some things */
+window.addEventListener('resize', ()=> {
+  mobileUpdate(); pcUpdate(); highlightNavOnScroll();
+});
 
 /* expose functions used in HTML buttons */
 window.pcNext = pcNext; window.pcPrev = pcPrev; window.pcGoTo = pcGoTo;
@@ -572,4 +647,3 @@ window.gotoPage = gotoPage; window.openDetail = openDetail; window.closeDetail =
 </script>
 </body>
 </html>
-
