@@ -6,261 +6,144 @@
 <title>Gudang Digital</title>
 <style>
 /* ===========================
-   RESET & GLOBAL
+   GENERAL STYLE
 =========================== */
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+body { background:#0e0e0e; color:#fff; line-height:1.6; }
+h1,h2,h3{ margin-bottom:10px; text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+p{ margin-bottom:10px; }
+.container{ width:90%; max-width:1200px; margin:auto; }
+.btn{
+  display:inline-block; padding:10px 20px;
+  background:#0ff; color:#000; text-decoration:none;
+  border-radius:6px; transition:0.3s;
+  box-shadow:0 0 10px #0ff,0 0 20px #0ff;
 }
-body {
-  font-family: Arial, sans-serif;
-  background:#050606;
-  color:#dfffe8;
-  line-height:1.6;
-}
-a { text-decoration:none; }
-
-/* ===========================
-   BUTTON
-=========================== */
-.btn {
-  padding:12px 24px;
-  border-radius:12px;
-  border:none;
-  background:#14e06b;
-  color:#050606;
-  font-weight:700;
-  cursor:pointer;
-  margin-top:12px;
-  display:inline-block;
-  transition:0.25s ease;
-}
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+.btn:hover{
+  background:#0ff; color:#000;
+  box-shadow:0 0 20px #0ff,0 0 30px #0ff;
 }
 
 /* ===========================
-   SECTIONS
+   PAGE 1
 =========================== */
-section {
-  padding:60px 20px;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:20px;
-}
-h1 { font-size:44px; color:#14e06b; margin-bottom:18px; text-align:center; }
-h2 { font-size:28px; color:#bdf8d1; margin-bottom:20px; text-align:center; }
-p { color:#bfeed0; margin-bottom:16px; text-align:center; max-width:900px; }
+#page1{ display:flex; align-items:center; justify-content:space-between; padding:60px 0; flex-wrap:wrap; }
+#page1 .page1-text{ flex:1; min-width:300px; margin-right:20px; }
+#page1 .page1-img img{ max-width:100%; border-radius:10px; box-shadow:0 0 20px #0ff; }
 
 /* ===========================
-   PAGE 1 HERO PC
+   PAGE 2
 =========================== */
-#page1-pc .page1-container {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  max-width:1200px;
-  width:100%;
-  gap:40px;
+#page2{ padding:60px 0; background:#1a1a1a; }
+#page2 .link-section{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-bottom:40px; }
+#page2 .link-section img{ max-width:200px; margin-right:20px; border-radius:10px; box-shadow:0 0 15px #0ff; }
+#page2 .link-section .link-text{ flex:1; text-align:right; }
+#page2 .cards{ display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+.card{
+  background:#111; flex:1 1 calc(33.33% - 20px); padding:20px;
+  border-radius:10px; box-shadow:0 0 10px #0ff,0 0 20px #0ff;
+  transition:0.3s;
 }
-.page1-text { flex:1; }
-.page1-text p { text-align:left; margin-bottom:12px; }
-.page1-img { flex:1; text-align:center; }
-.page1-img img { max-width:100%; border-radius:14px; }
+.card h3{ margin-bottom:10px; color:#0ff; text-shadow:0 0 5px #0ff;}
+.card:hover{ transform:translateY(-5px); box-shadow:0 0 20px #0ff,0 0 30px #0ff; }
 
 /* ===========================
-   PAGE 2 INFO
+   PAGE 3 PC
 =========================== */
-#page2 { text-align:center; }
-#page2 p { max-width:800px; margin:0 auto; }
-   .page2-text {
-  text-align: right;  /* teks rata kanan */
+#page3-pc{ display:block; max-width:1200px; margin:auto; padding:60px 0; }
+.slide-pc{
+  display:flex; align-items:center; justify-content:space-between;
+  min-height:300px; padding:40px; background:#111;
+  border-radius:10px; box-shadow:0 0 15px #0ff,0 0 30px #0ff;
+  margin-bottom:40px; flex-wrap:wrap;
+  transition:0.3s;
 }
-/* ===========================
-   PAGE 3 PRODUK
-=========================== */
-#page3 { text-align:center; }
-.pc-slider, .mobile-slider {
-  display:flex;
-  gap:20px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  padding-bottom:10px;
-}
-.pc-slider .slide, .mobile-slider .slide {
-  flex-shrink:0;
-  background:rgba(6,10,8,0.55);
-  border-radius:14px;
-  padding:20px;
-  text-align:center;
-  min-width:250px;
-  transition:transform 0.3s ease;
-}
-.pc-slider .slide:hover { transform:translateY(-6px); }
-.slide img { width:80%; border-radius:8px; margin-bottom:12px; }
-.slide h3 { font-size:20px; margin-bottom:12px; }
+.slide-pc img{ max-width:45%; border-radius:10px; box-shadow:0 0 15px #0ff; }
+.slide-pc .slide-text{ max-width:50%; }
+.slide-pc .slide-text h3{ margin-bottom:20px; color:#0ff; text-shadow:0 0 5px #0ff; }
+.slide-pc .slide-text p{ margin-bottom:20px; }
+.slide-pc:hover{ transform:translateY(-5px); }
 
 /* ===========================
-   DESKRIPSI OVERLAY
+   PAGE 3 MOBILE
 =========================== */
-.desc-panel {
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.85);
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:999;
-  overflow-y:auto;
+#page3-mobile{ display:none; padding:60px 0; }
+.card-mobile{
+  background:#111; border-radius:10px; padding:20px; margin:20px;
+  text-align:center; box-shadow:0 0 15px #0ff,0 0 30px #0ff;
+  transition:0.3s;
 }
-.desc-panel img { width:70%; border-radius:10px; margin-bottom:16px; }
-.desc-panel h3 { font-size:24px; margin-bottom:12px; }
-.desc-panel p { font-size:18px; margin-bottom:24px; text-align:center; color:#bfeed0; }
-.desc-panel .btn { width:140px; }
+.card-mobile img{ width:100%; border-radius:10px; }
+.card-mobile h3{ margin:10px 0; color:#0ff; text-shadow:0 0 5px #0ff; }
+.card-mobile:hover{ transform:translateY(-5px); }
 
 /* ===========================
-   RESPONSIVE
+   DESKRIPSI PRODUK
+=========================== */
+.desc-page{
+  display:none; padding:20px; max-width:600px; margin:20px auto;
+  background:#111; border-radius:10px; box-shadow:0 0 15px #0ff,0 0 30px #0ff;
+}
+.desc-page img{ width:100%; margin-bottom:20px; border-radius:10px; }
+.desc-page .btn-back{ background:#6c757d; margin-left:10px; box-shadow:none; }
+
+/* ===========================
+   MEDIA QUERY
 =========================== */
 @media(max-width:1024px){
-  #page1-pc .page1-container { flex-direction:column; }
-  .pc-slider { display:none; }
-  .mobile-slider { display:flex; scroll-snap-type:x mandatory; gap:16px; }
-  .mobile-slider .slide { min-width:80%; scroll-snap-align:start; }
-}
-@media(max-width:480px){
-  h1{ font-size:28px; }
-  h2{ font-size:22px; }
-  .btn{ padding:10px 18px; font-size:14px; }
+  #page3-pc{ display:none; }
+  #page3-mobile{ display:block; }
+  #page1{ flex-direction:column; text-align:center; }
+  #page1 .page1-text{ margin-right:0; margin-bottom:20px; }
+  #page2 .link-section{ flex-direction:column; text-align:center; }
+  #page2 .link-section .link-text{text-align:center; margin-top:10px;}
+  .card{ flex:1 1 100%; }
+  .slide-pc{ flex-direction:column; text-align:center; }
+  .slide-pc img{ max-width:100%; margin-bottom:20px; }
+  .slide-pc .slide-text{ max-width:100%; }
 }
 </style>
 </head>
 <body>
 
-<!-- ===========================
-   PAGE 1 HERO
-=========================== -->
-<section id="page1-pc">
-  <div class="page1-container">
-    <div class="page1-text">
-      <h1>GUDANG DIGITAL</h1>
-      <p><b>Selamat Datang di Gudang Digital</b></p>
-      <p><b>Ubah Ide Menjadi Aksi Nyata</b></p>
-      <p>
-        Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
-        <b>produk digital eksklusif</b> yang siap pakai: e-book, template, modul mentoring, dan banyak lagi.
-        Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b>
-      </p>
-      <a href="#page3" class="btn">Lihat Produk</a>
-    </div>
-    <div class="page1-img">
-      <img src="img/wanita pegang gaget.png" alt="Gambar Page 1">
-    </div>
+<!-- PAGE 1 -->
+<section id="page1">
+  <div class="page1-text">
+    <h1>GUDANG DIGITAL</h1>
+    <p><b>Selamat Datang di Gudang Digital</b></p>
+    <p><b>Ubah Ide Menjadi Aksi Nyata</b></p>
+    <p>Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan <b>produk digital eksklusif</b> yang siap pakai: e-book, template, modul mentoring, dan banyak lagi.
+       Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b></p>
+    <a href="#page3-pc" class="btn">Lihat Produk</a>
+  </div>
+  <div class="page1-img">
+    <img src="img/wanita_pegang_gaget.png" alt="Gambar Page 1">
   </div>
 </section>
 
-<!-- ===========================
-   PAGE 2 - LINK.ID + KEUNGGULAN
-=========================== -->
+<!-- PAGE 2 -->
 <section id="page2">
-  <!-- Bagian Atas: link.id -->
-  <div class="page2-top container">
-    <!-- Gambar -->
-    <div class="page2-img">
-      <img src="img/lynk-base.png" alt="Gambar link.id">
+  <div class="container">
+    <div class="link-section">
+      <img src="img/logo_link.png" alt="Link.id">
+      <div class="link-text">
+        <h3>Lynk.id</h3>
+        <p>Buat semua tautanmu lebih ringkas, mudah dibagikan, dan profesional dengan Lynk.id. Tingkatkan engagement dan aksesibilitas semua link pentingmu dalam satu dashboard sederhana.</p>
+       <a href="https://lynk.id/gudangdigital_ibra" class="btn">Kunjungi Lynk.id</a>
+      </div>
     </div>
-    <!-- Teks tentang link.id -->
-    <div class="page2-text">
-      <h2>Kenali link.id</h2>
-      <p><b>link.id adalah solusi URL singkat profesional</b> untuk mempermudah promosi digital dan tracking kampanye marketing Anda.</p>
-      <p>Dengan link.id, Anda bisa membuat link lebih menarik, mudah diingat, dan terukur performanya.</p>
-      <a href="#" class="btn">Gunakan link.id</a>
-    </div>
-  </div>
-
-  <!-- Keunggulan Produk Digital -->
-  <div class="keunggulan">
-    <h2>Keunggulan Produk Digital Kami</h2>
-    <div class="cards-container">
-      <div class="card"><h3>E-book Premium</h3><p>E-book lengkap siap pakai untuk meningkatkan skill Anda.</p></div>
-      <div class="card"><h3>Template Profesional</h3><p>Template desain dan dokumen siap edit sesuai kebutuhan bisnis.</p></div>
-      <div class="card"><h3>Modul Mentoring</h3><p>Materi mentoring yang terstruktur untuk mempercepat pembelajaran.</p></div>
-      <div class="card"><h3>Video Tutorial</h3><p>Video panduan praktis untuk mempermudah penggunaan produk digital.</p></div>
-      <div class="card"><h3>Checklist & Tools</h3><p>Checklist siap pakai dan tools digital untuk efisiensi kerja.</p></div>
-      <div class="card"><h3>Support Premium</h3><p>Dukungan penuh dari tim profesional untuk semua produk Anda.</p></div>
-    </div>
+    <h2 style="text-align:center; margin-bottom:40px;"><strong>Kenapa Harus Produk Digital?</strong></h2>
+  <div class="cards container">
+    <div class="card"><span class="icon">⚡</span>Akses instan, langsung dipakai tanpa tunggu.</div>
+    <div class="card"><span class="icon">💰</span>Harga lebih terjangkau karena tanpa ongkir & cetak.</div>
+    <div class="card"><span class="icon">🔄</span>Selalu up-to-date, bisa diperbarui kapan saja.</div>
+    <div class="card"><span class="icon">🌍</span>Bisa digunakan kapan saja & di mana saja.</div>
+    <div class="card"><span class="icon">♻️</span>Ramah lingkungan, tanpa limbah kertas & plastik.</div>
+    <div class="card"><span class="icon">🚀</span>Potensi pasar luas, bisa dijual ke seluruh dunia.</div>
   </div>
 </section>
 
-<style>
-/* ===========================
-   PAGE 2 STYLING
-=========================== */
-#page2 { padding:60px 20px; background:#0b0f0d; color:#dfffe8; }
-
-.page2-top {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  max-width:1200px;
-  margin:0 auto 40px auto;
-  gap:40px;
-}
-.page2-img { flex:1; text-align:center; }
-.page2-img img { max-width:250px; border-radius:12px; }
-
-.page2-text { flex:1; text-align:right; }
-.page2-text h2 { font-size:32px; margin-bottom:16px; color:#14e06b; }
-.page2-text p { margin-bottom:12px; }
-.page2-text .btn { margin-top:10px; }
-
-/* ===========================
-   KEUNGGULAN CARDS
-=========================== */
-.keunggulan { max-width:1200px; margin:0 auto; }
-.keunggulan h2 { font-size:28px; margin-bottom:24px; text-align:center; color:#14e06b; }
-.cards-container {
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:20px;
-}
-.card {
-  background:rgba(6,10,8,0.55);
-  border-radius:14px;
-  padding:20px;
-  text-align:center;
-  transition: transform 0.3s ease;
-}
-.card:hover { transform: translateY(-6px); }
-.card h3 { font-size:20px; margin-bottom:12px; }
-.card p { font-size:16px; color:#bfeed0; }
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-@media(max-width:1024px){
-  .page2-top { flex-direction:column; text-align:center; }
-  .page2-img img { max-width:180px; margin-bottom:20px; }
-  .cards-container { grid-template-columns: repeat(2,1fr); }
-  .page2-text { text-align:center; }
-}
-@media(max-width:600px){
-  .cards-container { grid-template-columns: 1fr; }
-  .page2-text h2 { font-size:24px; }
-  .card h3 { font-size:18px; }
-}
-</style>
-
-<!-- ===========================
-     PAGE 3 PC
-=========================== -->
+<!-- PAGE 3 PC -->
 <section id="page3-pc">
     <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
       <div class="slider container">
@@ -428,131 +311,167 @@ p { color:#bfeed0; margin-bottom:16px; text-align:center; max-width:900px; }
     </div>
 </section>
 
-  <!-- MOBILE SLIDER -->
-  <<div id="mobile-slider-container">
-    <div class="container">
-        <div class="slider" id="slider">
-            <!-- Halaman 1-12 -->
-            <div class="page" data-index="1">
-                <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
-                <h3>Kumpulan Modul Mentoring Copywriting</h3>
-                <a href="#" class="btn" onclick="showDescription(1)">Lihat Deskripsi</a>
-            </div>
-            <div class="page" data-index="2">
-                <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
-                <h3>40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing</h3>
-                <a href="#" class="btn" onclick="showDescription(2)">Lihat Deskripsi</a>
-            </div>
-            <div class="page" data-index="3">
-                <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
-                <h3>Mahir WhatsApp Marketing (Video Course)</h3>
-                <a href="#" class="btn" onclick="showDescription(3)">Lihat Deskripsi</a>
-            </div>
-            <div class="page" data-index="4">
-                <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4">
-                <h3>CapCut Masterclass Bundle</h3>
-                <a href="#" class="btn" onclick="showDescription(4)">Lihat Deskripsi</a>
-            </div>
-            <div class="page" data-index="5">
-                <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5">
-                <h3>1000+ Social Media Template Canva</h3>
-                <a href="#" class="btn" onclick="showDescription(5)">Lihat Deskripsi</a>
-            </div>
-            <div class="page" data-index="6">
-                <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6">
-                <h3>E-book Panduan Konten Viral</h3>
-                <a href="#" class="btn" onclick="showDescription(6)">Lihat Deskripsi</a>
-            </div>
-            <div class="page" data-index="7">
-                <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
-                <h3>Bikin Desain Keren dengan Canva, Mulai dari Sini</h3>
-                <a href="#" class="btn" onclick="showDescription(7)">Lihat Deskripsi</a>
-            </div>
-            <div class="page" data-index="8">
-                <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
-                <h3>Cara Membuat E-Book Dengan ChatGPT</h3>
-                <a href="#" class="btn" onclick="showDescription(8)">Lihat Deskripsi</a>
-            </div>
-            <div class="page" data-index="9">
-                <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
-                <h3>E-book Humor Para Pemikir Besar</h3>
-                <a href="#" class="btn" onclick="showDescription(9)">Lihat Deskripsi</a>
-            </div>
-            <div class="page" data-index="10">
-                <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
-                <h3>E-book Bikin Produk Digital Sendiri Modal Canva</h3>
-                <a href="#" class="btn" onclick="showDescription(10)">Lihat Deskripsi</a>
-            </div>
-            <div class="page" data-index="11">
-                <img src="img/Ebook Ide Konten Anti Stuck.png" alt="Produk 11">
-                <h3>Ebook Ide Konten Anti Stuck</h3>
-                <a href="#" class="btn" onclick="showDescription(11)">Lihat Deskripsi</a>
-            </div>
-            <div class="page" data-index="12">
-                <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 12">
-                <h3>1200 Template Eksklusif Khusus Bisnis Makanan & Minuman</h3>
-                <a href="#" class="btn" onclick="showDescription(12)">Lihat Deskripsi</a>
-            </div>
-        </div>
-       
+<!-- PAGE 3 MOBILE -->
+<!-- ===========================
+   PAGE 3 MOBILE
+=========================== -->
+<section id="page3-mobile">
+  <h2 style="text-align:center; margin-bottom:20px; text-shadow:0 0 5px #0ff,0 0 10px #0ff;">Produk Kami</h2>
 
-        <!-- Dot indikator -->
-        <div id="dots" class="dots-container"></div>
-
-        <!-- HALAMAN DESKRIPSI MOBILE -->
-        <div class="description-page" id="descriptionPage">
-            <img id="desc-img" src="" alt="Deskripsi Produk">
-            <h3 id="desc-title"></h3>
-            <p id="desc-text"></p>
-            <a id="buy-btn" href="#" class="btn" target="_blank">Miliki Sekarang!</a><br>
-            <a href="#" class="back-btn" onclick="backToSlider()">Kembali</a>
-        </div>
-    </div>
-</div>
-
-<script>
+  <!-- Card Produk 1-12 -->
+  <div class="card-mobile">
+    <img src="img/produk1.png" alt="Produk 1">
+    <h3>Produk 1</h3>
+    <a href="#" class="btn" onclick="showDesc('desc1')">Lihat Deskripsi</a>
+  </div>
+  <div class="card-mobile">
+    <img src="img/produk2.png" alt="Produk 2">
+    <h3>Produk 2</h3>
+    <a href="#" class="btn" onclick="showDesc('desc2')">Lihat Deskripsi</a>
+  </div>
+  <div class="card-mobile">
+    <img src="img/produk3.png" alt="Produk 3">
+    <h3>Produk 3</h3>
+    <a href="#" class="btn" onclick="showDesc('desc3')">Lihat Deskripsi</a>
+  </div>
+  <div class="card-mobile">
+    <img src="img/produk4.png" alt="Produk 4">
+    <h3>Produk 4</h3>
+    <a href="#" class="btn" onclick="showDesc('desc4')">Lihat Deskripsi</a>
+  </div>
+  <div class="card-mobile">
+    <img src="img/produk5.png" alt="Produk 5">
+    <h3>Produk 5</h3>
+    <a href="#" class="btn" onclick="showDesc('desc5')">Lihat Deskripsi</a>
+  </div>
+  <div class="card-mobile">
+    <img src="img/produk6.png" alt="Produk 6">
+    <h3>Produk 6</h3>
+    <a href="#" class="btn" onclick="showDesc('desc6')">Lihat Deskripsi</a>
+  </div>
+  <div class="card-mobile">
+    <img src="img/produk7.png" alt="Produk 7">
+    <h3>Produk 7</h3>
+    <a href="#" class="btn" onclick="showDesc('desc7')">Lihat Deskripsi</a>
+  </div>
+  <div class="card-mobile">
+    <img src="img/produk8.png" alt="Produk 8">
+    <h3>Produk 8</h3>
+    <a href="#" class="btn" onclick="showDesc('desc8')">Lihat Deskripsi</a>
+  </div>
+  <div class="card-mobile">
+    <img src="img/produk9.png" alt="Produk 9">
+    <h3>Produk 9</h3>
+    <a href="#" class="btn" onclick="showDesc('desc9')">Lihat Deskripsi</a>
+  </div>
+  <div class="card-mobile">
+    <img src="img/produk10.png" alt="Produk 10">
+    <h3>Produk 10</h3>
+    <a href="#" class="btn" onclick="showDesc('desc10')">Lihat Deskripsi</a>
+  </div>
+  <div class="card-mobile">
+    <img src="img/produk11.png" alt="Produk 11">
+    <h3>Produk 11</h3>
+    <a href="#" class="btn" onclick="showDesc('desc11')">Lihat Deskripsi</a>
+  </div>
+  <div class="card-mobile">
+    <img src="img/produk12.png" alt="Produk 12">
+    <h3>Produk 12</h3>
+    <a href="#" class="btn" onclick="showDesc('desc12')">Lihat Deskripsi</a>
+  </div>
+</section>
 
 <!-- ===========================
-   DESKRIPSI OVERLAY
+   DESKRIPSI PRODUK MOBILE
 =========================== -->
-<div id="descPanel" class="desc-panel">
-  <img id="descImg" src="">
-  <h3 id="descTitle"></h3>
-  <p id="descText"></p>
-  <button class="btn">Beli</button>
-  <button class="btn" onclick="closeDesc()">Kembali</button>
+<div class="desc-page" id="desc1">
+  <img src="img/produk1.png" alt="Produk 1">
+  <h3>Produk 1</h3>
+  <p>Deskripsi lengkap Produk 1. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc1')">← Kembali</a>
+</div>
+<div class="desc-page" id="desc2">
+  <img src="img/produk2.png" alt="Produk 2">
+  <h3>Produk 2</h3>
+  <p>Deskripsi lengkap Produk 2. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc2')">← Kembali</a>
+</div>
+<div class="desc-page" id="desc3">
+  <img src="img/produk3.png" alt="Produk 3">
+  <h3>Produk 3</h3>
+  <p>Deskripsi lengkap Produk 3. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc3')">← Kembali</a>
+</div>
+<div class="desc-page" id="desc4">
+  <img src="img/produk4.png" alt="Produk 4">
+  <h3>Produk 4</h3>
+  <p>Deskripsi lengkap Produk 4. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc4')">← Kembali</a>
+</div>
+<div class="desc-page" id="desc5">
+  <img src="img/produk5.png" alt="Produk 5">
+  <h3>Produk 5</h3>
+  <p>Deskripsi lengkap Produk 5. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc5')">← Kembali</a>
+</div>
+<div class="desc-page" id="desc6">
+  <img src="img/produk6.png" alt="Produk 6">
+  <h3>Produk 6</h3>
+  <p>Deskripsi lengkap Produk 6. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc6')">← Kembali</a>
+</div>
+<div class="desc-page" id="desc7">
+  <img src="img/produk7.png" alt="Produk 7">
+  <h3>Produk 7</h3>
+  <p>Deskripsi lengkap Produk 7. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc7')">← Kembali</a>
+</div>
+<div class="desc-page" id="desc8">
+  <img src="img/produk8.png" alt="Produk 8">
+  <h3>Produk 8</h3>
+  <p>Deskripsi lengkap Produk 8. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc8')">← Kembali</a>
+</div>
+<div class="desc-page" id="desc9">
+  <img src="img/produk9.png" alt="Produk 9">
+  <h3>Produk 9</h3>
+  <p>Deskripsi lengkap Produk 9. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc9')">← Kembali</a>
+</div>
+<div class="desc-page" id="desc10">
+  <img src="img/produk10.png" alt="Produk 10">
+  <h3>Produk 10</h3>
+  <p>Deskripsi lengkap Produk 10. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc10')">← Kembali</a>
+</div>
+<div class="desc-page" id="desc11">
+  <img src="img/produk11.png" alt="Produk 11">
+  <h3>Produk 11</h3>
+  <p>Deskripsi lengkap Produk 11. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc11')">← Kembali</a>
+</div>
+<div class="desc-page" id="desc12">
+  <img src="img/produk12.png" alt="Produk 12">
+  <h3>Produk 12</h3>
+  <p>Deskripsi lengkap Produk 12. Detail manfaat, fitur, dan kegunaan produk digital ini.</p>
+  <a href="#" class="btn">Beli</a>
+  <a href="#" class="btn btn-back" onclick="hideDesc('desc12')">← Kembali</a>
 </div>
 
 <script>
-const products={
-  1:{img:'img/produk1.png', title:'Produk 1', desc:'Deskripsi lengkap produk 1'},
-  2:{img:'img/produk2.png', title:'Produk 2', desc:'Deskripsi lengkap produk 2'},
-  3:{img:'img/produk3.png', title:'Produk 3', desc:'Deskripsi lengkap produk 3'},
-  4:{img:'img/produk4.png', title:'Produk 4', desc:'Deskripsi lengkap produk 4'},
-  5:{img:'img/produk5.png', title:'Produk 5', desc:'Deskripsi lengkap produk 5'},
-  6:{img:'img/produk6.png', title:'Produk 6', desc:'Deskripsi lengkap produk 6'},
-  7:{img:'img/produk7.png', title:'Produk 7', desc:'Deskripsi lengkap produk 7'},
-  8:{img:'img/produk8.png', title:'Produk 8', desc:'Deskripsi lengkap produk 8'},
-  9:{img:'img/produk9.png', title:'Produk 9', desc:'Deskripsi lengkap produk 9'},
-  10:{img:'img/produk10.png', title:'Produk 10', desc:'Deskripsi lengkap produk 10'},
-  11:{img:'img/produk11.png', title:'Produk 11', desc:'Deskripsi lengkap produk 11'},
-  12:{img:'img/produk12.png', title:'Produk 12', desc:'Deskripsi lengkap produk 12'}
-};
-
-function showDesc(id){
-  const panel=document.getElementById('descPanel');
-  document.getElementById('descImg').src=products[id].img;
-  document.getElementById('descTitle').textContent=products[id].title;
-  document.getElementById('descText').textContent=products[id].desc;
-  panel.style.display='flex';
-}
-
-function closeDesc(){ document.getElementById('descPanel').style.display='none'; }
+function showDesc(id){ document.getElementById(id).style.display='block'; }
+function hideDesc(id){ document.getElementById(id).style.display='none'; }
 </script>
-
 </body>
 </html>
-
-
-
-
