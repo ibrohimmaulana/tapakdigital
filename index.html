@@ -164,7 +164,11 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
     <!-- Teks -->
     <div class="page1-text">
       <h2>Page 1</h2>
-      <p>Konten Page 1 lengkap dengan teks dan gambar. Bisa diisi deskripsi singkat atau informasi penting yang ingin ditonjolkan.</p>
+      <p>
+        Jangan biarkan potensimu tertunda! Di Gudang Digital, kami menyediakan 
+        <b>produk digital eksklusif</b> yang siap pakai: e-book, template, modul mentoring, dan banyak lagi.
+        Semua dirancang untuk <b>mempermudah pekerjaanmu, meningkatkan branding, dan mempercepat pertumbuhan bisnismu.</b>
+      </p>
     </div>
     <!-- Gambar -->
     <div class="page1-image">
@@ -177,7 +181,7 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 .page1-container {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: stretch; /* membuat gambar full height */
   gap: 20px;
 }
 
@@ -712,5 +716,6 @@ window.gotoPage = gotoPage; window.openDetail = openDetail; window.closeDetail =
 </script>
 </body>
 </html>
+
 
 
