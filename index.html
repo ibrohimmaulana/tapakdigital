@@ -33,21 +33,73 @@
 
   .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-  /* PAGE 1 */
-  #page1 {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    padding: 40%;
-    background: #050D0F;
-    overflow: hidden;
-  }
-  .page1-content { display: flex; width: 100%; align-items: center; justify-content: space-between; }
-  .page1-text { flex: 1; min-width: 280px; padding-right: 20px; margin-top: 150px; }
-  .page1-text h1 { font-size: 3rem; margin-bottom: 20px; color: #FAA613; }
-  .page1-text p { font-size: 1.2rem; margin-bottom: 25px; }
-  .page1-img { flex: 1; display: flex; justify-content: flex-end; align-items: center; }
-  .page1-img img { height: 100vh; width: auto; object-fit: contain; }
+/* ===========================
+       PAGE 1
+    ============================ */
+    #page1 {
+      position: relative;          /* supaya gambar absolute tetap di area ini */
+      height: 100vh;               /* full layar */
+      padding: 50px;               /* jarak dalam */
+      display: flex;
+      align-items: center;         /* teks rata tengah vertikal */
+      background: linear-gradient(135deg, #ffffff, #e6f0ff);
+      overflow: hidden;
+    }
+
+    #page1 .content {
+      max-width: 500px;            /* batasi lebar teks */
+      z-index: 2;                  /* pastikan teks di atas gambar */
+    }
+
+    #page1 h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #0a1a3f;
+    }
+
+    #page1 p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    #page1 .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #ff3b3b;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    #page1 .btn:hover {
+      background: #cc0000;
+    }
+
+    /* Gambar di pojok */
+    #page1 .robot-img {
+      position: absolute;
+      top: 20px;         /* ubah ke bottom:20px; kalau mau di pojok bawah */
+      right: 20px;
+      max-width: 300px;
+      height: auto;
+      z-index: 1;        /* di bawah teks */
+    }
+
+    /* Responsive untuk HP */
+    @media (max-width: 768px) {
+      #page1 {
+        padding: 30px;
+        text-align: center;
+      }
+
+      #page1 .robot-img {
+        position: static;  /* biar turun ke bawah teks */
+        margin-top: 20px;
+        max-width: 200px;
+      }
+    }
 
   /* PAGE 2 */
   #page2 { background: #08070D; padding: 80px 5%; }
@@ -341,5 +393,6 @@
 
 </body>
 </html>
+
 
 
