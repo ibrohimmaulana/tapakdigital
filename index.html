@@ -20,15 +20,18 @@
     background: var(--bg-body) no-repeat center/cover;
   }
 
-  #page1 {
-    background: var(--bg-page1) no-repeat center/cover;
+  section {
+    min-height: 100vh; /* Tinggi seragam full layar */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
   }
-  #page2 {
-    background: var(--bg-page2) no-repeat center/cover;
-  }
-  #page3 {
-    background: var(--bg-page3) no-repeat center/cover;
-  }
+
+  #page1 { background: var(--bg-page1); }
+  #page2 { background: var(--bg-page2); }
+  #page3 { background: var(--bg-page3); flex-direction: column; justify-content: flex-start; padding-top: 80px; }
 
   h1, h2, h3 { margin-bottom: 20px; font-weight: 600; }
   p { margin-bottom: 15px; line-height: 1.6; }
@@ -56,13 +59,6 @@
   .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
   /* PAGE 1 */
-  #page1 {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    padding: 0 5%;
-    overflow: hidden;
-  }
   .page1-content { display: flex; width: 100%; align-items: center; justify-content: space-between; }
   .page1-text { flex: 1; min-width: 280px; padding-right: 20px; margin-top: 150px; }
   .page1-text h1 { font-size: 3rem; margin-bottom: 20px; color: #FAA613; }
@@ -81,14 +77,23 @@
   .card span.icon { display: block; font-size: 2rem; margin-bottom: 12px; color: #ffdf5f; }
 
   /* PAGE 3 */
-  #page3 { padding: 80px 5%; }
   .slider { position: relative; width: 100%; overflow: hidden; margin: 0 auto; }
   .slides { display: flex; transition: transform 0.5s ease-in-out; touch-action: pan-x; }
   .slide { min-width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 20px 0; }
   .slide img { width: 40%; border-radius: 12px; transition: all 0.3s ease; }
   .slide-info { flex: 1; }
 
-  /* NAV DOTS */
+  /* NAV DOTS SLIDER */
+  .dots-container { display: flex; justify-content: center; margin-top: 20px; gap: 10px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; background: #FFFFFF; cursor: pointer; transition: 0.3s; }
+  .dot.active { background: #FAA613; }
+
+  /* SLIDER ARROWS */
+  .slider-nav { display: flex; justify-content: center; gap: 20px; margin-top: 10px; }
+  .slider-nav button { background: #DD0426; color: #fff; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; }
+  .slider-nav button:hover { background: #FAA613; }
+
+  /* NAV DOTS (scroll antar page) */
   .nav-dots { position: fixed; top: 50%; left: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000; }
   .nav-dots div { width: 12px; height: 12px; border-radius: 50%; background: #FFFFFF; cursor: pointer; }
   .nav-dots div.active { background: #FAA613; }
@@ -108,21 +113,19 @@
 </head>
 <body>
 
-<!-- NAV DOTS -->
+<!-- NAV DOTS (scroll antar page) -->
 <div class="nav-dots" id="navDots">
   <div class="active" onclick="scrollToPage(0)"></div>
   <div onclick="scrollToPage(1)"></div>
   <div onclick="scrollToPage(2)"></div>
 </div>
 
-
 <!-- PAGE 1 -->
 <section id="page1">
   <div class="page1-content container">
     <div class="page1-text">
       <h1>TAPAK DIGITAL</h1>
-      <p>Jangan tunda lagi. Jadikan hari ini hari Anda memulai perjalanan transformatif. Di Tapak Digital, kami menyediakan semua yang Anda butuhkan untuk memulai, belajar, dan tumbuh lebih cepat dari sebelumnya.</p>
-      <p>Temukan inspirasi, alat, dan sumber daya yang dirancang untuk mempercepat pencapaian tujuan Anda. Ini adalah kesempatan Anda untuk mengubah potensi menjadi prestasi nyata.</p>
+      <p>Jangan tunda lagi. Jadikan hari ini hari Anda memulai perjalanan transformatif...</p>
       <a href="#page3" class="btn">Lihat Produk</a>
     </div>
     <div class="page1-img">
@@ -137,17 +140,17 @@
     <img src="img/lynk-base.png" alt="Lynk.id">
     <div class="page2-text">
       <h2>Terhubung dengan Lynk.id</h2>
-      <p>Website ini terintegrasi dengan Lynk.id untuk memudahkan transaksi dan meningkatkan kepercayaan pembeli.</p>
+      <p>Website ini terintegrasi dengan Lynk.id...</p>
     </div>
   </div>
   <h2 style="text-align:center; margin-bottom:40px;">Kenapa Harus Produk Digital?</h2>
   <div class="cards container">
-    <div class="card"><span class="icon">⚡</span>Akses instan, langsung dipakai tanpa tunggu.</div>
-    <div class="card"><span class="icon">💰</span>Harga lebih terjangkau karena tanpa ongkir & cetak.</div>
-    <div class="card"><span class="icon">🔄</span>Selalu up-to-date, bisa diperbarui kapan saja.</div>
-    <div class="card"><span class="icon">🌍</span>Bisa digunakan kapan saja & di mana saja.</div>
-    <div class="card"><span class="icon">♻️</span>Ramah lingkungan, tanpa limbah kertas & plastik.</div>
-    <div class="card"><span class="icon">🚀</span>Potensi pasar luas, bisa dijual ke seluruh dunia.</div>
+    <div class="card"><span class="icon">⚡</span>Akses instan...</div>
+    <div class="card"><span class="icon">💰</span>Harga lebih terjangkau...</div>
+    <div class="card"><span class="icon">🔄</span>Selalu up-to-date...</div>
+    <div class="card"><span class="icon">🌍</span>Bisa digunakan kapan saja...</div>
+    <div class="card"><span class="icon">♻️</span>Ramah lingkungan...</div>
+    <div class="card"><span class="icon">🚀</span>Potensi pasar luas...</div>
   </div>
 </section>
 
@@ -156,128 +159,32 @@
   <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
   <div class="slider container">
     <div class="slides" id="slides">
-      <!-- Produk 1 -->
+      <!-- contoh 2 produk -->
       <div class="slide">
-        <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 1">
+        <img src="img/produk1.png" alt="Produk 1">
         <div class="slide-info">
-          <h3>Kumpulan Modul Mentoring Copywriting</h3>
-          <p><b>Jangan biarkan tulisanmu hanya jadi hiasan timeline.</b></p>
-          <p>Belajar teknik kata yang menarik perhatian dan mendorong orang untuk bertindak.</p>
-          <a href="http://lynk.id/gudangdigital_ibra/zjgnpnv1p45g/checkout" class="btn">Miliki Sekarang!</a>
+          <h3>Produk 1</h3>
+          <p>Deskripsi produk...</p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
-      <!-- Produk 2 -->
       <div class="slide">
-        <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 2">
+        <img src="img/produk2.png" alt="Produk 2">
         <div class="slide-info">
-          <h3>40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing</h3>
-          <p><b>Mau jualan makin laris dan cuan deras?</b></p>
-          <a href="http://lynk.id/gudangdigital_ibra/4ewoz5dk2e37/checkout" class="btn">Miliki Sekarang!</a>
+          <h3>Produk 2</h3>
+          <p>Deskripsi produk...</p>
+          <a href="#" class="btn">Miliki Sekarang!</a>
         </div>
       </div>
-
-      <!-- Produk 3 -->
-      <div class="slide">
-        <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 3">
-        <div class="slide-info">
-          <h3>Mahir WhatsApp Marketing (Video Course)</h3>
-          <p><b>Mau jualan laris hanya lewat WhatsApp?</b></p>
-          <a href="http://lynk.id/gudangdigital_ibra/j1k517q13evm/checkout" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <!-- Produk 4 -->
-      <div class="slide">
-        <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 4">
-        <div class="slide-info">
-          <h3>CapCut Masterclass Bundle</h3>
-          <p><b>Mau bikin video keren yang bikin orang betah nonton?</b></p>
-          <a href="http://lynk.id/gudangdigital_ibra/9w5jd3l5p3d2/checkout" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <!-- Produk 5 -->
-      <div class="slide">
-        <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 5">
-        <div class="slide-info">
-          <h3>1000+ Social Media Template Canva</h3>
-          <p><b>Mau feed medsos langsung terlihat profesional tanpa ribet desain?</b></p>
-          <a href="http://lynk.id/gudangdigital_ibra/4158j0onv78p/checkout" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <!-- Produk 6 -->
-      <div class="slide">
-        <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 6">
-        <div class="slide-info">
-          <h3>E-book Panduan Konten Viral</h3>
-          <p><b>Capek bikin konten tapi view sepi?</b></p>
-          <a href="http://lynk.id/gudangdigital_ibra/k15o04qo8rog/checkout" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <!-- Produk 7 -->
-      <div class="slide">
-        <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
-        <div class="slide-info">
-          <h3>Bikin Desain Keren dengan Canva, Mulai dari Sini</h3>
-          <p><b>Mau desain kece tapi nggak jago Photoshop?</b></p>
-          <a href="http://lynk.id/gudangdigital_ibra/o360m6xgpn29/checkout" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <!-- Produk 8 -->
-      <div class="slide">
-        <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 8">
-        <div class="slide-info">
-          <h3>Cara Membuat E-Book Dengan ChatGPT</h3>
-          <p><b>Pengen punya e-book sendiri tapi bingung mulai dari mana?</b></p>
-          <a href="http://lynk.id/gudangdigital_ibra/kqwkgpgxl872/checkout" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <!-- Produk 9 -->
-      <div class="slide">
-        <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 9">
-        <div class="slide-info">
-          <h3>E-book Humor Para Pemikir Besar</h3>
-          <p><b>Siapa bilang pemikir besar selalu serius?</b></p>
-          <a href="http://lynk.id/gudangdigital_ibra/2589lgedq0rd/checkout" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <!-- Produk 10 -->
-      <div class="slide">
-        <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 10">
-        <div class="slide-info">
-          <h3>E-book Bikin Produk Digital Sendiri Modal Canva</h3>
-          <p><b>Pengen punya produk digital tapi nggak ngerti desain?</b></p>
-          <a href="http://lynk.id/gudangdigital_ibra/qje70d70gmql/checkout" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <!-- Produk 11 -->
-      <div class="slide">
-        <img src="img/Ebook Panduan Jualan di Instagram.png" alt="Produk 11">
-        <div class="slide-info">
-          <h3>E-book Panduan Jualan di Instagram</h3>
-          <p><b>Mau jualan di Instagram tapi sepi order?</b></p>
-          <a href="http://lynk.id/gudangdigital_ibra/3n3n1a2n6q3r/checkout" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
-      <!-- Produk 12 -->
-      <div class="slide">
-        <img src="img/Ebook Strategi Copywriting untuk Pemula.png" alt="Produk 12">
-        <div class="slide-info">
-          <h3>E-book Strategi Copywriting untuk Pemula</h3>
-          <p><b>Belajar menulis kata yang menjual untuk pemula.</b></p>
-          <a href="http://lynk.id/gudangdigital_ibra/p9d8g9q0r7jl/checkout" class="btn">Miliki Sekarang!</a>
-        </div>
-      </div>
-
     </div>
+    <!-- dots + arrows -->
+    <div class="dots-container" id="dots"></div>
+    <div class="slider-nav">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+  </div>
+</section>
 
 <script>
   // Slider
@@ -318,7 +225,7 @@
     else if(diff < -50) goToSlide(currentIndex + 1);
   });
 
-  // Scroll nav dots
+  // Scroll nav dots antar page
   function scrollToPage(index){
     const pages = [document.getElementById("page1"), document.getElementById("page2"), document.getElementById("page3")];
     pages[index].scrollIntoView({behavior: "smooth"});
@@ -342,7 +249,3 @@
 
 </body>
 </html>
-
-
-
-
