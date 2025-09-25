@@ -67,42 +67,38 @@
   /* =========================
      PAGE 1 (teks kiri, gambar kanan)
   ========================== */
-  #page1 { 
-    background-image: url("img/bg_page 1.svg"); 
-    flex-direction: row;        /* kiri-kanan */
-    justify-content: space-between;
-    text-align: left;
-  }
-  #page1 .logo {
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    width: 120px;
-  }
-  #page1 .content {
-    flex: 1;
-    max-width: 50%;
-    padding-right: 40px;
-  }
-  #page1 h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #FAA613;
-  }
-  #page1 p {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-  }
-  #page1 .image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #page1 .image img {
-    max-height: 90vh;
-    width: auto;
-  }
+  #page1 {
+  height: 100vh; /* penuh setinggi layar */
+  display: flex;
+  align-items: center;
+}
+
+#page1 .content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#page1 .text {
+  flex: 1;              /* bagi setengah lebar */
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#page1 .image {
+  flex: 1;              /* bagi setengah lebar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page1 .image img {
+  height: 100vh;        /* gambar selalu setinggi layar */
+  width: auto;          /* biar nggak gepeng */
+  object-fit: contain;  /* gambar selalu utuh */
+}
 
   /* PAGE 2 */
   #page2 { background-image: url("bg_page 2.svg"); flex-direction: column; }
@@ -162,20 +158,25 @@
 ========================== -->
 <section id="page1">
   <div class="content">
+    <!-- TEKS KIRI -->
     <div class="text">
       <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo">
-      <h1>Tapak Digital</h1>
-      <p>Setiap ide hebat butuh langkah awal. 
+      <h1>TAPAK Digital</h1>
+      <p><b>Setiap ide hebat butuh langkah awal. 
 Tapak Digital adalah tempat di mana 
 ide Anda bertemu dengan solusi 
-digital yang siap pakai.</p>
+digital yang siap pakai.</b></p>
       <a href="#page3" class="btn">Lihat Produk</a>
     </div>
+
+    <!-- GAMBAR KANAN -->
     <div class="image">
-      <img src="img/robot.png" alt="Gambar page 1">
+      <img src="img/mockup-produk.png" alt="Mockup Produk Digital">
     </div>
   </div>
 </section>
+
+
 
 
 <!-- =========================
@@ -226,6 +227,7 @@ digital yang siap pakai.</p>
 
 </body>
 </html>
+
 
 
 
