@@ -6,9 +6,6 @@
 <title>Gudang Digital</title>
 
 <style>
-  /* =========================
-     STYLE GLOBAL
-  ========================== */
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
   body { scroll-behavior: smooth; color: #fff; }
 
@@ -33,57 +30,36 @@
   .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
   /* =========================
-     PAGE 1 
-     Background pakai SVG
+     PAGE UMUM
   ========================== */
-  #page1 {
-    height: 100vh;
+  section {
+    height: 100vh; /* full tinggi layar */
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
-    background: url("img/bg_page 1.svg") no-repeat center center/cover;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5%;
+    background-size: cover;   /* gambar menutupi layar */
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
   }
 
-  /* Logo kiri atas */
+  /* PAGE 1 */
+  #page1 { background-image: url("bg_page1.svg"); }
   #page1 .logo {
     position: absolute;
     top: 20px;
     left: 30px;
     width: 120px;
   }
+  #page1 h1 { font-size: 3rem; margin-bottom: 20px; color: #FAA613; }
+  #page1 p { font-size: 1.2rem; margin-bottom: 25px; }
 
-  .page1-text { flex: 1; min-width: 280px; padding-right: 20px; }
-  .page1-text h1 { font-size: 3rem; margin-bottom: 20px; color: #FAA613; }
-  .page1-text p { font-size: 1.2rem; margin-bottom: 25px; }
+  /* PAGE 2 */
+  #page2 { background-image: url("bg_page2.svg"); }
 
-  .page1-img { flex: 1; display: flex; justify-content: flex-end; }
-  .page1-img img { height: 80vh; object-fit: contain; }
-
-  /* =========================
-     PAGE 2 
-  ========================== */
-  #page2 {
-    height: 100vh;
-    padding: 80px 5%;
-    background: url("bg_page2.svg") no-repeat center center/cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  /* =========================
-     PAGE 3 
-  ========================== */
-  #page3 {
-    height: 100vh;
-    padding: 80px 5%;
-    background: url("bg_page3.svg") no-repeat center center/cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  /* PAGE 3 */
+  #page3 { background-image: url("bg_page3.svg"); }
 
   /* =========================
      NAV DOTS (navigasi di kiri)
@@ -106,15 +82,12 @@
     cursor: pointer;
     transition: background 0.3s;
   }
-  .nav-dots div.active {
-    background: #FAA613;
-  }
+  .nav-dots div.active { background: #FAA613; }
 
   /* Responsive */
   @media(max-width: 900px) {
-    .page1-content { flex-direction: column; text-align: center; }
-    .page1-img img { height: 50vh; }
-    .nav-dots { display: none; } /* navigasi dot disembunyikan di mobile */
+    section { text-align: center; padding: 10%; }
+    .nav-dots { display: none; }
   }
 </style>
 </head>
@@ -134,14 +107,9 @@
 ========================== -->
 <section id="page1">
   <img src="img/tapak digital.png" alt="Logo Gudang Digital" class="logo">
-  <div class="page1-text">
-    <h1>Gudang Digital</h1>
-    <p>Tempat terbaik untuk produk digital modern. Mulai perjalananmu hari ini dan nikmati akses instan.</p>
-    <a href="#page3" class="btn">Lihat Produk</a>
-  </div>
-  <div class="page1-img">
-    <img src="img/robot.png" alt="Ilustrasi Robot">
-  </div>
+  <h1>Gudang Digital</h1>
+  <p>Tempat terbaik untuk produk digital modern. Mulai perjalananmu hari ini dan nikmati akses instan.</p>
+  <a href="#page3" class="btn">Lihat Produk</a>
 </section>
 
 <!-- =========================
@@ -161,9 +129,6 @@
 </section>
 
 <script>
-  /* =========================
-     SCRIPT UNTUK NAV DOTS
-  ========================== */
   function scrollToPage(index){
     const pages = [document.getElementById("page1"), document.getElementById("page2"), document.getElementById("page3")];
     pages[index].scrollIntoView({behavior: "smooth"});
@@ -184,5 +149,3 @@
 
 </body>
 </html>
-
-
