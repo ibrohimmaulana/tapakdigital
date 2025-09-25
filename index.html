@@ -67,39 +67,33 @@
   /* =========================
      PAGE 1 (teks kiri, gambar kanan)
   ========================== */
-  #page1 {
-  background: url("img/bg_page 1.svg") center/cover no-repeat; 
-  height: 100vh;
-  display: flex;
-  align-items: center;
+ /* Logo lebih kecil */
+#page1 .logo {
+  width: 90px;   /* perkecil ukuran logo */
+  margin-bottom: 20px;
 }
 
-#page1 .content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 5%;
-}
-
+/* Teks di kiri, rata kiri */
 #page1 .text {
   flex: 1;
   color: #fff;
+  text-align: left;  /* rata kiri */
   padding-right: 40px;
 }
 
-#page1 .image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#page1 .text h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #FAA613;
+  line-height: 1.2;
 }
 
-#page1 .image img {
-  height: 100vh;   /* gambar setinggi layar */
-  width: auto;     /* tidak gepeng */
-  object-fit: contain;
+#page1 .text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  max-width: 500px;  /* biar teks tidak terlalu panjang */
 }
+
 
   /* PAGE 2 */
   #page2 { background-image: url("bg_page 2.svg"); flex-direction: column; }
@@ -162,25 +156,17 @@
     <!-- TEKS KIRI -->
     <div class="text">
       <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo">
-      <h1>TAPAK Digital</h1>
-      <p><b>Setiap ide hebat butuh langkah awal.</p>
-<p>Tapak Digital adalah tempat di mana 
-ide Anda bertemu dengan solusi </p>
-<p>digital yang siap pakai</p>Tapak Digital adalah tempat di mana 
-ide Anda bertemu dengan solusi 
-digital yang siap pakai.</b></p>
+      <h1>Gudang Digital</h1>
+      <p><b>Setiap ide hebat butuh langkah awal. Tapak Digital adalah tempat di mana ide Anda bertemu dengan solusi digital yang siap pakai.</b></p>
       <a href="#page3" class="btn">Lihat Produk</a>
     </div>
 
     <!-- GAMBAR KANAN -->
     <div class="image">
-      <img src="img/robot.png" alt="Mockup Produk Digital">
+      <img src="img/mockup-produk.png" alt="Mockup Produk Digital">
     </div>
   </div>
 </section>
-
-
-
 
 <!-- =========================
      PAGE 2
@@ -230,6 +216,7 @@ digital yang siap pakai.</b></p>
 
 </body>
 </html>
+
 
 
 
