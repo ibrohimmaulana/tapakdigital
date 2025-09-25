@@ -12,45 +12,46 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
   }
+
   body {
     scroll-behavior: smooth;
     color: #fff;
   }
 
-  /* ===== PAGE 1 ===== */
+  /* ====== PAGE 1 ====== */
   #page1 {
     height: 100vh;
     width: 100%;
-    background: url("img/bg_page 1.svg") center/cover no-repeat;
-    position: relative;
+    background: url("img/bg_page1.svg") center/cover no-repeat;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
   }
 
-  /* Logo kiri atas */
-  #page1 .logo {
+  /* Header (logo di kiri atas) */
+  #page1 header {
     position: absolute;
     top: 20px;
     left: 40px;
-    width: 90px; /* ubah ukuran logo */
+  }
+  #page1 header img {
+    width: 100px; /* ganti ukuran logo */
+    height: auto;
   }
 
   /* Konten utama */
-  #page1 .content {
+  #page1 .container {
+    flex: 1;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 85%;
-    max-width: 1200px;
-    gap: 50px;
+    justify-content: space-between;
+    padding: 0 8%;
   }
 
   /* Teks kiri */
   #page1 .text {
-    flex: 1;
-    text-align: left;
+    max-width: 500px;
   }
   #page1 .text h1 {
     font-size: 3rem;
@@ -62,7 +63,6 @@
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 25px;
-    max-width: 500px;
   }
   #page1 .btn {
     display: inline-block;
@@ -82,21 +82,15 @@
   }
 
   /* Gambar kanan */
-  #page1 .image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   #page1 .image img {
-    height: 100vh;
+    height: 90vh; /* full tinggi */
     width: auto;
     object-fit: contain;
   }
 
   /* Responsive */
   @media(max-width: 900px) {
-    #page1 .content {
+    #page1 .container {
       flex-direction: column;
       text-align: center;
     }
@@ -117,15 +111,17 @@
 <!-- ===== PAGE 1 ===== -->
 <section id="page1">
   <!-- Logo -->
-  <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo">
+  <header>
+    <img src="img/tapak digital.png" alt="Logo Tapak Digital">
+  </header>
 
-  <!-- Konten Utama -->
-  <div class="content">
+  <!-- Konten -->
+  <div class="container">
     <!-- Teks kiri -->
     <div class="text">
       <h1>TAPAK DIGITAL</h1>
-      <p>Setiap ide hebat butuh langkah awal. Tapak Digital adalah tempat di mana ide Anda bertemu dengan solusi digital yang siap pakai.</p>
-      <a href="#page2" class="btn">Lihat Produk</a>
+      <p>Solusi digital modern untuk langkah besar Anda. Semua produk digital tersedia dengan kualitas terbaik.</p>
+      <a href="#page2" class="btn">Jelajahi Produk</a>
     </div>
 
     <!-- Gambar kanan -->
