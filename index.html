@@ -3,15 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gudang Digital</title>
+<title>Tapak Digital</title>
 
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-  body { scroll-behavior: smooth; color: #fff; }
+  /* =========================
+     GLOBAL STYLE
+  ========================== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  body {
+    scroll-behavior: smooth;
+    color: #fff;
+  }
+  h1, h2, h3 {
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
 
-  h1, h2, h3 { margin-bottom: 20px; font-weight: 600; }
-  p { margin-bottom: 15px; line-height: 1.6; }
-
+  /* Tombol */
   .btn {
     display: inline-block;
     padding: 10px 24px;
@@ -25,20 +42,24 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(255, 95, 95, 0.3);
   }
-  .btn:hover { background: #fff; color: #000; transform: translateY(-3px); }
-
-  .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+  .btn:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
+  }
 
   /* =========================
      PAGE UMUM
   ========================== */
   section {
-    height: 100vh; /* full tinggi layar */
+    height: 100vh;                  /* penuh 1 layar */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;             /* teks rata tengah */
+    text-align: center;
     padding: 5%;
-    background-size: cover;   /* gambar menutupi layar */
+    background-size: cover;          /* gambar menutupi layar */
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
@@ -52,8 +73,15 @@
     left: 30px;
     width: 120px;
   }
-  #page1 h1 { font-size: 3rem; margin-bottom: 20px; color: #FAA613; }
-  #page1 p { font-size: 1.2rem; margin-bottom: 25px; }
+  #page1 h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #FAA613;
+  }
+  #page1 p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+  }
 
   /* PAGE 2 */
   #page2 { background-image: url("bg_page 2.svg"); }
@@ -82,12 +110,16 @@
     cursor: pointer;
     transition: background 0.3s;
   }
-  .nav-dots div.active { background: #FAA613; }
+  .nav-dots div.active {
+    background: #FAA613;
+  }
 
   /* Responsive */
   @media(max-width: 900px) {
-    section { text-align: center; padding: 10%; }
+    section { padding: 15% 8%; }
     .nav-dots { display: none; }
+    #page1 h1 { font-size: 2rem; }
+    #page1 p { font-size: 1rem; }
   }
 </style>
 </head>
@@ -107,7 +139,7 @@
 ========================== -->
 <section id="page1">
   <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo">
-  <h1>Gudang Digital</h1>
+  <h1>Tapak Digital</h1>
   <p>Tempat terbaik untuk produk digital modern. Mulai perjalananmu hari ini dan nikmati akses instan.</p>
   <a href="#page3" class="btn">Lihat Produk</a>
 </section>
@@ -115,7 +147,7 @@
 <!-- =========================
      PAGE 2
 ========================== -->
-<section id="page2" class="container">
+<section id="page2">
   <h2>Tentang Produk Digital</h2>
   <p>Produk digital lebih cepat, murah, dan bisa diakses kapan saja. Ramah lingkungan tanpa cetak & ongkir.</p>
 </section>
@@ -123,19 +155,30 @@
 <!-- =========================
      PAGE 3
 ========================== -->
-<section id="page3" class="container">
+<section id="page3">
   <h2>Produk Kami</h2>
   <p>Koleksi produk digital terbaik untuk belajar, bisnis, dan hiburan.</p>
 </section>
 
+<!-- =========================
+     SCRIPT NAV DOTS
+========================== -->
 <script>
   function scrollToPage(index){
-    const pages = [document.getElementById("page1"), document.getElementById("page2"), document.getElementById("page3")];
+    const pages = [
+      document.getElementById("page1"),
+      document.getElementById("page2"),
+      document.getElementById("page3")
+    ];
     pages[index].scrollIntoView({behavior: "smooth"});
   }
 
   window.addEventListener('scroll', () => {
-    const pages = [document.getElementById("page1"), document.getElementById("page2"), document.getElementById("page3")];
+    const pages = [
+      document.getElementById("page1"),
+      document.getElementById("page2"),
+      document.getElementById("page3")
+    ];
     const navDots = document.querySelectorAll(".nav-dots div");
     pages.forEach((p, i) => {
       const rect = p.getBoundingClientRect();
@@ -149,4 +192,3 @@
 
 </body>
 </html>
-
