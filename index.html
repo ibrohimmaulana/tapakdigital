@@ -49,26 +49,14 @@
   }
 
   /* =========================
-     HEADER (global logo)
-  ========================== */
-  header {
-    position: fixed;
-    top: 20px;
-    left: 30px;
-    z-index: 2000;
-  }
-  header img {
-    width: 100px;
-  }
-
-  /* =========================
      PAGE UMUM
   ========================== */
   section {
-    min-height: 100vh;              
+    height: 100vh;                   
     display: flex;
     justify-content: center;
     align-items: center;             
+    text-align: center;
     padding: 5%;
     background-size: cover;          
     background-position: center;
@@ -77,18 +65,24 @@
   }
 
   /* =========================
-     PAGE 1 (teks kiri, gambar kanan)
+     PAGE 1
   ========================== */
   #page1 {
-    background: url("img/bg_page 1.svg") center/cover no-repeat;
-  }
-  #page1 .overlay {
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.35);
+    background: url("bg_page 1.svg") center/cover no-repeat;
     display: flex;
     align-items: center;
   }
+
+  /* Overlay biar teks jelas */
+  #page1 .overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35); 
+    display: flex;
+    align-items: center;
+  }
+
+  /* Kontainer utama */
   #page1 .content {
     display: flex;
     justify-content: space-between;
@@ -96,12 +90,19 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 40px;
     gap: 40px;
   }
+
+  /* TEKS KIRI */
   #page1 .text {
     flex: 1;
     text-align: left;
     color: #fff;
+  }
+  #page1 .logo {
+    width: 80px;   
+    margin-bottom: 20px;
   }
   #page1 .text h1 {
     font-size: 3rem;
@@ -115,6 +116,8 @@
     max-width: 480px;
     line-height: 1.6;
   }
+
+  /* GAMBAR KANAN */
   #page1 .image {
     flex: 1;
     display: flex;
@@ -122,7 +125,7 @@
     align-items: center;
   }
   #page1 .image img {
-    height: 100vh;
+    height: 100vh;   
     width: auto;
     object-fit: contain;
   }
@@ -131,9 +134,9 @@
      PAGE 2
   ========================== */
   #page2 {
-    background: url("img/bg_page 2.svg") center/cover no-repeat;
+    background: url("bg_page 2.svg") center/cover no-repeat;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
   }
 
   /* =========================
@@ -142,7 +145,7 @@
   #page3 {
     background: url("bg_page 3.svg") center/cover no-repeat;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
   }
 
   /* =========================
@@ -156,7 +159,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    z-index: 1500;
+    z-index: 1000;
   }
   .nav-dots div {
     width: 14px;
@@ -172,13 +175,9 @@
 
   /* Responsive */
   @media(max-width: 900px) {
-    #page1 .content {
-      flex-direction: column;
-      text-align: center;
-    }
-    #page1 .image img {
-      max-height: 50vh;
-    }
+    #page1 { flex-direction: column; text-align: center; }
+    #page1 .content { max-width: 100%; padding: 0; }
+    #page1 .image img { max-height: 50vh; }
     .nav-dots { display: none; }
     #page1 h1 { font-size: 2rem; }
     #page1 p { font-size: 1rem; }
@@ -186,13 +185,6 @@
 </style>
 </head>
 <body>
-
-<!-- =========================
-     HEADER (Logo global)
-========================== -->
-<header>
-  <img src="img/tapak digital.png" alt="Logo Tapak Digital">
-</header>
 
 <!-- =========================
      NAV DOTS
@@ -209,12 +201,16 @@
 <section id="page1">
   <div class="overlay">
     <div class="content">
+      <!-- TEKS KIRI -->
       <div class="text">
-        <h1>Gudang Digital</h1>
+        <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo">
+        <h1>TAPAK DIGITAL</h1>
         <p>Setiap ide hebat butuh langkah awal. Tapak Digital adalah tempat di mana 
-        ide Anda bertemu dengan solusi digital yang siap pakai.</p>
+ide Anda bertemu dengan solusi digital yang siap pakai.</p>
         <a href="#page3" class="btn">Lihat Produk</a>
       </div>
+
+      <!-- GAMBAR KANAN -->
       <div class="image">
         <img src="img/robot.png" alt="Mockup Produk Digital">
       </div>
@@ -226,24 +222,16 @@
      PAGE 2
 ========================== -->
 <section id="page2">
-  <div class="overlay">
-    <div class="content">
-      <h2>Tentang Produk Digital</h2>
-      <p>Produk digital lebih cepat, murah, dan bisa diakses kapan saja. Ramah lingkungan tanpa cetak & ongkir.</p>
-    </div>
-  </div>
+  <h2>Tentang Produk Digital</h2>
+  <p>Produk digital lebih cepat, murah, dan bisa diakses kapan saja. Ramah lingkungan tanpa cetak & ongkir.</p>
 </section>
 
 <!-- =========================
      PAGE 3
 ========================== -->
 <section id="page3">
-  <div class="overlay">
-    <div class="content">
-      <h2>Produk Kami</h2>
-      <p>Koleksi produk digital terbaik untuk belajar, bisnis, dan hiburan.</p>
-    </div>
-  </div>
+  <h2>Produk Kami</h2>
+  <p>Koleksi produk digital terbaik untuk belajar, bisnis, dan hiburan.</p>
 </section>
 
 <!-- =========================
