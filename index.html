@@ -67,33 +67,28 @@
   /* =========================
      PAGE 1 (teks kiri, gambar kanan)
   ========================== */
- #page3 { background-image: url("img/bg_page 1.svg"); flex-direction: column; }
-  /* Logo lebih kecil */
-#page1 .logo {
-  width: 90px;   /* perkecil ukuran logo */
-  margin-bottom: 20px;
-}
+<section id="page1">
+  <div class="overlay">
+    <div class="content">
+      <!-- TEKS KIRI -->
+      <div class="text">
+        <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo">
+        <h1>Tapak Digital</h1>
+        <p>
+          Tempat terbaik untuk produk digital modern.  
+          Mulai perjalananmu hari ini dan nikmati akses instan.
+        </p>
+        <a href="#page3" class="btn">Lihat Produk</a>
+      </div>
 
-/* Teks di kiri, rata kiri */
-#page1 .text {
-  flex: 1;
-  color: #fff;
-  text-align: left;  /* rata kiri */
-  padding-right: 40px;
-}
+      <!-- GAMBAR KANAN -->
+      <div class="image">
+        <img src="img/robot.png" alt="MGambar Robot">
+      </div>
+    </div>
+  </div>
+</section>
 
-#page1 .text h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  color: #FAA613;
-  line-height: 1.2;
-}
-
-#page1 .text p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  max-width: 500px;  /* biar teks tidak terlalu panjang */
-}
 
 
   /* PAGE 2 */
@@ -218,6 +213,7 @@
 
 </body>
 </html>
+
 
 
 
