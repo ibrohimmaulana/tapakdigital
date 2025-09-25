@@ -52,26 +52,37 @@
      PAGE UMUM
   ========================== */
   section {
-    height: 100vh;                  /* penuh 1 layar */
+    height: 100vh;                  
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;             /* teks rata tengah */
+    align-items: center;             
     text-align: center;
     padding: 5%;
-    background-size: cover;          /* gambar menutupi layar */
+    background-size: cover;          
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
   }
 
-  /* PAGE 1 */
-  #page1 { background-image: url("img/bg_page 1.svg"); }
+  /* =========================
+     PAGE 1 (teks kiri, gambar kanan)
+  ========================== */
+  #page1 { 
+    background-image: url("bg_page 1.svg"); 
+    flex-direction: row;        /* kiri-kanan */
+    justify-content: space-between;
+    text-align: left;
+  }
   #page1 .logo {
     position: absolute;
     top: 20px;
     left: 30px;
     width: 120px;
+  }
+  #page1 .content {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 40px;
   }
   #page1 h1 {
     font-size: 3rem;
@@ -82,15 +93,25 @@
     font-size: 1.2rem;
     margin-bottom: 25px;
   }
+  #page1 .image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #page1 .image img {
+    max-height: 90vh;
+    width: auto;
+  }
 
   /* PAGE 2 */
-  #page2 { background-image: url("bg_page 2.svg"); }
+  #page2 { background-image: url("bg_page 2.svg"); flex-direction: column; }
 
   /* PAGE 3 */
-  #page3 { background-image: url("bg_page 3.svg"); }
+  #page3 { background-image: url("bg_page 3.svg"); flex-direction: column; }
 
   /* =========================
-     NAV DOTS (navigasi di kiri)
+     NAV DOTS
   ========================== */
   .nav-dots {
     position: fixed;
@@ -116,7 +137,9 @@
 
   /* Responsive */
   @media(max-width: 900px) {
-    section { padding: 15% 8%; }
+    #page1 { flex-direction: column; text-align: center; }
+    #page1 .content { max-width: 100%; padding: 0; }
+    #page1 .image img { max-height: 50vh; }
     .nav-dots { display: none; }
     #page1 h1 { font-size: 2rem; }
     #page1 p { font-size: 1rem; }
@@ -139,9 +162,14 @@
 ========================== -->
 <section id="page1">
   <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo">
-  <h1>Tapak Digital</h1>
-  <p>Tempat terbaik untuk produk digital modern. Mulai perjalananmu hari ini dan nikmati akses instan.</p>
-  <a href="#page3" class="btn">Lihat Produk</a>
+  <div class="content">
+    <h1>Tapak Digital</h1>
+    <p>Tempat terbaik untuk produk digital modern. Mulai perjalananmu hari ini dan nikmati akses instan.</p>
+    <a href="#page3" class="btn">Lihat Produk</a>
+  </div>
+  <div class="image">
+    <img src="img/robot.png" alt="Ilustrasi Produk Digital">
+  </div>
 </section>
 
 <!-- =========================
@@ -192,4 +220,3 @@
 
 </body>
 </html>
-
