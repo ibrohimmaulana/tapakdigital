@@ -67,32 +67,78 @@
   /* =========================
      PAGE 1 (teks kiri, gambar kanan)
   ========================== */
-<section id="page1">
-  <div class="overlay">
-    <div class="content">
-      <!-- TEKS KIRI -->
-      <div class="text">
-        <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo">
-        <h1>Tapak Digital</h1>
-        <p>
-          Tempat terbaik untuk produk digital modern.  
-          Mulai perjalananmu hari ini dan nikmati akses instan.
-        </p>
-        <a href="#page3" class="btn">Lihat Produk</a>
-      </div>
+/* ===== PAGE 1 ===== */
+#page1 {
+  position: relative;
+  height: 100vh;
+  background: url("bg_page 1.svg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
 
-      <!-- GAMBAR KANAN -->
-      <div class="image">
-        <img src="img/robot.png" alt="MGambar Robot">
-      </div>
-    </div>
-  </div>
-</section>
+/* Overlay opsional biar teks lebih jelas */
+#page1 .overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35); /* bisa dihapus kalau ga perlu */
+  display: flex;
+  align-items: center;
+}
 
+/* Kontainer utama */
+#page1 .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  gap: 40px;
+}
 
+/* TEKS KIRI */
+#page1 .text {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+}
+
+#page1 .logo {
+  width: 90px;      /* kecilkan logo */
+  margin-bottom: 20px;
+}
+
+#page1 .text h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #FAA613;
+  line-height: 1.2;
+}
+
+#page1 .text p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+/* GAMBAR KANAN */
+#page1 .image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page1 .image img {
+  height: 100vh;   /* gambar selalu setinggi layar */
+  width: auto;
+  object-fit: contain;
+}
 
   /* PAGE 2 */
-  #page2 { background-image: url("bg_page 2.svg"); flex-direction: column; }
+  #page2 { background-image: url("img/bg_page 2.svg"); flex-direction: column; }
 
   /* PAGE 3 */
   #page3 { background-image: url("bg_page 3.svg"); flex-direction: column; }
@@ -148,21 +194,25 @@
      PAGE 1
 ========================== -->
 <section id="page1">
-  <div class="content">
-    <!-- TEKS KIRI -->
-    <div class="text">
-      <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo">
-      <h1>Tapak Digital</h1>
-      <p><b>Setiap ide hebat butuh langkah awal. Tapak Digital adalah tempat di mana ide Anda bertemu dengan solusi digital yang siap pakai.</b></p>
-      <a href="#page3" class="btn">Lihat Produk</a>
-    </div>
+  <div class="overlay">
+    <div class="content">
+      <!-- TEKS KIRI -->
+      <div class="text">
+        <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo">
+        <h1>Gudang Digital</h1>
+        <p>Setiap ide hebat butuh langkah awal. Tapak Digital adalah tempat di mana 
+ide Anda bertemu dengan solusi digital yang siap pakai.</p>
+        <a href="#page3" class="btn">Lihat Produk</a>
+      </div>
 
-    <!-- GAMBAR KANAN -->
-    <div class="image">
-      <img src="img/robot.png" alt="Mockup Produk Digital">
+      <!-- GAMBAR KANAN -->
+      <div class="image">
+        <img src="img/robot.png" alt="Mockup Produk Digital">
+      </div>
     </div>
   </div>
 </section>
+
 
 
 <!-- =========================
@@ -213,6 +263,7 @@
 
 </body>
 </html>
+
 
 
 
