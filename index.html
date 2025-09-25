@@ -53,6 +53,7 @@
   ========================== */
   section {
     height: 100vh;                   
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;             
@@ -62,6 +63,7 @@
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+    overflow: hidden;
   }
 
   /* =========================
@@ -71,6 +73,14 @@
     background: url("img/bg_page 1.svg") center/cover no-repeat;
     display: flex;
     align-items: center;
+  }
+
+  /* Logo hanya di kiri atas page 1 */
+  #page1 .logo-header {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 90px;
   }
 
   /* Overlay biar teks jelas */
@@ -99,10 +109,6 @@
     flex: 1;
     text-align: left;
     color: #fff;
-  }
-  #page1 .logo {
-    width: 80px;   
-    margin-bottom: 20px;
   }
   #page1 .text h1 {
     font-size: 3rem;
@@ -134,7 +140,7 @@
      PAGE 2
   ========================== */
   #page2 {
-    background: url("bg_page 2.svg") center/cover no-repeat;
+    background: url("img/bg_page 2.svg") center/cover no-repeat;
     flex-direction: column;
     text-align: center;
   }
@@ -143,7 +149,7 @@
      PAGE 3
   ========================== */
   #page3 {
-    background: url("bg_page 3.svg") center/cover no-repeat;
+    background: url("img/bg_page 3.svg") center/cover no-repeat;
     flex-direction: column;
     text-align: center;
   }
@@ -199,11 +205,13 @@
      PAGE 1
 ========================== -->
 <section id="page1">
+  <!-- Logo kiri atas -->
+  <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo-header">
+
   <div class="overlay">
     <div class="content">
       <!-- TEKS KIRI -->
       <div class="text">
-        <img src="img/tapak digital.png" alt="Logo Tapak Digital" class="logo">
         <h1>TAPAK DIGITAL</h1>
         <p>Setiap ide hebat butuh langkah awal. Tapak Digital adalah tempat di mana 
 ide Anda bertemu dengan solusi digital yang siap pakai.</p>
@@ -266,4 +274,3 @@ ide Anda bertemu dengan solusi digital yang siap pakai.</p>
 
 </body>
 </html>
-
