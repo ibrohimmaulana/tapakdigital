@@ -52,14 +52,15 @@ p { margin-bottom:15px; line-height:1.6; }
 .desktop-grid .card img { width:100%; border-radius:12px; margin-bottom:12px; }
 
 /* MOBILE SLIDER STYLE */
-.mobile-slider { position:relative; overflow:hidden; display:none; }
+.mobile-slider { position:relative; overflow:hidden; display:none; max-width:400px; margin:0 auto 50px; }
 .mobile-slider .slides { display:flex; transition: transform 0.5s ease; }
-.mobile-slider .slide { min-width:100%; position:relative; text-align:center; }
-.mobile-slider .slide img { width:80%; border-radius:12px; margin:0 auto 15px; }
-.mobile-slider .slide-info { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.5); padding:10px 15px; border-radius:10px; width:90%; max-width:300px; }
-.mobile-slider .arrow { position:absolute; top:50%; transform:translateY(-50%); font-size:2rem; color:#FAA613; cursor:pointer; z-index:10; user-select:none; }
-.mobile-slider .left-arrow { left:10px; }
-.mobile-slider .right-arrow { right:10px; }
+.mobile-slider .slide { min-width:100%; position:relative; text-align:center; padding-bottom:60px; }
+.mobile-slider .slide img { width:100%; border-radius:12px; margin-bottom:15px; }
+.mobile-slider .slide-info { text-align:center; margin-bottom:10px; }
+.mobile-slider .slide-info h3 { margin-bottom:10px; font-size:1.1rem; }
+.mobile-slider .slide-info .btn { font-size:0.9rem; padding:8px 20px; }
+.slide-arrows { position:absolute; bottom:0; left:50%; transform:translateX(-50%); display:flex; justify-content:space-between; width:80%; }
+.slide-arrows .arrow { font-size:1.8rem; color:#FAA613; cursor:pointer; user-select:none; padding:0 10px; }
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -205,160 +206,174 @@ p { margin-bottom:15px; line-height:1.6; }
     </div>
 
 
- <!-- PAGE 3 MOBILE SLIDER -->
+
+    <!-- Mobile Slider -->
+<!-- MOBILE SLIDER 13 PRODUK -->
 <div class="mobile-slider">
   <div class="slides">
-   <!-- Produk 1 -->
-        <div class="slide">
-          <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 1">
-          <div class="slide-info">
-            <h3>1200 Template Aesthetic Khusus Makanan & Minuman</h3>
-            <a href="http://lynk.id/tapakdigital/94qzel013plx/checkout" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 2 -->
-        <div class="slide">
-          <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 2">
-          <div class="slide-info">
-            <h3>CapCut Masterclass Bundle</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 3 -->
-        <div class="slide">
-          <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 3">
-          <div class="slide-info">
-            <h3>1000+ Template Canva: Konten Menarik Tanpa Ribet Desain</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 4 -->
-        <div class="slide">
-          <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 4">
-          <div class="slide-info">
-            <h3>Mahir WhatsApp Marketing (Video Course)</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 5 -->
-        <div class="slide">
-          <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 5">
-          <div class="slide-info">
-            <h3>Cara Membuat E-Book dengan ChatGPT</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 6 -->
-        <div class="slide">
-          <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 6">
-          <div class="slide-info">
-            <h3>E-book Humor Para Pemikir Besar</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 7 -->
-        <div class="slide">
-          <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
-          <div class="slide-info">
-            <h3>Bikin Desain Keren dengan Canva, Mulai dari Sini</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 8 -->
-        <div class="slide">
-          <img src="img/3000+ template instagram.png" alt="Produk 8">
-          <div class="slide-info">
-            <h3>3000+ Template Instagram Premium</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 9 -->
-        <div class="slide">
-          <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 9">
-          <div class="slide-info">
-            <h3>Kumpulan Modul Mentoring Copywriting</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 10 -->
-        <div class="slide">
-          <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 10">
-          <div class="slide-info">
-            <h3>40 E-Book Bisnis Paket Lengkap</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 11 -->
-        <div class="slide">
-          <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 11">
-          <div class="slide-info">
-            <h3>E-book Panduan Konten Viral</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 12 -->
-        <div class="slide">
-          <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 12">
-          <div class="slide-info">
-            <h3>E-book Bikin Produk Digital Sendiri Modal Canva</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-        </div>
-        <!-- Produk 13 -->
-        <div class="slide">
-          <img src="img/Ebook Ide Konten Anti Stuck.png" alt="Produk 13">
-          <div class="slide-info">
-            <h3>Boost Kreativitasmu dengan E-book Ide Konten Anti Stuck</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-          </div>
-
+    <!-- Slide 1 -->
+    <div class="slide">
+      <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 1">
+      <div class="slide-info">
+        <h3>1200 Template Aesthetic Khusus Makanan & Minuman</h3>
+        <a href="http://lynk.id/tapakdigital/94qzel013plx/checkout" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="slide">
+      <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 2">
+      <div class="slide-info">
+        <h3>CapCut Masterclass Bundle</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="slide">
+      <img src="img/1000+ Social Media Template Canva.jpg" alt="Produk 3">
+      <div class="slide-info">
+        <h3>1000+ Template Canva</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 4 -->
+    <div class="slide">
+      <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 4">
+      <div class="slide-info">
+        <h3>Mahir WhatsApp Marketing (Video Course)</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 5 -->
+    <div class="slide">
+      <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 5">
+      <div class="slide-info">
+        <h3>Cara Membuat E-Book dengan ChatGPT</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 6 -->
+    <div class="slide">
+      <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 6">
+      <div class="slide-info">
+        <h3>E-book Humor Para Pemikir Besar</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 7 -->
+    <div class="slide">
+      <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
+      <div class="slide-info">
+        <h3>Bikin Desain Keren dengan Canva, Mulai dari Sini</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 8 -->
+    <div class="slide">
+      <img src="img/3000+ template instagram.png" alt="Produk 8">
+      <div class="slide-info">
+        <h3>3000+ Template Instagram Premium</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 9 -->
+    <div class="slide">
+      <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 9">
+      <div class="slide-info">
+        <h3>Kumpulan Modul Mentoring Copywriting</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 10 -->
+    <div class="slide">
+      <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 10">
+      <div class="slide-info">
+        <h3>40 E-Book Bisnis Paket Lengkap</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 11 -->
+    <div class="slide">
+      <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 11">
+      <div class="slide-info">
+        <h3>E-book Panduan Konten Viral</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 12 -->
+    <div class="slide">
+      <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 12">
+      <div class="slide-info">
+        <h3>E-book Bikin Produk Digital Sendiri Modal Canva</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
+    <!-- Slide 13 -->
+    <div class="slide">
+      <img src="img/Ebook Ide Konten Anti Stuck.png" alt="Produk 13">
+      <div class="slide-info">
+        <h3>Boost Kreativitasmu dengan Ebook Ide Konten Anti Stuck</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <div class="slide-arrows">
+        <span class="arrow left-arrow">&#10094;</span>
+        <span class="arrow right-arrow">&#10095;</span>
+      </div>
+    </div>
   </div>
 </div>
 
-<style>
-/* Mobile slider */
-.mobile-slider { position:relative; overflow:hidden; display:block; max-width:400px; margin:0 auto 50px; }
-.mobile-slider .slides { display:flex; transition: transform 0.5s ease; }
-.mobile-slider .slide { min-width:100%; position:relative; text-align:center; padding-bottom:60px; }
-.mobile-slider .slide img { width:100%; border-radius:12px; margin-bottom:15px; }
-.mobile-slider .slide-info { text-align:center; margin-bottom:10px; }
-.mobile-slider .slide-info h3 { margin-bottom:10px; font-size:1.1rem; }
-.mobile-slider .slide-info .btn { font-size:0.9rem; padding:8px 20px; }
-.slide-arrows { position:absolute; bottom:0; left:50%; transform:translateX(-50%); display:flex; justify-content:space-between; width:80%; }
-.slide-arrows .arrow { font-size:1.8rem; color:#FAA613; cursor:pointer; user-select:none; padding:0 10px; }
-</style>
+</section>
 
 <script>
-  
-// Mobile slider logic
-const mobileSlider = document.querySelector('.mobile-slider');
-if(mobileSlider){
-  const slidesContainer = mobileSlider.querySelector('.slides');
-  const slides = slidesContainer.children;
-  const total = slides.length;
-  let index = 0;
-
-  function goSlide(i){
-    index = (i + total) % total;
-    slidesContainer.style.transform = `translateX(-${index*100}%)`;
-  }
-
-  // Arrow events
-  mobileSlider.querySelectorAll('.left-arrow').forEach(el => el.addEventListener('click', ()=>goSlide(index-1)));
-  mobileSlider.querySelectorAll('.right-arrow').forEach(el => el.addEventListener('click', ()=>goSlide(index+1)));
-
-  // Swipe support
-  let startX = 0;
-  slidesContainer.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-  slidesContainer.addEventListener('touchend', e => {
-    const diff = e.changedTouches[0].clientX - startX;
-    if(diff > 50) goSlide(index-1);
-    else if(diff < -50) goSlide(index+1);
-  });
-}
-</script>
-  
-// Fade-in
+// Fade-in on scroll
 const faders = document.querySelectorAll('.fade-in');
 window.addEventListener('scroll', () => {
   faders.forEach(f => {
@@ -390,32 +405,31 @@ window.addEventListener('scroll', ()=>{
   });
 });
 
-// MOBILE SLIDER - PANAH & SWIPE
+// MOBILE SLIDER
 const mobileSlider = document.querySelector('.mobile-slider');
 if(mobileSlider){
-  const mobileSlides = mobileSlider.querySelector('.slides');
-  const mobileTotalSlides = mobileSlides.children.length;
-  let mobileIndex = 0;
+  const slidesContainer = mobileSlider.querySelector('.slides');
+  const slides = slidesContainer.children;
+  const total = slides.length;
+  let index = 0;
 
-  function goMobileSlide(i){
-    mobileIndex = (i + mobileTotalSlides) % mobileTotalSlides; // loop
-    mobileSlides.style.transform = `translateX(-${mobileIndex*100}%)`;
+  function goSlide(i){
+    index = (i + total) % total;
+    slidesContainer.style.transform = `translateX(-${index*100}%)`;
   }
 
-  mobileSlider.querySelector('.left-arrow').addEventListener('click', ()=>goMobileSlide(mobileIndex-1));
-  mobileSlider.querySelector('.right-arrow').addEventListener('click', ()=>goMobileSlide(mobileIndex+1));
+  mobileSlider.querySelectorAll('.left-arrow').forEach(el => el.addEventListener('click', ()=>goSlide(index-1)));
+  mobileSlider.querySelectorAll('.right-arrow').forEach(el => el.addEventListener('click', ()=>goSlide(index+1)));
 
   let startX = 0;
-  mobileSlides.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-  mobileSlides.addEventListener('touchend', e => {
+  slidesContainer.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  slidesContainer.addEventListener('touchend', e => {
     const diff = e.changedTouches[0].clientX - startX;
-    if(diff > 50) goMobileSlide(mobileIndex-1);
-    else if(diff < -50) goMobileSlide(mobileIndex+1);
+    if(diff > 50) goSlide(index-1);
+    else if(diff < -50) goSlide(index+1);
   });
 }
 </script>
 
 </body>
 </html>
-
-
