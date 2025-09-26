@@ -46,22 +46,25 @@ p { margin-bottom:15px; line-height:1.6; }
 .card:hover { transform: translateY(-12px) scale(1.03); background: rgba(255,255,255,0.12); box-shadow:0 12px 25px rgba(255,255,255,0.3); }
 .card span.icon { display:block; font-size:2rem; margin-bottom:12px; color:#ffdf5f; }
 
-/* PAGE 3 - SLIDER PRODUK */
-#page3 { background:#070B0E; padding:80px 5%; overflow:hidden; }
-.slider { position:relative; width:100%; overflow:hidden; margin:0 auto; }
-.slides { display:flex; transition: transform 0.8s cubic-bezier(.4,0,.2,1); touch-action: pan-x; }
-.slide { min-width:100%; display:flex; align-items:center; justify-content:space-between; gap:30px; padding:20px 0; position:relative; overflow:hidden; }
-.slide img { border-radius:12px; transition: transform 0.5s ease, box-shadow 0.5s ease; }
-.slide:hover img { transform: scale(1.05) rotate(-1deg); box-shadow:0 20px 40px rgba(255,255,255,0.3); }
-.slide-info { opacity:0; transform:translateY(20px); transition: all 0.5s ease; position:absolute; bottom:30px; left:30px; max-width:50%; background:rgba(0,0,0,0.5); padding:20px; border-radius:12px; }
-.slide:hover .slide-info { opacity:1; transform:translateY(0); }
-.slide-info h3 { margin-bottom:12px; }
-.slide-info .btn { box-shadow:0 0 10px #DD0426, 0 0 20px #DD0426, 0 0 30px #DD0426; transition: all 0.4s ease; }
-.slide-info .btn:hover { box-shadow:0 0 20px #FF5757,0 0 40px #FF5757,0 0 60px #FF5757; transform:translateY(-3px) scale(1.05); }
+/* PAGE 3 - DESKTOP GRID */
+.desktop-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
+
+/* PAGE 3 - MOBILE SLIDER */
+.mobile-slider { display:none; overflow:hidden; position:relative; }
+.slides { display:flex; transition:transform 0.5s ease; }
+.slide { min-width:100%; position:relative; padding:20px 0; }
+.slide img { width:100%; border-radius:12px; }
+.slide-info { position:absolute; bottom:20px; left:20px; background:rgba(0,0,0,0.5); padding:15px; border-radius:12px; color:#fff; max-width:90%; }
+
+/* Panah navigasi */
+.arrow { position:absolute; top:50%; transform:translateY(-50%); font-size:2.5rem; color:#FAA613; cursor:pointer; z-index:10; user-select:none; background:rgba(0,0,0,0.3); padding:5px 10px; border-radius:50%; transition:0.3s; }
+.arrow:hover { background:rgba(0,0,0,0.6); }
+.left-arrow { left:10px; }
+.right-arrow { right:10px; }
 
 /* Dots */
-.dots { display:flex; justify-content:center; margin-top:20px; }
-.dot { width:12px; height:12px; border-radius:50%; background:#FFFFFF; margin:0 6px; cursor:pointer; }
+.dots { display:flex; justify-content:center; margin-top:15px; }
+.dot { width:10px; height:10px; border-radius:50%; background:#fff; margin:0 5px; cursor:pointer; }
 .dot.active { background:#FAA613; }
 
 /* RESPONSIVE */
@@ -72,11 +75,9 @@ p { margin-bottom:15px; line-height:1.6; }
   .page1-text p { font-size:1rem; }
   .page1-img img { height:50vh; }
   .page2-top { flex-direction:column; }
-  .slide { flex-direction:column; }
-  .slide img { width:80%; margin-bottom:20px; }
+  .desktop-grid { display:none; }
+  .mobile-slider { display:block; }
   .nav-dots { display:none; }
-  .dots { display:none; }
-  #page3::after { content:"Geser ke kiri atau kanan untuk melihat produk"; display:block; text-align:center; color:#FAA613; font-weight:bold; margin-top:20px; }
 }
 </style>
 </head>
@@ -128,7 +129,7 @@ p { margin-bottom:15px; line-height:1.6; }
   <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
   <div class="container">
 
-    <!-- DESKTOP GRID -->
+   <!-- DESKTOP GRID -->
     <div class="cards desktop-grid" style="grid-template-columns:repeat(4,1fr); gap:30px;">
       <!-- Produk 1 -->
       <div class="card">
@@ -324,127 +325,9 @@ p { margin-bottom:15px; line-height:1.6; }
   </div>
 </section>
 
-<style>
-/* Desktop tetap tampil grid */
-.desktop-grid { display:grid; }
-.mobile-slider { display:none; overflow:hidden; position:relative; }
-.slides { display:flex; transition:transform 0.5s ease; }
-.slide { min-width:100%; position:relative; padding:20px 0; }
-.slide img { width:100%; border-radius:12px; }
-.slide-info { position:absolute; bottom:20px; left:20px; background:rgba(0,0,0,0.5); padding:15px; border-radius:12px; color:#fff; max-width:90%; }
-
-/* Dots */
-.dots { display:flex; justify-content:center; margin-top:15px; }
-.dot { width:10px; height:10px; border-radius:50%; background:#fff; margin:0 5px; cursor:pointer; }
-.dot.active { background:#FAA613; }
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .desktop-grid { display:none; }
-  .mobile-slider { display:block; }
-}
-</style>
 
 <script>
-const mobileSlides = document.querySelector('.mobile-slider .slides');
-const mobileTotalSlides = mobileSlides.children.length;
-let mobileIndex = 0;
-
-// Create dots
-const mobileDotsContainer = document.querySelector('.mobile-slider .dots');
-for(let i=0;i<mobileTotalSlides;i++){
-  const dot = document.createElement('div');
-  dot.classList.add('dot');
-  if(i===0) dot.classList.add('active');
-  dot.addEventListener('click',()=>goMobileSlide(i));
-  mobileDotsContainer.appendChild(dot);
-}
-
-function goMobileSlide(i){
-  mobileIndex = i;
-  mobileSlides.style.transform = `translateX(-${i*100}%)`;
-  updateMobileDots();
-}
-
-function updateMobileDots(){
-  document.querySelectorAll('.mobile-slider .dot').forEach((d,j)=>d.classList.toggle('active', j===mobileIndex));
-}
-
-// Auto slide
-setInterval(()=>{ goMobileSlide((mobileIndex+1)%mobileTotalSlides); },8000);
-
-// Swipe support
-let startX = 0;
-mobileSlides.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; });
-mobileSlides.addEventListener('touchend', e=>{
-  const diff = e.changedTouches[0].clientX - startX;
-  if(diff>50) goMobileSlide((mobileIndex-1+mobileTotalSlides)%mobileTotalSlides);
-  else if(diff<-50) goMobileSlide((mobileIndex+1)%mobileTotalSlides);
-});
-</script>
-
-
-<style>
-/* Desktop tetap tampil grid */
-.desktop-grid { display:grid; }
-.mobile-slider { display:none; overflow:hidden; position:relative; }
-.slides { display:flex; transition:transform 0.5s ease; }
-.slide { min-width:100%; position:relative; padding:20px 0; }
-.slide img { width:100%; border-radius:12px; }
-.slide-info { position:absolute; bottom:20px; left:20px; background:rgba(0,0,0,0.5); padding:15px; border-radius:12px; color:#fff; max-width:90%; }
-
-/* Dots */
-.dots { display:flex; justify-content:center; margin-top:15px; }
-.dot { width:10px; height:10px; border-radius:50%; background:#fff; margin:0 5px; cursor:pointer; }
-.dot.active { background:#FAA613; }
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .desktop-grid { display:none; }
-  .mobile-slider { display:block; }
-}
-</style>
-
-<script>
-const mobileSlides = document.querySelector('.mobile-slider .slides');
-const mobileTotalSlides = mobileSlides.children.length;
-let mobileIndex = 0;
-
-// Create dots
-const mobileDotsContainer = document.querySelector('.mobile-slider .dots');
-for(let i=0;i<mobileTotalSlides;i++){
-  const dot = document.createElement('div');
-  dot.classList.add('dot');
-  if(i===0) dot.classList.add('active');
-  dot.addEventListener('click',()=>goMobileSlide(i));
-  mobileDotsContainer.appendChild(dot);
-}
-
-function goMobileSlide(i){
-  mobileIndex = i;
-  mobileSlides.style.transform = `translateX(-${i*100}%)`;
-  updateMobileDots();
-}
-
-function updateMobileDots(){
-  document.querySelectorAll('.mobile-slider .dot').forEach((d,j)=>d.classList.toggle('active', j===mobileIndex));
-}
-
-// Auto slide (opsional)
-setInterval(()=>{ goMobileSlide((mobileIndex+1)%mobileTotalSlides); },8000);
-
-// Swipe support
-let startX = 0;
-mobileSlides.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; });
-mobileSlides.addEventListener('touchend', e=>{
-  const diff = e.changedTouches[0].clientX - startX;
-  if(diff>50) goMobileSlide((mobileIndex-1+mobileTotalSlides)%mobileTotalSlides);
-  else if(diff<-50) goMobileSlide((mobileIndex+1)%mobileTotalSlides);
-});
-</script>
-
-<script>
-// Fade-in on scroll
+// Fade-in
 const faders = document.querySelectorAll('.fade-in');
 window.addEventListener('scroll', () => {
   faders.forEach(f => {
@@ -453,43 +336,6 @@ window.addEventListener('scroll', () => {
       f.classList.add('show');
     }
   });
-});
-
-// Slider
-const slides = document.getElementById("slides");
-const totalSlides = slides.children.length;
-let currentIndex = 0;
-
-function goToSlide(index){
-  currentIndex = (index + totalSlides) % totalSlides;
-  slides.style.transform = `translateX(-${100*currentIndex}%)`;
-  updateDots();
-}
-
-// Create dots
-const dotsContainer = document.getElementById('dots');
-for(let i=0;i<totalSlides;i++){
-  let dot = document.createElement('div');
-  dot.classList.add('dot');
-  if(i===0) dot.classList.add('active');
-  dot.addEventListener('click',()=>goToSlide(i));
-  dotsContainer.appendChild(dot);
-}
-
-function updateDots(){
-  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active', i===currentIndex));
-}
-
-// Auto slide
-setInterval(()=>{ goToSlide(currentIndex+1); },8000);
-
-// Swipe support
-let startX = 0;
-slides.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; });
-slides.addEventListener('touchend', e=>{
-  const diff = e.changedTouches[0].clientX - startX;
-  if(diff>50) goToSlide(currentIndex-1);
-  else if(diff<-50) goToSlide(currentIndex+1);
 });
 
 // Scroll nav dots
@@ -512,15 +358,41 @@ window.addEventListener('scroll', ()=>{
     }
   });
 });
+
+// MOBILE SLIDER
+const mobileSlides = document.querySelector('.mobile-slider .slides');
+const mobileTotalSlides = mobileSlides.children.length;
+let mobileIndex = 0;
+
+// Dots
+const mobileDotsContainer = document.querySelector('.mobile-slider .dots');
+for(let i=0;i<mobileTotalSlides;i++){
+  const dot = document.createElement('div');
+  dot.classList.add('dot');
+  if(i===0) dot.classList.add('active');
+  dot.addEventListener('click',()=>goMobileSlide(i));
+  mobileDotsContainer.appendChild(dot);
+}
+
+function goMobileSlide(i){
+  mobileIndex = (i + mobileTotalSlides) % mobileTotalSlides;
+  mobileSlides.style.transform = `translateX(-${mobileIndex*100}%)`;
+  document.querySelectorAll('.mobile-slider .dot').forEach((d,j)=>d.classList.toggle('active',j===mobileIndex));
+}
+
+// Arrows
+document.querySelector('.left-arrow').addEventListener('click',()=>goMobileSlide(mobileIndex-1));
+document.querySelector('.right-arrow').addEventListener('click',()=>goMobileSlide(mobileIndex+1));
+
+// Swipe
+let startX = 0;
+mobileSlides.addEventListener('touchstart', e=>startX = e.touches[0].clientX);
+mobileSlides.addEventListener('touchend', e=>{
+  const diff = e.changedTouches[0].clientX - startX;
+  if(diff>50) goMobileSlide(mobileIndex-1);
+  else if(diff<-50) goMobileSlide(mobileIndex+1);
+});
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
