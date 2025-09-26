@@ -1,253 +1,322 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tapak Digital</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{
-  background:#050D0F;
-  color:#fff;
-  scroll-behavior:smooth;
-  overflow-x:hidden;
-  position:relative;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tapak Digital - Produk Kami</title>
+  <style>
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+    body {
+      background:#111;
+      color:#fff;
+      line-height:1.5;
+    }
+    .container {
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
 
-/* BACKGROUND ANIMASI */
-body::before{
-  content:"";
-  position:fixed;
-  width:200%;
-  height:200%;
-  background:radial-gradient(circle at 30% 30%, rgba(250,166,19,0.08), transparent 70%),
-             radial-gradient(circle at 70% 60%, rgba(221,4,38,0.1), transparent 70%);
-  animation:moveBg 15s linear infinite alternate;
-  z-index:-1;
-}
-@keyframes moveBg{
-  from{transform:translate(-50px,-50px);}
-  to{transform:translate(50px,50px);}
-}
+    /* Section Title */
+    .section-title {
+      text-align:center;
+      font-size:2.2rem;
+      margin:40px 0 30px;
+      color:#FAA613;
+      font-weight:600;
+      position:relative;
+    }
+    .section-title::after {
+      content:"";
+      width:100px;
+      height:3px;
+      background:linear-gradient(90deg, #FAA613, #DD0426);
+      display:block;
+      margin:12px auto 0;
+      border-radius:2px;
+    }
 
-/* TYPOGRAPHY */
-h1,h2,h3{margin-bottom:20px;font-weight:600;}
-h1{font-family:'Orbitron',sans-serif;}
-p{margin-bottom:15px;line-height:1.6;}
-.container{width:90%;max-width:1200px;margin:0 auto;}
+    /* Desktop Grid */
+    .desktop-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+    .product-card {
+      position:relative;
+      overflow:hidden;
+      border-radius:14px;
+      cursor:pointer;
+      background:#222;
+      transition:transform .3s;
+    }
+    .product-card img {
+      width:100%;
+      display:block;
+      transition:transform .4s;
+    }
+    .product-card:hover img {
+      transform:scale(1.1);
+    }
+    .info-overlay {
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:20px;
+      background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      opacity:0;
+      transform:translateY(30%);
+      transition:all .4s;
+    }
+    .product-card:hover .info-overlay {
+      opacity:1;
+      transform:translateY(0);
+    }
+    .info-overlay h3 {
+      margin:0 0 10px;
+      font-size:1.1rem;
+    }
+    .btn {
+      display:inline-block;
+      padding:8px 14px;
+      background:#FAA613;
+      color:#111;
+      text-decoration:none;
+      font-size:0.9rem;
+      border-radius:6px;
+      transition:background .3s;
+    }
+    .btn:hover {
+      background:#DD0426;
+      color:#fff;
+    }
 
-/* BUTTON */
-.btn{
-  display:inline-block;padding:10px 24px;border:none;border-radius:25px;
-  background:#DD0426;color:#fff;font-weight:700;cursor:pointer;
-  text-decoration:none;transition:.3s ease;box-shadow:0 4px 15px rgba(255,95,95,0.3);
-}
-.btn:hover{
-  background:#fff;color:#000;
-  box-shadow:0 0 20px 4px rgba(255,255,255,0.7);
-  transform:translateY(-3px);
-}
+    /* Mobile Cards */
+    .mobile-cards {
+      display:none;
+      flex-direction:column;
+      gap:22px;
+    }
+    .product-card-mobile {
+      overflow:hidden;
+      border-radius:14px;
+      background:#222;
+    }
+    .product-card-mobile img {
+      width:100%;
+      display:block;
+      transition:transform .3s;
+    }
+    .product-card-mobile:hover img {
+      transform:scale(1.05);
+    }
+    .info-mobile {
+      padding:16px;
+      background:rgba(0,0,0,0.7);
+    }
+    .info-mobile h3 {
+      margin:0 0 8px;
+      font-size:1.1rem;
+      color:#fff;
+    }
 
-/* NAV DOTS */
-.nav-dots{position:fixed;top:50%;left:20px;display:flex;flex-direction:column;gap:10px;z-index:1000;}
-.nav-dots div{width:12px;height:12px;border-radius:50%;background:#fff;cursor:pointer;transition:.3s;}
-.nav-dots div.active{background:#FAA613;transform:scale(1.3);}
-
-/* LOGO */
-.logo{position:absolute;top:20px;left:20px;z-index:100;}
-.logo img{max-width:120px;height:auto;cursor:pointer;transition:transform .3s;}
-.logo img:hover{transform:scale(1.05);}
-
-/* PAGE 1 */
-#page1{
-  display:flex;align-items:center;justify-content:center;
-  height:100vh;padding:0 5%;
-  background:linear-gradient(135deg,#0A0F12,#121416);
-  overflow:hidden;position:relative;
-}
-.page1-content{display:flex;width:100%;align-items:center;justify-content:space-between;}
-.page1-text{flex:1;min-width:280px;padding-right:20px;margin-top:100px;}
-.page1-text h1{font-size:3.5rem;margin-bottom:20px;color:#FAA613;text-shadow:0 0 20px rgba(250,166,19,0.5);}
-.page1-text p{font-size:1.2rem;margin-bottom:25px;max-width:500px;}
-.page1-img{flex:1;display:flex;justify-content:flex-end;align-items:center;}
-.page1-img img{height:90vh;object-fit:contain;transition:transform .5s;}
-.page1-img img:hover{transform:scale(1.05);}
-
-/* PAGE 2 */
-#page2{background:#08070D;padding:80px 5%;}
-.page2-top{display:flex;align-items:center;gap:40px;flex-wrap:wrap;margin-bottom:60px;}
-.page2-top img{max-width:220px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.5);}
-.page2-text{max-width:600px;text-align:left;}
-.page2-text h2{position:relative;display:inline-block;}
-.page2-text h2::after{
-  content:"";position:absolute;left:0;bottom:-8px;width:60%;height:3px;
-  background:linear-gradient(90deg,#FAA613,#DD0426);
-  border-radius:2px;
-}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;width:100%;max-width:1000px;margin:0 auto;}
-.card{
-  background:rgba(255,255,255,0.07);border-radius:16px;padding:25px 20px;text-align:center;font-size:1.05rem;
-  transition:all .3s ease;box-shadow:0 4px 15px rgba(0,0,0,0.3);
-}
-.card:hover{
-  transform:translateY(-12px) scale(1.03);
-  background:rgba(255,255,255,0.15);
-  box-shadow:0 12px 25px rgba(255,255,255,0.25);
-}
-.card span.icon{display:block;font-size:2rem;margin-bottom:12px;color:#ffdf5f;}
-
-/* PAGE 3 */
-#page3{background:#070B0E;padding:80px 5%;overflow:hidden;}
-.desktop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;}
-.desktop-grid .card{position:relative;overflow:hidden;padding:0;}
-.desktop-grid .card img{width:100%;border-radius:12px;display:block;transition:transform .4s;}
-.desktop-grid .card h3{position:absolute;bottom:20px;left:20px;margin:0;color:#fff;z-index:2;}
-.desktop-grid .card::after{
-  content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);
-  border-radius:12px;opacity:0;transition:.4s;
-}
-.desktop-grid .card:hover img{transform:scale(1.1);}
-.desktop-grid .card:hover::after{opacity:1;}
-
-/* SLIDER MOBILE */
-.mobile-slider{position:relative;overflow:hidden;display:none;max-width:400px;margin:0 auto 50px;}
-.mobile-slider .slides{display:flex;transition:transform .5s;}
-.mobile-slider .slide{min-width:100%;position:relative;text-align:center;padding-bottom:60px;}
-.mobile-slider .slide img{width:100%;border-radius:12px;margin-bottom:15px;}
-.mobile-slider .slide-info{text-align:center;margin-bottom:10px;}
-.mobile-slider .slide-info h3{margin-bottom:10px;font-size:1.1rem;}
-.slide-arrows{position:absolute;bottom:0;left:50%;transform:translateX(-50%);display:flex;justify-content:space-between;width:80%;}
-.slide-arrows .arrow{font-size:1.8rem;color:#FAA613;cursor:pointer;user-select:none;padding:0 10px;}
-
-/* ANIMASI FADE-IN */
-.fade-in{opacity:0;transform:translateY(40px);transition:all .8s ease-out;}
-.fade-in.show{opacity:1;transform:translateY(0);}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .page1-content{flex-direction:column;text-align:center;}
-  .page1-text{padding-right:0;margin-bottom:20px;margin-top:120px;}
-  .page1-text h1{font-size:2.3rem;}
-  .page1-text p{font-size:1rem;}
-  .page1-img img{height:50vh;}
-  .page2-top{flex-direction:column;}
-  .desktop-grid{display:none;}
-  .mobile-slider{display:block;}
-  .nav-dots{display:none;}
-}
-</style>
+    /* Responsive toggle */
+    @media(max-width:900px) {
+      .desktop-grid { display:none; }
+      .mobile-cards { display:flex; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAV DOTS -->
-<div class="nav-dots" id="navDots">
-  <div class="active" onclick="scrollToPage(0)"></div>
-  <div onclick="scrollToPage(1)"></div>
-  <div onclick="scrollToPage(2)"></div>
-</div>
-
-<!-- PAGE 1 -->
-<section id="page1" class="fade-in">
-  <div class="logo">
-    <a href="#page1"><img src="img/tapak digital.png" alt="Logo Tapak Digital"></a>
-  </div>
-  <div class="page1-content container">
-    <div class="page1-text">
-      <h1>TAPAK DIGITAL</h1>
-      <p>Mulai hari ini perjalanan digitalmu bersama Tapak Digital. Temukan semua produk digital untuk belajar, berkarya, dan berkembang.</p>
-      <a href="#page3" class="btn">Lihat Produk</a>
+  <!-- Page 3 -->
+  <section id="page3" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">Produk Kami</h2>
     </div>
-    <div class="page1-img"><img src="img/robot.png" alt="Gambar Page 1"></div>
-  </div>
-</section>
 
-<!-- PAGE 2 -->
-<section id="page2" class="fade-in">
-  <div class="page2-top container">
-    <img src="img/produk.png" alt="Produk Digital">
-    <div class="page2-text">
-      <h2>Belajar & Berkarya</h2>
-      <p>Produk kami dirancang untuk membantu siapa pun agar bisa berkembang di dunia digital. Mulai dari video, ebook, template, hingga tools siap pakai.</p>
+    <!-- Desktop versi grid -->
+    <div class="desktop-grid container">
+      <div class="product-card">
+        <img src="img/prod1.png" alt="Produk 1">
+        <div class="info-overlay">
+          <h3>Produk 1</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="img/prod2.png" alt="Produk 2">
+        <div class="info-overlay">
+          <h3>Produk 2</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="img/prod3.png" alt="Produk 3">
+        <div class="info-overlay">
+          <h3>Produk 3</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="img/prod4.png" alt="Produk 4">
+        <div class="info-overlay">
+          <h3>Produk 4</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="img/prod5.png" alt="Produk 5">
+        <div class="info-overlay">
+          <h3>Produk 5</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="img/prod6.png" alt="Produk 6">
+        <div class="info-overlay">
+          <h3>Produk 6</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="img/prod7.png" alt="Produk 7">
+        <div class="info-overlay">
+          <h3>Produk 7</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="img/prod8.png" alt="Produk 8">
+        <div class="info-overlay">
+          <h3>Produk 8</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="img/prod9.png" alt="Produk 9">
+        <div class="info-overlay">
+          <h3>Produk 9</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="img/prod10.png" alt="Produk 10">
+        <div class="info-overlay">
+          <h3>Produk 10</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="img/prod11.png" alt="Produk 11">
+        <div class="info-overlay">
+          <h3>Produk 11</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="img/prod12.png" alt="Produk 12">
+        <div class="info-overlay">
+          <h3>Produk 12</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="cards">
-    <div class="card"><span class="icon">📘</span>E-book Eksklusif</div>
-    <div class="card"><span class="icon">🎥</span>Video Pembelajaran</div>
-    <div class="card"><span class="icon">🛠️</span>Tools Digital</div>
-    <div class="card"><span class="icon">🎨</span>Template Kreatif</div>
-  </div>
-</section>
 
-<!-- PAGE 3 -->
-<section id="page3" class="fade-in">
-  <div class="desktop-grid">
-    <div class="card"><img src="img/prod1.png"><h3>Produk 1</h3></div>
-    <div class="card"><img src="img/prod2.png"><h3>Produk 2</h3></div>
-    <div class="card"><img src="img/prod3.png"><h3>Produk 3</h3></div>
-    <div class="card"><img src="img/prod4.png"><h3>Produk 4</h3></div>
-  </div>
-
-  <div class="mobile-slider">
-    <div class="slides">
-      <div class="slide"><img src="img/prod1.png"><div class="slide-info"><h3>Produk 1</h3><a href="#" class="btn">Detail</a></div></div>
-      <div class="slide"><img src="img/prod2.png"><div class="slide-info"><h3>Produk 2</h3><a href="#" class="btn">Detail</a></div></div>
-      <div class="slide"><img src="img/prod3.png"><div class="slide-info"><h3>Produk 3</h3><a href="#" class="btn">Detail</a></div></div>
-      <div class="slide"><img src="img/prod4.png"><div class="slide-info"><h3>Produk 4</h3><a href="#" class="btn">Detail</a></div></div>
+    <!-- Mobile versi card -->
+    <div class="mobile-cards container">
+      <div class="product-card-mobile">
+        <img src="img/prod1.png" alt="Produk 1">
+        <div class="info-mobile">
+          <h3>Produk 1</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card-mobile">
+        <img src="img/prod2.png" alt="Produk 2">
+        <div class="info-mobile">
+          <h3>Produk 2</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card-mobile">
+        <img src="img/prod3.png" alt="Produk 3">
+        <div class="info-mobile">
+          <h3>Produk 3</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card-mobile">
+        <img src="img/prod4.png" alt="Produk 4">
+        <div class="info-mobile">
+          <h3>Produk 4</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card-mobile">
+        <img src="img/prod5.png" alt="Produk 5">
+        <div class="info-mobile">
+          <h3>Produk 5</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card-mobile">
+        <img src="img/prod6.png" alt="Produk 6">
+        <div class="info-mobile">
+          <h3>Produk 6</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card-mobile">
+        <img src="img/prod7.png" alt="Produk 7">
+        <div class="info-mobile">
+          <h3>Produk 7</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card-mobile">
+        <img src="img/prod8.png" alt="Produk 8">
+        <div class="info-mobile">
+          <h3>Produk 8</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card-mobile">
+        <img src="img/prod9.png" alt="Produk 9">
+        <div class="info-mobile">
+          <h3>Produk 9</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card-mobile">
+        <img src="img/prod10.png" alt="Produk 10">
+        <div class="info-mobile">
+          <h3>Produk 10</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card-mobile">
+        <img src="img/prod11.png" alt="Produk 11">
+        <div class="info-mobile">
+          <h3>Produk 11</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
+      <div class="product-card-mobile">
+        <img src="img/prod12.png" alt="Produk 12">
+        <div class="info-mobile">
+          <h3>Produk 12</h3>
+          <a href="#" class="btn">Detail</a>
+        </div>
+      </div>
     </div>
-    <div class="slide-arrows">
-      <span class="arrow left-arrow">&#10094;</span>
-      <span class="arrow right-arrow">&#10095;</span>
-    </div>
-  </div>
-</section>
+  </section>
 
-<script>
-// Fade-in on scroll
-const faders=document.querySelectorAll('.fade-in');
-window.addEventListener('scroll',()=>{
-  faders.forEach(f=>{
-    const rect=f.getBoundingClientRect();
-    if(rect.top<window.innerHeight-100){f.classList.add('show');}
-  });
-});
-
-// Scroll nav dots
-function scrollToPage(index){
-  const pages=[document.getElementById("page1"),document.getElementById("page2"),document.getElementById("page3")];
-  pages[index].scrollIntoView({behavior:"smooth"});
-  const navDots=document.querySelectorAll(".nav-dots div");
-  navDots.forEach(dot=>dot.classList.remove("active"));
-  navDots[index].classList.add("active");
-}
-window.addEventListener('scroll',()=>{
-  const pages=[document.getElementById("page1"),document.getElementById("page2"),document.getElementById("page3")];
-  const navDots=document.querySelectorAll(".nav-dots div");
-  pages.forEach((p,i)=>{
-    const rect=p.getBoundingClientRect();
-    if(rect.top<=window.innerHeight/2 && rect.bottom>=window.innerHeight/2){
-      navDots.forEach(dot=>dot.classList.remove("active"));
-      navDots[i].classList.add("active");
-    }
-  });
-});
-
-// Mobile slider
-const mobileSlider=document.querySelector('.mobile-slider');
-if(mobileSlider){
-  const slidesContainer=mobileSlider.querySelector('.slides');
-  const slides=slidesContainer.children;const total=slides.length;let index=0;
-  function goSlide(i){index=(i+total)%total;slidesContainer.style.transform=`translateX(-${index*100}%)`;}
-  mobileSlider.querySelectorAll('.left-arrow').forEach(el=>el.addEventListener('click',()=>goSlide(index-1)));
-  mobileSlider.querySelectorAll('.right-arrow').forEach(el=>el.addEventListener('click',()=>goSlide(index+1)));
-  let startX=0;
-  slidesContainer.addEventListener('touchstart',e=>startX=e.touches[0].clientX);
-  slidesContainer.addEventListener('touchend',e=>{
-    const diff=e.changedTouches[0].clientX-startX;
-    if(diff>50) goSlide(index-1);
-    else if(diff<-50) goSlide(index+1);
-  });
-}
-</script>
 </body>
 </html>
