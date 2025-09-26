@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tapak Digital - Produk Digital Premium</title>
+<title>Tapak Digital</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
 body { background:#050D0F; color:#fff; scroll-behavior:smooth; overflow-x:hidden; }
@@ -46,26 +46,20 @@ p { margin-bottom:15px; line-height:1.6; }
 .card:hover { transform: translateY(-12px) scale(1.03); background: rgba(255,255,255,0.12); box-shadow:0 12px 25px rgba(255,255,255,0.3); }
 .card span.icon { display:block; font-size:2rem; margin-bottom:12px; color:#ffdf5f; }
 
-/* PAGE 3 - DESKTOP GRID */
+/* PAGE 3 DESKTOP GRID */
+#page3 { background:#070B0E; padding:80px 5%; overflow:hidden; }
 .desktop-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
+.desktop-grid .card img { width:100%; border-radius:12px; margin-bottom:12px; }
 
-/* PAGE 3 - MOBILE SLIDER */
-.mobile-slider { display:none; overflow:hidden; position:relative; }
-.slides { display:flex; transition:transform 0.5s ease; }
-.slide { min-width:100%; position:relative; padding:20px 0; }
-.slide img { width:100%; border-radius:12px; }
-.slide-info { position:absolute; bottom:20px; left:20px; background:rgba(0,0,0,0.5); padding:15px; border-radius:12px; color:#fff; max-width:90%; }
-
-/* Panah navigasi */
-.arrow { position:absolute; top:50%; transform:translateY(-50%); font-size:2.5rem; color:#FAA613; cursor:pointer; z-index:10; user-select:none; background:rgba(0,0,0,0.3); padding:5px 10px; border-radius:50%; transition:0.3s; }
-.arrow:hover { background:rgba(0,0,0,0.6); }
-.left-arrow { left:10px; }
-.right-arrow { right:10px; }
-
-/* Dots */
-.dots { display:flex; justify-content:center; margin-top:15px; }
-.dot { width:10px; height:10px; border-radius:50%; background:#fff; margin:0 5px; cursor:pointer; }
-.dot.active { background:#FAA613; }
+/* MOBILE SLIDER STYLE */
+.mobile-slider { position:relative; overflow:hidden; display:none; }
+.mobile-slider .slides { display:flex; transition: transform 0.5s ease; }
+.mobile-slider .slide { min-width:100%; position:relative; text-align:center; }
+.mobile-slider .slide img { width:80%; border-radius:12px; margin:0 auto 15px; }
+.mobile-slider .slide-info { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.5); padding:10px 15px; border-radius:10px; width:90%; max-width:300px; }
+.mobile-slider .arrow { position:absolute; top:50%; transform:translateY(-50%); font-size:2rem; color:#FAA613; cursor:pointer; z-index:10; user-select:none; }
+.mobile-slider .left-arrow { left:10px; }
+.mobile-slider .right-arrow { right:10px; }
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -128,9 +122,8 @@ p { margin-bottom:15px; line-height:1.6; }
 <section id="page3" class="fade-in">
   <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
   <div class="container">
-
-   <!-- DESKTOP GRID -->
-    <div class="cards desktop-grid" style="grid-template-columns:repeat(4,1fr); gap:30px;">
+    <!-- Desktop Grid -->
+    <<div class="cards desktop-grid" style="grid-template-columns:repeat(4,1fr); gap:30px;">
       <!-- Produk 1 -->
       <div class="card">
         <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 1" style="width:100%; border-radius:12px; margin-bottom:12px;">
@@ -211,10 +204,13 @@ p { margin-bottom:15px; line-height:1.6; }
       </div>
     </div>
 
-    <!-- MOBILE SLIDER -->
+
+    <!-- Mobile Slider -->
     <div class="slider mobile-slider">
+      <div class="arrow left-arrow">&#10094;</div>
+      <div class="arrow right-arrow">&#10095;</div>
       <div class="slides">
-        <!-- Produk 1 -->
+      <!-- Produk 1 -->
         <div class="slide">
           <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 1">
           <div class="slide-info">
@@ -317,14 +313,11 @@ p { margin-bottom:15px; line-height:1.6; }
             <h3>Boost Kreativitasmu dengan E-book Ide Konten Anti Stuck</h3>
             <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
           </div>
-        </div>
-      </div>
-      <div class="dots"></div>
-    </div>
 
+      </div>
+    </div>
   </div>
 </section>
-
 
 <script>
 // Fade-in
@@ -338,7 +331,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Scroll nav dots
+// Scroll nav dots (desktop)
 function scrollToPage(index){
   const pages = [document.getElementById("page1"), document.getElementById("page2"), document.getElementById("page3")];
   pages[index].scrollIntoView({behavior:"smooth"});
@@ -359,39 +352,29 @@ window.addEventListener('scroll', ()=>{
   });
 });
 
-// MOBILE SLIDER
-const mobileSlides = document.querySelector('.mobile-slider .slides');
-const mobileTotalSlides = mobileSlides.children.length;
-let mobileIndex = 0;
+// MOBILE SLIDER - PANAH & SWIPE
+const mobileSlider = document.querySelector('.mobile-slider');
+if(mobileSlider){
+  const mobileSlides = mobileSlider.querySelector('.slides');
+  const mobileTotalSlides = mobileSlides.children.length;
+  let mobileIndex = 0;
 
-// Dots
-const mobileDotsContainer = document.querySelector('.mobile-slider .dots');
-for(let i=0;i<mobileTotalSlides;i++){
-  const dot = document.createElement('div');
-  dot.classList.add('dot');
-  if(i===0) dot.classList.add('active');
-  dot.addEventListener('click',()=>goMobileSlide(i));
-  mobileDotsContainer.appendChild(dot);
+  function goMobileSlide(i){
+    mobileIndex = (i + mobileTotalSlides) % mobileTotalSlides; // loop
+    mobileSlides.style.transform = `translateX(-${mobileIndex*100}%)`;
+  }
+
+  mobileSlider.querySelector('.left-arrow').addEventListener('click', ()=>goMobileSlide(mobileIndex-1));
+  mobileSlider.querySelector('.right-arrow').addEventListener('click', ()=>goMobileSlide(mobileIndex+1));
+
+  let startX = 0;
+  mobileSlides.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  mobileSlides.addEventListener('touchend', e => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if(diff > 50) goMobileSlide(mobileIndex-1);
+    else if(diff < -50) goMobileSlide(mobileIndex+1);
+  });
 }
-
-function goMobileSlide(i){
-  mobileIndex = (i + mobileTotalSlides) % mobileTotalSlides;
-  mobileSlides.style.transform = `translateX(-${mobileIndex*100}%)`;
-  document.querySelectorAll('.mobile-slider .dot').forEach((d,j)=>d.classList.toggle('active',j===mobileIndex));
-}
-
-// Arrows
-document.querySelector('.left-arrow').addEventListener('click',()=>goMobileSlide(mobileIndex-1));
-document.querySelector('.right-arrow').addEventListener('click',()=>goMobileSlide(mobileIndex+1));
-
-// Swipe
-let startX = 0;
-mobileSlides.addEventListener('touchstart', e=>startX = e.touches[0].clientX);
-mobileSlides.addEventListener('touchend', e=>{
-  const diff = e.changedTouches[0].clientX - startX;
-  if(diff>50) goMobileSlide(mobileIndex-1);
-  else if(diff<-50) goMobileSlide(mobileIndex+1);
-});
 </script>
 
 </body>
