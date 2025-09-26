@@ -3,318 +3,206 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tapak Digital - Produk Kami</title>
+  <title>Tapak Digital</title>
   <style>
-    * {
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins', sans-serif;
+    * {margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif;}
+    body {background:#f8f9fa; color:#333; line-height:1.6;}
+    header {
+      width:100%; padding:15px 20px; display:flex; align-items:center;
+      justify-content:space-between; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.1);
+      position:sticky; top:0; z-index:1000;
     }
-    body {
-      background:#111;
-      color:#fff;
-      line-height:1.5;
-    }
-    .container {
-      width:90%;
-      max-width:1200px;
-      margin:auto;
-    }
+    header img {height:40px;}
+    header nav a {margin-left:15px; text-decoration:none; color:#333; font-weight:500;}
+    header nav a:hover {color:#007bff;}
 
-    /* Section Title */
-    .section-title {
-      text-align:center;
-      font-size:2.2rem;
-      margin:40px 0 30px;
-      color:#FAA613;
-      font-weight:600;
-      position:relative;
-    }
-    .section-title::after {
-      content:"";
-      width:100px;
-      height:3px;
-      background:linear-gradient(90deg, #FAA613, #DD0426);
-      display:block;
-      margin:12px auto 0;
-      border-radius:2px;
-    }
+    section {padding:60px 20px;}
+    h1,h2 {text-align:center; margin-bottom:20px; color:#222;}
 
-    /* Desktop Grid */
-    .desktop-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
+    /* Page 1 */
+    .hero {display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:80vh;}
+    .hero h1 {font-size:2.5em;}
+    .hero p {font-size:1.2em; margin:20px 0; max-width:600px;}
+    .btn-primary {
+      display:inline-block; padding:12px 24px; background:#007bff; color:#fff;
+      text-decoration:none; border-radius:8px; transition:0.3s;
     }
-    .product-card {
-      position:relative;
-      overflow:hidden;
-      border-radius:14px;
-      cursor:pointer;
-      background:#222;
-      transition:transform .3s;
-    }
-    .product-card img {
-      width:100%;
-      display:block;
-      transition:transform .4s;
-    }
-    .product-card:hover img {
-      transform:scale(1.1);
-    }
-    .info-overlay {
-      position:absolute;
-      bottom:0;
-      left:0;
-      right:0;
-      padding:20px;
-      background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      opacity:0;
-      transform:translateY(30%);
-      transition:all .4s;
-    }
-    .product-card:hover .info-overlay {
-      opacity:1;
-      transform:translateY(0);
-    }
-    .info-overlay h3 {
-      margin:0 0 10px;
-      font-size:1.1rem;
-    }
-    .btn {
-      display:inline-block;
-      padding:8px 14px;
-      background:#FAA613;
-      color:#111;
-      text-decoration:none;
-      font-size:0.9rem;
-      border-radius:6px;
-      transition:background .3s;
-    }
-    .btn:hover {
-      background:#DD0426;
-      color:#fff;
-    }
+    .btn-primary:hover {background:#0056b3;}
 
-    /* Mobile Cards */
-    .mobile-cards {
-      display:none;
-      flex-direction:column;
-      gap:22px;
-    }
-    .product-card-mobile {
-      overflow:hidden;
-      border-radius:14px;
-      background:#222;
-    }
-    .product-card-mobile img {
-      width:100%;
-      display:block;
-      transition:transform .3s;
-    }
-    .product-card-mobile:hover img {
-      transform:scale(1.05);
-    }
-    .info-mobile {
-      padding:16px;
-      background:rgba(0,0,0,0.7);
-    }
-    .info-mobile h3 {
-      margin:0 0 8px;
-      font-size:1.1rem;
-      color:#fff;
-    }
+    /* Page 2 */
+    .about {max-width:900px; margin:auto; text-align:center;}
+    .about p {margin-bottom:15px;}
 
-    /* Responsive toggle */
-    @media(max-width:900px) {
-      .desktop-grid { display:none; }
-      .mobile-cards { display:flex; }
+    /* Page 3 */
+    .produk-container {
+      display:grid; grid-template-columns: repeat(4, 1fr); gap:20px;
+      max-width:1200px; margin:auto;
+    }
+    .card {
+      background:#fff; border-radius:12px; overflow:hidden;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1); display:flex; flex-direction:column;
+      transition:transform 0.2s;
+    }
+    .card:hover {transform:translateY(-5px);}
+    .card img {width:100%; height:200px; object-fit:cover;}
+    .card-body {padding:15px; display:flex; flex-direction:column; justify-content:space-between; flex:1;}
+    .card-title {font-size:1.1em; font-weight:600; margin-bottom:10px;}
+    .btn {display:inline-block; padding:10px; text-align:center; background:#007bff; color:#fff; text-decoration:none; border-radius:8px;}
+    .btn:hover {background:#0056b3;}
+    @media(max-width:768px){
+      .produk-container {grid-template-columns:1fr;}
+      .card img {height:180px;}
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
+  <header>
+    <img src="https://cdn.lynk.id/images/uploads/1735446392280-80.png" alt="Logo Tapak Digital">
+    <nav>
+      <a href="#page1">Home</a>
+      <a href="#page2">Tentang</a>
+      <a href="#page3">Produk</a>
+    </nav>
+  </header>
+
+  <!-- Page 1 -->
+  <section id="page1" class="hero">
+    <h1>Selamat Datang di Tapak Digital</h1>
+    <p>Solusi digital modern untuk kebutuhan kreatif, bisnis, dan pengembangan diri Anda.</p>
+    <a href="#page3" class="btn-primary">Lihat Produk</a>
+  </section>
+
+  <!-- Page 2 -->
+  <section id="page2" class="about">
+    <h2>Tentang Kami</h2>
+    <p>Kami menyediakan berbagai tools, kelas, dan layanan digital untuk membantu Anda berkembang.</p>
+    <p>Dari desain grafis, pemasaran digital, hingga skill bisnis — semua ada di sini.</p>
+  </section>
+
   <!-- Page 3 -->
-  <section id="page3" class="fade-in">
-    <div class="container">
-      <h2 class="section-title">Produk Kami</h2>
-    </div>
+  <section id="page3">
+    <h2>Produk Kami</h2>
+    <div class="produk-container">
 
-    <!-- Desktop versi grid -->
-    <div class="desktop-grid container">
-      <div class="product-card">
-        <img src="img/prod1.png" alt="Produk 1">
-        <div class="info-overlay">
-          <h3>Produk 1</h3>
-          <a href="#" class="btn">Detail</a>
+      <!-- Produk 1 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735446392280-80.png" alt="Canva Pro Lifetime">
+        <div class="card-body">
+          <div class="card-title">Canva Pro Lifetime</div>
+          <a href="https://lynk.id/tapakdigital/canva-pro-lifetime-1725616995" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card">
-        <img src="img/prod2.png" alt="Produk 2">
-        <div class="info-overlay">
-          <h3>Produk 2</h3>
-          <a href="#" class="btn">Detail</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="img/prod3.png" alt="Produk 3">
-        <div class="info-overlay">
-          <h3>Produk 3</h3>
-          <a href="#" class="btn">Detail</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="img/prod4.png" alt="Produk 4">
-        <div class="info-overlay">
-          <h3>Produk 4</h3>
-          <a href="#" class="btn">Detail</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="img/prod5.png" alt="Produk 5">
-        <div class="info-overlay">
-          <h3>Produk 5</h3>
-          <a href="#" class="btn">Detail</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="img/prod6.png" alt="Produk 6">
-        <div class="info-overlay">
-          <h3>Produk 6</h3>
-          <a href="#" class="btn">Detail</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="img/prod7.png" alt="Produk 7">
-        <div class="info-overlay">
-          <h3>Produk 7</h3>
-          <a href="#" class="btn">Detail</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="img/prod8.png" alt="Produk 8">
-        <div class="info-overlay">
-          <h3>Produk 8</h3>
-          <a href="#" class="btn">Detail</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="img/prod9.png" alt="Produk 9">
-        <div class="info-overlay">
-          <h3>Produk 9</h3>
-          <a href="#" class="btn">Detail</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="img/prod10.png" alt="Produk 10">
-        <div class="info-overlay">
-          <h3>Produk 10</h3>
-          <a href="#" class="btn">Detail</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="img/prod11.png" alt="Produk 11">
-        <div class="info-overlay">
-          <h3>Produk 11</h3>
-          <a href="#" class="btn">Detail</a>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="img/prod12.png" alt="Produk 12">
-        <div class="info-overlay">
-          <h3>Produk 12</h3>
-          <a href="#" class="btn">Detail</a>
-        </div>
-      </div>
-    </div>
 
-    <!-- Mobile versi card -->
-    <div class="mobile-cards container">
-      <div class="product-card-mobile">
-        <img src="img/prod1.png" alt="Produk 1">
-        <div class="info-mobile">
-          <h3>Produk 1</h3>
-          <a href="#" class="btn">Detail</a>
+      <!-- Produk 2 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735446234735-80.png" alt="CapCut Pro Lifetime">
+        <div class="card-body">
+          <div class="card-title">CapCut Pro Lifetime</div>
+          <a href="https://lynk.id/tapakdigital/capcut-pro-lifetime-1725616937" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card-mobile">
-        <img src="img/prod2.png" alt="Produk 2">
-        <div class="info-mobile">
-          <h3>Produk 2</h3>
-          <a href="#" class="btn">Detail</a>
+
+      <!-- Produk 3 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735446021584-80.png" alt="Copywriting Class">
+        <div class="card-body">
+          <div class="card-title">Copywriting Class</div>
+          <a href="https://lynk.id/tapakdigital/copywriting-class-1725616862" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card-mobile">
-        <img src="img/prod3.png" alt="Produk 3">
-        <div class="info-mobile">
-          <h3>Produk 3</h3>
-          <a href="#" class="btn">Detail</a>
+
+      <!-- Produk 4 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735445868879-80.png" alt="Masterclass ChatGPT">
+        <div class="card-body">
+          <div class="card-title">Masterclass ChatGPT</div>
+          <a href="https://lynk.id/tapakdigital/masterclass-chatgpt-1725616805" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card-mobile">
-        <img src="img/prod4.png" alt="Produk 4">
-        <div class="info-mobile">
-          <h3>Produk 4</h3>
-          <a href="#" class="btn">Detail</a>
+
+      <!-- Produk 5 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735445705651-80.png" alt="Masterclass Digital Marketing">
+        <div class="card-body">
+          <div class="card-title">Masterclass Digital Marketing</div>
+          <a href="https://lynk.id/tapakdigital/masterclass-digital-marketing-1725616754" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card-mobile">
-        <img src="img/prod5.png" alt="Produk 5">
-        <div class="info-mobile">
-          <h3>Produk 5</h3>
-          <a href="#" class="btn">Detail</a>
+
+      <!-- Produk 6 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735445561982-80.png" alt="Masterclass Desain Grafis">
+        <div class="card-body">
+          <div class="card-title">Masterclass Desain Grafis</div>
+          <a href="https://lynk.id/tapakdigital/masterclass-desain-grafis-1725616702" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card-mobile">
-        <img src="img/prod6.png" alt="Produk 6">
-        <div class="info-mobile">
-          <h3>Produk 6</h3>
-          <a href="#" class="btn">Detail</a>
+
+      <!-- Produk 7 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735445424305-80.png" alt="Masterclass Public Speaking">
+        <div class="card-body">
+          <div class="card-title">Masterclass Public Speaking</div>
+          <a href="https://lynk.id/tapakdigital/masterclass-public-speaking-1725616647" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card-mobile">
-        <img src="img/prod7.png" alt="Produk 7">
-        <div class="info-mobile">
-          <h3>Produk 7</h3>
-          <a href="#" class="btn">Detail</a>
+
+      <!-- Produk 8 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735445276831-80.png" alt="Masterclass Bisnis Online">
+        <div class="card-body">
+          <div class="card-title">Masterclass Bisnis Online</div>
+          <a href="https://lynk.id/tapakdigital/masterclass-bisnis-online-1725616594" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card-mobile">
-        <img src="img/prod8.png" alt="Produk 8">
-        <div class="info-mobile">
-          <h3>Produk 8</h3>
-          <a href="#" class="btn">Detail</a>
+
+      <!-- Produk 9 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735445128756-80.png" alt="Masterclass Editing Video">
+        <div class="card-body">
+          <div class="card-title">Masterclass Editing Video</div>
+          <a href="https://lynk.id/tapakdigital/masterclass-editing-video-1725616545" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card-mobile">
-        <img src="img/prod9.png" alt="Produk 9">
-        <div class="info-mobile">
-          <h3>Produk 9</h3>
-          <a href="#" class="btn">Detail</a>
+
+      <!-- Produk 10 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735444993523-80.png" alt="Masterclass Bisnis UMKM">
+        <div class="card-body">
+          <div class="card-title">Masterclass Bisnis UMKM</div>
+          <a href="https://lynk.id/tapakdigital/masterclass-bisnis-umkm-1725616488" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card-mobile">
-        <img src="img/prod10.png" alt="Produk 10">
-        <div class="info-mobile">
-          <h3>Produk 10</h3>
-          <a href="#" class="btn">Detail</a>
+
+      <!-- Produk 11 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735444838894-80.png" alt="Masterclass Affiliate Marketing">
+        <div class="card-body">
+          <div class="card-title">Masterclass Affiliate Marketing</div>
+          <a href="https://lynk.id/tapakdigital/masterclass-affiliate-marketing-1725616430" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card-mobile">
-        <img src="img/prod11.png" alt="Produk 11">
-        <div class="info-mobile">
-          <h3>Produk 11</h3>
-          <a href="#" class="btn">Detail</a>
+
+      <!-- Produk 12 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735444698470-80.png" alt="Masterclass Personal Branding">
+        <div class="card-body">
+          <div class="card-title">Masterclass Personal Branding</div>
+          <a href="https://lynk.id/tapakdigital/masterclass-personal-branding-1725616380" target="_blank" class="btn">Detail</a>
         </div>
       </div>
-      <div class="product-card-mobile">
-        <img src="img/prod12.png" alt="Produk 12">
-        <div class="info-mobile">
-          <h3>Produk 12</h3>
-          <a href="#" class="btn">Detail</a>
+
+      <!-- Produk 13 -->
+      <div class="card">
+        <img src="https://cdn.lynk.id/images/uploads/1735444559121-80.png" alt="Masterclass Bisnis Properti">
+        <div class="card-body">
+          <div class="card-title">Masterclass Bisnis Properti</div>
+          <a href="https://lynk.id/tapakdigital/masterclass-bisnis-properti-1725616324" target="_blank" class="btn">Detail</a>
         </div>
       </div>
+
     </div>
   </section>
 
