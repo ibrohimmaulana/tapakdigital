@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tapak Digital - Full Page</title>
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
 html, body { width:100%; height:100%; scroll-behavior:smooth; }
 
 section { position:relative; width:100%; min-height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; color:white; padding:20px;}
@@ -35,14 +35,58 @@ p { margin:15px 0; text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
 
 /* PAGE 3 DESKTOP GRID */
 .desktop-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-.desktop-grid .card { background:rgba(255,255,255,0.1); padding:15px; border-radius:12px; display:flex; flex-direction:column; align-items:center; }
+.desktop-grid .card {
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 350px;
+  justify-content: space-between;
+}
+.desktop-grid .card img {
+  width:100%;
+  border-radius:12px;
+  margin-bottom:12px;
+  object-fit:cover;
+}
+.desktop-grid .card h3 {
+  font-size:1rem;
+  text-align:center;
+  margin-bottom:12px;
+  line-height:1.2em;
+  max-height:2.4em;
+  overflow:hidden;
+}
 
 /* MOBILE SLIDER */
 .mobile-slider { display:none; position:relative; overflow:hidden; }
 .slides { display:flex; transition:transform 0.5s ease; }
-.slide { min-width:100%; box-sizing:border-box; padding:15px; }
-.slide img { width:100%; border-radius:12px; margin-bottom:12px; }
-.slide-info h3 { font-size:1.1rem; margin-bottom:8px; }
+.slide {
+  background: rgba(255,255,255,0.1);
+  padding:15px;
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:350px;
+  justify-content:space-between;
+}
+.slide img {
+  width:100%;
+  border-radius:12px;
+  margin-bottom:12px;
+  object-fit:cover;
+}
+.slide h3 {
+  font-size:1rem;
+  text-align:center;
+  margin-bottom:12px;
+  line-height:1.2em;
+  max-height:2.4em;
+  overflow:hidden;
+}
 
 /* PANAH NAVIGASI */
 .mobile-slider .prev, .mobile-slider .next {
@@ -101,7 +145,6 @@ p { margin:15px 0; text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
   </div>
 </section>
 
-<!-- PAGE 3 -->
 <!-- PAGE 3 -->
 <section id="page3" class="fade-in">
   <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
@@ -304,84 +347,35 @@ p { margin:15px 0; text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
 </section>
 
 
-</div>
-
 <!-- NAV DOTS -->
 <div class="nav-dots">
-  <a href="#page1" class="dot active"></a>
-  <a href="#page2" class="dot"></a>
-  <a href="#page3" class="dot"></a>
+  <a href="#page1" class="active"></a>
+  <a href="#page2"></a>
+  <a href="#page3"></a>
 </div>
 
 <script>
-// PAGE NAVIGATION
-const pages = document.querySelectorAll('section');
-const dots = document.querySelectorAll('.nav-dots a');
-const container = document.getElementById('pagesContainer');
-let currentPage=0, startY=0, endY=0;
-
-function updatePage(){
-  if(window.innerWidth<=768){
-    container.style.transform=`translateY(-${currentPage*100}vh)`;
-    dots.forEach(dot=>dot.classList.remove('active'));
-    dots[currentPage].classList.add('active');
-  } else {
-    let scrollPos = window.scrollY + window.innerHeight/2;
-    pages.forEach((page,index)=>{
-      if(scrollPos>=page.offsetTop && scrollPos<page.offsetTop+page.offsetHeight){
-        dots.forEach(dot=>dot.classList.remove('active'));
-        dots[index].classList.add('active');
-      }
-    });
-  }
-}
-
-container.addEventListener('touchstart', e=> startY=e.touches[0].clientY);
-container.addEventListener('touchmove', e=> endY=e.touches[0].clientY);
-container.addEventListener('touchend', ()=>{
-  if(window.innerWidth>768) return;
-  let diff=startY-endY;
-  if(diff>50 && currentPage<pages.length-1) currentPage++;
-  else if(diff<-50 && currentPage>0) currentPage--;
-  updatePage();
-});
-
-dots.forEach((dot,index)=>{
-  dot.addEventListener('click', e=>{
-    e.preventDefault();
-    currentPage=index;
-    if(window.innerWidth<=768) updatePage();
-    else pages[index].scrollIntoView({behavior:'smooth'});
-  });
-});
-
-window.addEventListener('scroll', updatePage);
-window.addEventListener('resize', updatePage);
-
-// MOBILE SLIDER PAGE 3
-const slidesContainer = document.querySelector('.mobile-slider .slides');
-const slides = document.querySelectorAll('.mobile-slider .slide');
-const prevBtn = document.querySelector('.mobile-slider .prev');
-const nextBtn = document.querySelector('.mobile-slider .next');
+// MOBILE SLIDER JS
+let slides = document.querySelector('.mobile-slider .slides');
 let slideIndex = 0;
+const slideCount = slides.children.length;
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
 
-function showSlide(index){
-  if(index<0) slideIndex=slides.length-1;
-  else if(index>=slides.length) slideIndex=0;
-  else slideIndex=index;
-  slidesContainer.style.transform=`translateX(-${slideIndex*100}%)`;
+function showSlide(index) {
+  slides.style.transform = `translateX(-${index*100}%)`;
 }
+prev.addEventListener('click',()=>{ slideIndex = (slideIndex-1+slideCount)%slideCount; showSlide(slideIndex); });
+next.addEventListener('click',()=>{ slideIndex = (slideIndex+1)%slideCount; showSlide(slideIndex); });
 
-prevBtn.addEventListener('click', ()=> showSlide(slideIndex-1));
-nextBtn.addEventListener('click', ()=> showSlide(slideIndex+1));
-
-let startX=0, endX=0;
-slidesContainer.addEventListener('touchstart', e=> startX=e.touches[0].clientX);
-slidesContainer.addEventListener('touchmove', e=> endX=e.touches[0].clientX);
-slidesContainer.addEventListener('touchend', ()=>{
-  let diff = startX - endX;
-  if(diff>50) showSlide(slideIndex+1);
-  else if(diff<-50) showSlide(slideIndex-1);
+// NAV DOT ACTIVE
+const dots = document.querySelectorAll('.nav-dots a');
+window.addEventListener('scroll',()=>{
+  const pagePositions = [document.getElementById('page1').offsetTop,
+                        document.getElementById('page2').offsetTop,
+                        document.getElementById('page3').offsetTop];
+  let scrollPos = window.scrollY + window.innerHeight/2;
+  pagePositions.forEach((pos,i)=>{ dots[i].classList.remove('active'); if(scrollPos>=pos) dots[i].classList.add('active'); });
 });
 </script>
 
