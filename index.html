@@ -12,11 +12,11 @@ body { background:#111; color:white; }
 /* HEADER LOGO */
 header {
   position:fixed;
-  top:50px;
-  left:50px;
+  top:20px;
+  left:20px;
   z-index:10;
 }
-header img { height:60px; width:auto; }
+header img { height:70px; width:auto; } /* ukuran logo lebih besar */
 
 /* SECTION & BACKGROUND SVG */
 section {
@@ -40,7 +40,7 @@ section::before {
   background-position:center;
   z-index:-1;
 }
-#page1::before { background-image:url('img/bg_page1.svg'); }
+#page1::before { background-image:url('background1.svg'); }
 #page2::before { background-image:url('background2.svg'); }
 #page3::before { background-image:url('background3.svg'); }
 
@@ -52,10 +52,20 @@ p { margin-bottom:20px; text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
 .btn:hover { background:#eee; }
 
 /* PAGE 1 */
-.page1-content { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; }
-.page1-text { flex:1 1 45%; }
-.page1-img { flex:1 1 45%; }
-.page1-img img { width:100%; border-radius:12px; }
+.page1-content {
+  display:flex;
+  flex-direction:column; /* teks di atas, gambar di bawah */
+  align-items:center;
+  justify-content:center;
+}
+.page1-text { text-align:center; }
+.page1-img img {
+  width:auto;
+  max-width:80%;      /* responsive */
+  max-height:400px;   /* batasi tinggi */
+  margin-top:20px;
+  border-radius:12px;
+}
 
 /* PAGE 2 */
 .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; margin-top:30px; }
@@ -100,10 +110,7 @@ p { margin-bottom:20px; text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
 @media(max-width:768px){
   .desktop-grid { display:none; }
   .mobile-slider { display:block; }
-  .page1-content { flex-direction:column; }
-  .page1-text, .page1-img { flex:1 1 100%; }
-}
-</style>
+  </style>
 </head>
 <body>
 
@@ -381,6 +388,7 @@ window.addEventListener('scroll',()=>{
 
 </body>
 </html>
+
 
 
 
