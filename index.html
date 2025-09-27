@@ -22,9 +22,13 @@ a { text-decoration:none; color:inherit; }
 }
 .btn:hover { background:#0056b3; }
 
+/* ==================== PAGE BACKGROUNDS ==================== */
+.page1-bg { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+.page2-bg { background: linear-gradient(135deg, #d5f0fc, #fcd6f0); }
+.page3-bg { background: linear-gradient(135deg, #f0f0f0, #c2e7ff); }
+
 /* ==================== PAGE 1: HOME ==================== */
 #home {
-    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -51,11 +55,7 @@ a { text-decoration:none; color:inherit; }
 .home-image img { width:100%; border-radius:12px; object-fit:cover; }
 
 /* ==================== PAGE 2: LYNK.ID & KEUNGGULAN ==================== */
-#page2-pc {
-    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-    color:#333;
-    padding:80px 40px;
-}
+#page2-pc { color:#333; }
 .page2-top.container {
     display:flex;
     align-items:center;
@@ -105,7 +105,6 @@ a { text-decoration:none; color:inherit; }
 
 /* ==================== PAGE 3: PRODUK ==================== */
 #produk {
-    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
     padding:80px 40px;
 }
 #produk h2 { text-align:center; margin-bottom:40px; font-size:2.5rem; color:#007bff; }
@@ -145,7 +144,7 @@ a { text-decoration:none; color:inherit; }
 <body>
 
 <!-- ==================== PAGE 1: HOME ==================== -->
-<section id="home" class="page">
+<section id="home" class="page page1-bg">
     <img src="logo.png" alt="Logo Tapak Digital" class="logo">
     <div class="home-container">
         <div class="home-text">
@@ -160,7 +159,7 @@ a { text-decoration:none; color:inherit; }
 </section>
 
 <!-- ==================== PAGE 2: LYNK.ID & KEUNGGULAN ==================== -->
-<section id="page2-pc">
+<section id="page2-pc" class="page page2-bg">
   <div class="page2-top container">
     <img src="img/lynk-base.png" alt="Lynk.id">
     <div class="page2-text">
@@ -183,7 +182,7 @@ a { text-decoration:none; color:inherit; }
 </section>
 
 <!-- ==================== PAGE 3: PRODUK ==================== -->
-<section id="produk" class="page">
+<section id="produk" class="page page3-bg">
     <h2>Produk Digital Kami</h2>
     <div class="produk-grid">
         <div class="produk-card">
@@ -211,4 +210,3 @@ a { text-decoration:none; color:inherit; }
 
 </body>
 </html>
-
