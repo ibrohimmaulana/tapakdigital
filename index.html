@@ -60,16 +60,45 @@ p { margin-bottom:20px; text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
   gap: 30px;
   text-align: left;
 }
+#page1 .page1-text {
+  flex: 1;
+}
+#page1 .page1-text h1 {
+  font-size: 4rem; /* lebih besar seperti homepage */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+#page1 .page1-text p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
 #page1 .page1-img {
   flex: 1;
+  text-align: right;
 }
 #page1 .page1-img img {
   max-width: 90%;
-  max-height: 400px;
+  max-height: 500px;
   border-radius: 12px;
 }
-#page1 .page1-text {
-  flex: 1;
+
+/* ================= RESPONSIVE PAGE 1 ================= */
+@media(max-width:768px){
+  #page1 .page1-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  #page1 .page1-img {
+    text-align: center;
+    margin-top: 20px;
+  }
+  #page1 .page1-text h1 {
+    font-size: 3rem;
+  }
+  #page1 .page1-text p {
+    font-size: 1.2rem;
+  }
 }
 
 /* ================= PAGE 2 ================= */
@@ -141,13 +170,13 @@ p { margin-bottom:20px; text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
 <!-- PAGE 1 -->
 <section id="page1">
   <div class="page1-content container">
-    <div class="page1-img">
-      <img src="img/robot.png" alt="Gambar Page 1">
-    </div>
     <div class="page1-text">
       <h1>TAPAK DIGITAL</h1>
       <p>Mulai hari ini perjalanan digitalmu bersama Tapak Digital. Temukan semua produk digital untuk belajar, berkarya, dan berkembang.</p>
       <a href="#page3" class="btn">Lihat Produk</a>
+    </div>
+    <div class="page1-img">
+      <img src="img/robot.png" alt="Gambar Page 1">
     </div>
   </div>
 </section>
@@ -405,6 +434,7 @@ window.addEventListener('scroll',()=>{
 
 </body>
 </html>
+
 
 
 
