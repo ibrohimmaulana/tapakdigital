@@ -9,7 +9,7 @@
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
 body { line-height:1.6; color:#333; scroll-behavior:smooth; }
 a { text-decoration:none; color:inherit; }
-.page { min-height:100vh; padding:80px 40px; }
+.page { min-height:100vh; padding:80px 40px; position:relative; }
 
 /* ==================== BUTTON ==================== */
 .btn {
@@ -25,20 +25,37 @@ a { text-decoration:none; color:inherit; }
 /* ==================== PAGE 1: HOME ==================== */
 #home {
     background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-    display:flex; justify-content:center; align-items:center; text-align:center; color:#fff;
-    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
-#home .logo { width:180px; margin-bottom:25px; }
-#home h1 { font-size:3rem; margin-bottom:20px; }
-#home p { font-size:1.2rem; margin-bottom:30px; }
+#home .logo {
+    position:absolute;
+    top:20px;
+    left:20px;
+    width:150px;
+}
+.home-container {
+    display:flex;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+    max-width:1200px;
+    width:100%;
+    padding:0 20px;
+}
+.home-text { flex:1; min-width:300px; }
+.home-text h1 { font-size:3rem; margin-bottom:20px; color:#fff; }
+.home-text p { font-size:1.2rem; margin-bottom:25px; color:#fff; }
+.home-image { flex:1; min-width:300px; }
+.home-image img { width:100%; border-radius:12px; object-fit:cover; }
 
 /* ==================== PAGE 2: LYNK.ID & KEUNGGULAN ==================== */
 #page2-pc {
     background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-    padding:80px 40px;
     color:#333;
+    padding:80px 40px;
 }
-/* Lynk.id Top Section */
 .page2-top.container {
     display:flex;
     align-items:center;
@@ -56,7 +73,6 @@ a { text-decoration:none; color:inherit; }
 .page2-text { flex:1; min-width:320px; }
 .page2-text h2 { color:#007bff; margin-bottom:20px; }
 .page2-text p { font-size:1.1rem; margin-bottom:20px; }
-
 /* Cards Keunggulan */
 .cards.container {
     display:grid;
@@ -69,7 +85,6 @@ a { text-decoration:none; color:inherit; }
     padding:25px;
     border-radius:12px;
     text-align:center;
-    font-size:1rem;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -95,7 +110,7 @@ a { text-decoration:none; color:inherit; }
 #produk h2 { text-align:center; margin-bottom:40px; font-size:2.5rem; color:#007bff; }
 .produk-grid {
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
     gap:25px;
 }
 .produk-card {
@@ -116,6 +131,7 @@ a { text-decoration:none; color:inherit; }
 /* ==================== RESPONSIVE ==================== */
 @media(max-width:768px) {
     #home h1 { font-size:2.2rem; }
+    .home-container { flex-direction:column; }
     #page2-pc .page2-top.container { flex-direction:column; }
     #page2-pc .page2-top img, .page2-text { max-width:100%; }
     #produk h2 { font-size:2rem; }
@@ -126,11 +142,18 @@ a { text-decoration:none; color:inherit; }
 
 <!-- ==================== PAGE 1: HOME ==================== -->
 <section id="home" class="page">
-    <div>
-        <img src="logo.png" alt="Logo Tapak Digital" class="logo">
-        <h1>Selamat Datang di Tapak Digital</h1>
-        <p>Temukan berbagai produk digital premium dengan kualitas terbaik</p>
-        <a href="#page2-pc" class="btn">Pelajari Lebih Lanjut</a>
+    <img src="logo.png" alt="Logo Tapak Digital" class="logo">
+    <div class="home-container">
+        <!-- Teks kiri -->
+        <div class="home-text">
+            <h1>Selamat Datang di Tapak Digital</h1>
+            <p>Temukan berbagai produk digital premium dengan kualitas terbaik</p>
+            <a href="#page2-pc" class="btn">Pelajari Lebih Lanjut</a>
+        </div>
+        <!-- Gambar kanan -->
+        <div class="home-image">
+            <img src="hero-image.png" alt="Hero Image">
+        </div>
     </div>
 </section>
 
