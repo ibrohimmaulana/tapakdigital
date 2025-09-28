@@ -11,7 +11,7 @@ body, html { scroll-behavior:smooth; }
 body { background:#f5f5f5; }
 
 /* ==================== SECTION ==================== */
-section { min-height:100vh; padding:80px 20px; text-align:center; transition: background 0.3s; position: relative; }
+section { min-height:100vh; padding:80px 20px; position: relative; transition: background 0.3s; }
 
 /* ==================== LOGO KIRI ATAS ==================== */
 .header-logo {
@@ -22,23 +22,30 @@ section { min-height:100vh; padding:80px 20px; text-align:center; transition: ba
 }
 .header-logo img { height:50px; }
 
-/* ==================== PAGE 1 ==================== */
-#page1 { color:#fff; background:#007bff; display:flex; flex-direction:column; justify-content:center; align-items:center; }
-#page1 h1 { font-size:36px; margin-bottom:20px; }
-#page1 p { font-size:18px; max-width:600px; }
+/* ==================== BUTTON ==================== */
+.btn { display:inline-block; padding:10px 20px; background:#007bff; color:#fff; border-radius:8px; text-decoration:none; transition:0.3s; }
+.btn:hover { background:#0056b3; }
+
+/* ==================== PAGE 1 - HERO ==================== */
+#page1 { color:#fff; background:#007bff; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+#page1 h1 { font-size:42px; margin-bottom:20px; }
+#page1 p { font-size:18px; max-width:600px; margin-bottom:30px; }
 
 /* ==================== PAGE 2 ==================== */
 #page2 { background:#f0f0f0; color:#333; padding-top:120px; }
-#page2 h2 { font-size:28px; margin-bottom:40px; }
-.features { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
-.feature-card { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-.feature-card h3 { margin-bottom:10px; color:#007bff; }
-.feature-card p { font-size:14px; }
+.page2-top { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:20px; max-width:1200px; margin:0 auto; }
+.page2-top img { max-width:150px; }
+.page2-text { max-width:600px; text-align:left; }
+.page2-text h2 { font-size:28px; margin-bottom:15px; }
+.page2-text p { font-size:16px; margin-bottom:20px; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; max-width:1000px; margin:20px auto; }
+.card { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); font-size:14px; display:flex; align-items:center; gap:10px; }
+.card .icon { font-size:24px; }
 
 /* ==================== PAGE 3 ==================== */
-#page3 { background:#fff; color:#333; padding-top:40px; }
+#page3 { background:#fff; color:#333; padding-top:40px; text-align:center; }
 #page3 h2 { font-size:28px; margin-bottom:40px; }
-.products-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+.products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1200px; margin:0 auto; }
 .product-card { background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; padding:15px; }
 .product-card img { width:100%; height:180px; object-fit:cover; border-radius:8px; }
 .product-card h3 { margin:10px 0; font-size:16px; }
@@ -46,24 +53,23 @@ section { min-height:100vh; padding:80px 20px; text-align:center; transition: ba
 .product-card a:hover { background:#0056b3; }
 
 /* SLIDER MOBILE */
-.slider { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:15px; padding-bottom:10px; }
+.slider { display:none; overflow-x:auto; scroll-snap-type:x mandatory; gap:15px; padding-bottom:10px; }
 .slider::-webkit-scrollbar { display:none; }
 .slider .product-card { flex:0 0 220px; scroll-snap-align:start; }
-.slider-nav { display:flex; justify-content:center; gap:10px; margin-top:10px; }
+.slider-nav { display:none; justify-content:center; gap:10px; margin-top:10px; }
 .slider-nav button { background:#007bff; color:#fff; border:none; padding:8px 15px; border-radius:6px; cursor:pointer; transition: background 0.3s; }
 .slider-nav button:hover { background:#0056b3; }
 
 /* ==================== RESPONSIVE ==================== */
-@media(max-width:768px){
-  #page1 h1 { font-size:28px; }
-  #page2 h2, #page3 h2 { font-size:22px; }
-  .products-grid { display:none; }
-  .slider { display:flex; }
-  .header-logo img { height:40px; }
-  #page2 { padding-top:100px; }
+@media(max-width:992px){
+  #page1 h1 { font-size:32px; }
+  #page2-top { flex-direction:column; text-align:center; }
+  .page2-text { text-align:center; }
 }
-@media(min-width:769px){
-  .slider, .slider-nav { display:none; }
+@media(max-width:768px){
+  .products-grid { display:none; }
+  .slider, .slider-nav { display:flex; }
+  .header-logo img { height:40px; }
 }
 </style>
 </head>
@@ -71,32 +77,33 @@ section { min-height:100vh; padding:80px 20px; text-align:center; transition: ba
 
 <!-- ==================== PAGE 1 ==================== -->
 <section id="page1">
-  <div class="header-logo">
-    <img src="logo.png" alt="Logo Tapak Digital">
-  </div>
+  <div class="header-logo"><img src="logo.png" alt="Logo Tapak Digital"></div>
   <h1>Selamat Datang di Tapak Digital</h1>
-  <p>Platform produk digital premium yang siap membantu Anda sukses online.</p>
+  <p>Platform produk digital premium untuk membantu Anda sukses online. Temukan ribuan produk siap pakai & inovatif.</p>
+  <a href="#page3" class="btn">Lihat Produk</a>
 </section>
 
 <!-- ==================== PAGE 2 ==================== -->
 <section id="page2">
-  <div class="header-logo">
-    <img src="logo.png" alt="Logo Tapak Digital">
+  <div class="header-logo"><img src="logo.png" alt="Logo Tapak Digital"></div>
+
+  <div class="page2-top">
+    <img src="img/lynk-base.png" alt="Lynk.id">
+    <div class="page2-text">
+      <h2><strong>Terhubung dengan Lynk.id</strong></h2>
+      <p>Website ini terintegrasi dengan Lynk.id untuk memudahkan transaksi dan meningkatkan kepercayaan pembeli.</p>
+      <a href="https://lynk.id/gudangdigital_ibra" class="btn">Kunjungi Lynk.id</a>
+    </div>
   </div>
-  <h2>Kenapa Harus Produk Digital?</h2>
-  <div class="features">
-    <div class="feature-card">
-      <h3>Praktis & Cepat</h3>
-      <p>Produk digital bisa langsung diunduh, tanpa menunggu pengiriman.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Mudah Dikembangkan</h3>
-      <p>Dapat dimodifikasi atau disesuaikan sesuai kebutuhan.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Efektif & Hemat Biaya</h3>
-      <p>Investasi sekali, bisa dijual berkali-kali tanpa stok fisik.</p>
-    </div>
+
+  <h2 style="text-align:center; margin:40px 0 20px;"><strong>Kenapa Harus Produk Digital?</strong></h2>
+  <div class="cards">
+    <div class="card"><span class="icon">⚡</span>Akses instan, langsung dipakai tanpa tunggu.</div>
+    <div class="card"><span class="icon">💰</span>Harga lebih terjangkau karena tanpa ongkir & cetak.</div>
+    <div class="card"><span class="icon">🔄</span>Selalu up-to-date, bisa diperbarui kapan saja.</div>
+    <div class="card"><span class="icon">🌍</span>Bisa digunakan kapan saja & di mana saja.</div>
+    <div class="card"><span class="icon">♻️</span>Ramah lingkungan, tanpa limbah kertas & plastik.</div>
+    <div class="card"><span class="icon">🚀</span>Potensi pasar luas, bisa dijual ke seluruh dunia.</div>
   </div>
 </section>
 
@@ -115,7 +122,6 @@ section { min-height:100vh; padding:80px 20px; text-align:center; transition: ba
   </div>
 </section>
 
-<!-- ==================== SCRIPT ==================== -->
 <script>
 // ==================== DATA PRODUK ====================
 const products = [
