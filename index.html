@@ -3,24 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tapak Digital - Full Page Vertical</title>
+<title>Tapak Digital - Full Website</title>
 <style>
 /* ==================== GLOBAL ==================== */
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
 body, html { scroll-behavior:smooth; }
 body { background:#f5f5f5; }
 
-/* ==================== PAGE LAYOUT ==================== */
-section { min-height:100vh; padding:80px 20px; text-align:center; transition: background 0.3s; }
+/* ==================== SECTION ==================== */
+section { min-height:100vh; padding:80px 20px; text-align:center; transition: background 0.3s; position: relative; }
+
+/* ==================== LOGO KIRI ATAS ==================== */
+.header-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+.header-logo img { height:50px; }
 
 /* ==================== PAGE 1 ==================== */
 #page1 { color:#fff; background:#007bff; display:flex; flex-direction:column; justify-content:center; align-items:center; }
-#page1 img { height:60px; margin-bottom:20px; }
 #page1 h1 { font-size:36px; margin-bottom:20px; }
 #page1 p { font-size:18px; max-width:600px; }
 
 /* ==================== PAGE 2 ==================== */
-#page2 { background:#f0f0f0; color:#333; }
+#page2 { background:#f0f0f0; color:#333; padding-top:120px; }
 #page2 h2 { font-size:28px; margin-bottom:40px; }
 .features { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
 .feature-card { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
@@ -28,20 +36,16 @@ section { min-height:100vh; padding:80px 20px; text-align:center; transition: ba
 .feature-card p { font-size:14px; }
 
 /* ==================== PAGE 3 ==================== */
-#page3 { background:#fff; color:#333; }
+#page3 { background:#fff; color:#333; padding-top:40px; }
 #page3 h2 { font-size:28px; margin-bottom:40px; }
-
-/* GRID UNTUK PC */
 .products-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
-
-/* CARD PRODUK */
 .product-card { background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; padding:15px; }
 .product-card img { width:100%; height:180px; object-fit:cover; border-radius:8px; }
 .product-card h3 { margin:10px 0; font-size:16px; }
 .product-card a { display:inline-block; margin-top:10px; padding:8px 16px; background:#007bff; color:#fff; border-radius:8px; text-decoration:none; }
 .product-card a:hover { background:#0056b3; }
 
-/* SLIDER UNTUK MOBILE */
+/* SLIDER MOBILE */
 .slider { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:15px; padding-bottom:10px; }
 .slider::-webkit-scrollbar { display:none; }
 .slider .product-card { flex:0 0 220px; scroll-snap-align:start; }
@@ -53,11 +57,13 @@ section { min-height:100vh; padding:80px 20px; text-align:center; transition: ba
 @media(max-width:768px){
   #page1 h1 { font-size:28px; }
   #page2 h2, #page3 h2 { font-size:22px; }
-  .products-grid { display:none; } /* sembunyikan grid di mobile */
-  .slider { display:flex; } /* tampilkan slider */
+  .products-grid { display:none; }
+  .slider { display:flex; }
+  .header-logo img { height:40px; }
+  #page2 { padding-top:100px; }
 }
 @media(min-width:769px){
-  .slider, .slider-nav { display:none; } /* sembunyikan slider di PC */
+  .slider, .slider-nav { display:none; }
 }
 </style>
 </head>
@@ -65,13 +71,18 @@ section { min-height:100vh; padding:80px 20px; text-align:center; transition: ba
 
 <!-- ==================== PAGE 1 ==================== -->
 <section id="page1">
-  <img src="logo.png" alt="Logo Tapak Digital">
+  <div class="header-logo">
+    <img src="logo.png" alt="Logo Tapak Digital">
+  </div>
   <h1>Selamat Datang di Tapak Digital</h1>
   <p>Platform produk digital premium yang siap membantu Anda sukses online.</p>
 </section>
 
 <!-- ==================== PAGE 2 ==================== -->
 <section id="page2">
+  <div class="header-logo">
+    <img src="logo.png" alt="Logo Tapak Digital">
+  </div>
   <h2>Kenapa Harus Produk Digital?</h2>
   <div class="features">
     <div class="feature-card">
@@ -94,74 +105,7 @@ section { min-height:100vh; padding:80px 20px; text-align:center; transition: ba
   <h2>Produk Kami</h2>
 
   <!-- GRID PC -->
-  <div class="products-grid">
-    <!-- 13 produk -->
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+1" alt="Produk 1">
-      <h3>1200 Template Aesthetic Khusus Makanan & Minuman</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+2" alt="Produk 2">
-      <h3>Jago CapCut - CapCut Masterclass Bundle</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+3" alt="Produk 3">
-      <h3>1000+ Template Canva: Konten Menarik Tanpa Ribet Desain</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+4" alt="Produk 4">
-      <h3>Mahir WhatsApp Marketing - Rahasia Sukses Jualan Lewat WhatsApp</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+5" alt="Produk 5">
-      <h3>Cara Membuat E-Book dengan ChatGPT</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+6" alt="Produk 6">
-      <h3>E-book Humor Para Pemikir Besar</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+7" alt="Produk 7">
-      <h3>Bikin Desain Keren dengan Canva</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+8" alt="Produk 8">
-      <h3>3000+ Template Instagram Premium</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+9" alt="Produk 9">
-      <h3>Kumpulan Modul Mentoring Copywriting</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+10" alt="Produk 10">
-      <h3>40 E-Book Bisnis Lengkap</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+11" alt="Produk 11">
-      <h3>Formula Viral: Panduan Konten</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+12" alt="Produk 12">
-      <h3>Ebook Bikin Produk Digital Modal Canva</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-    <div class="product-card">
-      <img src="https://via.placeholder.com/300x180.png?text=Produk+13" alt="Produk 13">
-      <h3>Boost Kreativitas: Ide Konten Anti Stuck</h3>
-      <a href="https://lynk.id/tapakdigital" target="_blank">Lihat Produk</a>
-    </div>
-  </div>
+  <div class="products-grid" id="products-grid"></div>
 
   <!-- SLIDER MOBILE -->
   <div class="slider" id="slider"></div>
@@ -173,41 +117,50 @@ section { min-height:100vh; padding:80px 20px; text-align:center; transition: ba
 
 <!-- ==================== SCRIPT ==================== -->
 <script>
-// ==================== DATA PRODUK UNTUK SLIDER MOBILE ====================
+// ==================== DATA PRODUK ====================
 const products = [
-  {name:"1200 Template Aesthetic Khusus Makanan & Minuman", img:"https://via.placeholder.com/300x180.png?text=Produk+1", url:"https://lynk.id/tapakdigital"},
-  {name:"Jago CapCut - CapCut Masterclass Bundle", img:"https://via.placeholder.com/300x180.png?text=Produk+2", url:"https://lynk.id/tapakdigital"},
-  {name:"1000+ Template Canva: Konten Menarik Tanpa Ribet Desain", img:"https://via.placeholder.com/300x180.png?text=Produk+3", url:"https://lynk.id/tapakdigital"},
-  {name:"Mahir WhatsApp Marketing - Rahasia Sukses Jualan Lewat WhatsApp", img:"https://via.placeholder.com/300x180.png?text=Produk+4", url:"https://lynk.id/tapakdigital"},
-  {name:"Cara Membuat E-Book dengan ChatGPT", img:"https://via.placeholder.com/300x180.png?text=Produk+5", url:"https://lynk.id/tapakdigital"},
-  {name:"E-book Humor Para Pemikir Besar", img:"https://via.placeholder.com/300x180.png?text=Produk+6", url:"https://lynk.id/tapakdigital"},
-  {name:"Bikin Desain Keren dengan Canva", img:"https://via.placeholder.com/300x180.png?text=Produk+7", url:"https://lynk.id/tapakdigital"},
-  {name:"3000+ Template Instagram Premium", img:"https://via.placeholder.com/300x180.png?text=Produk+8", url:"https://lynk.id/tapakdigital"},
-  {name:"Kumpulan Modul Mentoring Copywriting", img:"https://via.placeholder.com/300x180.png?text=Produk+9", url:"https://lynk.id/tapakdigital"},
-  {name:"40 E-Book Bisnis Lengkap", img:"https://via.placeholder.com/300x180.png?text=Produk+10", url:"https://lynk.id/tapakdigital"},
-  {name:"Formula Viral: Panduan Konten", img:"https://via.placeholder.com/300x180.png?text=Produk+11", url:"https://lynk.id/tapakdigital"},
-  {name:"Ebook Bikin Produk Digital Modal Canva", img:"https://via.placeholder.com/300x180.png?text=Produk+12", url:"https://lynk.id/tapakdigital"},
-  {name:"Boost Kreativitas: Ide Konten Anti Stuck", img:"https://via.placeholder.com/300x180.png?text=Produk+13", url:"https://lynk.id/tapakdigital"}
+  { name:"1200 Template Aesthetic Khusus Makanan & Minuman", img:"https://via.placeholder.com/300x180.png?text=Produk+1", url:"https://lynk.id/tapakdigital", btnText:"Lihat Produk", bg:"#e0f7fa" },
+  { name:"Jago CapCut - CapCut Masterclass Bundle", img:"https://via.placeholder.com/300x180.png?text=Produk+2", url:"https://lynk.id/tapakdigital", btnText:"Lihat Sekarang", bg:"#fff3e0" },
+  { name:"1000+ Template Canva: Konten Menarik Tanpa Ribet Desain", img:"https://via.placeholder.com/300x180.png?text=Produk+3", url:"https://lynk.id/tapakdigital", btnText:"Buka Produk", bg:"#fce4ec" },
+  { name:"Mahir WhatsApp Marketing", img:"https://via.placeholder.com/300x180.png?text=Produk+4", url:"https://lynk.id/tapakdigital", btnText:"Cek Sekarang", bg:"#e8f5e9" },
+  { name:"Cara Membuat E-Book dengan ChatGPT", img:"https://via.placeholder.com/300x180.png?text=Produk+5", url:"https://lynk.id/tapakdigital", btnText:"Lihat Produk", bg:"#fffde7" },
+  { name:"E-book Humor Para Pemikir Besar", img:"https://via.placeholder.com/300x180.png?text=Produk+6", url:"https://lynk.id/tapakdigital", btnText:"Buka", bg:"#ede7f6" },
+  { name:"Bikin Desain Keren dengan Canva", img:"https://via.placeholder.com/300x180.png?text=Produk+7", url:"https://lynk.id/tapakdigital", btnText:"Lihat Produk", bg:"#f3e5f5" },
+  { name:"3000+ Template Instagram Premium", img:"https://via.placeholder.com/300x180.png?text=Produk+8", url:"https://lynk.id/tapakdigital", btnText:"Cek Sekarang", bg:"#fff8e1" },
+  { name:"Kumpulan Modul Mentoring Copywriting", img:"https://via.placeholder.com/300x180.png?text=Produk+9", url:"https://lynk.id/tapakdigital", btnText:"Lihat Produk", bg:"#e1f5fe" },
+  { name:"40 E-Book Bisnis Lengkap", img:"https://via.placeholder.com/300x180.png?text=Produk+10", url:"https://lynk.id/tapakdigital", btnText:"Buka Produk", bg:"#f1f8e9" },
+  { name:"Formula Viral: Panduan Konten", img:"https://via.placeholder.com/300x180.png?text=Produk+11", url:"https://lynk.id/tapakdigital", btnText:"Lihat Sekarang", bg:"#fff3e0" },
+  { name:"Ebook Bikin Produk Digital Modal Canva", img:"https://via.placeholder.com/300x180.png?text=Produk+12", url:"https://lynk.id/tapakdigital", btnText:"Cek Produk", bg:"#fce4ec" },
+  { name:"Boost Kreativitas: Ide Konten Anti Stuck", img:"https://via.placeholder.com/300x180.png?text=Produk+13", url:"https://lynk.id/tapakdigital", btnText:"Buka Sekarang", bg:"#e8f5e9" }
 ];
 
-// generate slider mobile
+// ==================== GENERATE GRID PC ====================
+const grid = document.getElementById('products-grid');
+products.forEach(p => {
+  const card = document.createElement('div');
+  card.classList.add('product-card');
+  card.style.background = p.bg;
+  card.innerHTML = `<img src="${p.img}" alt="${p.name}"><h3>${p.name}</h3><a href="${p.url}" target="_blank">${p.btnText}</a>`;
+  grid.appendChild(card);
+});
+
+// ==================== GENERATE SLIDER MOBILE ====================
 const slider = document.getElementById('slider');
 products.forEach(p => {
   const card = document.createElement('div');
   card.classList.add('product-card');
-  card.innerHTML = `<img src="${p.img}" alt="${p.name}">
-                    <h3>${p.name}</h3>
-                    <a href="${p.url}" target="_blank">Lihat Produk</a>`;
+  card.style.background = p.bg;
+  card.innerHTML = `<img src="${p.img}" alt="${p.name}"><h3>${p.name}</h3><a href="${p.url}" target="_blank">${p.btnText}</a>`;
   slider.appendChild(card);
 });
 
-// navigasi slider
+// ==================== NAVIGASI SLIDER ====================
 function slideProducts(dir){
-  const cardWidth = slider.querySelector('.product-card').offsetWidth + 15; // width + gap
+  const cardWidth = slider.querySelector('.product-card').offsetWidth + 15;
   slider.scrollBy({ left: cardWidth * dir, behavior: 'smooth' });
 }
 
-// ==================== SCRIPT GANTI BACKGROUND ====================
+// ==================== SCRIPT GANTI BACKGROUND PAGE ====================
 function setBackground(pageId, colorOrUrl){
   const page = document.getElementById(pageId);
   if(colorOrUrl.endsWith('.jpg') || colorOrUrl.endsWith('.png') || colorOrUrl.endsWith('.svg')){
@@ -216,11 +169,7 @@ function setBackground(pageId, colorOrUrl){
     page.style.background = colorOrUrl;
   }
 }
-// contoh pemakaian:
-// setBackground('page1', '#ff5733'); 
-// setBackground('page2', 'background2.svg');
-// setBackground('page3', '#e0e0e0');
-
 </script>
+
 </body>
 </html>
