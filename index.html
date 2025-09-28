@@ -16,7 +16,7 @@ section { min-height:100vh; padding:80px 20px; position: relative; transition: b
 
 /* ==================== HEADER LOGO ==================== */
 .header-logo {
-  position: fixed; /* tetap di atas saat scroll */
+  position: fixed;
   top: 20px;
   left: 20px;
   z-index: 1000;
@@ -40,33 +40,101 @@ section { min-height:100vh; padding:80px 20px; position: relative; transition: b
 .page2-text { max-width:600px; text-align:left; }
 .page2-text h2 { font-size:28px; margin-bottom:15px; }
 .page2-text p { font-size:16px; margin-bottom:20px; }
-.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; max-width:1000px; margin:20px auto; }
-.card { background:#fff; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); font-size:14px; display:flex; align-items:center; gap:10px; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolom desktop */
+  grid-auto-rows: auto;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+.card {
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
 .card .icon { font-size:24px; }
 
-/* ==================== PAGE 3 ==================== */
-/* Desktop grid */
+/* ==================== PAGE 3 DESKTOP ==================== */
 #page3-pc { background:#fff; color:#333; padding:40px 20px; text-align:center; }
 #page3-pc h2 { font-size:28px; margin-bottom:40px; }
-.products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1200px; margin:0 auto; }
-.product-card { background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; padding:15px; }
-.product-card img { width:100%; height:180px; object-fit:cover; border-radius:8px; }
+
+.products-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.product-card {
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  text-align:center;
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.product-card img {
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:10px;
+}
 .product-card h3 { margin:10px 0; font-size:16px; }
-.product-card a { display:inline-block; margin-top:10px; padding:8px 16px; background:#007bff; color:#fff; border-radius:8px; text-decoration:none; }
+.product-card a {
+  display:inline-block;
+  margin-top:auto;
+  padding:8px 16px;
+  background:#007bff;
+  color:#fff;
+  border-radius:8px;
+  text-decoration:none;
+  transition:0.3s;
+}
 .product-card a:hover { background:#0056b3; }
 
-/* Mobile slider */
+/* ==================== PAGE 3 MOBILE ==================== */
 #page3-mobile { display:none; }
 .mobile-slider { display:flex; overflow-x:auto; gap:15px; scroll-snap-type:x mandatory; padding-bottom:10px; -webkit-overflow-scrolling: touch; }
-.mobile-slide { flex:0 0 80%; scroll-snap-align:start; background:#f9f9f9; padding:15px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; }
-.mobile-slide img { width:100%; height:180px; object-fit:cover; border-radius:8px; }
+.mobile-slide {
+  flex:0 0 80%;
+  scroll-snap-align:start;
+  background:#f9f9f9;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.mobile-slide img { width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:10px; }
 .mobile-slide h3 { margin:10px 0; font-size:16px; }
 .mobile-slide .btn { display:inline-block; padding:8px 16px; background:#007bff; color:#fff; border-radius:8px; text-decoration:none; }
 .mobile-slide .btn:hover { background:#0056b3; }
 
 /* ==================== RESPONSIVE ==================== */
-@media(max-width:992px){ #page1 h1 { font-size:32px; } .page2-top { flex-direction:column; text-align:center; } .page2-text { text-align:center; } }
-@media(max-width:768px){ .products-grid { display:none; } #page3-pc { display:none; } #page3-mobile { display:block; } .header-logo img { height:50px; } }
+@media(max-width:992px){
+  #page1 h1 { font-size:32px; }
+  .page2-top { flex-direction:column; text-align:center; }
+  .page2-text { text-align:center; }
+}
+@media(max-width:768px){
+  .products-grid { display:none; }
+  #page3-pc { display:none; }
+  #page3-mobile { display:block; }
+  .header-logo img { height:50px; }
+  .cards { grid-template-columns: 1fr; } /* Page2 mobile 1 kolom */
+}
 </style>
 </head>
 <body>
@@ -109,7 +177,6 @@ section { min-height:100vh; padding:80px 20px; position: relative; transition: b
 <section id="page3-pc">
   <h2>Produk Kami</h2>
   <div class="products-grid">
-    <!-- 13 Produk Desktop -->
     <div class="product-card"><img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.jpg"><h3>1200 Template Aesthetic Khusus Makanan & Minuman</h3><a href="https://lynk.id/tapakdigital/1" class="btn">Miliki Sekarang!</a></div>
     <div class="product-card"><img src="img/Panduan Mahir Capcut.jpg"><h3>CapCut Masterclass Bundle</h3><a href="https://lynk.id/tapakdigital/2" class="btn">Miliki Sekarang!</a></div>
     <div class="product-card"><img src="img/1000+ Social Media Template Canva.jpg"><h3>1000+ Template Canva</h3><a href="https://lynk.id/tapakdigital/3" class="btn">Miliki Sekarang!</a></div>
@@ -130,7 +197,6 @@ section { min-height:100vh; padding:80px 20px; position: relative; transition: b
 <section id="page3-mobile">
   <h2>Produk Kami</h2>
   <div class="mobile-slider">
-    <!-- 13 Produk Mobile -->
     <div class="mobile-slide"><img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.jpg"><h3>1200 Template Aesthetic Khusus Makanan & Minuman</h3><a href="https://lynk.id/tapakdigital/1" class="btn">Miliki Sekarang!</a></div>
     <div class="mobile-slide"><img src="img/Panduan Mahir Capcut.jpg"><h3>CapCut Masterclass Bundle</h3><a href="https://lynk.id/tapakdigital/2" class="btn">Miliki Sekarang!</a></div>
     <div class="mobile-slide"><img src="img/1000+ Social Media Template Canva.jpg"><h3>1000+ Template Canva</h3><a href="https://lynk.id/tapakdigital/3" class="btn">Miliki Sekarang!</a></div>
@@ -174,6 +240,3 @@ setBackground('page3-mobile', 'img/bg-page3.svg');
 
 </body>
 </html>
-
-
-
