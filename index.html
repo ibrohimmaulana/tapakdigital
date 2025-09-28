@@ -1,378 +1,180 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produk Kami</title>
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f7fa;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produk Tapak Digital</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-    section {
-      padding: 60px 20px;
-    }
+<style>
+/* ============= GLOBAL ============= */
+:root {
+  --section-padding: 80px 20px;
+  --card-gap: 30px;
+  --card-padding: 15px;
+  --card-radius: 12px;
+}
 
-    h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2.2rem;
-      color: #007bff;
-    }
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body {background:#f5f7fa;color:#333;line-height:1.5;}
+h2 {text-align:center;margin-bottom:40px;font-size:2rem;color:#007bff;}
+a {text-decoration:none;}
 
-    /* ===== PC/Desktop (grid) ===== */
-    .produk-container-pc {
-      max-width: 1300px;
-      margin: auto;
-    }
-    .produk-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-    }
-    .produk-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-      aspect-ratio: 4/3;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s;
-    }
-    .produk-card:hover { transform: translateY(-5px); }
-    .produk-card img {
-      width: 100%;
-      height: 70%;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 12px;
-    }
-    .produk-card h3 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-    .btn {
-      background: #007bff;
-      color: white;
-      padding: 10px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    .btn:hover { background: #0056b3; }
+/* ============= PAGE BACKGROUND ============= */
+section {
+  padding: var(--section-padding);
+  background-size: cover;
+  background-position: center;
+}
 
-    /* ===== Mobile (slider) ===== */
-    .produk-container-mobile {
-      display: none;
-      max-width: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-    .produk-wrapper {
-      display: flex;
-      transition: transform 0.4s ease-in-out;
-      gap: 16px;
-    }
-    .produk-slide {
-      min-width: 85%;
-      flex: 0 0 auto;
-      background: #fff;
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-      aspect-ratio: 4/3;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .produk-slide img {
-      width: 100%;
-      height: 70%;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 12px;
-    }
-    .produk-slide h3 { font-size: 1rem; margin-bottom: 10px; }
-    .nav-mobile {
-      display: flex;
-      justify-content: center;
-      margin-top: 16px;
-      gap: 16px;
-    }
-    .nav-btn {
-      background: #007bff;
-      border: none;
-      color: white;
-      font-size: 22px;
-      padding: 10px 14px;
-      cursor: pointer;
-      border-radius: 50%;
-    }
-    .nav-btn:hover { background: #0056b3; }
+/* ============= PRODUK GRID (PC) ============= */
+.produk-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap: var(--card-gap);
+  max-width:1200px;
+  margin:auto;
+}
+.card {
+  background:#fff;
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  text-align:center;
+  box-shadow:0 4px 8px rgba(0,0,0,0.08);
+  transition:0.3s;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.card:hover {transform:translateY(-5px);}
+.card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius: var(--card-radius);
+  margin-bottom:12px;
+}
+.card h3 {margin-bottom:15px;font-size:1rem;flex-grow:1;}
+.card .btn {
+  background:#007bff;
+  color:#fff;
+  padding:10px;
+  border-radius:6px;
+  transition:.3s;
+}
+.card .btn:hover {background:#0056b3;}
 
-    /* ===== Responsive Rules ===== */
-    @media(max-width: 768px) {
-      .produk-container-pc { display: none; }
-      .produk-container-mobile { display: block; }
-    }
-    @media(min-width: 769px) {
-      .produk-container-pc { display: block; }
-      .produk-container-mobile { display: none; }
-    }
-  </style>
+/* ============= PRODUK SLIDER (MOBILE) ============= */
+.swiper {
+  display:none;
+}
+.swiper-slide {
+  display:flex;
+  justify-content:center;
+}
+.swiper .card {
+  width:90%;
+  max-width:320px;
+}
+.swiper-button-next, .swiper-button-prev {
+  color:#007bff;
+  font-weight:bold;
+}
+
+@media(max-width:768px){
+  .produk-grid {display:none;}
+  .swiper {display:block;}
+}
+</style>
 </head>
 <body>
 
-<section id="page3">
+<!-- ================= PAGE 3 ================= -->
+<section id="page3" style="background-image:url('img/bg-page3.jpg');">
   <h2>Produk Kami</h2>
 
-  <!-- ===== PC/Desktop Grid ===== -->
-  <div class="produk-container-pc">
-    <div class="produk-grid">
-
-      <!-- Produk 1 -->
-      <div class="produk-card">
-        <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 1">
-        <h3>1200 Template Eksklusif Khusus Bisnis Makanan & Minuman</h3>
-        <a href="http://lynk.id/tapakdigital/94qzel013plx/checkout" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 2 -->
-      <div class="produk-card">
-        <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 2">
-        <h3>Panduan Mahir CapCut</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 3 -->
-      <div class="produk-card">
-        <img src="img/1000+ Social Media Template Canva.png" alt="Produk 3">
-        <h3>1000+ Social Media Template Canva</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 4 -->
-      <div class="produk-card">
-        <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 4">
-        <h3>Mahir WhatsApp Marketing</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 5 -->
-      <div class="produk-card">
-        <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 5">
-        <h3>Cara Membuat E-Book Dengan ChatGPT</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 6 -->
-      <div class="produk-card">
-        <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 6">
-        <h3>Ebook Humor Para Pemikir Besar</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 7 -->
-      <div class="produk-card">
-        <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
-        <h3>Bikin Desain Keren dengan Canva</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 8 -->
-      <div class="produk-card">
-        <img src="img/instagram1.png" alt="Produk 8">
-        <h3>3000+ Template Instagram Premium</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 9 -->
-      <div class="produk-card">
-        <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 9">
-        <h3>Kumpulan Modul Mentoring Copywriting</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 10 -->
-      <div class="produk-card">
-        <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 10">
-        <h3>40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 11 -->
-      <div class="produk-card">
-        <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 11">
-        <h3>Ebook Panduan Konten Viral</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 12 -->
-      <div class="produk-card">
-        <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 12">
-        <h3>Ebook Bikin Produk Digital Sendiri Modal Canva</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 13 -->
-      <div class="produk-card">
-        <img src="img/Ebook Ide Konten Anti Stuck.png" alt="Produk 13">
-        <h3>Ebook Ide Konten Anti Stuck</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
+  <!-- PC: Grid -->
+  <div class="produk-grid">
+    <!-- Produk 1 -->
+    <div class="card">
+      <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 1">
+      <h3>1200 Template Aesthetic Khusus Makanan & Minuman</h3>
+      <a href="http://lynk.id/tapakdigital/94qzel013plx/checkout" class="btn">Miliki Sekarang!</a>
     </div>
+    <!-- Produk 2 -->
+    <div class="card">
+      <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 2">
+      <h3>Jago CapCut - CapCut Masterclass Bundle</h3>
+      <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+    </div>
+    <!-- Produk 3 -->
+    <div class="card">
+      <img src="img/1000+ Social Media Template Canva.png" alt="Produk 3">
+      <h3>1000+ Template Canva</h3>
+      <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+    </div>
+    <!-- Produk 4 -->
+    <div class="card">
+      <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 4">
+      <h3>Mahir WhatsApp Marketing</h3>
+      <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+    </div>
+    <!-- Tambahkan produk lainnya sesuai kebutuhan -->
   </div>
 
-  <!-- ===== Mobile Slider ===== -->
-  <div class="produk-container-mobile">
-    <div class="produk-wrapper">
-
+  <!-- Mobile: Slider -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
       <!-- Produk 1 -->
-      <div class="produk-slide">
-        <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 1">
-        <h3>1200 Template Eksklusif Khusus Bisnis Makanan & Minuman</h3>
-        <a href="http://lynk.id/tapakdigital/94qzel013plx/checkout" class="btn">Miliki Sekarang!</a>
+      <div class="swiper-slide">
+        <div class="card">
+          <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 1">
+          <h3>1200 Template Aesthetic Khusus Makanan & Minuman</h3>
+          <a href="http://lynk.id/tapakdigital/94qzel013plx/checkout" class="btn">Miliki Sekarang!</a>
+        </div>
       </div>
-
       <!-- Produk 2 -->
-      <div class="produk-slide">
-        <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 2">
-        <h3>Panduan Mahir CapCut</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      <div class="swiper-slide">
+        <div class="card">
+          <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 2">
+          <h3>Jago CapCut - CapCut Masterclass Bundle</h3>
+          <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+        </div>
       </div>
-
       <!-- Produk 3 -->
-      <div class="produk-slide">
-        <img src="img/1000+ Social Media Template Canva.png" alt="Produk 3">
-        <h3>1000+ Social Media Template Canva</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      <div class="swiper-slide">
+        <div class="card">
+          <img src="img/1000+ Social Media Template Canva.png" alt="Produk 3">
+          <h3>1000+ Template Canva</h3>
+          <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+        </div>
       </div>
-
       <!-- Produk 4 -->
-      <div class="produk-slide">
-        <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 4">
-        <h3>Mahir WhatsApp Marketing</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      <div class="swiper-slide">
+        <div class="card">
+          <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 4">
+          <h3>Mahir WhatsApp Marketing</h3>
+          <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+        </div>
       </div>
-
-      <!-- Produk 5 -->
-      <div class="produk-slide">
-        <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 5">
-        <h3>Cara Membuat E-Book Dengan ChatGPT</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 6 -->
-      <div class="produk-slide">
-        <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 6">
-        <h3>Ebook Humor Para Pemikir Besar</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 7 -->
-      <div class="produk-slide">
-        <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7">
-        <h3>Bikin Desain Keren dengan Canva</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 8 -->
-      <div class="produk-slide">
-        <img src="img/instagram1.png" alt="Produk 8">
-        <h3>3000+ Template Instagram Premium</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 9 -->
-      <div class="produk-slide">
-        <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 9">
-        <h3>Kumpulan Modul Mentoring Copywriting</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 10 -->
-      <div class="produk-slide">
-        <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 10">
-        <h3>40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 11 -->
-      <div class="produk-slide">
-        <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 11">
-        <h3>Ebook Panduan Konten Viral</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 12 -->
-      <div class="produk-slide">
-        <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 12">
-        <h3>Ebook Bikin Produk Digital Sendiri Modal Canva</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
-      <!-- Produk 13 -->
-      <div class="produk-slide">
-        <img src="img/Ebook Ide Konten Anti Stuck.png" alt="Produk 13">
-        <h3>Ebook Ide Konten Anti Stuck</h3>
-        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
-      </div>
-
     </div>
-    <!-- Navigasi -->
-    <div class="nav-mobile">
-      <button class="nav-btn prev">&#10094;</button>
-      <button class="nav-btn next">&#10095;</button>
-    </div>
+
+    <!-- Navigasi Panah -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 </section>
 
+<!-- SwiperJS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const wrapper = document.querySelector(".produk-wrapper");
-  const prevBtn = document.querySelector(".nav-btn.prev");
-  const nextBtn = document.querySelector(".nav-btn.next");
-  let index = 0;
-
-  function updateSlider() {
-    const cardWidth = document.querySelector(".produk-slide").offsetWidth + 16; 
-    wrapper.style.transform = `translateX(${-index * cardWidth}px)`;
-  }
-
-  nextBtn.addEventListener("click", () => {
-    if (index < wrapper.children.length - 1) {
-      index++;
-      updateSlider();
-    }
-  });
-
-  prevBtn.addEventListener("click", () => {
-    if (index > 0) {
-      index--;
-      updateSlider();
-    }
-  });
-
-  /* Geser pakai jari (swipe) */
-  let startX = 0;
-  wrapper.addEventListener("touchstart", e => startX = e.touches[0].clientX);
-  wrapper.addEventListener("touchend", e => {
-    let endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50 && index < wrapper.children.length - 1) {
-      index++;
-    } else if (endX - startX > 50 && index > 0) {
-      index--;
-    }
-    updateSlider();
-  });
-
-  window.addEventListener("resize", updateSlider);
+var swiper = new Swiper(".mySwiper", {
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  slidesPerView: 1,
+  spaceBetween: 20,
 });
 </script>
 
