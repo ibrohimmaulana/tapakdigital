@@ -8,8 +8,19 @@
 /* ==================== GLOBAL ==================== */
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
 body { line-height:1.6; color:#333; scroll-behavior:smooth; }
+
+/* Variabel padding global */
+:root {
+  --page-padding: 100px 60px; /* bisa kamu atur sesuai selera */
+  --container-max: 1200px;
+}
+
 a { text-decoration:none; color:inherit; }
-.page { min-height:100vh; padding:80px 40px; position:relative; }
+.page { 
+    min-height:100vh; 
+    padding:var(--page-padding); 
+    position:relative; 
+}
 
 /* ==================== BUTTON ==================== */
 .btn {
@@ -44,9 +55,9 @@ a { text-decoration:none; color:inherit; }
     align-items:center;
     gap:40px;
     flex-wrap:wrap;
-    max-width:1200px;
+    max-width:var(--container-max);
     width:100%;
-    padding:0 20px;
+    margin:auto; /* biar center */
 }
 .home-text { flex:1; min-width:300px; }
 .home-text h1 { font-size:3rem; margin-bottom:20px; color:#fff; }
@@ -61,7 +72,8 @@ a { text-decoration:none; color:inherit; }
     align-items:center;
     gap:40px;
     flex-wrap:wrap;
-    margin-bottom:60px;
+    margin:0 auto 60px;
+    max-width:var(--container-max);
 }
 .page2-top img {
     flex:1;
@@ -74,16 +86,17 @@ a { text-decoration:none; color:inherit; }
 .page2-text h2 { color:#007bff; margin-bottom:20px; }
 .page2-text p { font-size:1.1rem; margin-bottom:20px; }
 
-/* Cards Keunggulan Page 2: 2 baris x 3 kolom */
+/* Cards Keunggulan Page 2 */
 .cards.container {
     display:grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
-    gap:25px 30px; /* 25px vertikal, 30px horizontal */
-    margin-top:30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap:30px;
+    max-width:var(--container-max);
+    margin:30px auto 0;
 }
 .card {
     background: rgba(255,255,255,0.95);
-    padding:25px;
+    padding:30px; /* lebih lega */
     border-radius:12px;
     text-align:center;
     display:flex;
@@ -92,7 +105,7 @@ a { text-decoration:none; color:inherit; }
     align-items:center;
     box-shadow:0 5px 12px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    aspect-ratio:3/2; /* 3:2 */
+    aspect-ratio:3/2;
 }
 .card:hover {
     transform:translateY(-6px);
@@ -104,22 +117,26 @@ a { text-decoration:none; color:inherit; }
 }
 
 /* ==================== PAGE 3: PRODUK ==================== */
-#produk {
-    padding:80px 40px;
+#produk h2 { 
+    text-align:center; 
+    margin-bottom:50px; 
+    font-size:2.5rem; 
+    color:#007bff; 
 }
-#produk h2 { text-align:center; margin-bottom:40px; font-size:2.5rem; color:#007bff; }
 .produk-grid {
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-    gap:25px;
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap:30px;
+    max-width:var(--container-max);
+    margin:auto;
 }
 .produk-card {
     background: rgba(255,255,255,0.95);
     border-radius:12px;
-    padding:15px;
+    padding:20px;
     text-align:center;
     transition: transform 0.3s;
-    aspect-ratio:4/3; /* 4:3 */
+    aspect-ratio:4/3;
 }
 .produk-card:hover { transform:translateY(-5px); }
 .produk-card img {
@@ -134,9 +151,8 @@ a { text-decoration:none; color:inherit; }
 }
 @media(max-width:768px) {
     #home h1 { font-size:2.2rem; }
-    .home-container { flex-direction:column; }
+    .home-container { flex-direction:column; padding:0 15px; }
     #page2-pc .page2-top.container { flex-direction:column; }
-    #page2-pc .page2-top img, .page2-text { max-width:100%; }
     #produk h2 { font-size:2rem; }
 }
 </style>
@@ -169,7 +185,7 @@ a { text-decoration:none; color:inherit; }
     </div>
   </div>
 
-  <h2 style="text-align:center; margin:50px 0 30px;"><strong>Kenapa Harus Produk Digital?</strong></h2>
+  <h2 style="text-align:center; margin:60px 0 40px;"><strong>Kenapa Harus Produk Digital?</strong></h2>
 
   <div class="cards container">
     <div class="card"><span class="icon">⚡</span>Akses instan, langsung dipakai tanpa tunggu.</div>
@@ -182,31 +198,175 @@ a { text-decoration:none; color:inherit; }
 </section>
 
 <!-- ==================== PAGE 3: PRODUK ==================== -->
-<section id="produk" class="page page3-bg">
-    <h2>Produk Digital Kami</h2>
-    <div class="produk-grid">
-        <div class="produk-card">
-            <img src="produk1.jpg" alt="Produk 1">
-            <h3>Nama Produk 1</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Beli Sekarang</a>
-        </div>
-        <div class="produk-card">
-            <img src="produk2.jpg" alt="Produk 2">
-            <h3>Nama Produk 2</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Beli Sekarang</a>
-        </div>
-        <div class="produk-card">
-            <img src="produk3.jpg" alt="Produk 3">
-            <h3>Nama Produk 3</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Beli Sekarang</a>
-        </div>
-        <div class="produk-card">
-            <img src="produk4.jpg" alt="Produk 4">
-            <h3>Nama Produk 4</h3>
-            <a href="https://lynk.id/tapakdigital" class="btn">Beli Sekarang</a>
-        </div>
+    <section id="page3" class="fade-in">
+  <h2 style="text-align:center; margin-bottom:40px;">Produk Kami</h2>
+  <div class="container">
+    <div class="cards" style="grid-template-columns:repeat(4,1fr); gap:30px;">
+      <!-- Produk 1 -->
+      <div class="card">
+        <img src="img/1200 Template Eksklusif Khusus Bisnis Makanan & Minuman.png" alt="Produk 1" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>1200 Template Aesthetic Khusus Makanan & Minuman</h3>
+        <a href="http://lynk.id/tapakdigital/94qzel013plx/checkout" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 2 -->
+      <div class="card">
+        <img src="img/Panduan Mahir Capcut.jpg" alt="Produk 2" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>Jago CapCut - CapCut Masterclass Bundle</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 3 -->
+      <div class="card">
+        <img src="img/1000+ Social Media Template Canva.png" alt="Produk 3" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>1000+ Template Canva</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 4 -->
+      <div class="card">
+        <img src="img/Mahir WhatsApp Marketing (Video Course).png" alt="Produk 4" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>Mahir WhatsApp Marketing</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 5 -->
+      <div class="card">
+        <img src="img/Cara Membuat E-Book Dengan ChatGPT.png" alt="Produk 5" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>Cara Membuat E-Book dengan ChatGPT</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 6 -->
+      <div class="card">
+        <img src="img/Ebook Humor Para Pemikir Besar.png" alt="Produk 6" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>E-book Humor Para Pemikir Besar</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 7 -->
+      <div class="card">
+        <img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg" alt="Produk 7" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>Bikin Desain Keren dengan Canva</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 8 -->
+      <div class="card">
+        <img src="img/instagram1.png alt="Produk 8" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>3000+ Template Instagram Premium</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 9 -->
+      <div class="card">
+        <img src="img/Kumpulan Modul Mentoring Copywriting.png" alt="Produk 9" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>Kumpulan Modul Mentoring Copywriting</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 10 -->
+      <div class="card">
+        <img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png" alt="Produk 10" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>40 E-Book Bisnis Paket Lengkap</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 11 -->
+      <div class="card">
+        <img src="img/Ebook Panduan Konten Viral.png" alt="Produk 11" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>Formula Viral: Panduan Konten</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 12 -->
+      <div class="card">
+        <img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png" alt="Produk 12" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>Ebook Bikin Produk Digital Sendiri Modal Canva</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 13 -->
+      <div class="card">
+        <img src="img/Ebook Ide Konten Anti Stuck.png" alt="Produk 13" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>Boost Kreativitasmu dengan Ebook Ide Konten</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 14 -->
+      <div class="card">
+        <img src="img/7-Hari-Jago-Jualan.png" alt="Produk 14" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>7 Hari Jago Jualan Produk Digital</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
+      <!-- Produk 15 -->
+      <div class="card">
+        <img src="img/Ebook-Cuan-Rumah.png" alt="Produk 15" style="width:100%; border-radius:12px; margin-bottom:12px;">
+        <h3>Ebook Cuan dari Rumah | NR HOUSE</h3>
+        <a href="https://lynk.id/tapakdigital" class="btn">Miliki Sekarang!</a>
+      </div>
     </div>
+  </div>
 </section>
+
+
+<script>
+// Fade-in on scroll
+const faders = document.querySelectorAll('.fade-in');
+window.addEventListener('scroll', () => {
+  faders.forEach(f => {
+    const rect = f.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100){
+      f.classList.add('show');
+    }
+  });
+});
+
+// Slider
+const slides = document.getElementById("slides");
+const totalSlides = slides.children.length;
+let currentIndex = 0;
+
+function goToSlide(index){
+  currentIndex = (index + totalSlides) % totalSlides;
+  slides.style.transform = `translateX(-${100*currentIndex}%)`;
+  updateDots();
+}
+
+// Create dots
+const dotsContainer = document.getElementById('dots');
+for(let i=0;i<totalSlides;i++){
+  let dot = document.createElement('div');
+  dot.classList.add('dot');
+  if(i===0) dot.classList.add('active');
+  dot.addEventListener('click',()=>goToSlide(i));
+  dotsContainer.appendChild(dot);
+}
+
+function updateDots(){
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active', i===currentIndex));
+}
+
+// Auto slide
+setInterval(()=>{ goToSlide(currentIndex+1); },8000);
+
+// Swipe support
+let startX = 0;
+slides.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; });
+slides.addEventListener('touchend', e=>{
+  const diff = e.changedTouches[0].clientX - startX;
+  if(diff>50) goToSlide(currentIndex-1);
+  else if(diff<-50) goToSlide(currentIndex+1);
+});
+
+// Scroll nav dots
+function scrollToPage(index){
+  const pages = [document.getElementById("page1"), document.getElementById("page2"), document.getElementById("page3")];
+  pages[index].scrollIntoView({behavior:"smooth"});
+  const navDots = document.querySelectorAll(".nav-dots div");
+  navDots.forEach(dot=>dot.classList.remove("active"));
+  navDots[index].classList.add("active");
+}
+
+window.addEventListener('scroll', ()=>{
+  const pages = [document.getElementById("page1"), document.getElementById("page2"), document.getElementById("page3")];
+  const navDots = document.querySelectorAll(".nav-dots div");
+  pages.forEach((p,i)=>{
+    const rect = p.getBoundingClientRect();
+    if(rect.top <= window.innerHeight/2 && rect.bottom >= window.innerHeight/2){
+      navDots.forEach(dot=>dot.classList.remove("active"));
+      navDots[i].classList.add("active");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
