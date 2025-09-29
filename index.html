@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tapak Digital - Template 3 Page</title>
+<title>Tapak Digital - Template Baru</title>
 
 <style>
 /* ==================== GLOBAL ==================== */
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
-body, html {scroll-behavior:smooth; background:#0a0a0a; color:#fff;}
-section {
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body,html{scroll-behavior:smooth;background:#0a0a0a;color:#fff;}
+section{
   min-height:100vh;
   position:relative;
   padding:100px 40px;
@@ -17,89 +17,87 @@ section {
   align-items:center;
   justify-content:center;
 }
-.container {
+.container{
   width:100%;
   max-width:1200px;
   margin:0 auto;
 }
 
 /* ==================== BACKGROUND PER PAGE ==================== */
-.bg-svg {
+.bg-svg{
   position:absolute;
   inset:0;
   background-size:cover;
   background-position:center;
   z-index:-1;
-  opacity:0.6;
+  opacity:0.7;
 }
-#page1 .bg-svg {
-  background:red;
+#page1 .bg-svg{
+  background: url('img/bg_page1.svg') center/cover no-repeat,
+              linear-gradient(135deg,#007bff,#00d4ff);
 }
-
-#page2 .bg-svg {
+#page2 .bg-svg{
   background: url('img/bg_page2.svg') center/cover no-repeat,
               linear-gradient(135deg,#6a11cb,#2575fc);
 }
-#page3 .bg-svg {
+#page3 .bg-svg{
   background: url('img/bg_page3.svg') center/cover no-repeat,
               linear-gradient(135deg,#ff416c,#ff4b2b);
 }
 
-/* ==================== PAGE 1 (Hero) ==================== */
-#page1 .page1-wrapper {
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  align-items:center;
-  gap:60px;
-}
-.page1-content h1 {font-size:3rem; margin-bottom:25px; line-height:1.2;}
-.page1-content p {font-size:1.1rem; line-height:1.8; margin-bottom:20px; color:#eee;}
-.page1-content .btn {
-  display:inline-block; padding:14px 28px; background:#007bff; color:#fff;
-  border-radius:8px; text-decoration:none; font-weight:600; transition:0.3s;
-}
-.page1-content .btn:hover {background:#0056b3;}
-.page1-img img {width:100%; max-width:520px; height:auto;}
-
-/* ==================== PAGE 2 (Kenapa Harus Produk Digital) ==================== */
-#page2 .page2-wrapper {
+/* ==================== PAGE 1 ==================== */
+#page1 .wrapper{
   display:grid;
   grid-template-columns:1fr 1fr;
   align-items:center;
   gap:60px;
 }
-.page2-img img {width:100%; max-width:450px;}
-.page2-content {text-align:left;}
-.page2-content h2 {font-size:2rem; margin-bottom:20px;}
-.page2-content p {font-size:1.05rem; color:#eee; margin-bottom:20px;}
-.page2-content .btn {
-  display:inline-block; padding:10px 20px; background:#007bff; color:#fff;
-  border-radius:6px; text-decoration:none; margin-bottom:30px;
+.page1-content h1{font-size:3rem;margin-bottom:20px;}
+.page1-content p{font-size:1.1rem;line-height:1.8;margin-bottom:20px;color:#eee;}
+.page1-content .btn{
+  display:inline-block;padding:14px 28px;background:#007bff;color:#fff;
+  border-radius:8px;text-decoration:none;font-weight:600;transition:0.3s;
 }
-.page2-content .btn:hover {background:#0056b3;}
-.cards {
+.page1-content .btn:hover{background:#0056b3;}
+.page1-img img{width:100%;max-width:520px;height:auto;}
+
+/* ==================== PAGE 2 ==================== */
+#page2 .wrapper{
   display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:60px;
+}
+.page2-img img{width:100%;max-width:450px;}
+.page2-content{text-align:left;}
+.page2-content h2{font-size:2rem;margin-bottom:20px;}
+.page2-content p{font-size:1.05rem;color:#eee;margin-bottom:20px;}
+.page2-content .btn{
+  display:inline-block;padding:10px 20px;background:#007bff;color:#fff;
+  border-radius:6px;text-decoration:none;margin-bottom:30px;
+}
+.page2-content .btn:hover{background:#0056b3;}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
 }
-.card {
+.card{
   background:rgba(255,255,255,0.1);
   border-radius:12px;
   padding:20px;
   backdrop-filter:blur(6px);
-  font-size:1rem;
-  line-height:1.5;
 }
 
-/* ==================== PAGE 3 (Produk Kami) ==================== */
-#page3 {text-align:center;}
-#page3 h2 {font-size:2.2rem; margin-bottom:40px;}
-.products {
+/* ==================== PAGE 3 ==================== */
+#page3{text-align:center;}
+#page3 h2{font-size:2.2rem;margin-bottom:40px;}
+.products{
   display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:25px;
 }
-.product-card {
+.product-card{
   background:rgba(255,255,255,0.1);
   padding:25px;
   border-radius:12px;
@@ -108,77 +106,38 @@ section {
   display:flex;
   flex-direction:column;
 }
-.product-card img {
+.product-card img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
   border-radius:8px;
   margin-bottom:15px;
 }
-.product-card h3 {margin-bottom:10px; font-size:1.1rem;}
-.product-card a {
-  margin-top:auto;
-  padding:10px 18px;
-  background:#007bff;
-  color:#fff;
-  border-radius:8px;
-  text-decoration:none;
-  text-align:center;
+.product-card h3{margin-bottom:10px;font-size:1.1rem;}
+.product-card a{
+  margin-top:auto;padding:10px 18px;background:#007bff;color:#fff;
+  border-radius:8px;text-decoration:none;text-align:center;
 }
-.product-card a:hover {background:#0056b3;}
-
-/* ==================== DOT NAV ==================== */
-.dot-nav {
-  position:fixed;
-  top:50%;
-  left:30px;
-  transform:translateY(-50%);
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-  z-index:1000;
-}
-.dot-nav a {
-  width:14px; height:14px;
-  background:#666; border-radius:50%;
-  display:block; transition:0.3s;
-}
-.dot-nav a.active, .dot-nav a:hover {
-  background:#007bff;
-  transform:scale(1.2);
-}
+.product-card a:hover{background:#0056b3;}
 
 /* ==================== RESPONSIVE ==================== */
 @media(max-width:992px){
-  .dot-nav {display:none;}
-  #page1 .page1-wrapper,
-  #page2 .page2-wrapper {
-    grid-template-columns:1fr;
-    text-align:center;
-    gap:40px;
-  }
-  .page1-content, .page2-content {text-align:center;}
-  .page1-img img, .page2-img img {max-width:380px; margin:0 auto;}
-  section {padding:80px 20px;}
+  #page1 .wrapper,#page2 .wrapper{grid-template-columns:1fr;text-align:center;gap:40px;}
+  .page1-content,.page2-content{text-align:center;}
+  .page1-img img,.page2-img img{max-width:380px;margin:0 auto;}
+  section{padding:80px 20px;}
 }
 </style>
 </head>
 <body>
 
-<!-- DOT NAVIGATION -->
-<div class="dot-nav">
-  <a href="#page1" class="dot active"></a>
-  <a href="#page2" class="dot"></a>
-  <a href="#page3" class="dot"></a>
-</div>
-
 <!-- ==================== PAGE 1 ==================== -->
 <section id="page1">
   <div class="bg-svg"></div>
-  <div class="container page1-wrapper">
+  <div class="container wrapper">
     <div class="page1-content">
-      <h1>Selamat Datang di <br><span style="color:#007bff;">Gudang Digital</span></h1>
-      <p>Tempat terbaik untuk menemukan <b>produk digital eksklusif</b> yang siap pakai. Dari template, e-book, hingga modul mentoring, semuanya dirancang untuk membantu bisnismu tumbuh lebih cepat.</p>
+      <h1>Selamat Datang di <span style="color:#00d4ff;">Gudang Digital</span></h1>
+      <p>Tempat terbaik untuk menemukan <b>produk digital eksklusif</b>. Dari template, e-book, hingga modul mentoring, semua dirancang untuk membantu bisnismu tumbuh lebih cepat.</p>
       <a href="#page3" class="btn">Lihat Produk</a>
     </div>
     <div class="page1-img">
@@ -190,12 +149,10 @@ section {
 <!-- ==================== PAGE 2 ==================== -->
 <section id="page2">
   <div class="bg-svg"></div>
-  <div class="container page2-wrapper">
-    <!-- Gambar kiri -->
+  <div class="container wrapper">
     <div class="page2-img">
       <img src="img/about.svg" alt="Ilustrasi Tentang">
     </div>
-    <!-- Teks kanan -->
     <div class="page2-content">
       <h2>Terhubung dengan <span style="color:#00d4ff;">Lynk.id</span></h2>
       <p>Website ini sudah <b>terintegrasi dengan Lynk.id</b> untuk memudahkan transaksi dan meningkatkan kepercayaan pembeli.</p>
@@ -226,40 +183,9 @@ section {
       <div class="product-card"><img src="img/Mahir WhatsApp Marketing (Video Course).png"><h3>Mahir WhatsApp Marketing</h3><a href="#">Miliki Sekarang!</a></div>
       <div class="product-card"><img src="img/Cara Membuat E-Book Dengan ChatGPT.png"><h3>Cara Membuat E-Book dengan ChatGPT</h3><a href="#">Miliki Sekarang!</a></div>
       <div class="product-card"><img src="img/Ebook Humor Para Pemikir Besar.png"><h3>E-book Humor Para Pemikir Besar</h3><a href="#">Miliki Sekarang!</a></div>
-      <div class="product-card"><img src="img/Bikin Desain Keren dengan Canva, Mulai dari Sini.jpg"><h3>Bikin Desain Keren dengan Canva</h3><a href="#">Miliki Sekarang!</a></div>
-      <div class="product-card"><img src="img/3000+ template instagram.png"><h3>3000+ Template Instagram Premium</h3><a href="#">Miliki Sekarang!</a></div>
-      <div class="product-card"><img src="img/Kumpulan Modul Mentoring Copywriting.png"><h3>Kumpulan Modul Mentoring Copywriting</h3><a href="#">Miliki Sekarang!</a></div>
-      <div class="product-card"><img src="img/40 E-Book Bisnis Paket Lengkap Ilmu Jualan & Marketing.png"><h3>40 E-Book Bisnis</h3><a href="#">Miliki Sekarang!</a></div>
-      <div class="product-card"><img src="img/Ebook Panduan Konten Viral.png"><h3>Formula Viral: Ebook Panduan Konten</h3><a href="#">Miliki Sekarang!</a></div>
-      <div class="product-card"><img src="img/Ebook Bikin Produk Digital Sendiri Modal Canva.png"><h3>Ebook Bikin Produk Digital Sendiri Modal Canva</h3><a href="#">Miliki Sekarang!</a></div>
-      <div class="product-card"><img src="img/Ebook Ide Konten Anti Stuck.png"><h3>Boost Kreativitasmu dengan Ebook Ide Konten Anti Stuck</h3><a href="#">Miliki Sekarang!</a></div>
     </div>
   </div>
 </section>
 
-<script>
-const sections = document.querySelectorAll("section");
-const dots = document.querySelectorAll(".dot-nav a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 200;
-    const sectionHeight = section.clientHeight;
-    if(scrollY >= sectionTop && scrollY < sectionTop + sectionHeight){
-      current = section.getAttribute("id");
-    }
-  });
-  dots.forEach(dot => {
-    dot.classList.remove("active");
-    if(dot.getAttribute("href") === "#" + current){
-      dot.classList.add("active");
-    }
-  });
-});
-</script>
-
 </body>
 </html>
-
-
