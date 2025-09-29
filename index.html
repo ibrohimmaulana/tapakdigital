@@ -23,17 +23,26 @@ section {
   margin:0 auto;
 }
 
-/* ==================== BACKGROUND ==================== */
+/* ==================== BACKGROUND PER PAGE ==================== */
 .bg-svg {
   position:absolute;
   inset:0;
   background-size:cover;
   background-position:center;
   z-index:-1;
-  opacity:0.35;
+  opacity:0.6;
+}
+#page1 .bg-svg {
+  background: url('img/bg_page1.svg'), linear-gradient(135deg,#007bff,#00d4ff);
+}
+#page2 .bg-svg {
+  background: url('img/bg-page2.svg'), linear-gradient(135deg,#6a11cb,#2575fc);
+}
+#page3 .bg-svg {
+  background: url('img/bg-page3.svg'), linear-gradient(135deg,#ff416c,#ff4b2b);
 }
 
-/* ==================== PAGE 1 ==================== */
+/* ==================== PAGE 1 (Hero) ==================== */
 #page1 .page1-wrapper {
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -41,7 +50,7 @@ section {
   gap:60px;
 }
 .page1-content h1 {font-size:3rem; margin-bottom:25px; line-height:1.2;}
-.page1-content p {font-size:1.1rem; line-height:1.8; margin-bottom:20px; color:#ddd;}
+.page1-content p {font-size:1.1rem; line-height:1.8; margin-bottom:20px; color:#eee;}
 .page1-content .btn {
   display:inline-block; padding:14px 28px; background:#007bff; color:#fff;
   border-radius:8px; text-decoration:none; font-weight:600; transition:0.3s;
@@ -49,15 +58,22 @@ section {
 .page1-content .btn:hover {background:#0056b3;}
 .page1-img img {width:100%; max-width:520px; height:auto;}
 
-/* ==================== PAGE 2 ==================== */
+/* ==================== PAGE 2 (Kenapa Harus Produk Digital) ==================== */
 #page2 .page2-wrapper {
   display:grid;
   grid-template-columns:1fr 1fr;
   align-items:center;
   gap:60px;
 }
-.page2-content h2 {font-size:2.2rem; margin-bottom:20px;}
-.page2-content p {font-size:1.1rem; color:#ddd; margin-bottom:30px;}
+.page2-img img {width:100%; max-width:450px;}
+.page2-content {text-align:left;}
+.page2-content h2 {font-size:2rem; margin-bottom:20px;}
+.page2-content p {font-size:1.05rem; color:#eee; margin-bottom:20px;}
+.page2-content .btn {
+  display:inline-block; padding:10px 20px; background:#007bff; color:#fff;
+  border-radius:6px; text-decoration:none; margin-bottom:30px;
+}
+.page2-content .btn:hover {background:#0056b3;}
 .cards {
   display:grid;
   grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
@@ -71,14 +87,13 @@ section {
   font-size:1rem;
   line-height:1.5;
 }
-.page2-img img {width:100%; max-width:450px;}
 
-/* ==================== PAGE 3 ==================== */
+/* ==================== PAGE 3 (Produk Kami) ==================== */
 #page3 {text-align:center;}
 #page3 h2 {font-size:2.2rem; margin-bottom:40px;}
 .products {
   display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
   gap:25px;
 }
 .product-card {
@@ -154,12 +169,12 @@ section {
   <a href="#page3" class="dot"></a>
 </div>
 
-<!-- PAGE 1 -->
+<!-- ==================== PAGE 1 ==================== -->
 <section id="page1">
-  <div class="bg-svg" style="background-image:url('img/bg-page1.svg');"></div>
+  <div class="bg-svg"></div>
   <div class="container page1-wrapper">
     <div class="page1-content">
-      <h1>Selamat Datang di <br><span style="color:#007bff;">Gudang Digital</span></h1>
+      <h1>Selamat Datang di <br><span style="color:#007bff;">Tapak Digital</span></h1>
       <p>Tempat terbaik untuk menemukan <b>produk digital eksklusif</b> yang siap pakai. Dari template, e-book, hingga modul mentoring, semuanya dirancang untuk membantu bisnismu tumbuh lebih cepat.</p>
       <a href="#page3" class="btn">Lihat Produk</a>
     </div>
@@ -169,12 +184,20 @@ section {
   </div>
 </section>
 
-<!-- PAGE 2 -->
+<!-- ==================== PAGE 2 ==================== -->
 <section id="page2">
-  <div class="bg-svg" style="background-image:url('img/bg-page2.svg');"></div>
+  <div class="bg-svg"></div>
   <div class="container page2-wrapper">
+    <!-- Gambar kiri -->
+    <div class="page2-img">
+      <img src="img/about.svg" alt="Ilustrasi Tentang">
+    </div>
+    <!-- Teks kanan -->
     <div class="page2-content">
-      <h2>Kenapa Harus Produk Digital?</h2>
+      <h2>Terhubung dengan <span style="color:#00d4ff;">Lynk.id</span></h2>
+      <p>Website ini sudah <b>terintegrasi dengan Lynk.id</b> untuk memudahkan transaksi dan meningkatkan kepercayaan pembeli.</p>
+      <a href="https://lynk.id" class="btn" target="_blank">Kunjungi Lynk.id</a>
+      <h2 style="margin-top:30px;">Kenapa Harus Produk Digital?</h2>
       <p>Produk digital fleksibel, bisa diakses kapan saja, update cepat, dan ramah lingkungan.</p>
       <div class="cards">
         <div class="card">⚡ Akses instan</div>
@@ -185,15 +208,12 @@ section {
         <div class="card">🚀 Potensi pasar luas</div>
       </div>
     </div>
-    <div class="page2-img">
-      <img src="img/about.svg" alt="Ilustrasi Tentang">
-    </div>
   </div>
 </section>
 
-<!-- PAGE 3 -->
+<!-- ==================== PAGE 3 ==================== -->
 <section id="page3">
-  <div class="bg-svg" style="background-image:url('img/bg-page3.svg');"></div>
+  <div class="bg-svg"></div>
   <div class="container">
     <h2>Produk Kami</h2>
     <div class="products">
